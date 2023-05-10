@@ -18,7 +18,7 @@
                         <viewLayoutGuide key="safeArea" id="qCh-ng-TRI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="레이블" image="tag.fill" catalog="system" id="9Wx-8x-IZs"/>
+                    <tabBarItem key="tabBarItem" title="레이블" image="Label_Symbol" id="9Wx-8x-IZs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lRz-8h-A3O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -34,7 +34,7 @@
                         <viewLayoutGuide key="safeArea" id="Aj2-RH-VRW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="이슈" image="exclamationmark.circle" catalog="system" id="cz8-YH-kVL"/>
+                    <tabBarItem key="tabBarItem" title="이슈" image="Issue_Symbol" id="cz8-YH-kVL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KHy-XI-Iei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -50,7 +50,7 @@
                         <viewLayoutGuide key="safeArea" id="0FT-cH-e7l"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="마일스톤" image="signpost.right" catalog="system" id="aBY-uj-WB1"/>
+                    <tabBarItem key="tabBarItem" title="마일스톤" image="Milestone_Symbol" id="aBY-uj-WB1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9qr-aY-IJU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -77,9 +77,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="exclamationmark.circle" catalog="system" width="128" height="123"/>
-        <image name="signpost.right" catalog="system" width="128" height="121"/>
-        <image name="tag.fill" catalog="system" width="128" height="118"/>
+        <image name="Issue_Symbol" width="18" height="18"/>
+        <image name="Label_Symbol" width="18" height="18"/>
+        <image name="Milestone_Symbol" width="17" height="18"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
