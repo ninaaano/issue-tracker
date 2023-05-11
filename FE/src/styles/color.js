@@ -1,15 +1,20 @@
+const PALETTE = {
+  GRAY_50: '#FEFEFE',
+  GRAY_100: '#F7F7FC',
+  GRAY_200: '#EFF0F6',
+  GRAY_300: '#D9DBE9',
+  GRAY_400: '#BEC1D5',
+  GRAY_500: '#A0A3BD',
+  GRAY_600: '#6E7191',
+  GRAY_700: '#4E4B66',
+  GRAY_800: '#2A2A44',
+  GRAY_900: '#14142B',
+  BLUE: '#007AFF',
+  NAVY: '#0025E6',
+  RED: '#FF3B30',
+};
+
 export const color = {
-  gray50: '#FEFEFE',
-  gray100: '#F7F7FC',
-  gray200: '#EFF0F6',
-  gray300: '#D9DBE9',
-  gray400: '#BEC1D5',
-  gray500: '#A0A3BD',
-  gray600: '#6E7191',
-  gray700: '#4E4B66',
-  gray800: '#2A2A44',
-  gray900: '#14142B',
-  blue: '#007AFF',
-  navy: '#0025E6',
-  red: '#FF3B30',
+  body: PALETTE.GRAY_50,
+  textDefault: PALETTE.GRAY_900,
 };
