@@ -8,4 +8,7 @@
 import UIKit
 
 enum SymbolImage: String {
+    case issueImage = "Issue_Symbol.svg"
+    case labelImage = "Label_Symbol.svg"
+    case mileStoneImage = "Milestone_Symbol.svg"
 }
