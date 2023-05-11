@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		2AF58ECA2A0B390100EE8623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EC92A0B390100EE8623 /* AppDelegate.swift */; };
 		2AF58ECC2A0B390100EE8623 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58ECB2A0B390100EE8623 /* SceneDelegate.swift */; };
-		2AF58ECE2A0B390100EE8623 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58ECD2A0B390100EE8623 /* ViewController.swift */; };
+		2AF58ECE2A0B390100EE8623 /* IssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58ECD2A0B390100EE8623 /* IssueViewController.swift */; };
 		2AF58ED32A0B390400EE8623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AF58ED22A0B390400EE8623 /* Assets.xcassets */; };
 		2AF58ED62A0B390400EE8623 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AF58ED42A0B390400EE8623 /* LaunchScreen.storyboard */; };
 		2AF58EDF2A0B60BF00EE8623 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2AF58EDE2A0B60BF00EE8623 /* .swiftlint.yml */; };
+		2AF58EE32A0CF85800EE8623 /* LabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */; };
+		2AF58EE52A0CF86700EE8623 /* MileStoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */; };
+		2AF58EE72A0D162900EE8623 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE62A0D162900EE8623 /* TabBarViewController.swift */; };
+		2AF58EE92A0D454000EE8623 /* SymbolImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE82A0D454000EE8623 /* SymbolImage.swift */; };
 		7411FA6CF0FEC5333D727E00 /* Pods_issue_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3A8C7D88E017C59BA638F3 /* Pods_issue_tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,11 +24,15 @@
 		2AF58EC62A0B390100EE8623 /* issue-tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "issue-tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF58EC92A0B390100EE8623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AF58ECB2A0B390100EE8623 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2AF58ECD2A0B390100EE8623 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2AF58ECD2A0B390100EE8623 /* IssueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueViewController.swift; sourceTree = "<group>"; };
 		2AF58ED22A0B390400EE8623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2AF58ED52A0B390400EE8623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2AF58ED72A0B390400EE8623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AF58EDE2A0B60BF00EE8623 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
+		2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneViewController.swift; sourceTree = "<group>"; };
+		2AF58EE62A0D162900EE8623 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		2AF58EE82A0D454000EE8623 /* SymbolImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolImage.swift; sourceTree = "<group>"; };
 		4B3A8C7D88E017C59BA638F3 /* Pods_issue_tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_issue_tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		830385C1D453460DCB214050 /* Pods-issue-tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-issue-tracker.release.xcconfig"; path = "Target Support Files/Pods-issue-tracker/Pods-issue-tracker.release.xcconfig"; sourceTree = "<group>"; };
 		B83F6B8CE4C95FD091430C5D /* Pods-issue-tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-issue-tracker.debug.xcconfig"; path = "Target Support Files/Pods-issue-tracker/Pods-issue-tracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -66,7 +74,11 @@
 			children = (
 				2AF58EC92A0B390100EE8623 /* AppDelegate.swift */,
 				2AF58ECB2A0B390100EE8623 /* SceneDelegate.swift */,
-				2AF58ECD2A0B390100EE8623 /* ViewController.swift */,
+				2AF58ECD2A0B390100EE8623 /* IssueViewController.swift */,
+				2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */,
+				2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */,
+				2AF58EE62A0D162900EE8623 /* TabBarViewController.swift */,
+				2AF58EE82A0D454000EE8623 /* SymbolImage.swift */,
 				2AF58ED22A0B390400EE8623 /* Assets.xcassets */,
 				2AF58ED42A0B390400EE8623 /* LaunchScreen.storyboard */,
 				2AF58ED72A0B390400EE8623 /* Info.plist */,
@@ -206,9 +218,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AF58ECE2A0B390100EE8623 /* ViewController.swift in Sources */,
+				2AF58EE72A0D162900EE8623 /* TabBarViewController.swift in Sources */,
+				2AF58EE32A0CF85800EE8623 /* LabelViewController.swift in Sources */,
+				2AF58EE92A0D454000EE8623 /* SymbolImage.swift in Sources */,
+				2AF58ECE2A0B390100EE8623 /* IssueViewController.swift in Sources */,
 				2AF58ECA2A0B390100EE8623 /* AppDelegate.swift in Sources */,
 				2AF58ECC2A0B390100EE8623 /* SceneDelegate.swift in Sources */,
+				2AF58EE52A0CF86700EE8623 /* MileStoneViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
