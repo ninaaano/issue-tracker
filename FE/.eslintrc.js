@@ -27,5 +27,6 @@ module.exports = {
     'import/prefer-default-export': 0, // 하나의 변수만 export할때 default로 해야만하는 규칙 off
     'react/jsx-fragments': 0, // React.Fragment 사용을 위한 규칙 off.
     'react/jsx-pascal-case': 0, // Styled Component로 생성한 Component 이름 앞에 $ 쓰고 싶어서 규칙 off
+    'object-curly-newline': 0, // export를 한번에 하기 위한 코딩 컨벤션을 위해 규칙 off.
   },
 };
