@@ -72,4 +72,41 @@ const mockIssuesData = {
   },
 };
 
-export { mockIssuesData };
+const mockUserImageData = (userId) => {
+  let url = '';
+  switch (userId) {
+    case 1:
+      // 고뭉남
+      url = 'https://avatars.githubusercontent.com/u/77562698?v=4';
+      break;
+    case 2:
+      // 니노
+      url = 'https://avatars.githubusercontent.com/u/95615105?v=4';
+      break;
+    case 3:
+      // 에이든
+      url = 'https://avatars.githubusercontent.com/u/115064144?v=4';
+      break;
+    case 4:
+      // 아켄
+      url = 'https://avatars.githubusercontent.com/u/96980857?v=4';
+      break;
+    case 5:
+      // 솔
+      url = 'https://avatars.githubusercontent.com/u/86761640?v=4';
+      break;
+    case 6:
+      // 훈딩
+      url = 'https://avatars.githubusercontent.com/u/56246060?v=4';
+      break;
+    default:
+      url = '';
+  }
+  return {
+    data: {
+      userImgURL: url,
+    },
+  };
+};
+
+export { mockIssuesData, mockUserImageData };
