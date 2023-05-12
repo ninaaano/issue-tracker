@@ -4,7 +4,12 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['plugin:react/recommended', 'plugin:prettier/recommended', 'airbnb'],
+  extends: [
+    'plugin:react/recommended',
+    'plugin:prettier/recommended',
+    'airbnb',
+    'plugin:storybook/recommended',
+  ],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -28,5 +33,7 @@ module.exports = {
     'react/jsx-fragments': 0, // React.Fragment 사용을 위한 규칙 off.
     'react/jsx-pascal-case': 0, // Styled Component로 생성한 Component 이름 앞에 $ 쓰고 싶어서 규칙 off
     'object-curly-newline': 0, // export를 한번에 하기 위한 코딩 컨벤션을 위해 규칙 off.
+    'storybook/story-exports': 0, // story book export 하기싫음.
+    'react/jsx-props-no-spreading': 0, // props 객체 spread 적용위해 규칙 off
   },
 };
