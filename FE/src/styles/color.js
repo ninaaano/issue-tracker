@@ -15,6 +15,6 @@ const PALETTE = {
 };
 
 export const color = {
-  body: PALETTE.GRAY_50,
+  body: PALETTE.GRAY_100,
   textDefault: PALETTE.GRAY_900,
 };
