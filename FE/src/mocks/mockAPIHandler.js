@@ -8,7 +8,7 @@ const getIssues = (request, response, context) => {
 };
 
 const getUserImage = (request, response, context) => {
-  return response(context.status(200), context.json(mockUserImageData));
+  return response(context.status(200), context.json(mockUserImageData(6)));
 };
 
 const mockAPIHandler = [

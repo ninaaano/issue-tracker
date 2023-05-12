@@ -1,12 +1,12 @@
 const BASE_URL = '';
 
 const API_TYPE = Object.freeze({
-  LOGIN: '/login',
-  USERS: '/users',
-  ISSUES: '/issues',
-  COMMENTS: '/comments',
-  LABELS: '/labels',
-  MILESTONES: '/milestones',
+  LOGIN: 'login',
+  USERS: 'users',
+  ISSUES: 'issues',
+  COMMENTS: 'comments',
+  LABELS: 'labels',
+  MILESTONES: 'milestones',
 });
 
 const LOGIN = Object.freeze({
