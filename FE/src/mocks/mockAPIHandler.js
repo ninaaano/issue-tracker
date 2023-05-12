@@ -1,12 +1,19 @@
 import { rest } from 'msw';
 
-import { LOGIN, ISSUES, COMMENTS, LABELS, MILESTONES } from '../constants/api';
-import { mockIssuesData } from './mockData';
+import { LOGIN, USERS, ISSUES, COMMENTS, LABELS, MILESTONES } from '../constants/api';
+import { mockIssuesData, mockUserImageData } from './mockData';
 
 const getIssues = (request, response, context) => {
   return response(context.status(200), context.json(mockIssuesData));
 };
 
-const mockAPIHandler = [rest.get(ISSUES.GET_ALL_ISSUES, getIssues)];
+const getUserImage = (request, response, context) => {
+  return response(context.status(200), context.json(mockUserImageData));
+};
+
+const mockAPIHandler = [
+  rest.get(ISSUES.GET_ALL_ISSUES, getIssues),
+  rest.get(USERS.GET_USER_IMG(6), getUserImage),
+];
 
 export { mockAPIHandler };
