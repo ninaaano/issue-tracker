@@ -1,11 +1,15 @@
 import React from 'react';
 
-function App() {
+import GlobalStyles from './styles/GlobalStyles';
+import Header from './components/Header/Header';
+
+const App = () => {
   return (
-    <div>
-      <h2>Let's get started!</h2>
-    </div>
+    <React.Fragment>
+      <GlobalStyles />
+      <Header userImgSrc="./assets/userImg.svg" userName="@frog" />
+    </React.Fragment>
   );
-}
+};
 
 export default App;

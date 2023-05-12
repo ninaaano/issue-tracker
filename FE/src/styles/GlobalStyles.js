@@ -120,6 +120,10 @@ const GlobalStyles = createGlobalStyle`
     font-size:1.6rem;
   }
 
+  #root {
+    margin: 0 80px;
+  }
+
   ol,
   ul {
     list-style: none;
