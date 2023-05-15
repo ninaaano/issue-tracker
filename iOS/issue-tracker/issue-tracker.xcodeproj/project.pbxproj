@@ -17,6 +17,7 @@
 		2AF58EE52A0CF86700EE8623 /* MileStoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */; };
 		2AF58EE72A0D162900EE8623 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE62A0D162900EE8623 /* TabBarViewController.swift */; };
 		2AF58EE92A0D454000EE8623 /* SymbolImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE82A0D454000EE8623 /* SymbolImage.swift */; };
+		2AF58EED2A12555E00EE8623 /* ColorValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EEC2A12555E00EE8623 /* ColorValue.swift */; };
 		7411FA6CF0FEC5333D727E00 /* Pods_issue_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3A8C7D88E017C59BA638F3 /* Pods_issue_tracker.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneViewController.swift; sourceTree = "<group>"; };
 		2AF58EE62A0D162900EE8623 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2AF58EE82A0D454000EE8623 /* SymbolImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolImage.swift; sourceTree = "<group>"; };
+		2AF58EEC2A12555E00EE8623 /* ColorValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorValue.swift; sourceTree = "<group>"; };
 		4B3A8C7D88E017C59BA638F3 /* Pods_issue_tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_issue_tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		830385C1D453460DCB214050 /* Pods-issue-tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-issue-tracker.release.xcconfig"; path = "Target Support Files/Pods-issue-tracker/Pods-issue-tracker.release.xcconfig"; sourceTree = "<group>"; };
 		B83F6B8CE4C95FD091430C5D /* Pods-issue-tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-issue-tracker.debug.xcconfig"; path = "Target Support Files/Pods-issue-tracker/Pods-issue-tracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				2AF58ECD2A0B390100EE8623 /* IssueViewController.swift */,
 				2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */,
 				2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */,
+				2AF58EEC2A12555E00EE8623 /* ColorValue.swift */,
 				2AF58EE62A0D162900EE8623 /* TabBarViewController.swift */,
 				2AF58EE82A0D454000EE8623 /* SymbolImage.swift */,
 				2AF58ED22A0B390400EE8623 /* Assets.xcassets */,
@@ -225,6 +228,7 @@
 				2AF58ECA2A0B390100EE8623 /* AppDelegate.swift in Sources */,
 				2AF58ECC2A0B390100EE8623 /* SceneDelegate.swift in Sources */,
 				2AF58EE52A0CF86700EE8623 /* MileStoneViewController.swift in Sources */,
+				2AF58EED2A12555E00EE8623 /* ColorValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
