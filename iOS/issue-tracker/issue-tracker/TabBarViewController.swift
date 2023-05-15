@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TabBarViewController: UITabBarController {
+final class TabBarViewController: UITabBarController {
     private(set) var issueView = IssueViewController()
     private(set) var labelView = LabelViewController()
     private(set) var mileStoneView = MileStoneViewController()
@@ -25,9 +25,8 @@ class TabBarViewController: UITabBarController {
     }
     
     private func configureTabBarItem() {
-        issueView.tabBarItem = UITabBarItem(title: "이슈", image: UIImage(named: SymbolImage.issueImage.rawValue), tag: 0)
-        labelView.tabBarItem = UITabBarItem(title: "레이블", image: UIImage(named: SymbolImage.labelImage.rawValue), tag: 1)
-        mileStoneView.tabBarItem = UITabBarItem(title: "마일스톤", image: UIImage(named: SymbolImage.mileStoneImage.rawValue), tag: 2)
+        issueView.tabBarItem = UITabBarItem(title: TabBarType.issue.title, image: UIImage(named: TabBarType.issue.image), tag: 0)
+        labelView.tabBarItem = UITabBarItem(title: TabBarType.label.title, image: UIImage(named: TabBarType.label.image), tag: 1)
+        mileStoneView.tabBarItem = UITabBarItem(title: TabBarType.milestone.title, image: UIImage(named: TabBarType.milestone.image), tag: 2)
     }
-
 }
