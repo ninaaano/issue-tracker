@@ -7,8 +7,30 @@
 
 import UIKit
 
-enum SymbolImage: String {
-    case issueImage = "Issue_Symbol.svg"
-    case labelImage = "Label_Symbol.svg"
-    case mileStoneImage = "Milestone_Symbol.svg"
+enum TabBarType {
+    case issue
+    case label
+    case milestone
+    
+    var title: String {
+        switch self {
+        case .issue:
+            return "이슈"
+        case .label:
+            return "레이블"
+        case .milestone:
+            return "마일스톤"
+        }
+    }
+    
+    var image: String {
+        switch self {
+        case .issue:
+            return "Issue_Symbol"
+        case .label:
+            return "Label_Symbol"
+        case .milestone:
+            return "Milestone_Symbol"
+        }
+    }
 }
