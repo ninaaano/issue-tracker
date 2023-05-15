@@ -14,7 +14,8 @@ const PALETTE = {
   RED: '#FF3B30',
 };
 
-export const color = {
+export const COLOR = {
+  // Color 쓰고싶을때마다 여기에 추가해서 사용.
   body: PALETTE.GRAY_100,
   textDefault: PALETTE.GRAY_900,
 };
