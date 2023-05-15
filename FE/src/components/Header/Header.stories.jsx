@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+import Header from '.';
 
 const meta = {
   title: 'Header',
@@ -16,7 +16,7 @@ const Template = (args) => <Header {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  userImgSrc: './assets/userImg.svg',
+  userImgSrc: '../../assets/defaultLogo.svg',
   userName: 'frog',
 };
 

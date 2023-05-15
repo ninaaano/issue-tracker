@@ -25,7 +25,6 @@ module.exports = {
     ],
     'react/no-unescaped-entities': 0, //
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
-    'react/prop-types': 0, // prop의 타입 지정 끄기.
     'arrow-body-style': 0, // return 하고 괄호 없이 반환 끄기
     'no-unused-vars': 1, // 사용하지 않는 변수 warning
     'import/no-extraneous-dependencies': 0,
@@ -35,5 +34,13 @@ module.exports = {
     'object-curly-newline': 0, // export를 한번에 하기 위한 코딩 컨벤션을 위해 규칙 off.
     'storybook/story-exports': 0, // story book export 하기싫음.
     'react/jsx-props-no-spreading': 0, // props 객체 spread 적용위해 규칙 off
+    'react/require-default-props': 0, // default props는 분해할당으로 받을때 default 값 줄거기 때문에 규칙 off
+    'padding-line-between-statements': [
+      // 선언부, 로직, return 사이 공백추가를 위한 설정
+      'error',
+      { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
+      { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] },
+      { blankLine: 'always', prev: ['case', 'default'], next: '*' },
+    ],
   },
 };
