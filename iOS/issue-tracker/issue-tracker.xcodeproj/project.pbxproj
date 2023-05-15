@@ -18,6 +18,7 @@
 		2AF58EE72A0D162900EE8623 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE62A0D162900EE8623 /* TabBarViewController.swift */; };
 		2AF58EE92A0D454000EE8623 /* SymbolImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE82A0D454000EE8623 /* SymbolImage.swift */; };
 		7411FA6CF0FEC5333D727E00 /* Pods_issue_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3A8C7D88E017C59BA638F3 /* Pods_issue_tracker.framework */; };
+		FF769DC92A11D81000A0DFF9 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF769DC82A11D81000A0DFF9 /* FontStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4B3A8C7D88E017C59BA638F3 /* Pods_issue_tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_issue_tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		830385C1D453460DCB214050 /* Pods-issue-tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-issue-tracker.release.xcconfig"; path = "Target Support Files/Pods-issue-tracker/Pods-issue-tracker.release.xcconfig"; sourceTree = "<group>"; };
 		B83F6B8CE4C95FD091430C5D /* Pods-issue-tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-issue-tracker.debug.xcconfig"; path = "Target Support Files/Pods-issue-tracker/Pods-issue-tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		FF769DC82A11D81000A0DFF9 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */,
 				2AF58EE62A0D162900EE8623 /* TabBarViewController.swift */,
 				2AF58EE82A0D454000EE8623 /* SymbolImage.swift */,
+				FF769DC82A11D81000A0DFF9 /* FontStyle.swift */,
 				2AF58ED22A0B390400EE8623 /* Assets.xcassets */,
 				2AF58ED42A0B390400EE8623 /* LaunchScreen.storyboard */,
 				2AF58ED72A0B390400EE8623 /* Info.plist */,
@@ -220,6 +223,7 @@
 			files = (
 				2AF58EE72A0D162900EE8623 /* TabBarViewController.swift in Sources */,
 				2AF58EE32A0CF85800EE8623 /* LabelViewController.swift in Sources */,
+				FF769DC92A11D81000A0DFF9 /* FontStyle.swift in Sources */,
 				2AF58EE92A0D454000EE8623 /* SymbolImage.swift in Sources */,
 				2AF58ECE2A0B390100EE8623 /* IssueViewController.swift in Sources */,
 				2AF58ECA2A0B390100EE8623 /* AppDelegate.swift in Sources */,
