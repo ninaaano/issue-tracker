@@ -1,10 +1,10 @@
-import { COLOR } from './color';
-import { FONT_SIZE, FONT_WEIGHT } from './font';
+import { colors } from './color';
+import { fontSize, fontWeight } from './font';
 
 const theme = {
-  COLOR,
-  FONT_SIZE,
-  FONT_WEIGHT,
+  colors,
+  fontSize,
+  fontWeight,
 };
 
 export default theme;

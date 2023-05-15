@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { COLOR } from './color';
 
 const GlobalStyles = createGlobalStyle`
   html,
@@ -113,9 +112,8 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     width: 100%;
-    background-color: ${COLOR.body};
+    background-color: ${({ theme }) => theme.colors.neutral.background.default};
     font: inherit;
-    color: ${COLOR.textDefault};
     letter-spacing: -0.4px;
     font-size:1.6rem;
   }

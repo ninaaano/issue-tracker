@@ -14,8 +14,48 @@ const PALETTE = {
   RED: '#FF3B30',
 };
 
-export const COLOR = {
-  // Color 쓰고싶을때마다 여기에 추가해서 사용.
-  body: PALETTE.GRAY_100,
-  textDefault: PALETTE.GRAY_900,
+const colors = {
+  neutral: {
+    text: {
+      default: PALETTE.GRAY_700,
+      weak: PALETTE.GRAY_600,
+      strong: PALETTE.GRAY_900,
+    },
+    background: {
+      default: PALETTE.GRAY_100,
+      bold: PALETTE.GRAY_200,
+      strong: PALETTE.GRAY_50,
+    },
+    border: {
+      default: PALETTE.GRAY_300,
+      active: PALETTE.GRAY_900,
+    },
+  },
+  accent: {
+    text: {
+      default: PALETTE.GRAY_50,
+      weak: PALETTE.BLUE,
+    },
+    background: {
+      default: PALETTE.BLUE,
+      weak: PALETTE.GRAY_50,
+      strong: PALETTE.GRAY_900,
+    },
+    border: {
+      weak: PALETTE.BLUE,
+    },
+  },
+  danger: {
+    text: PALETTE.RED,
+    border: PALETTE.RED,
+  },
+  icon: {
+    text: PALETTE.GRAY_50,
+    background: {
+      blue: PALETTE.BLUE,
+      navy: PALETTE.NAVY,
+    },
+  },
 };
+
+export { colors };
