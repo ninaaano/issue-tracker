@@ -8,6 +8,7 @@ const $FilterBar = styled.div`
   height: 40px;
   border: 1px solid ${({ theme }) => theme.colors.neutral.border.active};
   border-radius: 11px;
+  margin-top: 59px;
 `;
 
 const $FilterButton = styled.button`
@@ -28,7 +29,26 @@ const $FilterButton = styled.button`
     margin-left: 8px;
   }
 `;
+const $FilterInputWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 24px;
+  width: 472px;
+  height: 100%;
+  border-radius: 0px 11px 11px 0px;
+  background-color: ${({ theme }) => theme.colors.neutral.background.bold};
+  & > img {
+    margin-right: 8px;
+  }
+`;
+const $FilterInput = styled.input`
+  width: 400px;
+  height: 28px;
+  vertical-align: middle;
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  font-size: ${({ theme }) => theme.fontSize.M.fontSize};
+`;
 
-const $FilterInput = styled.input``;
-
-export { $FilterBar, $FilterButton };
+export { $FilterBar, $FilterButton, $FilterInputWrapper, $FilterInput };
