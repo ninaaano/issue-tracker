@@ -6,11 +6,7 @@ import IconComponents from './IconComponents';
 const Icon = ({ name, width = 16, height = 16, fill = '#14142b' }) => {
   const IconComponent = IconComponents[name];
 
-  return (
-    <div>
-      <IconComponent width={width} height={height} fill={fill} />
-    </div>
-  );
+  return <IconComponent width={width} height={height} fill={fill} />;
 };
 
 Icon.propTypes = {
