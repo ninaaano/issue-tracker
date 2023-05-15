@@ -16,6 +16,7 @@ import { ReactComponent as search } from '../../../assets/Icons/search.svg';
 import { ReactComponent as smile } from '../../../assets/Icons/smile.svg';
 import { ReactComponent as trash } from '../../../assets/Icons/trash.svg';
 import { ReactComponent as xSquare } from '../../../assets/Icons/xSquare.svg';
+import { ReactComponent as label } from '../../../assets/Icons/label.svg';
 
 export default {
   alertCircle,
@@ -36,4 +37,5 @@ export default {
   smile,
   trash,
   xSquare,
+  label,
 };
