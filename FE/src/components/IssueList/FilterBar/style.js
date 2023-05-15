@@ -25,7 +25,10 @@ const $FilterButton = styled.button`
   font-size: ${({ theme }) => theme.fontSize.M.fontSize};
   color: ${({ theme }) => theme.colors.neutral.text.weak};
 
-  & > img {
+  // TODO: 상태에 따라 배경색 바꾸기.
+  background-color: ${({ theme }) => theme.colors.neutral.background.default};
+
+  & > svg {
     margin-left: 8px;
   }
 `;
@@ -38,8 +41,11 @@ const $FilterInputWrapper = styled.div`
   width: 472px;
   height: 100%;
   border-radius: 0px 11px 11px 0px;
+
+  // TODO: 상태에 따라 배경색 바꾸기.
   background-color: ${({ theme }) => theme.colors.neutral.background.bold};
-  & > img {
+
+  & > svg {
     margin-right: 8px;
   }
 `;
