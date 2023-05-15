@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { $Header } from './style';
 
 const Header = ({ userImgSrc, userName }) => {
@@ -12,6 +13,11 @@ const Header = ({ userImgSrc, userName }) => {
       <img src={userImgSrc} alt={`@${userName}`} />
     </$Header>
   );
+};
+
+Header.propTypes = {
+  userImgSrc: PropTypes.string,
+  userName: PropTypes.string,
 };
 
 export default Header;
