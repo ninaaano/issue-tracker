@@ -16,7 +16,7 @@ const Template = (args) => <Header {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  userImgSrc: './assets/userImg.svg',
+  userImgSrc: '../../assets/defaultLogo.svg',
   userName: 'frog',
 };
 

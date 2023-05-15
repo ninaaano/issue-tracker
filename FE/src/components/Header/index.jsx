@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { $Header } from './style';
+import logoImg from '../../assets/defaultLogo.svg';
 
 const Header = ({ userImgSrc, userName }) => {
-  const logoSrc = './assets/defaultLogo.svg';
-
   return (
     <$Header>
       <a href="/">
-        <img src={logoSrc} alt="logo" />
+        <img src={logoImg} alt="logo" />
       </a>
       <img src={userImgSrc} alt={`@${userName}`} />
     </$Header>
