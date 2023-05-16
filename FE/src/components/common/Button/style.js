@@ -58,9 +58,16 @@ const typeStyle = css`
   }}
 `;
 
+const fontStyle = css`
+  font-size: ${({ size, theme }) => theme.fontSize[size].fontSize};
+  line-height: ${({ size, theme }) => theme.fontSize[size].lineHeight};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+`;
+
 const $Button = styled.button`
   ${({ type }) => type !== 'ghost' && sizeStyle}
   ${typeStyle}
+  ${fontStyle}
 
   cursor: pointer;
   opacity: 1;
