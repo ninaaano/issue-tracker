@@ -49,9 +49,9 @@ const outlineStyle = css`
 `;
 
 const ghostStyle = css`
-  color: ${({ $active, theme }) => theme.colors.neutral.text[$active ? 'strong' : 'default']};
+  color: ${({ active, theme }) => theme.colors.neutral.text[active ? 'strong' : 'default']};
   & > svg {
-    fill: ${({ $active, theme }) => theme.colors.neutral.text[$active ? 'strong' : 'default']};
+    fill: ${({ active, theme }) => theme.colors.neutral.text[active ? 'strong' : 'default']};
   }
 `;
 
