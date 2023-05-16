@@ -15,11 +15,6 @@ class IssueRepositoryTest {
     @Autowired
     private IssueRepository issueRepository;
 
-    @BeforeEach
-    void init() {
-        issueRepository.deleteAll();
-    }
-
     @DisplayName("이슈 저장 테스트")
     @Test
     void saveIssue() {
