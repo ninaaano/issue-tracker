@@ -14,4 +14,13 @@ const Template = (args) => {
 
 export const Primary = Template.bind({});
 
-Primary.args = {};
+Primary.args = {
+  modalName: '이슈 필터',
+  menus: [
+    {
+      id: 1,
+      imgSrc: '',
+      text: '열린 이슈',
+    },
+  ],
+};
