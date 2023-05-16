@@ -1,23 +1,22 @@
 import styled, { css } from 'styled-components';
 
+// type(container, outline, ghost): color, background-color, border
 const containerStyle = css`
-  background-color: ${({ theme }) => theme.accent.background.default};
-  color: ${({ theme }) => theme.accent.text.default};
+  background-color: ${({ theme }) => theme.colors.accent.background.default};
+  color: ${({ theme }) => theme.colors.accent.text.default};
 `;
 
 const outlineStyle = css`
-  border: 1px solid ${({ theme }) => theme.accent.border.weak};
-  color: ${({ theme }) => theme.accent.text.weak};
+  border: 1px solid ${({ theme }) => theme.colors.accent.border.weak};
+  color: ${({ theme }) => theme.colors.accent.text.weak};
 `;
 
 const ghostStyle = css`
-  color: ${({ theme }) => theme.neutral.text.default};
-`;
-
-const tabStyle = css`
-  ${ghostStyle}
-  background-color: ${({ type, theme }) => (type === 'active' ? theme.neutral.background.bold : '')};
-  border: 1px solid ${({ theme }) => theme.neutral.border.default};
+  background-color: ${({ $active, theme }) => ($active ? theme.colors.neutral.background.bold : '')};
+  color: ${({ $active, theme }) => {
+    return $active ? theme.colors.neutral.text.strong : theme.colors.neutral.text.default;
+  }};
+  border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
 `;
 
 const typeStyle = css`
@@ -30,16 +29,11 @@ const typeStyle = css`
   }}
 `;
 
-const activeStyle = css`
-  color: ${({ type, isActive, theme }) => {
-    return type === 'ghost' && isActive ? theme.neutral.text.strong : theme.neutral.text.default;
-  }};
-`;
-
+// size(S, M, L): width, height, padding, border-radius 결정
 const LStyle = css`
   width: 240px;
   height: 56px;
-  padding: 0px 24px;
+  padding: 0px ${({ type }) => (type === 'ghost' ? '24px' : '0px')};
   border-radius: 16px;
 `;
 
@@ -68,8 +62,6 @@ const sizeStyle = css`
 const $Button = styled.button`
   ${typeStyle}
   ${sizeStyle}
-  ${activeStyle}
-  ${({ isTab }) => isTab && tabStyle}
 
   cursor: pointer;
   opacity: 1;
