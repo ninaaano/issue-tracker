@@ -1,54 +1,24 @@
 import styled, { css } from 'styled-components';
 
-// type(container, outline, ghost): color, background-color, border
-const containerStyle = css`
-  background-color: ${({ theme }) => theme.colors.accent.background.default};
-  color: ${({ theme }) => theme.colors.accent.text.default};
-`;
-
-const outlineStyle = css`
-  border: 1px solid ${({ theme }) => theme.colors.accent.border.weak};
-  color: ${({ theme }) => theme.colors.accent.text.weak};
-`;
-
-const ghostStyle = css`
-  background-color: ${({ $isTab, $active, theme }) => {
-    return $isTab && $active ? theme.colors.neutral.background.bold : '';
-  }};
-  color: ${({ $active, theme }) => {
-    return $active ? theme.colors.neutral.text.strong : theme.colors.neutral.text.default;
-  }};
-  border: 1px solid ${({ $isTab, theme }) => ($isTab ? theme.colors.neutral.border.default : 'none')};
-`;
-
-const typeStyle = css`
-  ${({ type }) => {
-    if (type === 'container') return containerStyle;
-    if (type === 'outline') return outlineStyle;
-    if (type === 'ghost') return ghostStyle;
-
-    return '';
-  }}
-`;
-
-// size(S, M, L): width, height, padding, border-radius 결정
+// * size(S, M, L): width, height, padding, border-radius 결정
+// ! type !== ghost 경우에만 적용
 const LStyle = css`
   width: 240px;
   height: 56px;
-  padding: 0px ${({ type }) => (type === 'ghost' ? '24px' : '0px')};
   border-radius: 16px;
+  padding: 0px 24px;
 `;
 
 const MStyle = css`
-  width: ${({ type }) => (type === 'ghost' ? '85px' : '')};
-  height: ${({ type }) => (type === 'ghost' ? '32px' : '')};
+  width: 85px;
+  height: 32px;
 `;
 
 const SStyle = css`
-  width: ${({ type }) => (type === 'ghost' ? '69px' : '120px')};
-  height: ${({ type }) => (type === 'ghost' ? '32px' : '40px')};
-  padding: 0px ${({ type }) => (type === 'ghost' ? '0px' : '16px')};
-  border-radius: ${({ type }) => (type === 'ghost' ? '0' : '11px')};
+  width: 120px;
+  height: 40px;
+  border-radius: 11px;
+  padding: 0px 16px;
 `;
 
 const sizeStyle = css`
@@ -61,9 +31,36 @@ const sizeStyle = css`
   }}
 `;
 
+// * type(container, outline, ghost): color, background-color, border
+const containerStyle = css`
+  background-color: ${({ theme }) => theme.colors.accent.background.default};
+  color: ${({ theme }) => theme.colors.accent.text.default};
+`;
+
+const outlineStyle = css`
+  border: 1px solid ${({ theme }) => theme.colors.accent.border.weak};
+  color: ${({ theme }) => theme.colors.accent.text.weak};
+`;
+
+const ghostStyle = css`
+  color: ${({ $active, theme }) => {
+    return $active ? theme.colors.neutral.text.strong : theme.colors.neutral.text.default;
+  }};
+`;
+
+const typeStyle = css`
+  ${({ type }) => {
+    if (type === 'contained') return containerStyle;
+    if (type === 'outline') return outlineStyle;
+    if (type === 'ghost') return ghostStyle;
+
+    return '';
+  }}
+`;
+
 const $Button = styled.button`
+  ${({ type }) => type !== 'ghost' && sizeStyle}
   ${typeStyle}
-  ${sizeStyle}
 
   cursor: pointer;
   opacity: 1;
