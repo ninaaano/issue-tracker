@@ -7,8 +7,7 @@ const meta = {
   component: Button,
   argTypes: {
     active: { control: 'boolean' },
-    isTab: { control: 'boolean' },
-    type: { options: ['container', 'outline', 'ghost'] },
+    type: { options: ['contained', 'outline', 'ghost'] },
     size: { options: ['L', 'M', 'S'] },
   },
 };
@@ -19,9 +18,8 @@ const Template = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: 'heoo',
+  children: 'button',
   active: false,
-  isTab: false,
-  type: 'container',
+  type: 'contained',
   size: 'L',
 };
