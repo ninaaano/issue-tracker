@@ -12,11 +12,13 @@ const outlineStyle = css`
 `;
 
 const ghostStyle = css`
-  background-color: ${({ $active, theme }) => ($active ? theme.colors.neutral.background.bold : '')};
+  background-color: ${({ $isTab, $active, theme }) => {
+    return $isTab && $active ? theme.colors.neutral.background.bold : '';
+  }};
   color: ${({ $active, theme }) => {
     return $active ? theme.colors.neutral.text.strong : theme.colors.neutral.text.default;
   }};
-  border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
+  border: 1px solid ${({ $isTab, theme }) => ($isTab ? theme.colors.neutral.border.default : 'none')};
 `;
 
 const typeStyle = css`
