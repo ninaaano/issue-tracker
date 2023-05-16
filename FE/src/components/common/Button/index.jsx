@@ -5,14 +5,14 @@ import { $Button } from './style';
 
 const Button = ({ children, active = false, type, size, ...props }) => {
   return (
-    <$Button $active={active} type={type} size={size} {...props}>
+    <$Button active={active} type={type} size={size} {...props}>
       {children}
     </$Button>
   );
 };
 
 Button.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   active: PropTypes.bool,
   type: PropTypes.oneOf(['contained', 'outline', 'ghost']).isRequired,
   size: PropTypes.oneOf(['L', 'M', 'S']).isRequired,
