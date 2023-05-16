@@ -2,6 +2,9 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.11'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+/* REST docs */
+	id "org.asciidoctor.convert" version "1.5.9.2"
+
 }
 
 group = 'team05.codesquad'
@@ -25,8 +28,39 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'mysql:mysql-connector-java:8.0.32'
+
+/* REST docs */
+	asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+}
+/* REST docs */
+ext {
+	snippetsDir = file('build/generated-snippets')
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+/* REST docs */
+test {
+	outputs.dir snippetsDir
+}
+
+/* REST docs */
+asciidoctor {
+	inputs.dir snippetsDir
+	dependsOn test
+}
+
+/* REST docs */
+task copyDocument(type: Copy) {
+	dependsOn asciidoctor
+
+	from file("build/asciidoc/html5/")
+	into file("src/main/resources/static/docs")
+}
+
+build {
+	dependsOn copyDocument
 }
