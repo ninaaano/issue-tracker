@@ -197,6 +197,168 @@ const mockIssuesData = {
         ],
         commentedUser: ['아켄', '고뭉남'],
       },
+      {
+        issueId: 10,
+        issueTitle: '[FE]: Improving Performance',
+        isOpened: true,
+        writer: {
+          name: '고뭉남',
+          createdAt: '2023-05-25T16:30:20.963',
+        },
+        assignees: ['에이든', 'Sol'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 1,
+            labelName: 'docs',
+            color: '#0025E6',
+          },
+          {
+            labelId: 3,
+            labelName: 'enhancement',
+            color: '#50C878',
+          },
+        ],
+        commentedUser: ['고뭉남', '에이든'],
+      },
+      {
+        issueId: 11,
+        issueTitle: '[BE]: Fixing API Endpoint',
+        isOpened: true,
+        writer: {
+          name: 'Sol',
+          createdAt: '2023-05-26T09:45:35.212',
+        },
+        assignees: ['고뭉남'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 2,
+            labelName: 'bug',
+            color: '#DE4123',
+          },
+        ],
+        commentedUser: ['Sol', '고뭉남'],
+      },
+      {
+        issueId: 12,
+        issueTitle: '[FE]: Implementing User Profile',
+        isOpened: false,
+        writer: {
+          name: '에이든',
+          createdAt: '2023-05-27T11:20:15.587',
+        },
+        assignees: ['Sol'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 3,
+            labelName: 'enhancement',
+            color: '#50C878',
+          },
+        ],
+        commentedUser: ['에이든', 'Sol'],
+      },
+      {
+        issueId: 13,
+        issueTitle: '[BE]: Database Optimization',
+        isOpened: true,
+        writer: {
+          name: '고뭉남',
+          createdAt: '2023-05-28T14:10:40.931',
+        },
+        assignees: ['에이든'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 4,
+            labelName: 'task',
+            color: '#FFD700',
+          },
+        ],
+        commentedUser: ['고뭉남', '에이든'],
+      },
+      {
+        issueId: 14,
+        issueTitle: '[FE]: Adding Unit Tests',
+        isOpened: true,
+        writer: {
+          name: 'Sol',
+          createdAt: '2023-05-29T16:55:25.498',
+        },
+        assignees: ['고뭉남', '에이든', '니노', '아켄', '훈딩'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 1,
+            labelName: 'docs',
+            color: '#0025E6',
+          },
+          {
+            labelId: 3,
+            labelName: 'enhancement',
+            color: '#50C878',
+          },
+        ],
+        commentedUser: ['Sol', '고뭉남', '에이든', '니노', '아켄', '훈딩'],
+      },
+      {
+        issueId: 15,
+        issueTitle: '[BE]: Resolving Performance Bottlenecks',
+        isOpened: true,
+        writer: {
+          name: '에이든',
+          createdAt: '2023-06-01T09:30:45.731',
+        },
+        assignees: ['고뭉남', '니노'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 2,
+            labelName: 'bug',
+            color: '#DE4123',
+          },
+        ],
+        commentedUser: ['에이든', '고뭉남', '니노'],
+      },
+      {
+        issueId: 16,
+        issueTitle: '[FE]: Implementing Notifications',
+        isOpened: true,
+        writer: {
+          name: '니노',
+          createdAt: '2023-06-02T14:20:15.958',
+        },
+        assignees: ['아켄', '훈딩'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 3,
+            labelName: 'enhancement',
+            color: '#50C878',
+          },
+        ],
+        commentedUser: ['니노', '아켄', '훈딩'],
+      },
+      {
+        issueId: 17,
+        issueTitle: '[BE]: Fixing Security Vulnerabilities',
+        isOpened: true,
+        writer: {
+          name: '고뭉남',
+          createdAt: '2023-06-03T17:40:30.521',
+        },
+        assignees: ['Sol', '에이든'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 4,
+            labelName: 'task',
+            color: '#FFD700',
+          },
+        ],
+        commentedUser: ['고뭉남', 'Sol', '에이든'],
+      },
     ],
   },
 };
