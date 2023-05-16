@@ -3,20 +3,19 @@ import PropTypes from 'prop-types';
 
 import { $Button } from './style';
 
-const Button = ({ children, isTab = false, isActive = false, type, size, ...props }) => {
+const Button = ({ children, active = false, type, size, ...props }) => {
   return (
-    <$Button isTab={isTab} isActive={isActive} type={type} size={size} {...props}>
+    <$Button $active={active} type={type} size={size} {...props}>
       {children}
     </$Button>
   );
 };
 
 Button.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-  isTab: PropTypes.bool.isRequired,
-  isActive: PropTypes.bool.isRequired,
-  type: PropTypes.oneOf(['container', 'outline', 'ghost']),
-  size: PropTypes.oneOf(['L', 'M', 'S']),
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+  active: PropTypes.bool,
+  type: PropTypes.oneOf(['container', 'outline', 'ghost']).isRequired,
+  size: PropTypes.oneOf(['L', 'M', 'S']).isRequired,
 };
 
 export default Button;
