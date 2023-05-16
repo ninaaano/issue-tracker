@@ -35,17 +35,24 @@ const sizeStyle = css`
 const containerStyle = css`
   background-color: ${({ theme }) => theme.colors.accent.background.default};
   color: ${({ theme }) => theme.colors.accent.text.default};
+  & > svg {
+    fill: ${({ theme }) => theme.colors.accent.text.default};
+  }
 `;
 
 const outlineStyle = css`
   border: 1px solid ${({ theme }) => theme.colors.accent.border.weak};
   color: ${({ theme }) => theme.colors.accent.text.weak};
+  & > svg {
+    fill: ${({ theme }) => theme.colors.accent.text.weak};
+  }
 `;
 
 const ghostStyle = css`
-  color: ${({ $active, theme }) => {
-    return $active ? theme.colors.neutral.text.strong : theme.colors.neutral.text.default;
-  }};
+  color: ${({ $active, theme }) => theme.colors.neutral.text[$active ? 'strong' : 'default']};
+  & > svg {
+    fill: ${({ $active, theme }) => theme.colors.neutral.text[$active ? 'strong' : 'default']};
+  }
 `;
 
 const typeStyle = css`
@@ -68,6 +75,14 @@ const $Button = styled.button`
   ${({ type }) => type !== 'ghost' && sizeStyle}
   ${typeStyle}
   ${fontStyle}
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > svg {
+    margin-right: 4px;
+  }
 
   cursor: pointer;
   opacity: 1;
