@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../../../common/Button';
 import Icon from '../../../common/Icon';
 import DropDownButton from './DropDownButton';
-import { $IssueListMainHeader, $LeftButton, $RightButton } from './style';
+import { $IssueListMainHeader, $CheckBox, $LeftButton, $RightButton } from './style';
 
 const IssueButton = ({ status, count = 0, active = false }) => {
   const STATUS_MAP = {
@@ -27,10 +27,21 @@ IssueButton.propTypes = {
 };
 
 const IssueListMainHeader = (props) => {
+  const [isSelected, setIsSelected] = useState(false);
+
+  const checkBoxClickHandler = () => {
+    setIsSelected((prev) => !prev);
+  };
+
   return (
     <$IssueListMainHeader>
       <$LeftButton>
-        <Icon name="checkBoxInitial" />
+        <$CheckBox type="button" onClick={checkBoxClickHandler}>
+          <Icon
+            name={isSelected ? 'checkBoxActive' : 'checkBoxInitial'}
+            fill={isSelected ? '#007AFF' : '#D9DBE9'}
+          />
+        </$CheckBox>
         <IssueButton status="open" active />
         <IssueButton status="close" />
       </$LeftButton>
