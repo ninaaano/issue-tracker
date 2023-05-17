@@ -7,4 +7,3 @@ const $IssueListHeader = styled.header`
 `;
 
 export { $IssueListHeader };
-

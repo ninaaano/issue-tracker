@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 const $NavButtons = styled.div`
   display: flex;
   align-items: center;
