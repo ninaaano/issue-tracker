@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../common/Icon';
+
+import Icon from '../../../common/Icon';
 import { $FilterBar, $FilterButton, $FilterInput, $FilterInputWrapper } from './style';
 
 const FilterBar = () => {
