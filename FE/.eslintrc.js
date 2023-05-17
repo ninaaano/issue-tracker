@@ -23,6 +23,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    'max-len': [2, { code: 110 }],
     'react/no-unescaped-entities': 0, //
     'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
     'arrow-body-style': 0, // return 하고 괄호 없이 반환 끄기
