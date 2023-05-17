@@ -9,7 +9,16 @@ const mockIssuesData = {
           name: '훈딩',
           createdAt: '2023-05-16T09:10:35.145Z',
         },
-        assignees: ['아켄', '고뭉남'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: '',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:IssueTracker',
         labels: [
           {
