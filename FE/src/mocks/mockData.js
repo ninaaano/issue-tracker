@@ -1,72 +1,396 @@
 const mockIssuesData = {
   data: {
     issues: [
-      // 이슈의 전체 목록 받아오기.
       {
-        id: 1, // 이슈 ID
-        writer: 'hoonding', // 작성자 1명
-        assignees: [], // 담당자 N명
-        isOpened: true, // open 여부
-        name: 'DOCS', // 이슈 이름
-        description: '', // 이슈 설명
-        label: null, // 이슈가 갖는 레이블 하나?
-        milestone: null, // 이슈가 속한 마일스톤
-        commentedUser: [], // 코멘트를 여러명 남길 수 있으니까.
+        issueId: 1,
+        issueTitle: '[FE]: Creating Components',
+        isOpened: true,
+        writer: {
+          name: '훈딩',
+          createdAt: '2023-05-16T09:10:35.145Z',
+        },
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: '',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
+        milestone: 'GroupProject:IssueTracker',
+        labels: [
+          {
+            labelId: 1,
+            labelName: 'docs',
+            backgroundColor: '#0025E6',
+            textColor: 'light',
+          },
+          {
+            labelId: 2,
+            labelName: 'bug',
+            backgroundColor: '#DE4123',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['훈딩', '아켄'],
       },
       {
-        id: 2, // 이슈 ID
-        writer: 'Aken', // 작성자 1명
-        assignees: [], // 담당자 N명
-        isOpened: true, // open 여부
-        name: 'DOCS', // 이슈 이름
-        description: '', // 이슈 설명
-        label: null, // 이슈가 갖는 레이블 하나?
-        milestone: null, // 이슈가 속한 마일스톤
-        commentedUser: [], // 코멘트를 여러명 남길 수 있으니까.
+        issueId: 2,
+        issueTitle: '[BE]: Designing the ERD Structure',
+        isOpened: true,
+        writer: {
+          name: '고뭉남',
+          createdAt: '2023-05-17T09:10:35.145Z',
+        },
+        assignees: ['니노', '고뭉남'],
+        milestone: 'GroupProject:IssueTracker',
+        labels: [
+          {
+            labelId: 1,
+            labelName: 'docs',
+            backgroundColor: '#0025E6',
+            textColor: 'light',
+          },
+          {
+            labelId: 2,
+            labelName: 'bug',
+            backgroundColor: '#DE4123',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['니노', '고뭉남'],
       },
       {
-        id: 3, // 이슈 ID
-        writer: 'GOMUNGNAM', // 작성자 1명
-        assignees: [], // 담당자 N명
-        isOpened: true, // open 여부
-        name: 'DOCS', // 이슈 이름
-        description: '', // 이슈 설명
-        label: null, // 이슈가 갖는 레이블 하나?
-        milestone: null, // 이슈가 속한 마일스톤
-        commentedUser: [], // 코멘트를 여러명 남길 수 있으니까.
+        issueId: 3,
+        issueTitle: '[FE]: Implementing UI Layout',
+        isOpened: false,
+        writer: {
+          name: '아켄',
+          createdAt: '2023-05-18T14:25:21.789Z',
+        },
+        assignees: ['훈딩'],
+        milestone: 'GroupProject:IssueTracker',
+        labels: [
+          {
+            labelId: 3,
+            labelName: 'enhancement',
+            backgroundColor: '#50C878',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['아켄', '훈딩'],
       },
       {
-        id: 4, // 이슈 ID
-        writer: 'NINO', // 작성자 1명
-        assignees: [], // 담당자 N명
-        isOpened: true, // open 여부
-        name: 'DOCS', // 이슈 이름
-        description: '', // 이슈 설명
-        label: null, // 이슈가 갖는 레이블 하나?
-        milestone: null, // 이슈가 속한 마일스톤
-        commentedUser: [], // 코멘트를 여러명 남길 수 있으니까.
+        issueId: 4,
+        issueTitle: '[BE]: Implementing Database Queries',
+        isOpened: true,
+        writer: {
+          name: '니노',
+          createdAt: '2023-05-19T12:45:10.621Z',
+        },
+        assignees: ['고뭉남'],
+        milestone: 'GroupProject:IssueTracker',
+        labels: [
+          {
+            labelId: 2,
+            labelName: 'bug',
+            backgroundColor: '#DE4123',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['니노', '고뭉남'],
       },
       {
-        id: 5, // 이슈 ID
-        writer: 'Aiden', // 작성자 1명
-        assignees: [], // 담당자 N명
-        isOpened: true, // open 여부
-        name: 'DOCS', // 이슈 이름
-        description: '', // 이슈 설명
-        label: null, // 이슈가 갖는 레이블 하나?
-        milestone: null, // 이슈가 속한 마일스톤
-        commentedUser: [], // 코멘트를 여러명 남길 수 있으니까.
+        issueId: 5,
+        issueTitle: '[FE]: Implementing Authentication',
+        isOpened: true,
+        writer: {
+          name: '아켄',
+          createdAt: '2023-05-20T10:35:45.321Z',
+        },
+        assignees: ['훈딩', '니노'],
+        milestone: 'GroupProject:IssueTracker',
+        labels: [
+          {
+            labelId: 1,
+            labelName: 'docs',
+            backgroundColor: '#0025E6',
+            textColor: 'light',
+          },
+          {
+            labelId: 2,
+            labelName: 'bug',
+            backgroundColor: '#DE4123',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['아켄', '훈딩'],
       },
       {
-        id: 6, // 이슈 ID
-        writer: 'Sol', // 작성자 1명
-        assignees: [], // 담당자 N명
-        isOpened: true, // open 여부
-        name: 'DOCS', // 이슈 이름
-        description: '', // 이슈 설명
-        label: null, // 이슈가 갖는 레이블 하나?
-        milestone: null, // 이슈가 속한 마일스톤
-        commentedUser: [], // 코멘트를 여러명 남길 수 있으니까.
+        issueId: 6,
+        issueTitle: '[BE]: Refactoring Backend Code',
+        isOpened: true,
+        writer: {
+          name: '고뭉남',
+          createdAt: '2023-05-21T15:12:53.987Z',
+        },
+        assignees: ['니노'],
+        milestone: 'GroupProject:IssueTracker',
+        labels: [
+          {
+            labelId: 4,
+            labelName: 'task',
+            backgroundColor: '#FFD700',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['고뭉남', '니노'],
+      },
+      {
+        issueId: 7,
+        issueTitle: '[FE]: Implementing Search Functionality',
+        isOpened: false,
+        writer: {
+          name: '훈딩',
+          createdAt: '2023-05-22T08:55:10.452Z',
+        },
+        assignees: ['아켄'],
+        milestone: 'GroupProject:IssueTracker',
+        labels: [
+          {
+            labelId: 1,
+            labelName: 'docs',
+            backgroundColor: '#0025E6',
+            textColor: 'light',
+          },
+          {
+            labelId: 3,
+            labelName: 'enhancement',
+            backgroundColor: '#50C878',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['훈딩', '아켄'],
+      },
+      {
+        issueId: 8,
+        issueTitle: '[FE]: Implementing Notifications',
+        isOpened: true,
+        writer: {
+          name: '니노',
+          createdAt: '2023-05-23T11:20:30.872Z',
+        },
+        assignees: ['훈딩', '고뭉남'],
+        milestone: 'GroupProject:IssueTracker',
+        labels: [
+          {
+            labelId: 3,
+            labelName: 'enhancement',
+            backgroundColor: '#50C878',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['니노', '훈딩'],
+      },
+      {
+        issueId: 9,
+        issueTitle: '[BE]: Handling File Uploads',
+        isOpened: true,
+        writer: {
+          name: '아켄',
+          createdAt: '2023-05-24T13:40:15.521Z',
+        },
+        assignees: ['고뭉남'],
+        milestone: 'GroupProject:IssueTracker',
+        labels: [
+          {
+            labelId: 1,
+            labelName: 'docs',
+            backgroundColor: '#0025E6',
+            textColor: 'light',
+          },
+          {
+            labelId: 4,
+            labelName: 'task',
+            backgroundColor: '#FFD700',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['아켄', '고뭉남'],
+      },
+      {
+        issueId: 10,
+        issueTitle: '[FE]: Improving Performance',
+        isOpened: true,
+        writer: {
+          name: '고뭉남',
+          createdAt: '2023-05-25T16:30:20.963',
+        },
+        assignees: ['에이든', 'Sol'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 1,
+            labelName: 'docs',
+            backgroundColor: '#0025E6',
+            textColor: 'light',
+          },
+          {
+            labelId: 3,
+            labelName: 'enhancement',
+            backgroundColor: '#50C878',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['고뭉남', '에이든'],
+      },
+      {
+        issueId: 11,
+        issueTitle: '[BE]: Fixing API Endpoint',
+        isOpened: true,
+        writer: {
+          name: 'Sol',
+          createdAt: '2023-05-26T09:45:35.212',
+        },
+        assignees: ['고뭉남'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 2,
+            labelName: 'bug',
+            backgroundColor: '#DE4123',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['Sol', '고뭉남'],
+      },
+      {
+        issueId: 12,
+        issueTitle: '[FE]: Implementing User Profile',
+        isOpened: false,
+        writer: {
+          name: '에이든',
+          createdAt: '2023-05-27T11:20:15.587',
+        },
+        assignees: ['Sol'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 3,
+            labelName: 'enhancement',
+            backgroundColor: '#50C878',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['에이든', 'Sol'],
+      },
+      {
+        issueId: 13,
+        issueTitle: '[BE]: Database Optimization',
+        isOpened: true,
+        writer: {
+          name: '고뭉남',
+          createdAt: '2023-05-28T14:10:40.931',
+        },
+        assignees: ['에이든'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 4,
+            labelName: 'task',
+            backgroundColor: '#FFD700',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['고뭉남', '에이든'],
+      },
+      {
+        issueId: 14,
+        issueTitle: '[FE]: Adding Unit Tests',
+        isOpened: true,
+        writer: {
+          name: 'Sol',
+          createdAt: '2023-05-29T16:55:25.498',
+        },
+        assignees: ['고뭉남', '에이든', '니노', '아켄', '훈딩'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 1,
+            labelName: 'docs',
+            backgroundColor: '#0025E6',
+            textColor: 'light',
+          },
+          {
+            labelId: 3,
+            labelName: 'enhancement',
+            backgroundColor: '#50C878',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['Sol', '고뭉남', '에이든', '니노', '아켄', '훈딩'],
+      },
+      {
+        issueId: 15,
+        issueTitle: '[BE]: Resolving Performance Bottlenecks',
+        isOpened: true,
+        writer: {
+          name: '에이든',
+          createdAt: '2023-06-01T09:30:45.731',
+        },
+        assignees: ['고뭉남', '니노'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 2,
+            labelName: 'bug',
+            backgroundColor: '#DE4123',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['에이든', '고뭉남', '니노'],
+      },
+      {
+        issueId: 16,
+        issueTitle: '[FE]: Implementing Notifications',
+        isOpened: true,
+        writer: {
+          name: '니노',
+          createdAt: '2023-06-02T14:20:15.958',
+        },
+        assignees: ['아켄', '훈딩'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 3,
+            labelName: 'enhancement',
+            backgroundColor: '#50C878',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['니노', '아켄', '훈딩'],
+      },
+      {
+        issueId: 17,
+        issueTitle: '[BE]: Fixing Security Vulnerabilities',
+        isOpened: true,
+        writer: {
+          name: '고뭉남',
+          createdAt: '2023-06-03T17:40:30.521',
+        },
+        assignees: ['Sol', '에이든'],
+        milestone: 'GroupProject:NewMilestone',
+        labels: [
+          {
+            labelId: 4,
+            labelName: 'task',
+            backgroundColor: '#FFD700',
+            textColor: 'dark',
+          },
+        ],
+        commentedUser: ['고뭉남', 'Sol', '에이든'],
       },
     ],
   },

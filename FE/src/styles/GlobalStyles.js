@@ -123,7 +123,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   ol,
-  ul {
+  ul,li {
     list-style: none;
   }
 
