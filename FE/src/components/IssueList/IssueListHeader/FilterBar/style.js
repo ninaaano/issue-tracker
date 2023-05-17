@@ -1,16 +1,5 @@
 import styled from 'styled-components';
 
-const $FilterBar = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 601px;
-  height: 40px;
-  border: 1px solid ${({ theme }) => theme.colors.neutral.border.active};
-  border-radius: 11px;
-  margin-top: 59px;
-`;
-
 const $FilterButton = styled.button`
   display: flex;
   flex-direction: row;
@@ -55,6 +44,16 @@ const $FilterInput = styled.input`
   vertical-align: middle;
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   font-size: ${({ theme }) => theme.fontSize.M.fontSize};
+`;
+
+const $FilterBar = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 601px;
+  height: 40px;
+  border: 1px solid ${({ theme }) => theme.colors.neutral.border.active};
+  border-radius: 11px;
 `;
 
 export { $FilterBar, $FilterButton, $FilterInputWrapper, $FilterInput };

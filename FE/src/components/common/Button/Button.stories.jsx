@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Button from '.';
+import Icon from '../Icon';
 
 const meta = {
   title: 'Button',
@@ -18,7 +19,12 @@ const Template = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: 'button',
+  children: (
+    <>
+      <Icon name="plus" />
+      Button
+    </>
+  ),
   active: false,
   type: 'contained',
   size: 'L',
