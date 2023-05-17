@@ -6,7 +6,7 @@ import { $DropDownButton } from './style';
 
 const DropDownButton = ({ name }) => {
   return (
-    <$DropDownButton className={name} type="ghost" size="M">
+    <$DropDownButton type="ghost" size="M">
       {name}
       <Icon name="chevronDown" />
     </$DropDownButton>
