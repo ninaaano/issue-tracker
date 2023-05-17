@@ -12,7 +12,7 @@ const mockIssuesData = {
         assignees: [
           {
             name: '아켄',
-            profileImgSrc: '',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             name: '훈딩',
@@ -44,7 +44,16 @@ const mockIssuesData = {
           name: '고뭉남',
           createdAt: '2023-05-17T09:10:35.145Z',
         },
-        assignees: ['니노', '고뭉남'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:IssueTracker',
         labels: [
           {
@@ -70,7 +79,16 @@ const mockIssuesData = {
           name: '아켄',
           createdAt: '2023-05-18T14:25:21.789Z',
         },
-        assignees: ['훈딩'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:IssueTracker',
         labels: [
           {
@@ -90,7 +108,16 @@ const mockIssuesData = {
           name: '니노',
           createdAt: '2023-05-19T12:45:10.621Z',
         },
-        assignees: ['고뭉남'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:IssueTracker',
         labels: [
           {
@@ -110,7 +137,16 @@ const mockIssuesData = {
           name: '아켄',
           createdAt: '2023-05-20T10:35:45.321Z',
         },
-        assignees: ['훈딩', '니노'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:IssueTracker',
         labels: [
           {
@@ -136,7 +172,16 @@ const mockIssuesData = {
           name: '고뭉남',
           createdAt: '2023-05-21T15:12:53.987Z',
         },
-        assignees: ['니노'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:IssueTracker',
         labels: [
           {
@@ -156,7 +201,16 @@ const mockIssuesData = {
           name: '훈딩',
           createdAt: '2023-05-22T08:55:10.452Z',
         },
-        assignees: ['아켄'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:IssueTracker',
         labels: [
           {
@@ -182,7 +236,16 @@ const mockIssuesData = {
           name: '니노',
           createdAt: '2023-05-23T11:20:30.872Z',
         },
-        assignees: ['훈딩', '고뭉남'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:IssueTracker',
         labels: [
           {
@@ -202,7 +265,16 @@ const mockIssuesData = {
           name: '아켄',
           createdAt: '2023-05-24T13:40:15.521Z',
         },
-        assignees: ['고뭉남'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:IssueTracker',
         labels: [
           {
@@ -228,7 +300,16 @@ const mockIssuesData = {
           name: '고뭉남',
           createdAt: '2023-05-25T16:30:20.963',
         },
-        assignees: ['에이든', 'Sol'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:NewMilestone',
         labels: [
           {
@@ -254,7 +335,16 @@ const mockIssuesData = {
           name: 'Sol',
           createdAt: '2023-05-26T09:45:35.212',
         },
-        assignees: ['고뭉남'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:NewMilestone',
         labels: [
           {
@@ -274,7 +364,16 @@ const mockIssuesData = {
           name: '에이든',
           createdAt: '2023-05-27T11:20:15.587',
         },
-        assignees: ['Sol'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:NewMilestone',
         labels: [
           {
@@ -294,7 +393,16 @@ const mockIssuesData = {
           name: '고뭉남',
           createdAt: '2023-05-28T14:10:40.931',
         },
-        assignees: ['에이든'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:NewMilestone',
         labels: [
           {
@@ -314,7 +422,16 @@ const mockIssuesData = {
           name: 'Sol',
           createdAt: '2023-05-29T16:55:25.498',
         },
-        assignees: ['고뭉남', '에이든', '니노', '아켄', '훈딩'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:NewMilestone',
         labels: [
           {
@@ -340,7 +457,16 @@ const mockIssuesData = {
           name: '에이든',
           createdAt: '2023-06-01T09:30:45.731',
         },
-        assignees: ['고뭉남', '니노'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:NewMilestone',
         labels: [
           {
@@ -360,7 +486,16 @@ const mockIssuesData = {
           name: '니노',
           createdAt: '2023-06-02T14:20:15.958',
         },
-        assignees: ['아켄', '훈딩'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:NewMilestone',
         labels: [
           {
@@ -380,7 +515,16 @@ const mockIssuesData = {
           name: '고뭉남',
           createdAt: '2023-06-03T17:40:30.521',
         },
-        assignees: ['Sol', '에이든'],
+        assignees: [
+          {
+            name: '아켄',
+            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          },
+          {
+            name: '훈딩',
+            profileImgSrc: '',
+          },
+        ],
         milestone: 'GroupProject:NewMilestone',
         labels: [
           {
