@@ -20,7 +20,7 @@ Primary.args = {
   labels: [
     {
       labelId: 1,
-      labelName: 'docs',
+      labelName: 'documentation',
       backgroundColor: '#0025E6',
       textColor: 'light',
     },

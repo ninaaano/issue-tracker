@@ -42,7 +42,6 @@ const $IssueInfo = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  text-align: center;
   margin-left: 80px;
   height: 50%;
   font-size: ${({ theme }) => theme.fontSize.M.fontSize};
