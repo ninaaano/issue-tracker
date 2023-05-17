@@ -36,6 +36,7 @@ const IssueListMainHeader = (props) => {
   return (
     <$IssueListMainHeader>
       <$LeftButton>
+        {/* { TODO: 조건부 렌더링으로 헤더부분 갈아끼워야함 } */}
         <$CheckBox type="button" onClick={checkBoxClickHandler}>
           <Icon
             name={isSelected ? 'checkBoxActive' : 'checkBoxInitial'}
@@ -46,6 +47,7 @@ const IssueListMainHeader = (props) => {
         <IssueButton status="close" />
       </$LeftButton>
       <$RightButton>
+        {/* { TODO: 조건부 렌더링으로 헤더부분 갈아끼워야함 } */}
         <DropDownButton name="담당자" />
         <DropDownButton name="레이블" />
         <DropDownButton name="마일스톤" />

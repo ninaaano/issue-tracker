@@ -52,7 +52,7 @@ const $FilterBar = styled.div`
   align-items: flex-start;
   width: 601px;
   height: 40px;
-  border: 1px solid ${({ theme }) => theme.colors.neutral.border.active};
+  border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
   border-radius: 11px;
 `;
 
