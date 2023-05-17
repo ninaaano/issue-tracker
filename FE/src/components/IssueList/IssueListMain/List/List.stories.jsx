@@ -30,4 +30,10 @@ Primary.args = {
     createdAt: '2023-05-16T09:10:35.145Z',
   },
   milestone: 'GroupProject:IssueTracker',
+  assignees: [
+    {
+      name: '고뭉남',
+      profileImgSrc: 'https://avatars.githubusercontent.com/u/77562698?v=4',
+    },
+  ],
 };

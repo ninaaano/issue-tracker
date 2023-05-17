@@ -14,10 +14,11 @@ const $UpElements = styled.div`
   align-items: center;
   justify-content: flex-start;
   height: 50%;
-  & > svg {
-    margin-left: 32px;
-    margin-right: 32px;
-  }
+`;
+
+const $CheckBox = styled.button`
+  margin-left: 32px;
+  margin-right: 32px;
 `;
 
 const $IssueTitle = styled.div`
@@ -32,10 +33,6 @@ const $IssueTitle = styled.div`
   & > span {
     margin-right: 8px;
   }
-`;
-
-const $CheckBox = styled(Icon)`
-  cursor: pointer;
 `;
 
 const $IssueInfo = styled.div`
@@ -57,9 +54,16 @@ const $IssueInfo = styled.div`
 
 const $Assignee = styled.img`
   margin-right: 54px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
 `;
 
 const $List = styled.li`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: 100px;
   // TODO: Remove

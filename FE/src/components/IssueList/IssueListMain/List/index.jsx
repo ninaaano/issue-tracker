@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Icon from '../../../common/Icon';
 import Label from '../../../common/Label';
 import { $List, $LeftElements, $UpElements, $IssueTitle, $IssueInfo, $Assignee, $CheckBox } from './style';
 
-const List = ({ issueId, issueTitle, labels, writer, milestone }) => {
+const List = ({ issueId, issueTitle, labels, writer, milestone, assignees }) => {
+  const [isSelected, setIsSelected] = useState(false);
+
+  const checkBoxClickHandler = () => {
+    setIsSelected((prev) => !prev);
+  };
   const Labels = labels.map(({ labelId, textColor, backgroundColor, labelName }) => {
     return (
       <Label
@@ -22,7 +27,12 @@ const List = ({ issueId, issueTitle, labels, writer, milestone }) => {
     <$List>
       <$LeftElements>
         <$UpElements>
-          <$CheckBox name="checkBoxInitial" fill="#D9DBE9" />
+          <$CheckBox type="button" onClick={checkBoxClickHandler}>
+            <Icon
+              name={isSelected ? 'checkBoxActive' : 'checkBoxInitial'}
+              fill={isSelected ? '#007AFF' : '#D9DBE9'}
+            />
+          </$CheckBox>
           <$IssueTitle>
             <Icon name="alertCircle" fill="#007AFF" />
             <span>{issueTitle}</span>
@@ -39,7 +49,7 @@ const List = ({ issueId, issueTitle, labels, writer, milestone }) => {
         </$IssueInfo>
       </$LeftElements>
 
-      <$Assignee />
+      <$Assignee src={assignees[0].profileImgSrc} />
     </$List>
   );
 };
@@ -50,6 +60,7 @@ List.propTypes = {
   labels: PropTypes.arrayOf(PropTypes.object),
   writer: PropTypes.object,
   milestone: PropTypes.string,
+  assignees: PropTypes.array,
 };
 
 export default List;
