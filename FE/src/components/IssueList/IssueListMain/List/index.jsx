@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Icon from '../../../common/Icon';
 import Label from '../../../common/Label';
-import { $List, $LeftElements, $UpElements, $IssueTitle, $IssueInfo, $Assignee } from './style';
+import { $List, $LeftElements, $UpElements, $IssueTitle, $IssueInfo, $Assignee, $CheckBox } from './style';
 
 const List = ({ issueId, issueTitle, labels, writer, milestone }) => {
   const Labels = labels.map(({ labelId, textColor, backgroundColor, labelName }) => {
@@ -22,7 +22,7 @@ const List = ({ issueId, issueTitle, labels, writer, milestone }) => {
     <$List>
       <$LeftElements>
         <$UpElements>
-          <Icon name="checkBoxInitial" />
+          <$CheckBox name="checkBoxInitial" fill="#D9DBE9" />
           <$IssueTitle>
             <Icon name="alertCircle" fill="#007AFF" />
             <span>{issueTitle}</span>

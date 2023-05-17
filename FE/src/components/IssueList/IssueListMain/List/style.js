@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 
-const $List = styled.li`
-  width: 100%;
-  height: 100px;
-  // TODO: Remove
-  background-color: #fefefe;
-`;
+import Icon from '../../../common/Icon';
 
 const $LeftElements = styled.div`
   display: flex;
@@ -24,6 +19,7 @@ const $UpElements = styled.div`
     margin-right: 32px;
   }
 `;
+
 const $IssueTitle = styled.div`
   display: flex;
   flex-direction: row;
@@ -36,6 +32,10 @@ const $IssueTitle = styled.div`
   & > span {
     margin-right: 8px;
   }
+`;
+
+const $CheckBox = styled(Icon)`
+  cursor: pointer;
 `;
 
 const $IssueInfo = styled.div`
@@ -59,4 +59,11 @@ const $Assignee = styled.img`
   margin-right: 54px;
 `;
 
-export { $List, $LeftElements, $UpElements, $IssueTitle, $IssueInfo, $Assignee };
+const $List = styled.li`
+  width: 100%;
+  height: 100px;
+  // TODO: Remove
+  background-color: #fefefe;
+`;
+
+export { $List, $LeftElements, $UpElements, $IssueTitle, $IssueInfo, $Assignee, $CheckBox };
