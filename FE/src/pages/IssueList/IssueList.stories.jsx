@@ -1,5 +1,5 @@
 import React from 'react';
-import IssueList from '.';
+import IssueList from '../../components/IssueList';
 
 const meta = {
   title: 'Issue List View',

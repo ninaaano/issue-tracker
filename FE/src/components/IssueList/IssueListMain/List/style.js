@@ -11,9 +11,11 @@ const $LeftElements = styled.div`
 const $UpElements = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+
   justify-content: flex-start;
   height: 50%;
+  padding-top: 10px;
+  align-items: center;
 `;
 
 const $CheckBox = styled.button`
@@ -33,12 +35,15 @@ const $IssueTitle = styled.div`
   & > span {
     margin-right: 8px;
   }
+  & > div {
+    margin-right: 4px;
+  }
 `;
 
 const $IssueInfo = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  padding-top: 13px;
   margin-left: 80px;
   height: 50%;
   font-size: ${({ theme }) => theme.fontSize.M.fontSize};
@@ -67,7 +72,7 @@ const $List = styled.li`
   width: 100%;
   height: 100px;
   // TODO: Remove
-  background-color: #fefefe;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
 `;
 
 export { $List, $LeftElements, $UpElements, $IssueTitle, $IssueInfo, $Assignee, $CheckBox };

@@ -11,6 +11,7 @@ const List = ({ issueId, issueTitle, labels, writer, milestone, assignees }) => 
   const checkBoxClickHandler = () => {
     setIsSelected((prev) => !prev);
   };
+
   const Labels = labels.map(({ labelId, textColor, backgroundColor, labelName }) => {
     return (
       <Label

@@ -4,6 +4,7 @@ import GlobalStyles from './styles/GlobalStyles';
 import Header from './components/Header';
 import { USERS } from './constants/api';
 import theme from './styles/theme';
+import IssueList from './pages/IssueList';
 
 const App = () => {
   const [userData, setUserData] = useState({
@@ -37,6 +38,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Header userImgSrc={userData.userImgSrc} userName={userData.userName} />
+      <IssueList />
     </ThemeProvider>
   );
 };
