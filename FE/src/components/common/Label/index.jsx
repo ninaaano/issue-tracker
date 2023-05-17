@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { $LabelWrapper } from './style';
+import { $Label } from './style';
 
 const Label = ({ height, name, textColor, backgroundColor }) => {
   // TODO: 옆에 아이콘 넣기 해야함.
   return (
-    <$LabelWrapper height={height} textColor={textColor} backgroundColor={backgroundColor}>
+    <$Label height={height} textColor={textColor} backgroundColor={backgroundColor}>
       {name}
-    </$LabelWrapper>
+    </$Label>
   );
 };
 

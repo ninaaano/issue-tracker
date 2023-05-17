@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const $LabelWrapper = styled.div`
+const $Label = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -21,4 +21,4 @@ const $LabelWrapper = styled.div`
   font-size: ${({ theme }) => theme.fontSize.S.fontSize};
 `;
 
-export { $LabelWrapper };
+export { $Label };
