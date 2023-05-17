@@ -42,5 +42,6 @@ module.exports = {
       { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] },
       { blankLine: 'always', prev: ['case', 'default'], next: '*' },
     ],
+    'react/forbid-prop-types': 0, // Proptypes.object, array 사용하기 위해 off
   },
 };
