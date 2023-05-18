@@ -7,6 +7,7 @@ import { ReactComponent as checkBoxInitial } from '../../../assets/Icons/checkBo
 import { ReactComponent as checkOffCircle } from '../../../assets/Icons/checkOffCircle.svg';
 import { ReactComponent as checkOnCircle } from '../../../assets/Icons/checkOnCircle.svg';
 import { ReactComponent as chevronDown } from '../../../assets/Icons/chevronDown.svg';
+import { ReactComponent as defaultLogo } from '../../../assets/defaultLogo.svg';
 import { ReactComponent as edit } from '../../../assets/Icons/edit.svg';
 import { ReactComponent as milestone } from '../../../assets/Icons/milestone.svg';
 import { ReactComponent as paperclip } from '../../../assets/Icons/paperclip.svg';
@@ -17,6 +18,8 @@ import { ReactComponent as smile } from '../../../assets/Icons/smile.svg';
 import { ReactComponent as trash } from '../../../assets/Icons/trash.svg';
 import { ReactComponent as xSquare } from '../../../assets/Icons/xSquare.svg';
 import { ReactComponent as label } from '../../../assets/Icons/label.svg';
+import { ReactComponent as darkMode } from '../../../assets/Icons/darkMode.svg';
+import { ReactComponent as lightMode } from '../../../assets/Icons/lightMode.svg';
 
 export default {
   alertCircle,
@@ -28,6 +31,7 @@ export default {
   checkOffCircle,
   checkOnCircle,
   chevronDown,
+  defaultLogo,
   edit,
   milestone,
   paperclip,
@@ -38,4 +42,6 @@ export default {
   trash,
   xSquare,
   label,
+  darkMode,
+  lightMode,
 };
