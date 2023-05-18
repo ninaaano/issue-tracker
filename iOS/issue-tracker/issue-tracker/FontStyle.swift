@@ -13,38 +13,38 @@ enum Weight {
 }
 
 enum FontSize {
-    case XXL
-    case XL
-    case L
-    case M
-    case S
+    case xxLarge
+    case xLarge
+    case large
+    case medium
+    case small
     
     var size: CGFloat {
         switch self {
-        case .XXL:
+        case .xxLarge:
             return 32
-        case .XL:
+        case .xLarge:
             return 24
-        case .L:
+        case .large:
             return 18
-        case .M:
+        case .medium:
             return 15
-        case .S:
+        case .small:
             return 12
         }
     }
     
     var lienLength: CGFloat {
         switch self {
-        case .XXL:
+        case .xxLarge:
             return 48
-        case .XL:
+        case .xLarge:
             return 40
-        case .L:
+        case .large:
             return 32
-        case .M:
+        case .medium:
             return 28
-        case .S:
+        case .small:
             return 20
         }
     }
@@ -55,28 +55,29 @@ struct Factor {
     let lineLength: CGFloat
 }
 
-
 enum FontStyle {
-    static let body = Factor(font: .systemFont(ofSize: FontSize.M.size, weight: Weight.regular),
-                             lineLength: FontSize.M.lienLength)
-    static let bodyMiedium = Factor(font: .systemFont(ofSize: FontSize.M.size, weight: Weight.bold),
-                                    lineLength: FontSize.M.lienLength)
-    static let title = Factor(font: .systemFont(ofSize: FontSize.L.size, weight: Weight.bold),
-                              lineLength: FontSize.L.lienLength)
-    static let titleMedium = Factor(font: .systemFont(ofSize: FontSize.XL.size, weight: Weight.regular),
-                                    lineLength: FontSize.XL.lienLength)
-    static let titleStrong = Factor(font: .systemFont(ofSize: FontSize.XXL.size, weight: Weight.regular),
-                                    lineLength: FontSize.XXL.lienLength)
-    static let button = Factor(font: .systemFont(ofSize: FontSize.M.size, weight: Weight.bold),
-                               lineLength: FontSize.M.lienLength)
-    static let buttonWeek = Factor(font: .systemFont(ofSize: FontSize.S.size, weight: Weight.bold),
-                                   lineLength: FontSize.S.lienLength)
-    static let buttonStrong = Factor(font: .systemFont(ofSize: FontSize.L.size, weight: Weight.bold),
-                                     lineLength: FontSize.L.lienLength)
-    static let placehold = Factor(font: .systemFont(ofSize: FontSize.M.size, weight: Weight.bold),
-                                  lineLength: FontSize.M.lienLength)
-    static let caption = Factor(font: .systemFont(ofSize: FontSize.S.size, weight: Weight.bold),
-                                lineLength: FontSize.S.lienLength)
-    static let label = Factor(font: .systemFont(ofSize: FontSize.S.size, weight: Weight.bold),
-                              lineLength: FontSize.S.lienLength)
+    static let body = Factor(font: .systemFont(ofSize: FontSize.medium.size, weight: Weight.regular),
+                             lineLength: FontSize.medium.lienLength)
+    static let bodyMiedium = Factor(font: .systemFont(ofSize: FontSize.medium.size, weight: Weight.bold),
+                                    lineLength: FontSize.medium.lienLength)
+    static let title = Factor(font: .systemFont(ofSize: FontSize.large.size, weight: Weight.bold),
+                              lineLength: FontSize.large.lienLength)
+    static let titleMedium = Factor(font: .systemFont(ofSize: FontSize.xLarge.size, weight: Weight.regular),
+                                    lineLength: FontSize.xLarge.lienLength)
+    static let titleStrong = Factor(font: .systemFont(ofSize: FontSize.xxLarge.size, weight: Weight.regular),
+                                    lineLength: FontSize.xxLarge.lienLength)
+    static let button = Factor(font: .systemFont(ofSize: FontSize.medium.size, weight: Weight.bold),
+                               lineLength: FontSize.medium.lienLength)
+    static let buttonWeek = Factor(font: .systemFont(ofSize: FontSize.small.size, weight: Weight.bold),
+                                   lineLength: FontSize.small.lienLength)
+    static let buttonStrong = Factor(font: .systemFont(ofSize: FontSize.large.size, weight: Weight.bold),
+                                     lineLength: FontSize.large.lienLength)
+    static let placehold = Factor(font: .systemFont(ofSize: FontSize.medium.size, weight: Weight.bold),
+                                  lineLength: FontSize.medium.lienLength)
+    static let caption = Factor(font: .systemFont(ofSize: FontSize.small.size, weight: Weight.bold),
+                                lineLength: FontSize.small.lienLength)
+    static let label = Factor(font: .systemFont(ofSize: FontSize.small.size, weight: Weight.bold),
+                              lineLength: FontSize.small.lienLength)
+    static let sectionItem = Factor(font: .systemFont(ofSize: FontSize.large.size, weight: Weight.regular),
+                                    lineLength: FontSize.large.lienLength)
 }
