@@ -11,13 +11,13 @@ const $Label = styled.div`
   border-radius: 50px;
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: ${({ theme, textColor }) => {
-    return textColor === 'dark' ? theme.colors.neutral.text.strong : theme.colors.neutral.background.strong;
+    return textColor === 'dark' ? '#14142B' : '#FEFEFE';
   }};
 
   // TODO : 글씨체 바꿔보고 삭제 요망
   letter-spacing: 0.5px;
 
-  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   font-size: ${({ theme }) => theme.fontSize.S.fontSize};
 `;
 
