@@ -1,4 +1,4 @@
-package team05.codesquad.issuetracker.domain;
+package team05.codesquad.issuetracker.domain.member;
 
 import lombok.Getter;
 import lombok.Setter;
