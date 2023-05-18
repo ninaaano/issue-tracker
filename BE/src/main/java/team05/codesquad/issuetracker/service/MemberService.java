@@ -2,7 +2,7 @@ package team05.codesquad.issuetracker.service;
 
 import lombok.Getter;
 import lombok.Setter;
-import team05.codesquad.issuetracker.domain.Member;
+import team05.codesquad.issuetracker.domain.member.Member;
 
 import java.util.List;
 

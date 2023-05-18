@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
-import team05.codesquad.issuetracker.domain.Issue;
+import team05.codesquad.issuetracker.domain.issue.Issue;
 
 import java.time.LocalDate;
 import java.util.List;
