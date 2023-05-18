@@ -1,17 +1,20 @@
 package team05.codesquad.issuetracker.domain.member;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 
-@Getter
-@Setter
+@Data
 public class Member {
 
+    @Id
+    @Column("member_id")
     private Long id;
     private String memberId;
+    private String password;
+    private String imgUrl;
 
-    public Member(Long id, String memberId) {
-        this.id = id;
-        this.memberId = memberId;
-    }
+
 }
