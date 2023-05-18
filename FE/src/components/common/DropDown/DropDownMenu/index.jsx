@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import Icon from '../../Icon';
 import { $MenuWrapper, $MenuLeftWrapper, $MenuImg, $MenuText } from './style';
 
-const DropDownMenu = ({ key, menuImg = null, menuText = '', isChecked = false }) => {
+const DropDownMenu = ({ menuImg = null, menuText, isChecked = false }) => {
   return (
-    <$MenuWrapper key={key}>
+    <$MenuWrapper>
       <$MenuLeftWrapper>
         {menuImg !== null && <$MenuImg src={menuImg} />}
         <$MenuText $isChecked={isChecked}>{menuText}</$MenuText>
@@ -17,7 +17,6 @@ const DropDownMenu = ({ key, menuImg = null, menuText = '', isChecked = false })
 };
 
 DropDownMenu.propTypes = {
-  key: PropTypes.number.isRequired,
   menuImg: PropTypes.string,
   menuText: PropTypes.string.isRequired,
   isChecked: PropTypes.bool,
