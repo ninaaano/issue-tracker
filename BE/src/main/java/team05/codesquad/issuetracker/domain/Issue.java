@@ -1,19 +1,17 @@
 package team05.codesquad.issuetracker.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Builder;
+import lombok.Data;
+import org.springframework.data.annotation.Id;
 
-import javax.validation.constraints.NotBlank;
-
-@ToString
-@Getter
-@Setter
+@Data
+@Builder
 public class Issue {
 
-    @NotBlank
-    private String title;
-    @NotBlank
-    private String content;
+    @Id
+    private Long issueId;
+    private int issueWriter;
+    private String issueTitle;
+    private String issueContents;
 
 }
