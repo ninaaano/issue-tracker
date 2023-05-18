@@ -14,7 +14,7 @@ final class IssueListHeaderView: UICollectionReusableView {
         let title = UILabel()
         title.text = "이슈"
         title.textAlignment = .left
-        title.font = .systemFont(ofSize: 32, weight: .semibold)
+        title.font = FontStyle.titleStrong.font
         title.textColor = .black
         return title
     }()
