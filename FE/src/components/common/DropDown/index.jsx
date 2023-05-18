@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { $DropDownHeader, $DropDownMenus, $DropDownWrapper } from './style';
@@ -12,9 +12,22 @@ const filterName = {
   assignee: '담당자',
 };
 
-const DropDown = ({ className = '', type, menus }) => {
+const DropDown = ({ className = '', type, menus, closeHandler }) => {
+  const dropDownElement = useRef(null);
+
+  const closeModalHandler = ({ target }) => {
+    if (dropDownElement.current && !dropDownElement.current.contains(target)) closeHandler();
+  };
+
+  useEffect(() => {
+    window.addEventListener('click', closeModalHandler);
+    return () => {
+      window.removeEventListener('click', closeModalHandler);
+    };
+  }, []);
+
   return (
-    <$DropDownWrapper className={className}>
+    <$DropDownWrapper className={className} ref={dropDownElement}>
       <$DropDownHeader>{`${filterName[type]} 필터`}</$DropDownHeader>
       <$DropDownMenus>
         {menus.map(({ id, imgSrc, text, isChecked }) => (
@@ -36,6 +49,7 @@ DropDown.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string.isRequired,
   menus: PropTypes.arrayOf(PropTypes.object).isRequired,
+  closeHandler: PropTypes.func.isRequired,
 };
 
 export default DropDown;
