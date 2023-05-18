@@ -13,7 +13,6 @@ class IssueFilterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.collectionView.register(IssueFilterCell.self, forCellWithReuseIdentifier: IssueFilterCell.identifier)
         self.collectionView.register(
             IssueFilterHeaderCell.self,
@@ -28,11 +27,11 @@ class IssueFilterViewController: UIViewController {
     private func configureNavigationBar() {
         self.title = "필터"
         self.navigationController?.navigationBar.titleTextAttributes = [.font: FontStyle.title.font]
-
-        let backButton = UIBarButtonItem(image: UIImage(systemName: SFsymbol.chevronLeft.rawValue))
-        let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(backButtonTapped))
         
-        self.navigationItem.leftBarButtonItems = [backButton, cancelButton]
+//        let backButton = UIBarButtonItem(image: UIImage(systemName: SFsymbol.chevronLeft.rawValue))
+        let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(backButtonTapped))
+        cancelButton.setTitleTextAttributes([.font: FontStyle.title.font], for: .normal)
+        self.navigationItem.leftBarButtonItem = cancelButton // [backButton, cancelButton]
         
         let saveButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonTapped))
         saveButtonItem.setTitleTextAttributes([.font: FontStyle.title.font], for: .normal)
@@ -60,7 +59,7 @@ class IssueFilterViewController: UIViewController {
     }
     
     @objc func backButtonTapped() {
-        print("back")
+        self.dismiss(animated: true)
     }
 }
 

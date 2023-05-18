@@ -12,7 +12,8 @@ final class TabBarViewController: UITabBarController {
         let issueView = IssueViewController()
         let navigation = UINavigationController(rootViewController: issueView)
         issueView.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "선택", style: .plain, target: nil, action: nil)
-        issueView.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "필터", style: .plain, target: nil, action: nil)
+        issueView.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "필터", style: .plain, target: nil, action: #selector(addTapped))
+        
         return navigation
     }()
     
@@ -35,5 +36,11 @@ final class TabBarViewController: UITabBarController {
         issueView.tabBarItem = UITabBarItem(title: TabBarType.issue.title, image: UIImage(named: TabBarType.issue.image), tag: 0)
         labelView.tabBarItem = UITabBarItem(title: TabBarType.label.title, image: UIImage(named: TabBarType.label.image), tag: 1)
         mileStoneView.tabBarItem = UITabBarItem(title: TabBarType.milestone.title, image: UIImage(named: TabBarType.milestone.image), tag: 2)
+    }
+    
+    @objc func addTapped() {
+        let issueFilterViewController = IssueFilterViewController()
+        let issueFilterNavigation = UINavigationController(rootViewController: issueFilterViewController)
+        issueView.present(issueFilterNavigation, animated: true)
     }
 }
