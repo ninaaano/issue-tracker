@@ -11,9 +11,9 @@ final class IssueCardCell: UICollectionViewCell {
     static let identifier = "Cell"
     
     private(set) var title = CustomLabelView(text: "제목", alignment: .left, font: .systemFont(ofSize: 18, weight: .bold))
-    private(set) var explanation = CustomLabelView(text: "안녕하세요이번PR도잘부탁드립니다Diffable은금방적용해보겠습니다", alignment: .left, font: .systemFont(ofSize: 14, weight: .medium))
-    private(set) var milestone = CustomLabelView(text: "마일스톤", alignment: .left, font: .systemFont(ofSize: 14, weight: .medium))
-    private(set) var label = CustomLabelView(text: "레이블", alignment: .left, font: .systemFont(ofSize: 12, weight: .medium))
+    private(set) var explanation = CustomLabelView(text: "안녕하세요이번PR도잘부탁드립니다", alignment: .left, font: FontStyle.body.font)
+    private(set) var milestone = CustomLabelView(text: "마일스톤", alignment: .left, font: FontStyle.body.font)
+    private(set) var label = CustomLabelView(text: "레이블", alignment: .left, font: FontStyle.body.font)
     private(set) var milestoneImage = UIImageView(image: UIImage(named: TabBarType.milestone.image))
     private(set) var informationArrowImage: UIImageView = {
         let imageView = UIImageView()

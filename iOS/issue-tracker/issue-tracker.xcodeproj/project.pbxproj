@@ -93,18 +93,9 @@
 				2AF58EC92A0B390100EE8623 /* AppDelegate.swift */,
 				2AF58ECB2A0B390100EE8623 /* SceneDelegate.swift */,
 				FF769DFC2A126EFB00A0DFF9 /* IssueFilter */,
-				2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */,
-				2AF58ECD2A0B390100EE8623 /* IssueViewController.swift */,
-				2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */,
-				2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */,
-				2AC16D312A149CF400E71F75 /* CustomLabelView.swift */,
-				2AF58EEC2A12555E00EE8623 /* ColorValue.swift */,
-				2AF58EE62A0D162900EE8623 /* TabBarViewController.swift */,
-				2AF58EE82A0D454000EE8623 /* TabBarType.swift */,
-				2ABB37F82A1673330044171C /* SFsymbol.swift */,
-				2AC16D2D2A12920C00E71F75 /* IssueListHeaderView.swift */,
-				2AF58EE82A0D454000EE8623 /* SymbolImage.swift */,
-				FF769DC82A11D81000A0DFF9 /* FontStyle.swift */,
+				FFFC0BC02A168166006F76AF /* IssueList */,
+				FFFC0BC22A16819E006F76AF /* TabBar */,
+				FFFC0BC12A168175006F76AF /* CommonTypeValue */,
 				2AF58ED22A0B390400EE8623 /* Assets.xcassets */,
 				2AF58ED42A0B390400EE8623 /* LaunchScreen.storyboard */,
 				2AF58ED72A0B390400EE8623 /* Info.plist */,
@@ -137,6 +128,38 @@
 				FFFC0BBE2A14A754006F76AF /* IssueFilterHeaderCell.swift */,
 			);
 			path = IssueFilter;
+			sourceTree = "<group>";
+		};
+		FFFC0BC02A168166006F76AF /* IssueList */ = {
+			isa = PBXGroup;
+			children = (
+				2AF58ECD2A0B390100EE8623 /* IssueViewController.swift */,
+				2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */,
+				2AC16D312A149CF400E71F75 /* CustomLabelView.swift */,
+				2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */,
+				2AC16D2D2A12920C00E71F75 /* IssueListHeaderView.swift */,
+				2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */,
+			);
+			path = IssueList;
+			sourceTree = "<group>";
+		};
+		FFFC0BC12A168175006F76AF /* CommonTypeValue */ = {
+			isa = PBXGroup;
+			children = (
+				2ABB37F82A1673330044171C /* SFsymbol.swift */,
+				2AF58EEC2A12555E00EE8623 /* ColorValue.swift */,
+				FF769DC82A11D81000A0DFF9 /* FontStyle.swift */,
+			);
+			path = CommonTypeValue;
+			sourceTree = "<group>";
+		};
+		FFFC0BC22A16819E006F76AF /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				2AF58EE82A0D454000EE8623 /* TabBarType.swift */,
+				2AF58EE62A0D162900EE8623 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +283,7 @@
 				2AF58EE32A0CF85800EE8623 /* LabelViewController.swift in Sources */,
 				2AF58EE92A0D454000EE8623 /* TabBarType.swift in Sources */,
 				FF769DC92A11D81000A0DFF9 /* FontStyle.swift in Sources */,
-				2AF58EE92A0D454000EE8623 /* SymbolImage.swift in Sources */,
+				2AF58EE92A0D454000EE8623 /* TabBarType.swift in Sources */,
 				2AF58ECE2A0B390100EE8623 /* IssueViewController.swift in Sources */,
 				2AF58ECA2A0B390100EE8623 /* AppDelegate.swift in Sources */,
 				2AF58ECC2A0B390100EE8623 /* SceneDelegate.swift in Sources */,
