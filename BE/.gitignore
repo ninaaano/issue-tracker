@@ -39,3 +39,4 @@ out/
 .vscode/
 
 src/main/resources/application-localDB.properties
+src/main/resources/application.yml
