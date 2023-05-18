@@ -11,9 +11,9 @@ const Icon = ({ name, width = 16, height = 16, fill = '#14142b' }) => {
 
 Icon.propTypes = {
   name: PropTypes.string.isRequired,
-  width: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
-  fill: PropTypes.string.isRequired,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  fill: PropTypes.string,
 };
 
 export default Icon;
