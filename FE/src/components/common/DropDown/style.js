@@ -2,9 +2,12 @@ import styled from 'styled-components';
 
 const $DropDownWrapper = styled.section`
   display: flex;
+  width: 240px;
   flex-direction: column;
   align-items: flex-start;
-  width: 240px;
+  border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
+  border-radius: 16px;
+  overflow: hidden;
 `;
 
 const $DropDownHeader = styled.header`
@@ -14,8 +17,7 @@ const $DropDownHeader = styled.header`
   display: flex;
   flex-direction: row;
   align-items: center;
-
-  border-radius: 16px 16px 0px 0px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
   background-color: ${({ theme }) => theme.colors.neutral.background.bold};
   color: ${({ theme }) => theme.colors.neutral.text.strong};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
