@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const $MenuWrapper = styled.li`
+const $MenuWrapper = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -8,6 +8,7 @@ const $MenuWrapper = styled.li`
   width: 100%;
   height: 44px;
   background-color: ${({ theme }) => theme.colors.neutral.background.strong};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
 `;
 
 const $MenuLeftWrapper = styled.div`
