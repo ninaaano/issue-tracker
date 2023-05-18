@@ -44,5 +44,6 @@ module.exports = {
       { blankLine: 'always', prev: ['case', 'default'], next: '*' },
     ],
     'react/forbid-prop-types': 0, // Proptypes.object, array 사용하기 위해 off
+    'react/jsx-no-constructed-context-values': 0, // context 전달할때 useMemo, useCallback으로 필수적으로 감싸야하는 설정 off
   },
 };
