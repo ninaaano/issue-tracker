@@ -1,15 +1,24 @@
 import styled from 'styled-components';
 
-const $Header = styled.header`
+const $RightElements = styled.div`
   display: flex;
-  justify-content: space-between;
-  padding: 27px 0;
-
   & > img {
+    margin-left: 15px;
     width: 32px;
     height: 32px;
     border-radius: 50%;
   }
 `;
 
-export { $Header };
+const $Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+
+  padding: 27px 0;
+
+  & > a > svg {
+    fill: ${({ theme }) => theme.colors.neutral.text.default};
+  }
+`;
+
+export { $Header, $RightElements };
