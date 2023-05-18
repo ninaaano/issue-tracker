@@ -12,9 +12,9 @@ const filterName = {
   assignee: '담당자',
 };
 
-const DropDown = ({ type, menus }) => {
+const DropDown = ({ className = '', type, menus }) => {
   return (
-    <$DropDownWrapper>
+    <$DropDownWrapper className={className}>
       <$DropDownHeader>{`${filterName[type]} 필터`}</$DropDownHeader>
       <$DropDownMenus>
         {menus.map(({ id, imgSrc, text, isChecked }) => (
@@ -33,6 +33,7 @@ const DropDown = ({ type, menus }) => {
 };
 
 DropDown.propTypes = {
+  className: PropTypes.string,
   type: PropTypes.string.isRequired,
   menus: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

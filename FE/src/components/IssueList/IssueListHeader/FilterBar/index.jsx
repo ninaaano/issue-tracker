@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Icon from '../../../common/Icon';
-import DropDown from '../../../common/DropDown';
-import { $FilterBar, $FilterButton, $FilterInput, $FilterInputWrapper } from './style';
+
+import { $FilterBar, $FilterButton, $FilterInput, $FilterInputWrapper, $DropDown } from './style';
 
 const FILTER = {
   TYPE: 'issue',
@@ -30,7 +30,7 @@ const FilterBar = () => {
         필터
         <Icon name="chevronDown" fill="#6E7191" />
       </$FilterButton>
-      {isDropdownOpen && <DropDown type={FILTER.TYPE} menus={FILTER.MENUS} />}
+      {isDropdownOpen && <$DropDown type={FILTER.TYPE} menus={FILTER.MENUS} />}
       <$FilterInputWrapper>
         <Icon name="search" fill="#6E7191" />
         <$FilterInput type="text" placeholder="is:issue is:open" />
