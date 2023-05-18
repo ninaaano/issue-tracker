@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import DropDown from '../../../common/DropDown';
 
 const $FilterButton = styled.button`
   display: flex;
@@ -21,6 +22,7 @@ const $FilterButton = styled.button`
     margin-left: 8px;
   }
 `;
+
 const $FilterInputWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -38,6 +40,7 @@ const $FilterInputWrapper = styled.div`
     margin-right: 8px;
   }
 `;
+
 const $FilterInput = styled.input`
   width: 400px;
   height: 28px;
@@ -46,7 +49,13 @@ const $FilterInput = styled.input`
   font-size: ${({ theme }) => theme.fontSize.M.fontSize};
 `;
 
+const $DropDown = styled(DropDown)`
+  position: absolute;
+  top: calc(100% + 8px);
+`;
+
 const $FilterBar = styled.div`
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -56,4 +65,4 @@ const $FilterBar = styled.div`
   border-radius: 11px;
 `;
 
-export { $FilterBar, $FilterButton, $FilterInputWrapper, $FilterInput };
+export { $FilterBar, $FilterButton, $FilterInputWrapper, $FilterInput, $DropDown };
