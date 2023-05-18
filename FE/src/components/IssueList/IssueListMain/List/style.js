@@ -27,6 +27,7 @@ const $IssueTitle = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: ${({ theme }) => theme.colors.neutral.text.strong};
   font-size: ${({ theme }) => theme.fontSize.L.fontSize};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   & > svg {
