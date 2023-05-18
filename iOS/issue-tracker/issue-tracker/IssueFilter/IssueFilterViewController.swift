@@ -57,7 +57,6 @@ class IssueFilterViewController: UIViewController {
     
     @objc func saveButtonTapped() {
         print("내마음 속에 저장")
-//        navigationController?.popViewController(animated: true)
     }
     
     @objc func backButtonTapped() {

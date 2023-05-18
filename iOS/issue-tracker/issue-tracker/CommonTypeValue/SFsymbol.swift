@@ -9,4 +9,5 @@ import Foundation
 
 enum SFsymbol: String {
     case chevronRight = "chevron.right"
+    case chevronLeft = "chevron.left"
 }
