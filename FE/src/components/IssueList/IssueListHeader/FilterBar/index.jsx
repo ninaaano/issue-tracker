@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Icon from '../../../common/Icon';
@@ -20,17 +20,22 @@ const FilterBar = () => {
   // 상태 : Initial, Active, Empty, Typing, Typed
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const buttonClickHandler = () => {
+  const dropDownOpenHandler = (e) => {
+    // ! 왜 e.stopPropagation()으로 해결됐을까?
+    // ! 리액트에서 이벤트 처리방법은 우리가 생각한거랑은 다름. syntheticEvent
     setIsDropdownOpen((previous) => !previous);
+    e.stopPropagation();
   };
 
   return (
     <$FilterBar>
-      <$FilterButton onClick={buttonClickHandler}>
+      <$FilterButton onClick={dropDownOpenHandler}>
         필터
         <Icon name="chevronDown" fill="#6E7191" />
       </$FilterButton>
-      {isDropdownOpen && <$DropDown type={FILTER.TYPE} menus={FILTER.MENUS} />}
+      {isDropdownOpen && (
+        <$DropDown type={FILTER.TYPE} menus={FILTER.MENUS} closeHandler={() => setIsDropdownOpen(false)} />
+      )}
       <$FilterInputWrapper>
         <Icon name="search" fill="#6E7191" />
         <$FilterInput type="text" placeholder="is:issue is:open" />
