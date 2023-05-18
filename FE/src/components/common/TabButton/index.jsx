@@ -12,7 +12,7 @@ const TabButton = ({ labelCount = 0, milestoneCount = 0 }) => {
         {`레이블(${labelCount})`}
       </$LeftButton>
       <$RightButton type="ghost" size="M">
-        <Icon name="label" />
+        <Icon name="milestone" />
         {`마일스톤(${milestoneCount})`}
       </$RightButton>
     </$TabButton>
