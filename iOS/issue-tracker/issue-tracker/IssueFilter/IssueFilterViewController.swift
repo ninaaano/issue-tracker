@@ -29,10 +29,10 @@ class IssueFilterViewController: UIViewController {
         self.title = "필터"
         self.navigationController?.navigationBar.titleTextAttributes = [.font: FontStyle.title.font]
 
-//        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"))
+        let backButton = UIBarButtonItem(image: UIImage(systemName: SFsymbol.chevronLeft.rawValue))
         let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(backButtonTapped))
         
-        self.navigationItem.backBarButtonItem = cancelButton
+        self.navigationItem.leftBarButtonItems = [backButton, cancelButton]
         
         let saveButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonTapped))
         saveButtonItem.setTitleTextAttributes([.font: FontStyle.title.font], for: .normal)
