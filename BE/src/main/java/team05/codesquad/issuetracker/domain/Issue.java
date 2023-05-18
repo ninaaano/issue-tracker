@@ -13,5 +13,6 @@ public class Issue {
     private int issueWriter;
     private String issueTitle;
     private String issueContents;
+    private boolean status;
 
 }
