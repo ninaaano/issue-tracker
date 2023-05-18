@@ -38,4 +38,4 @@ out/
 ### VS Code ###
 .vscode/
 
-application-localDB.properties
+src/main/resources/application-localDB.properties
