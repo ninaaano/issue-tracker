@@ -1,16 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { $Header } from './style';
-import logoImg from '../../assets/defaultLogo.svg';
+import useTheme from '../../hooks/useTheme';
+import Icon from '../common/Icon';
+import { $Header, $RightElements } from './style';
 
 const Header = ({ userImgSrc, userName }) => {
+  const [themeMode, toggleTheme] = useTheme();
+
+  console.log(themeMode);
   return (
     <$Header>
       <a href="/">
-        <img src={logoImg} alt="logo" />
+        <Icon width="199" height="25" name="defaultLogo" />
       </a>
-      <img src={userImgSrc} alt={`@${userName}`} />
+      <$RightElements>
+        <button type="button" onClick={toggleTheme}>
+          <Icon width="32" height="32" name={themeMode === 'light' ? 'lightMode' : 'darkMode'} />
+        </button>
+        <img src={userImgSrc} alt={`@${userName}`} />
+      </$RightElements>
     </$Header>
   );
 };
