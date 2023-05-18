@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { ThemeProvider } from 'styled-components';
+// import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './styles/GlobalStyles';
 import Header from './components/Header';
 import { USERS } from './constants/api';
-import theme from './styles/theme';
 import IssueList from './pages/IssueList';
+import { ThemeProvider } from './context/themeProvider';
 
 const App = () => {
   const [userData, setUserData] = useState({
@@ -35,7 +35,7 @@ const App = () => {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <GlobalStyles />
       <Header userImgSrc={userData.userImgSrc} userName={userData.userName} />
       <IssueList />
