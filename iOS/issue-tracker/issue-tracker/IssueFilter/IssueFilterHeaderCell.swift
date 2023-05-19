@@ -41,4 +41,8 @@ final class IssueFilterHeaderCell: UICollectionReusableView {
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
+    
+    func configureTitle(of title: String) {
+        titleLabel.text = title
+    }
 }
