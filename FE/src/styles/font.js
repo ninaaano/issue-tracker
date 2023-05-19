@@ -1,4 +1,4 @@
-export const fontSize = {
+const fontSize = {
   XXL: {
     fontSize: '32px',
     lineHeight: '48px',
@@ -21,11 +21,9 @@ export const fontSize = {
   },
 };
 
-export const fontType = {
-  BOLD: {
-    fontWeight: 700,
-  },
-  REGULAR: {
-    fontWeight: 500,
-  },
+const fontWeight = {
+  bold: 700,
+  regular: 500,
 };
+
+export { fontSize, fontWeight };
