@@ -26,7 +26,6 @@ const DropDown = ({ className = '', type, menus, closeHandler }) => {
     };
   }, [closeModalHandler]);
 
-
   return (
     <$DropDownWrapper className={className} ref={dropDownElement}>
       <$DropDownHeader>{`${filterName[type]} 필터`}</$DropDownHeader>
