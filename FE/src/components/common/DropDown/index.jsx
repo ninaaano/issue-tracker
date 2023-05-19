@@ -24,7 +24,7 @@ const DropDown = ({ className = '', type, menus, closeHandler }) => {
     return () => {
       window.removeEventListener('click', closeModalHandler);
     };
-  }, []);
+  }, [closeModalHandler]);
 
   return (
     <$DropDownWrapper className={className} ref={dropDownElement}>
