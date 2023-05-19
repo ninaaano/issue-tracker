@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IssueFilterHeaderCell: UICollectionReusableView {
+final class IssueFilterHeaderCell: UICollectionReusableView {
     static let identifier = "IssueFilerHeaderCell"
     
     private let titleLabel: UILabel = {
@@ -27,7 +27,7 @@ class IssueFilterHeaderCell: UICollectionReusableView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
     private func setupSubviews() {
