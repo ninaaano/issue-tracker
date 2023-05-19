@@ -8,6 +8,7 @@
 import UIKit
 
 final class IssueFilterViewController: UIViewController {
+    let issueFilterHeaders = MockHeaderData()
     
     let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
@@ -66,11 +67,11 @@ final class IssueFilterViewController: UIViewController {
 
 extension IssueFilterViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return issueFilterHeaders.title.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -99,8 +100,10 @@ extension IssueFilterViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as? IssueFilterCell
-        cell?.updateCheckmarkState()
+        guard let cell = collectionView.cellForItem(at: indexPath) as? IssueFilterCell else {
+            return
+        }
+        cell.updateCheckmarkState()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -112,8 +115,10 @@ extension IssueFilterViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionView.elementKindSectionHeader,
-              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IssueFilterHeaderCell.identifier, for: indexPath ) as? IssueFilterHeaderCell else {return UICollectionReusableView()}
-        
+              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IssueFilterHeaderCell.identifier, for: indexPath ) as? IssueFilterHeaderCell else {
+            return UICollectionReusableView()
+        }
+        header.configureTitle(of: issueFilterHeaders.title[indexPath.section])
         return header
     }
 }
