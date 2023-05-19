@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IssueFilterCell: UICollectionViewCell {
+final class IssueFilterCell: UICollectionViewCell {
     static let identifier = "IssueFilterViewCell"
     var isChecked = false
     
@@ -16,7 +16,6 @@ class IssueFilterCell: UICollectionViewCell {
         label.textColor = .black
         label.text = "테스트입니다"
         label.font = FontStyle.sectionItem.font
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -26,7 +25,6 @@ class IssueFilterCell: UICollectionViewCell {
         imageView.image = UIImage(systemName: "checkmark", withConfiguration: imageConfig)
         imageView.contentMode = .center
         imageView.tintColor = ColorValue.gray700
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -34,10 +32,12 @@ class IssueFilterCell: UICollectionViewCell {
         super.init(frame: frame)
         setupSubviews()
         setupConstraints()
+        setupCheckImage()
+        setupFilterItemNameLabel()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
     private func setupSubviews() {
@@ -53,17 +53,29 @@ class IssueFilterCell: UICollectionViewCell {
             contentView.topAnchor.constraint(equalTo: self.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            
-            filterItemNameLabel.heightAnchor.constraint(equalToConstant: 32),
-            filterItemNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            filterItemNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            filterItemNameLabel.trailingAnchor.constraint(equalTo: checkImage.leadingAnchor, constant: -4),
-            
+            contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
+    }
+    
+    private func setupCheckImage() {
+        checkImage.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
             checkImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             checkImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             checkImage.heightAnchor.constraint(equalToConstant: 30),
             checkImage.widthAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
+    private func setupFilterItemNameLabel() {
+        filterItemNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            filterItemNameLabel.heightAnchor.constraint(equalToConstant: 32),
+            filterItemNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            filterItemNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            filterItemNameLabel.trailingAnchor.constraint(equalTo: checkImage.leadingAnchor, constant: -4)
         ])
     }
     
