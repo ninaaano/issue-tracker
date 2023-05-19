@@ -27,23 +27,23 @@ final class IssueCardCell: UICollectionViewCell {
     private func setTitle() {
         title.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate(
-            [title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-             title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-             title.heightAnchor.constraint(equalToConstant: 32)]
-        )
+        NSLayoutConstraint.activate([
+            title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            title.heightAnchor.constraint(equalToConstant: 32)
+        ])
     }
     
     private func setInformationArrowImage() {
         informationArrowImage.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate(
-            [informationArrowImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-             informationArrowImage.leadingAnchor.constraint(equalTo: title.trailingAnchor, constant: 4),
-             informationArrowImage.centerYAnchor.constraint(equalTo: title.centerYAnchor),
-             informationArrowImage.widthAnchor.constraint(equalToConstant: 30),
-             informationArrowImage.heightAnchor.constraint(equalToConstant: 30)]
-        )
+        NSLayoutConstraint.activate([
+            informationArrowImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            informationArrowImage.leadingAnchor.constraint(equalTo: title.trailingAnchor, constant: 4),
+            informationArrowImage.centerYAnchor.constraint(equalTo: title.centerYAnchor),
+            informationArrowImage.widthAnchor.constraint(equalToConstant: 30),
+            informationArrowImage.heightAnchor.constraint(equalToConstant: 30)
+        ])
     }
     
     private func setExplanation() {
@@ -61,23 +61,22 @@ final class IssueCardCell: UICollectionViewCell {
     private func setMilestoneImage() {
         milestoneImage.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate(
-            
-            [milestoneImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-             milestoneImage.trailingAnchor.constraint(equalTo: milestone.leadingAnchor, constant: -4),
-             milestoneImage.widthAnchor.constraint(equalToConstant: 17),
-             milestoneImage.centerYAnchor.constraint(equalTo: milestone.centerYAnchor)]
-        )
+        NSLayoutConstraint.activate([
+            milestoneImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            milestoneImage.trailingAnchor.constraint(equalTo: milestone.leadingAnchor, constant: -4),
+            milestoneImage.widthAnchor.constraint(equalToConstant: 17),
+            milestoneImage.centerYAnchor.constraint(equalTo: milestone.centerYAnchor)
+        ])
     }
     
     private func setMilestone() {
         milestone.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate(
-            [milestone.topAnchor.constraint(equalTo: explanation.bottomAnchor, constant: 4),
-             milestone.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-             milestone.heightAnchor.constraint(equalToConstant: 24)]
-        )
+        NSLayoutConstraint.activate([
+            milestone.topAnchor.constraint(equalTo: explanation.bottomAnchor, constant: 4),
+            milestone.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            milestone.heightAnchor.constraint(equalToConstant: 24)
+        ])
     }
     
     private func setLabel() {
@@ -88,12 +87,12 @@ final class IssueCardCell: UICollectionViewCell {
         label.clipsToBounds = true
         label.textAlignment = .center
         
-        NSLayoutConstraint.activate(
-            [label.topAnchor.constraint(equalTo: milestone.bottomAnchor, constant: 4),
-             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-             label.widthAnchor.constraint(equalToConstant: 66),
-             label.heightAnchor.constraint(equalToConstant: 24)]
-        )
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: milestone.bottomAnchor, constant: 4),
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            label.widthAnchor.constraint(equalToConstant: 66),
+            label.heightAnchor.constraint(equalToConstant: 24)
+        ])
     }
     
     private func setComponents() {
@@ -118,11 +117,11 @@ final class IssueCardCell: UICollectionViewCell {
             return
         }
         
-        NSLayoutConstraint.activate(
-            [contentView.topAnchor.constraint(equalTo: superview.topAnchor),
-             contentView.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
-             contentView.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
-             contentView.bottomAnchor.constraint(equalTo: superview.bottomAnchor)]
-        )
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: superview.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: superview.bottomAnchor)
+        ])
     }
 }
