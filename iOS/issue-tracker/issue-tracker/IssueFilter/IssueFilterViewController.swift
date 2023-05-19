@@ -7,31 +7,26 @@
 
 import UIKit
 
-class IssueFilterViewController: UIViewController {
+final class IssueFilterViewController: UIViewController {
     
     let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.register(IssueFilterCell.self, forCellWithReuseIdentifier: IssueFilterCell.identifier)
-        self.collectionView.register(
-            IssueFilterHeaderCell.self,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: IssueFilterHeaderCell.identifier
-        )
-        
         self.configureCollectionView()
         self.configureNavigationBar()
+        self.setRegister()
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
     }
     
     private func configureNavigationBar() {
         self.title = "필터"
         self.navigationController?.navigationBar.titleTextAttributes = [.font: FontStyle.title.font]
         
-//        let backButton = UIBarButtonItem(image: UIImage(systemName: SFsymbol.chevronLeft.rawValue))
         let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(backButtonTapped))
         cancelButton.setTitleTextAttributes([.font: FontStyle.title.font], for: .normal)
-        self.navigationItem.leftBarButtonItem = cancelButton // [backButton, cancelButton]
+        self.navigationItem.leftBarButtonItem = cancelButton
         
         let saveButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonTapped))
         saveButtonItem.setTitleTextAttributes([.font: FontStyle.title.font], for: .normal)
@@ -39,9 +34,6 @@ class IssueFilterViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
-        
         self.collectionView.backgroundColor = ColorValue.gray100
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(collectionView)
@@ -52,6 +44,15 @@ class IssueFilterViewController: UIViewController {
             self.collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             self.collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+    }
+    
+    private func setRegister() {
+        self.collectionView.register(IssueFilterCell.self, forCellWithReuseIdentifier: IssueFilterCell.identifier)
+        self.collectionView.register(
+            IssueFilterHeaderCell.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: IssueFilterHeaderCell.identifier
+        )
     }
     
     @objc func saveButtonTapped() {

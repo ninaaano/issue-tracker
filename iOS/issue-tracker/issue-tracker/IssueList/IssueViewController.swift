@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IssueViewController: UIViewController {
+final class IssueViewController: UIViewController {
     
     private var issueListCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -18,11 +18,11 @@ class IssueViewController: UIViewController {
         super.viewDidLoad()
         issueListCollectionView.delegate = self
         issueListCollectionView.dataSource = self
-        setRegister()
-        setIssueCollectionView()
+        self.setRegister()
+        self.setIssueCollectionView()
     }
     
-    func setIssueCollectionView() {
+    private func setIssueCollectionView() {
         issueListCollectionView.backgroundColor = .systemBackground
         issueListCollectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(issueListCollectionView)
@@ -35,7 +35,7 @@ class IssueViewController: UIViewController {
         ])
     }
     
-    func setRegister() {
+    private func setRegister() {
         issueListCollectionView.register(IssueCardCell.self, forCellWithReuseIdentifier: IssueCardCell.identifier)
         issueListCollectionView.register(IssueListHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: IssueListHeaderView.identifier)
     }
