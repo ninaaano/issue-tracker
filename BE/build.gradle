@@ -60,7 +60,7 @@ task copyDocument(type: Copy) { // 7
 }
 
 bootJar {
-	dependsOn copyDocument
+	dependsOn copyDocument // 8
 }
 
 /**
