@@ -5,7 +5,7 @@ import { $Button } from './style';
 
 const Button = ({ children, type, size, active = false, ...props }) => {
   return (
-    <$Button $type={type} size={size} active={active} {...props}>
+    <$Button $type={type} size={size} active={active ? 1 : undefined} {...props}>
       {children}
     </$Button>
   );
