@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A7F1BE42A17105B00120353 /* MockHeaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F1BE32A17105B00120353 /* MockHeaderData.swift */; };
 		2ABB37F92A1673330044171C /* SFsymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB37F82A1673330044171C /* SFsymbol.swift */; };
 		2AC16D2E2A12920C00E71F75 /* IssueListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC16D2D2A12920C00E71F75 /* IssueListHeaderView.swift */; };
 		2AC16D302A12957D00E71F75 /* IssueCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A7F1BE32A17105B00120353 /* MockHeaderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHeaderData.swift; sourceTree = "<group>"; };
 		2ABB37F82A1673330044171C /* SFsymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFsymbol.swift; sourceTree = "<group>"; };
 		2AC16D2D2A12920C00E71F75 /* IssueListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListHeaderView.swift; sourceTree = "<group>"; };
 		2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCardCell.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			children = (
 				FF769E042A13D94E00A0DFF9 /* IssueFilterViewController.swift */,
 				FF769DFA2A126EF300A0DFF9 /* IssueFilterCell.swift */,
+				2A7F1BE32A17105B00120353 /* MockHeaderData.swift */,
 				FFFC0BBE2A14A754006F76AF /* IssueFilterHeaderCell.swift */,
 			);
 			path = IssueFilter;
@@ -291,6 +294,7 @@
 				2AC16D302A12957D00E71F75 /* IssueCardCell.swift in Sources */,
 				2ABB37F92A1673330044171C /* SFsymbol.swift in Sources */,
 				2AC16D322A149CF400E71F75 /* CustomLabelView.swift in Sources */,
+				2A7F1BE42A17105B00120353 /* MockHeaderData.swift in Sources */,
 				2AF58EED2A12555E00EE8623 /* ColorValue.swift in Sources */,
 				FF769DFB2A126EF300A0DFF9 /* IssueFilterCell.swift in Sources */,
 				2AC16D2E2A12920C00E71F75 /* IssueListHeaderView.swift in Sources */,
