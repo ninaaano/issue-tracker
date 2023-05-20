@@ -29,7 +29,7 @@ public class S3Uploader {
     private final AmazonS3 amazonS3;
 
     @Value("${cloud.aws.s3.bucket}")
-    public String bucket;
+    private String bucket;
 
     public String upload(MultipartFile multipartFile) throws IOException {
         String s3FileName = UUID.randomUUID() + "-" + multipartFile.getOriginalFilename();

@@ -16,7 +16,7 @@ public class S3TestController {
     private final S3Uploader s3Uploader;
 
     @PostMapping("/images")
-    public String upload(@RequestParam("image")MultipartFile multipartFile)throws IOException{
+    public String upload(@RequestParam("image") MultipartFile multipartFile) throws IOException {
         s3Uploader.upload(multipartFile);
         return "test";
     }

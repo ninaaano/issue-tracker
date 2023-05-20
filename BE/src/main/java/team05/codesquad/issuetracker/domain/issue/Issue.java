@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Table("issue")
-@Setter // 주요 식별자 값의 자동 생성 기능을 제공하지 않기때문에 따로 처리 필요함
+@Setter
 @Getter
 @ToString
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
@@ -50,4 +50,15 @@ public class Issue {
 
     private List<Comment> comments = new ArrayList<>();
 
+    public static long countOpenIssues(List<Issue> issues) {
+        return issues.stream()
+                .filter(Issue::getOpenStatus)
+                .count();
+    }
+
+    public static long countClosedIssues(List<Issue> issues) {
+        return issues.stream()
+                .filter(issue -> !issue.getOpenStatus())
+                .count();
+    }
 }
