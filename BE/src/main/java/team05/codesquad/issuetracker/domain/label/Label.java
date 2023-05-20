@@ -6,7 +6,11 @@ import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("label")
-@Data
+@Setter
+@Getter
+@ToString
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@AllArgsConstructor
 public class Label {
     @Id
     @Column("label_id")
