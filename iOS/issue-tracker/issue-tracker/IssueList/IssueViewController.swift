@@ -9,21 +9,23 @@ import UIKit
 
 final class IssueViewController: UIViewController {
     
-    private var issueListCollectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        return collectionView
-    }()
-
+    private let issueListCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        issueListCollectionView.delegate = self
-        issueListCollectionView.dataSource = self
-        self.setRegister()
-        self.setIssueCollectionView()
+        self.issueListCollectionView.delegate = self
+        self.issueListCollectionView.dataSource = self
+        self.configureIssueCollectionView()
+        self.layoutIssueListCollectionView()
     }
     
-    private func setIssueCollectionView() {
-        issueListCollectionView.backgroundColor = .systemBackground
+    private func configureIssueCollectionView() {
+        issueListCollectionView.backgroundColor = ColorValue.gray100
+        issueListCollectionView.register(IssueCardCell.self, forCellWithReuseIdentifier: IssueCardCell.identifier)
+        issueListCollectionView.register(IssueListHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: IssueListHeaderView.identifier)
+    }
+    
+    private func layoutIssueListCollectionView() {
         issueListCollectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(issueListCollectionView)
         
@@ -34,45 +36,30 @@ final class IssueViewController: UIViewController {
             issueListCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
-    private func setRegister() {
-        issueListCollectionView.register(IssueCardCell.self, forCellWithReuseIdentifier: IssueCardCell.identifier)
-        issueListCollectionView.register(IssueListHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: IssueListHeaderView.identifier)
-    }
-}
-
-extension IssueViewController: UICollectionViewDelegate {
-    
 }
 
 extension IssueViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IssueCardCell.identifier, for: indexPath) as? IssueCardCell else {
             return UICollectionViewCell()
         }
-        cell.setIssueCardCell()
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IssueListHeaderView.identifier, for: indexPath) as? IssueListHeaderView else {
-                return UICollectionReusableView()
-            }
-            headerView.setHeaderViewTitle()
-            return headerView
-        default:
+        guard kind == UICollectionView.elementKindSectionHeader,
+              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IssueListHeaderView.identifier, for: indexPath ) as? IssueListHeaderView else {
             return UICollectionReusableView()
         }
+        return header
     }
 }
 

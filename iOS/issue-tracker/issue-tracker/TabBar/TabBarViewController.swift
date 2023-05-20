@@ -8,31 +8,30 @@
 import UIKit
 
 final class TabBarViewController: UITabBarController {
-    private(set) var issueView: UINavigationController = {
+    private let issueView: UINavigationController = {
         let issueView = IssueViewController()
         let navigation = UINavigationController(rootViewController: issueView)
         issueView.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "선택", style: .plain, target: nil, action: nil)
         issueView.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "필터", style: .plain, target: nil, action: #selector(addTapped))
-        
         return navigation
     }()
     
-    private(set) var labelView = LabelViewController()
-    private(set) var mileStoneView = MileStoneViewController()
+    private let labelView = LabelViewController()
+    private let mileStoneView = MileStoneViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setViewControllers([issueView, labelView, mileStoneView], animated: false)
-        setTabBarColor()
-        setTabBarItem()
+        configureTabBarColor()
+        configureTabBarItem()
     }
 
-    private func setTabBarColor() {
+    private func configureTabBarColor() {
         self.view.backgroundColor = .systemBackground
         self.tabBar.layer.backgroundColor = ColorValue.gray50?.cgColor
     }
     
-    private func setTabBarItem() {
+    private func configureTabBarItem() {
         issueView.tabBarItem = UITabBarItem(title: TabBarType.issue.title, image: UIImage(named: TabBarType.issue.image), tag: 0)
         labelView.tabBarItem = UITabBarItem(title: TabBarType.label.title, image: UIImage(named: TabBarType.label.image), tag: 1)
         mileStoneView.tabBarItem = UITabBarItem(title: TabBarType.milestone.title, image: UIImage(named: TabBarType.milestone.image), tag: 2)

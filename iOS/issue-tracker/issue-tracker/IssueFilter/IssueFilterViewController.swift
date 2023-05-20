@@ -8,17 +8,17 @@
 import UIKit
 
 final class IssueFilterViewController: UIViewController {
-    let issueFilterHeaders = MockHeaderData()
+    private let issueFilterHeaders = MockHeaderData()
     
-    let collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let issuecFilterCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureCollectionView()
+        self.issuecFilterCollectionView.dataSource = self
+        self.issuecFilterCollectionView.delegate = self
+        self.layoutIssueFilterCollectionView()
         self.configureNavigationBar()
-        self.setRegister()
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
+        self.configureIssueFilterCollectionView()
     }
     
     private func configureNavigationBar() {
@@ -34,26 +34,27 @@ final class IssueFilterViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = saveButtonItem
     }
     
-    private func configureCollectionView() {
-        self.collectionView.backgroundColor = ColorValue.gray100
-        self.collectionView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(collectionView)
-        
-        NSLayoutConstraint.activate([
-            self.collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            self.collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            self.collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            self.collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+    private func configureIssueFilterCollectionView() {
+        self.issuecFilterCollectionView.allowsMultipleSelection = true
+        self.issuecFilterCollectionView.backgroundColor = ColorValue.gray100
+        self.issuecFilterCollectionView.register(IssueFilterCell.self, forCellWithReuseIdentifier: IssueFilterCell.identifier)
+        self.issuecFilterCollectionView.register(
+            IssueFilterHeaderView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: IssueFilterHeaderView.identifier
+        )
     }
     
-    private func setRegister() {
-        self.collectionView.register(IssueFilterCell.self, forCellWithReuseIdentifier: IssueFilterCell.identifier)
-        self.collectionView.register(
-            IssueFilterHeaderCell.self,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: IssueFilterHeaderCell.identifier
-        )
+    private func layoutIssueFilterCollectionView() {
+        self.issuecFilterCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(issuecFilterCollectionView)
+        
+        NSLayoutConstraint.activate([
+            self.issuecFilterCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            self.issuecFilterCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            self.issuecFilterCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            self.issuecFilterCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
     }
     
     @objc func saveButtonTapped() {
@@ -81,9 +82,24 @@ extension IssueFilterViewController: UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionHeader,
+              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IssueFilterHeaderView.identifier, for: indexPath ) as? IssueFilterHeaderView else {
+            return UICollectionReusableView()
+        }
+        header.configureTitle(of: issueFilterHeaders.title[indexPath.section])
+        return header
+    }
 }
 
 extension IssueFilterViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let width = collectionView.bounds.width
+        let height: CGFloat = 44
+        
+        return CGSize(width: width, height: height)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width
         let height: CGFloat = 44
@@ -97,28 +113,5 @@ extension IssueFilterViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         UIEdgeInsets(top: 1, left: 0, bottom: 4, right: 0)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? IssueFilterCell else {
-            return
-        }
-        cell.updateCheckmarkState()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let width = collectionView.bounds.width
-        let height: CGFloat = 44
-        
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionHeader,
-              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IssueFilterHeaderCell.identifier, for: indexPath ) as? IssueFilterHeaderCell else {
-            return UICollectionReusableView()
-        }
-        header.configureTitle(of: issueFilterHeaders.title[indexPath.section])
-        return header
     }
 }

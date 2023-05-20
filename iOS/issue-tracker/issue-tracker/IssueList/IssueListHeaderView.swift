@@ -8,25 +8,38 @@
 import UIKit
 
 final class IssueListHeaderView: UICollectionReusableView {
-    static let identifier = "HeaderView"
+    static let identifier = "IssueListHeaderView"
     
-    private(set) var title: UILabel = {
+    private let title: UILabel = {
         let title = UILabel()
         title.text = "이슈"
-        title.textAlignment = .left
         title.font = FontStyle.titleStrong.font
         title.textColor = .black
+        title.textAlignment = .left
         return title
     }()
     
-    func setHeaderViewTitle() {
-        addSubview(title)
-
-        title.translatesAutoresizingMaskIntoConstraints = false
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureHeaderView()
+        layoutHeaderView()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    private func configureHeaderView() {
+        self.addSubview(self.title)
+        self.backgroundColor = .white
+    }
+    
+    private func layoutHeaderView() {
+        self.title.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            title.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            self.title.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            self.title.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
 }

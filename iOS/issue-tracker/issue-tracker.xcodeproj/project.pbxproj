@@ -27,7 +27,7 @@
 		FF769DC92A11D81000A0DFF9 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF769DC82A11D81000A0DFF9 /* FontStyle.swift */; };
 		FF769DFB2A126EF300A0DFF9 /* IssueFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF769DFA2A126EF300A0DFF9 /* IssueFilterCell.swift */; };
 		FF769E052A13D94E00A0DFF9 /* IssueFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF769E042A13D94E00A0DFF9 /* IssueFilterViewController.swift */; };
-		FFFC0BBF2A14A754006F76AF /* IssueFilterHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC0BBE2A14A754006F76AF /* IssueFilterHeaderCell.swift */; };
+		FFFC0BBF2A14A754006F76AF /* IssueFilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC0BBE2A14A754006F76AF /* IssueFilterHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +55,7 @@
 		FF769DC82A11D81000A0DFF9 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		FF769DFA2A126EF300A0DFF9 /* IssueFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueFilterCell.swift; sourceTree = "<group>"; };
 		FF769E042A13D94E00A0DFF9 /* IssueFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueFilterViewController.swift; sourceTree = "<group>"; };
-		FFFC0BBE2A14A754006F76AF /* IssueFilterHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueFilterHeaderCell.swift; sourceTree = "<group>"; };
+		FFFC0BBE2A14A754006F76AF /* IssueFilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueFilterHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +94,8 @@
 			children = (
 				2AF58EC92A0B390100EE8623 /* AppDelegate.swift */,
 				2AF58ECB2A0B390100EE8623 /* SceneDelegate.swift */,
+				2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */,
+				2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */,
 				FF769DFC2A126EFB00A0DFF9 /* IssueFilter */,
 				FFFC0BC02A168166006F76AF /* IssueList */,
 				FFFC0BC22A16819E006F76AF /* TabBar */,
@@ -128,7 +130,7 @@
 				FF769E042A13D94E00A0DFF9 /* IssueFilterViewController.swift */,
 				FF769DFA2A126EF300A0DFF9 /* IssueFilterCell.swift */,
 				2A7F1BE32A17105B00120353 /* MockHeaderData.swift */,
-				FFFC0BBE2A14A754006F76AF /* IssueFilterHeaderCell.swift */,
+				FFFC0BBE2A14A754006F76AF /* IssueFilterHeaderView.swift */,
 			);
 			path = IssueFilter;
 			sourceTree = "<group>";
@@ -137,11 +139,9 @@
 			isa = PBXGroup;
 			children = (
 				2AF58ECD2A0B390100EE8623 /* IssueViewController.swift */,
-				2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */,
 				2AC16D312A149CF400E71F75 /* CustomLabelView.swift */,
 				2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */,
 				2AC16D2D2A12920C00E71F75 /* IssueListHeaderView.swift */,
-				2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */,
 			);
 			path = IssueList;
 			sourceTree = "<group>";
@@ -281,7 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AF58EE72A0D162900EE8623 /* TabBarViewController.swift in Sources */,
-				FFFC0BBF2A14A754006F76AF /* IssueFilterHeaderCell.swift in Sources */,
+				FFFC0BBF2A14A754006F76AF /* IssueFilterHeaderView.swift in Sources */,
 				FF769E052A13D94E00A0DFF9 /* IssueFilterViewController.swift in Sources */,
 				2AF58EE32A0CF85800EE8623 /* LabelViewController.swift in Sources */,
 				2AF58EE92A0D454000EE8623 /* TabBarType.swift in Sources */,

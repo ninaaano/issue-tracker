@@ -7,42 +7,39 @@
 
 import UIKit
 
-final class IssueFilterHeaderCell: UICollectionReusableView {
-    static let identifier = "IssueFilerHeaderCell"
+final class IssueFilterHeaderView: UICollectionReusableView {
+    static let identifier = "IssueFilerHeaderView"
     
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "테스트 헤더입니다."
         label.font = FontStyle.bodyMiedium.font
         label.textColor = ColorValue.gray800
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
-        setupSubviews()
-        setupConstraints()
+        self.setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    private func setupSubviews() {
-        addSubview(titleLabel)
-    }
-    
     private func setupConstraints() {
+        self.addSubview(self.titleLabel)
+        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+            self.titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            self.titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            self.titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
     
     func configureTitle(of title: String) {
-        titleLabel.text = title
+        self.titleLabel.text = title
     }
 }

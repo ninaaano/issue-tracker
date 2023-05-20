@@ -10,12 +10,24 @@ import UIKit
 final class IssueCardCell: UICollectionViewCell {
     static let identifier = "Cell"
     
-    private(set) var title = CustomLabelView(text: "제목", alignment: .left, font: .systemFont(ofSize: 18, weight: .bold))
-    private(set) var explanation = CustomLabelView(text: "안녕하세요이번PR도잘부탁드립니다", alignment: .left, font: FontStyle.body.font)
-    private(set) var milestone = CustomLabelView(text: "마일스톤", alignment: .left, font: FontStyle.body.font)
-    private(set) var label = CustomLabelView(text: "레이블", alignment: .left, font: FontStyle.body.font)
-    private(set) var milestoneImage = UIImageView(image: UIImage(named: TabBarType.milestone.image))
-    private(set) var informationArrowImage: UIImageView = {
+    private let titleLabel = CustomLabelView(text: "제목", alignment: .left, font: .systemFont(ofSize: 18, weight: .bold))
+    private let explanationLabel: CustomLabelView = {
+        let label = CustomLabelView(text: "안녕하세요이번PR도잘부탁드립니다", alignment: .left, font: FontStyle.body.font)
+        label.numberOfLines = 2
+        return label
+    }()
+    private let milestoneLabel = CustomLabelView(text: "마일스톤", alignment: .left, font: FontStyle.body.font)
+    private let labelLabel: CustomLabelView = {
+        let label = CustomLabelView(text: "레이블", alignment: .left, font: FontStyle.body.font)
+        label.backgroundColor = .blue
+        label.textColor = .white
+        label.layer.cornerRadius = 12
+        label.clipsToBounds = true
+        label.textAlignment = .center
+        return label
+    }()
+    private let milestoneImage = UIImageView(image: UIImage(named: TabBarType.milestone.image))
+    private let informationArrowImage: UIImageView = {
         let imageView = UIImageView()
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 14, weight: .medium)
         imageView.image = UIImage(systemName: SFsymbol.chevronRight.rawValue, withConfiguration: imageConfig)
@@ -24,104 +36,86 @@ final class IssueCardCell: UICollectionViewCell {
         return imageView
     }()
     
-    private func setTitle() {
-        title.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-            title.heightAnchor.constraint(equalToConstant: 32)
-        ])
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.configureIssueCardCell()
+        self.layoutContentView()
+        self.layoutIssueCardCell()
     }
     
-    private func setInformationArrowImage() {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    private func layoutIssueCardCell() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         informationArrowImage.translatesAutoresizingMaskIntoConstraints = false
+        explanationLabel.translatesAutoresizingMaskIntoConstraints = false
+        milestoneImage.translatesAutoresizingMaskIntoConstraints = false
+        milestoneLabel.translatesAutoresizingMaskIntoConstraints = false
+        labelLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            informationArrowImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            informationArrowImage.leadingAnchor.constraint(equalTo: title.trailingAnchor, constant: 4),
-            informationArrowImage.centerYAnchor.constraint(equalTo: title.centerYAnchor),
+            titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
+            titleLabel.heightAnchor.constraint(equalToConstant: 32)
+        ])
+        
+        NSLayoutConstraint.activate([
+            informationArrowImage.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
+            informationArrowImage.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 4),
+            informationArrowImage.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             informationArrowImage.widthAnchor.constraint(equalToConstant: 30),
             informationArrowImage.heightAnchor.constraint(equalToConstant: 30)
         ])
-    }
-    
-    private func setExplanation() {
-        explanation.numberOfLines = 2
-        explanation.lineBreakMode = .byTruncatingTail
-        explanation.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            explanation.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 4),
-            explanation.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-            explanation.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
+            explanationLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
+            explanationLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
+            explanationLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16)
         ])
-    }
-    
-    private func setMilestoneImage() {
-        milestoneImage.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            milestoneImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-            milestoneImage.trailingAnchor.constraint(equalTo: milestone.leadingAnchor, constant: -4),
+            milestoneImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
+            milestoneImage.trailingAnchor.constraint(equalTo: milestoneLabel.leadingAnchor, constant: -4),
             milestoneImage.widthAnchor.constraint(equalToConstant: 17),
-            milestoneImage.centerYAnchor.constraint(equalTo: milestone.centerYAnchor)
+            milestoneImage.centerYAnchor.constraint(equalTo: milestoneLabel.centerYAnchor)
         ])
-    }
-    
-    private func setMilestone() {
-        milestone.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            milestone.topAnchor.constraint(equalTo: explanation.bottomAnchor, constant: 4),
-            milestone.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            milestone.heightAnchor.constraint(equalToConstant: 24)
+            milestoneLabel.topAnchor.constraint(equalTo: explanationLabel.bottomAnchor, constant: 4),
+            milestoneLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16),
+            milestoneLabel.heightAnchor.constraint(equalToConstant: 24)
         ])
-    }
-    
-    private func setLabel() {
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .blue
-        label.textColor = .white
-        label.layer.cornerRadius = 12
-        label.clipsToBounds = true
-        label.textAlignment = .center
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: milestone.bottomAnchor, constant: 4),
-            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-            label.widthAnchor.constraint(equalToConstant: 66),
-            label.heightAnchor.constraint(equalToConstant: 24)
+            labelLabel.topAnchor.constraint(equalTo: milestoneLabel.bottomAnchor, constant: 4),
+            labelLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
+            labelLabel.widthAnchor.constraint(equalToConstant: 66),
+            labelLabel.heightAnchor.constraint(equalToConstant: 24)
         ])
     }
     
-    private func setComponents() {
-        setTitle()
-        setExplanation()
-        setMilestone()
-        setLabel()
-        setMilestoneImage()
-        setInformationArrowImage()
-    }
-    
-    func setIssueCardCell() {
-        [title, informationArrowImage, explanation, milestoneImage, milestone, label].forEach {
-            contentView.addSubview($0)
+    private func configureIssueCardCell() {
+        self.contentView.backgroundColor = .white
+        
+        [titleLabel, informationArrowImage, explanationLabel, milestoneImage, milestoneLabel, labelLabel].forEach {
+            self.contentView.addSubview($0)
         }
-        setComponents()
-        contentView.layer.borderWidth = 0.5
-        contentView.layer.borderColor = UIColor.gray.cgColor
-        contentView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func layoutContentView() {
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
         
-        guard let superview = contentView.superview else {
+        guard let superview = self.contentView.superview else {
             return
         }
         
         NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: superview.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: superview.bottomAnchor)
+            self.contentView.topAnchor.constraint(equalTo: superview.topAnchor),
+            self.contentView.leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+            self.contentView.trailingAnchor.constraint(equalTo: superview.trailingAnchor),
+            self.contentView.bottomAnchor.constraint(equalTo: superview.bottomAnchor)
         ])
     }
 }
