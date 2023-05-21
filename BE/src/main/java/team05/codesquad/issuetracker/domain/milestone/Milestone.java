@@ -33,6 +33,17 @@ public class Milestone {
     @MappedCollection
     private List<Issue> issues;
 
+    public Milestone() {
+    }
+
+    public Milestone(String title, String description, LocalDate deadLine, boolean status, List<Issue> issues) {
+        this.title = title;
+        this.description = description;
+        this.deadLine = deadLine;
+        this.status = status;
+        this.issues = issues;
+    }
+
     public long countOpenIssues(){
         return issues.stream()
                 .filter(Issue::isStatus)
