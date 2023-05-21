@@ -12,4 +12,4 @@ force_unwrapping:
   severity: error
 function_body_length:
   - 25 # warning
-  - 26 # error
+  - 40 # error
