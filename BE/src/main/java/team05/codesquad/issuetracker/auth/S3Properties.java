@@ -1,17 +1,35 @@
 package team05.codesquad.issuetracker.auth;
 
 import lombok.Getter;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.ConstructorBinding;
 
 @Getter
-@Configuration
-public class S3Properties {
+@RequiredArgsConstructor
+@ConstructorBinding
+@ConfigurationProperties(prefix =  "aws")
+public final class S3Properties {
+    private final Credentials credentials;
+    private final S3 s3;
+    private final Region region;
 
-    private String bucket;
-
-    public S3Properties(@Value("${cloud.aws.s3.bucket}") String bucket) {
-        this.bucket = bucket;
+    @Getter
+    @RequiredArgsConstructor
+    public static final class Credentials {
+        private final String accessKey;
+        private final String secretKey;
     }
 
+    @Getter
+    @RequiredArgsConstructor
+    public static final class S3 {
+        private final String bucket;
+    }
+
+    @Getter
+    @RequiredArgsConstructor
+    public static final class Region {
+        private final String region;
+    }
 }
