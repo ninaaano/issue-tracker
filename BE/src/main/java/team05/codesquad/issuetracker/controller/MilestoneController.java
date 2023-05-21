@@ -13,7 +13,7 @@ import team05.codesquad.issuetracker.service.MilestoneService;
 
 @Slf4j
 @RestController
-@RequestMapping("/milestone")
+@RequestMapping("/milestones")
 public class MilestoneController {
 
     private final MilestoneService milestoneService;
