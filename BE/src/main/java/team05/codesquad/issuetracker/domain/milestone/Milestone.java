@@ -13,7 +13,7 @@ import java.util.List;
 @Table("milestone")
 @Getter
 public class Milestone {
-거
+
     @Id
     @Column("milestone_id")
     private Long id;
