@@ -8,7 +8,7 @@ import org.springframework.boot.context.properties.ConstructorBinding;
 @Getter
 @RequiredArgsConstructor
 @ConstructorBinding
-@ConfigurationProperties(prefix =  "aws")
+@ConfigurationProperties(prefix = "aws")
 public final class S3Properties {
     private final Credentials credentials;
     private final S3 s3;
