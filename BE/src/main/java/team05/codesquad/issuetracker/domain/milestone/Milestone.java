@@ -1,6 +1,6 @@
 package team05.codesquad.issuetracker.domain.milestone;
 
-import lombok.Data;
+import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.MappedCollection;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Table("milestone")
-@Data
+@Getter
 public class Milestone {
     @Id
     @Column("milestone_id")
