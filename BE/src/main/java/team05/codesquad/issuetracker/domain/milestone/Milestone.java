@@ -27,7 +27,7 @@ public class Milestone {
     @Column("deadline")
     private LocalDate deadLine;
 
-    @Column("")
+    @Column("status")
     private boolean status;
 
     @MappedCollection
