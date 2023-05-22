@@ -39,13 +39,13 @@ const DropDown = ({ className = '', type, width, height, menus, position = 'left
     <$DropDown>
       <$DropDownButtonWrapper ref={buttonRef} width={width} height={height}>
         <$DropDownButton type="ghost" size="M" onClick={toggleHandler}>
-          {`${type} 필터`}
+          {type === 'filter' ? '필터' : `${type}`}
           <Icon name="chevronDown" />
         </$DropDownButton>
       </$DropDownButtonWrapper>
       {isOpen && (
         <$DropDownWrapper className={className} position={position} gap={gap} ref={menusRef}>
-          <$DropDownHeader>{`${type} 필터`}</$DropDownHeader>
+          <$DropDownHeader>{type === 'filter' ? '이슈 필터' : `${type} 필터`}</$DropDownHeader>
           <$DropDownMenus>
             {menus.map(({ id, imgSrc, text, isChecked }) => (
               <DropDownMenu key={id} menuImg={imgSrc} menuText={text} isChecked={isChecked} />
