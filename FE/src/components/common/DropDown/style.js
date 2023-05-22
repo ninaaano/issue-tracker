@@ -1,13 +1,52 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import Button from '../Button';
+
+const rightPosition = css`
+  right: 0;
+`;
+
+const leftPosition = css`
+  left: 0;
+`;
+
+const modalPosition = css`
+  position: absolute;
+  top: calc(100% + ${({ gap }) => `${gap}px`});
+  ${({ position }) => {
+    if (position === 'right') return rightPosition;
+    if (position === 'left') return leftPosition;
+
+    return '';
+  }}
+`;
 
 const $DropDownWrapper = styled.section`
+  ${modalPosition}
+
   display: flex;
-  width: 240px;
   flex-direction: column;
   align-items: flex-start;
+  overflow: hidden;
+
+  width: 240px;
   border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
   border-radius: 16px;
-  overflow: hidden;
+
+  z-index: 1;
+`;
+
+const $DropDownButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: ${({ width }) => (width ? `${width}px` : 'fit-content')};
+  height: ${({ height }) => (height ? `${height}px` : 'fit-content')};
+`;
+
+const $DropDownButton = styled(Button)`
+  gap: 8px;
 `;
 
 const $DropDownHeader = styled.header`
@@ -30,4 +69,15 @@ const $DropDownMenus = styled.ul`
   width: 100%;
 `;
 
-export { $DropDownWrapper, $DropDownHeader, $DropDownMenus };
+const $DropDown = styled.div`
+  position: relative;
+`;
+
+export {
+  $DropDown,
+  $DropDownWrapper,
+  $DropDownButtonWrapper,
+  $DropDownButton,
+  $DropDownHeader,
+  $DropDownMenus,
+};

@@ -1,55 +1,70 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { $DropDownHeader, $DropDownMenus, $DropDownWrapper } from './style';
 import DropDownMenu from './DropDownMenu';
+import Icon from '../Icon';
+import {
+  $DropDown,
+  $DropDownButtonWrapper,
+  $DropDownButton,
+  $DropDownHeader,
+  $DropDownMenus,
+  $DropDownWrapper,
+} from './style';
 
-const filterName = {
-  issue: '이슈',
-  milestone: '마일스톤',
-  label: '레이블',
-  writer: '작성자',
-  assignee: '담당자',
-};
+const DropDown = ({ className = '', type, width, height, menus, position = 'left', gap = 0 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const buttonRef = useRef(null);
+  const menusRef = useRef(null);
 
-const DropDown = ({ className = '', type, menus, closeHandler }) => {
-  const dropDownElement = useRef(null);
-
-  const closeModalHandler = ({ target }) => {
-    if (dropDownElement.current && !dropDownElement.current.contains(target)) closeHandler();
+  const toggleHandler = () => {
+    setIsOpen((previous) => !previous);
   };
 
   useEffect(() => {
-    window.addEventListener('click', closeModalHandler);
-    return () => {
-      window.removeEventListener('click', closeModalHandler);
+    const closeHandler = ({ target }) => {
+      const isClickedOutside = !buttonRef.current?.contains(target) && !menusRef.current?.contains(target);
+
+      if (isClickedOutside) {
+        setIsOpen(false);
+      }
     };
-  }, [closeModalHandler]);
+
+    window.addEventListener('click', closeHandler);
+
+    return () => window.removeEventListener('click', closeHandler);
+  }, []);
 
   return (
-    <$DropDownWrapper className={className} ref={dropDownElement}>
-      <$DropDownHeader>{`${filterName[type]} 필터`}</$DropDownHeader>
-      <$DropDownMenus>
-        {menus.map(({ id, imgSrc, text, isChecked }) => (
-          /*
-            menu : {
-                imgSrc: 이미지 주소 or 어떻게 할지 생각.
-                text: 메뉴 텍스트 ex) 내가 작성한 이슈
-                isChecked: 체크된 상태
-            }
-          */
-          <DropDownMenu key={id} menuImg={imgSrc} menuText={text} isChecked={isChecked} />
-        ))}
-      </$DropDownMenus>
-    </$DropDownWrapper>
+    <$DropDown>
+      <$DropDownButtonWrapper ref={buttonRef} width={width} height={height}>
+        <$DropDownButton type="ghost" size="M" onClick={toggleHandler}>
+          {`${type} 필터`}
+          <Icon name="chevronDown" />
+        </$DropDownButton>
+      </$DropDownButtonWrapper>
+      {isOpen && (
+        <$DropDownWrapper className={className} position={position} gap={gap} ref={menusRef}>
+          <$DropDownHeader>{`${type} 필터`}</$DropDownHeader>
+          <$DropDownMenus>
+            {menus.map(({ id, imgSrc, text, isChecked }) => (
+              <DropDownMenu key={id} menuImg={imgSrc} menuText={text} isChecked={isChecked} />
+            ))}
+          </$DropDownMenus>
+        </$DropDownWrapper>
+      )}
+    </$DropDown>
   );
 };
 
 DropDown.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string.isRequired,
+  width: PropTypes.number,
+  height: PropTypes.number,
   menus: PropTypes.arrayOf(PropTypes.object).isRequired,
-  closeHandler: PropTypes.func.isRequired,
+  position: PropTypes.oneOf(['right', 'left']),
+  gap: PropTypes.number,
 };
 
 export default DropDown;
