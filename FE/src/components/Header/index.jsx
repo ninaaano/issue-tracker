@@ -5,7 +5,7 @@ import useTheme from '../../hooks/useTheme';
 import Icon from '../common/Icon';
 import { $Header, $RightElements } from './style';
 
-const Header = ({ userImgSrc, userName }) => {
+const Header = ({ userImgSrc }) => {
   const [themeMode, toggleTheme] = useTheme();
 
   return (
@@ -17,7 +17,7 @@ const Header = ({ userImgSrc, userName }) => {
         <button type="button" onClick={toggleTheme}>
           <Icon width={32} height={32} name={themeMode === 'light' ? 'lightMode' : 'darkMode'} />
         </button>
-        <img src={userImgSrc} alt={`@${userName}`} />
+        <img src={userImgSrc} alt="myImg" />
       </$RightElements>
     </$Header>
   );
@@ -25,7 +25,6 @@ const Header = ({ userImgSrc, userName }) => {
 
 Header.propTypes = {
   userImgSrc: PropTypes.string,
-  userName: PropTypes.string,
 };
 
 export default Header;

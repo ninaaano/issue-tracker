@@ -9,7 +9,6 @@ import { ThemeProvider } from './context/themeProvider';
 const App = () => {
   const [userData, setUserData] = useState({
     userImgSrc: '',
-    userName: '',
   });
 
   const fetchData = useCallback(async () => {
@@ -23,7 +22,7 @@ const App = () => {
       const { data } = await response.json();
 
       setUserData((prev) => {
-        return { ...prev, userImgSrc: data.userImgURL, userName: data.userName };
+        return { ...prev, userImgSrc: data.userImgURL };
       });
     } catch (error) {
       console.error(error);
@@ -37,7 +36,7 @@ const App = () => {
   return (
     <ThemeProvider>
       <GlobalStyles />
-      <Header userImgSrc={userData.userImgSrc} userName={userData.userName} />
+      <Header userImgSrc={userData.userImgSrc} />
       <IssueList />
     </ThemeProvider>
   );
