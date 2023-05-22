@@ -12,8 +12,16 @@ const List = ({ issueId, issueTitle, labels, writer, milestone, assignees }) => 
     setIsSelected((prev) => !prev);
   };
 
-  const Labels = labels.map(({ textColor, backgroundColor, labelName }) => {
-    return <Label height={24} textColor={textColor} backgroundColor={backgroundColor} name={labelName} />;
+  const Labels = labels.map(({ labelId, textColor, backgroundColor, labelName }) => {
+    return (
+      <Label
+        key={labelId}
+        height={24}
+        textColor={textColor}
+        backgroundColor={backgroundColor}
+        name={labelName}
+      />
+    );
   });
 
   return (
