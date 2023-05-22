@@ -2,12 +2,10 @@ package team05.codesquad.issuetracker.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import team05.codesquad.issuetracker.domain.milestone.Milestone;
-import team05.codesquad.issuetracker.dto.milestone.NewMilestoneDto;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import team05.codesquad.issuetracker.dto.request.MilestoneCreateRequest;
+import team05.codesquad.issuetracker.dto.response.MilestoneCreateResponse;
 import team05.codesquad.issuetracker.repository.MilestoneRepository;
 import team05.codesquad.issuetracker.service.MilestoneService;
 
@@ -23,10 +21,16 @@ public class MilestoneController {
         this.milestoneService = milestoneService;
     }
 
+//    @GetMapping
+//    public List<Milestone> allMilestones() {
+//        log.info(">>> MilestoneController allMilestones");
+//
+//    }
+
     @PostMapping
-    public Milestone createMilestone(@RequestBody NewMilestoneDto newMilestoneDto) {
+    @ResponseStatus(HttpStatus.OK)
+    public MilestoneCreateResponse createMilestone(@RequestBody MilestoneCreateRequest request) {
         log.info(">>> MilestoneController createMilestone");
-        Milestone newMilestone = milestoneService.createMilestone(newMilestoneDto);
-        return newMilestone;
+        return milestoneService.createMilestone(request);
     }
 }
