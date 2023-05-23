@@ -1,25 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import List from './List';
 import IssueListMainHeader from './IssueListMainHeader';
-import { $Lists } from './style';
+import { FilterBarContext } from '../../../context/filterContext';
+import { $Lists, $IssueListMain } from './style';
 
-const IssueListMain = ({ issues }) => {
+const IssueListMain = ({ issues, user, label, milestone }) => {
+  const filterState = useContext(FilterBarContext);
+
+  console.log(filterState);
   return (
-    <React.Fragment>
-      <IssueListMainHeader />
+    <$IssueListMain>
+      <IssueListMainHeader user={user} label={label} milestone={milestone} />
       <$Lists>
         {issues.map((issue) => (
           <List key={issue.issueId} {...issue} />
         ))}
       </$Lists>
-    </React.Fragment>
+    </$IssueListMain>
   );
 };
 
 IssueListMain.propTypes = {
   issues: PropTypes.array.isRequired,
+  user: PropTypes.array.isRequired,
+  label: PropTypes.array.isRequired,
+  milestone: PropTypes.array.isRequired,
 };
 
 export default IssueListMain;
