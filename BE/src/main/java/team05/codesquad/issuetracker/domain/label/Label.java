@@ -29,4 +29,10 @@ public class Label {
     @Column("font_color")
     private String fontColor;
 
+    public void editLabel(String title, String description, String backgroundColor, String fontColor) {
+        this.title = title;
+        this.description = description;
+        this.backgroundColor = backgroundColor;
+        this.fontColor = fontColor;
+    }
 }
