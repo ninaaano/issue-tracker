@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 import List from './List';
 import IssueListMainHeader from './IssueListMainHeader';
-import { FilterBarContext } from '../../../context/filterContext';
+import { useFilterState } from '../../../context/filterContext';
 import { $Lists, $IssueListMain } from './style';
 
 const IssueListMain = ({ issues, user, label, milestone }) => {
-  const filterState = useContext(FilterBarContext);
+  const filterState = useFilterState();
 
   console.log(filterState);
   return (

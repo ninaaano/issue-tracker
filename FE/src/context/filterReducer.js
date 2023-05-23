@@ -1,1 +1,1 @@
-export const filterReducer = () => {};
+export const filterReducer = (state, action) => {};

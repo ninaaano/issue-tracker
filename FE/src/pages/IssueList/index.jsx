@@ -15,6 +15,7 @@ const IssueList = () => {
   const { data: userData } = useFetch(USERS.GET_ALL_USERS);
   const { data: labelData } = useFetch(LABELS.GET_ALL_LABELS);
   const { data: milestoneData } = useFetch(MILESTONES.GET_ALL_MILESTONES);
+
   const allDataLoaded = issueData && userData && labelData && milestoneData;
 
   // console.log(userData, labelData, milestoneData);
