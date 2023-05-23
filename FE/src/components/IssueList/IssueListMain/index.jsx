@@ -1,15 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import List from './List';
 import IssueListMainHeader from './IssueListMainHeader';
-import { useFilterState } from '../../../context/filterContext';
 import { $Lists, $IssueListMain } from './style';
 
 const IssueListMain = ({ issues, user, label, milestone }) => {
-  const filterState = useFilterState();
-
-  console.log(filterState);
   return (
     <$IssueListMain>
       <IssueListMainHeader user={user} label={label} milestone={milestone} />

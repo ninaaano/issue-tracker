@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { ISSUES, USERS, LABELS, MILESTONES } from '../../constants/api';
 
 import useFetch from '../../hooks/useFetch';
-import { FilterBarProvider } from '../../context/filterContext';
+import { FilterProvider } from '../../context/filterContext';
 
 import IssueListHeader from '../../components/IssueList/IssueListHeader';
 import IssueListMain from '../../components/IssueList/IssueListMain';
@@ -18,10 +18,9 @@ const IssueList = () => {
 
   const allDataLoaded = issueData && userData && labelData && milestoneData;
 
-  // console.log(userData, labelData, milestoneData);
   if (allDataLoaded) {
     return (
-      <FilterBarProvider data={{ users: userData, labels: labelData, milestones: milestoneData }}>
+      <FilterProvider data={{ users: userData, labels: labelData, milestones: milestoneData }}>
         <$IssueList>
           <IssueListHeader />
           {allDataLoaded && (
@@ -33,10 +32,10 @@ const IssueList = () => {
             />
           )}
         </$IssueList>
-      </FilterBarProvider>
+      </FilterProvider>
     );
   }
-  // loading, error 시 다른 뷰 띄우게끔.
+  // TODO : loading, error 시 다른 뷰 띄우게끔.
   return <div>로딩중.</div>;
 };
 

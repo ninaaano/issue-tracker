@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useContext } from 'react';
+import React, { createContext, useReducer } from 'react';
 import PropTypes from 'prop-types';
 
 import { filterReducer } from './filterReducer';
@@ -42,7 +42,7 @@ const filterInitFunc = (userData, labelData, milestoneData) => {
 const FilterStateContext = createContext(null);
 const FilterDispatchContext = createContext(null);
 
-const FilterBarProvider = ({ children, data }) => {
+const FilterProvider = ({ children, data }) => {
   const [filterState, filterDispatch] = useReducer(
     filterReducer,
     {},
@@ -56,26 +56,9 @@ const FilterBarProvider = ({ children, data }) => {
   );
 };
 
-const useFilterState = () => {
-  const state = useContext(FilterStateContext);
-
-  if (!state) {
-    throw new Error('Cannot find UsersProvider');
-  }
-  return state;
-};
-
-const useFilterDispatch = () => {
-  const dispatch = useContext(FilterDispatchContext);
-
-  if (!dispatch) {
-    throw new Error('Cannot find UsersProvider');
-  }
-  return dispatch;
-};
-
-FilterBarProvider.propTypes = {
+FilterProvider.propTypes = {
   children: PropTypes.node.isRequired,
   data: PropTypes.node.isRequired,
 };
-export { FilterBarProvider, useFilterState, useFilterDispatch };
+
+export { FilterProvider, FilterStateContext, FilterDispatchContext };
