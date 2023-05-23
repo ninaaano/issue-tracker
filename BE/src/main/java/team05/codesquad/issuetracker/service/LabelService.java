@@ -20,4 +20,10 @@ public class LabelService {
         Label saveLabel = labelRepository.save(label);
         return LabelResponse.from(saveLabel);
     }
+
+    public Iterable<Label> findAll() {
+        return labelRepository.findAll();
+    }
+
+
 }

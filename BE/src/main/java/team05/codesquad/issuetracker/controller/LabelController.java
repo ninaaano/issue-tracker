@@ -6,7 +6,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import team05.codesquad.issuetracker.controller.labeldto.LabelRequest;
 import team05.codesquad.issuetracker.controller.labeldto.LabelResponse;
+import team05.codesquad.issuetracker.controller.labeldto.LabelsResponse;
+import team05.codesquad.issuetracker.domain.label.Label;
 import team05.codesquad.issuetracker.service.LabelService;
+
+import java.util.List;
 
 
 @Slf4j
@@ -17,11 +21,21 @@ public class LabelController {
 
     private final LabelService labelService;
 
+
+
+    // 전체 목록 조회
+    @GetMapping
+    public ResponseEntity<Iterable<Label>> getLabels() {
+        Iterable<Label> labelList = labelService.findAll();
+        return ResponseEntity.ok().body(labelList);
+    }
+
+
     // 레이블 생성하기
     @PostMapping
     public ResponseEntity<LabelResponse> createLabel(@RequestBody LabelRequest request) {
-        LabelResponse responseDto = labelService.save(request);
-        return ResponseEntity.ok().body(responseDto);
+        LabelResponse response = labelService.save(request);
+        return ResponseEntity.ok().body(response);
     }
 
 }
