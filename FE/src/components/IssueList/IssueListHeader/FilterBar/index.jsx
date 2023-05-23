@@ -7,6 +7,7 @@ import { $FilterBar, $FilterInput, $FilterInputWrapper } from './style';
 
 const FILTER = {
   TYPE: 'issue',
+  NAME: '이슈',
   MENUS: [
     { text: '열린 이슈' },
     { text: '내가 작성한 이슈' },
@@ -19,7 +20,7 @@ const FILTER = {
 const FilterBar = (props) => {
   return (
     <$FilterBar>
-      <DropDown type="filter" width="128" height="40" gap="8" menus={FILTER.MENUS} />
+      <DropDown type={FILTER.TYPE} name={FILTER.NAME} width={128} height={40} gap={8} menus={FILTER.MENUS} />
       <$FilterInputWrapper>
         <Icon name="search" fill="#6E7191" />
         <$FilterInput type="text" placeholder="is:issue is:open" />
