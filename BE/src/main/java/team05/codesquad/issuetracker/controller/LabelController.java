@@ -22,7 +22,6 @@ public class LabelController {
     private final LabelService labelService;
 
 
-
     // 전체 목록 조회
     @GetMapping
     public ResponseEntity<Iterable<Label>> getLabels() {
@@ -40,9 +39,15 @@ public class LabelController {
 
     // 레이블 수정하기
     @PatchMapping("/{id}")
-    public ResponseEntity<LabelResponse> editLabel(@PathVariable Long id, @RequestBody LabelRequest request){
-        LabelResponse response = labelService.edit(id,request);
+    public ResponseEntity<LabelResponse> editLabel(@PathVariable Long id, @RequestBody LabelRequest request) {
+        LabelResponse response = labelService.edit(id, request);
         return ResponseEntity.ok().body(response);
+    }
+
+    // 레이블 삭제하기
+    @DeleteMapping("/{id}")
+    public void deleteLabel(@PathVariable Long id) {
+        labelService.delete(id);
     }
 
 }

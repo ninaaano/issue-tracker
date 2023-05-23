@@ -37,4 +37,8 @@ public class LabelService {
     }
 
 
+    public void delete(Long id) {
+        Label targetLabel = labelRepository.findById(id).orElseThrow(() -> new NotFoundException(HttpStatus.NOT_FOUND + "정보를 찾을 수 없습니다"));
+        labelRepository.deleteById(id);
+    }
 }
