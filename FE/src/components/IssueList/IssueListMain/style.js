@@ -6,4 +6,13 @@ const $Lists = styled.ul`
   background-color: ${({ theme }) => theme.colors.neutral.background.strong};
 `;
 
-export { $Lists };
+const $IssueListMain = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
+  border-radius: 16px;
+  margin-top: 24px;
+  overflow: hidden;
+`;
+
+export { $Lists, $IssueListMain };
