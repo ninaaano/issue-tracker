@@ -1,41 +1,42 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { ISSUES } from '../../constants/api';
+import { ISSUES, USERS, LABELS, MILESTONES } from '../../constants/api';
+
+import useFetch from '../../hooks/useFetch';
+import { FilterBarProvider } from '../../context/filterContext';
 
 import IssueListHeader from '../../components/IssueList/IssueListHeader';
 import IssueListMain from '../../components/IssueList/IssueListMain';
-import { $IssueList, $IssueListMain } from './style';
+import { $IssueList } from './style';
 
 const IssueList = () => {
-  const [issueData, setIssueData] = useState([]);
+  const { data: issueData } = useFetch(ISSUES.GET_ALL_ISSUES);
+  const { data: userData } = useFetch(USERS.GET_ALL_USERS);
+  const { data: labelData } = useFetch(LABELS.GET_ALL_LABELS);
+  const { data: milestoneData } = useFetch(MILESTONES.GET_ALL_MILESTONES);
+  const allDataLoaded = issueData && userData && labelData && milestoneData;
 
-  const fetchIssueListsData = useCallback(async () => {
-    try {
-      const response = await fetch(ISSUES.GET_ALL_ISSUES);
-
-      if (!response.ok) {
-        throw new Error('fetch failed');
-      }
-
-      const { data } = await response.json();
-
-      setIssueData(data.issues);
-    } catch (error) {
-      console.error(error);
-    }
-  });
-
-  useEffect(() => {
-    fetchIssueListsData();
-  }, []);
-
-  return (
-    <$IssueList>
-      <IssueListHeader />
-      <$IssueListMain>{issueData.length !== 0 && <IssueListMain issues={issueData} />}</$IssueListMain>
-    </$IssueList>
-  );
+  // console.log(userData, labelData, milestoneData);
+  if (allDataLoaded) {
+    return (
+      <FilterBarProvider data={{ users: userData, labels: labelData, milestones: milestoneData }}>
+        <$IssueList>
+          <IssueListHeader />
+          {allDataLoaded && (
+            <IssueListMain
+              issues={issueData.issues}
+              user={userData}
+              label={labelData}
+              milestone={milestoneData}
+            />
+          )}
+        </$IssueList>
+      </FilterBarProvider>
+    );
+  }
+  // loading, error 시 다른 뷰 띄우게끔.
+  return <div>로딩중.</div>;
 };
 
 export default IssueList;
