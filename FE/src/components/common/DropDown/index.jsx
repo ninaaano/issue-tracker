@@ -79,13 +79,14 @@ const DropDown = ({ className = '', type, name, width, height, menus, position =
         <$DropDownWrapper className={className} position={position} gap={gap} ref={menusRef}>
           <$DropDownHeader>{`${name} 필터`}</$DropDownHeader>
           <$DropDownMenus>
-            {convertedMenus.map(({ id, url, text, backgroundColor, isChecked }) => (
+            {convertedMenus.map(({ id, url, text, backgroundColor }) => (
               <DropDownMenu
                 key={id}
+                menuId={id}
+                menuType={type}
                 menuImg={url}
                 menuText={text}
                 backgroundColor={backgroundColor}
-                isChecked={isChecked}
               />
             ))}
           </$DropDownMenus>
