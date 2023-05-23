@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { FILTER_TYPE } from '../../../constants/dropdownMenu';
+
 import DropDownMenu from './DropDownMenu';
 import Icon from '../Icon';
 import {
@@ -13,8 +15,17 @@ import {
 } from './style';
 
 // TODO : util 함수로 빼기.
-const convertMenuObj = (type, menus) => {
-  return menus.map((menu) => {
+const convertMenus = ({ type, name, menus }) => {
+  const convertedMenus = [];
+
+  if (type === FILTER_TYPE.ASSIGNEE) {
+    convertedMenus.push({ id: 'none', text: `${name}가 없는 이슈` });
+  }
+  if (type === FILTER_TYPE.LABEL || type === FILTER_TYPE.MILESTONE) {
+    convertedMenus.push({ id: 'none', text: `${name}이 없는 이슈` });
+  }
+
+  menus.forEach((menu) => {
     const keys = Object.keys(menu);
     const newMenu = {};
 
@@ -24,8 +35,11 @@ const convertMenuObj = (type, menus) => {
       if (key.includes('url')) newMenu.url = menu[key];
       if (key.includes('backgroundColor')) newMenu.backgroundColor = menu[key];
     });
-    return newMenu;
+
+    convertedMenus.push(newMenu);
   });
+
+  return convertedMenus;
 };
 
 const DropDown = ({ className = '', type, name, width, height, menus, position = 'left', gap = 0 }) => {
@@ -51,7 +65,7 @@ const DropDown = ({ className = '', type, name, width, height, menus, position =
     return () => window.removeEventListener('click', closeHandler);
   }, []);
 
-  const convertMenus = type === 'issue' ? menus : convertMenuObj(type, menus);
+  const convertedMenus = type === 'issue' ? menus : convertMenus({ type, name, menus });
 
   return (
     <$DropDown>
@@ -65,7 +79,7 @@ const DropDown = ({ className = '', type, name, width, height, menus, position =
         <$DropDownWrapper className={className} position={position} gap={gap} ref={menusRef}>
           <$DropDownHeader>{`${name} 필터`}</$DropDownHeader>
           <$DropDownMenus>
-            {convertMenus.map(({ id, url, text, backgroundColor, isChecked }) => (
+            {convertedMenus.map(({ id, url, text, backgroundColor, isChecked }) => (
               <DropDownMenu
                 key={id}
                 menuImg={url}
