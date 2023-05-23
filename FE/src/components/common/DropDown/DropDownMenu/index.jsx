@@ -11,8 +11,9 @@ const DropDownMenu = ({ menuId, menuType, menuImg = null, menuText, backgroundCo
   const filterDispatch = useContext(FilterDispatchContext);
 
   const filterState = useContext(FilterStateContext);
-  const isChecked = filterState[menuType][menuId];
+  const checkedOption = filterState[menuType];
 
+  const isChecked = checkedOption === menuId;
   const menuClickHandler = () => {
     filterDispatch({ type: FILTER_ACTION_TYPES.CLICK_MENU, payload: { filterType: menuType, id: menuId } });
   };

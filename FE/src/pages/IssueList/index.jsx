@@ -18,25 +18,21 @@ const IssueList = () => {
 
   const allDataLoaded = issueData && userData && labelData && milestoneData;
 
-  if (allDataLoaded) {
-    return (
-      <FilterProvider data={{ users: userData, labels: labelData, milestones: milestoneData }}>
-        <$IssueList>
-          <IssueListHeader />
-          {allDataLoaded && (
-            <IssueListMain
-              issues={issueData.issues}
-              user={userData}
-              label={labelData}
-              milestone={milestoneData}
-            />
-          )}
-        </$IssueList>
-      </FilterProvider>
-    );
-  }
-  // TODO : loading, error 시 다른 뷰 띄우게끔.
-  return <div>로딩중.</div>;
+  return (
+    <FilterProvider>
+      <$IssueList>
+        <IssueListHeader />
+        {allDataLoaded && (
+          <IssueListMain
+            issues={issueData.issues}
+            user={userData}
+            label={labelData}
+            milestone={milestoneData}
+          />
+        )}
+      </$IssueList>
+    </FilterProvider>
+  );
 };
 
 export default IssueList;

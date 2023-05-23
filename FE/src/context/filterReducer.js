@@ -6,16 +6,11 @@ export const filterReducer = (state, action) => {
   switch (action.type) {
     case FILTER_ACTION_TYPES.CLICK_MENU: {
       const { filterType, id } = action.payload;
-      const newFilter = { ...state[filterType] };
+      const value = state[filterType] !== id || state[filterType] === null ? id : null;
 
-      Object.keys(newFilter).forEach((key) => {
-        newFilter[key] = false;
-      });
+      console.log({ ...state, [filterType]: value });
 
-      newFilter[id] = !state[filterType][id];
-      const newState = { ...state, [filterType]: newFilter };
-
-      return newState;
+      return { ...state, [filterType]: value };
     }
 
     default:
