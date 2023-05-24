@@ -20,17 +20,17 @@ const IssueList = () => {
 
   return (
     <FilterProvider>
-      <$IssueList>
-        <IssueListHeader />
-        {allDataLoaded && (
+      {allDataLoaded && (
+        <$IssueList>
+          <IssueListHeader labelCount={labelData.length} milestoneCount={milestoneData.length} />
           <IssueListMain
             issues={issueData.issues}
             user={userData}
             label={labelData}
             milestone={milestoneData}
           />
-        )}
-      </$IssueList>
+        </$IssueList>
+      )}
     </FilterProvider>
   );
 };

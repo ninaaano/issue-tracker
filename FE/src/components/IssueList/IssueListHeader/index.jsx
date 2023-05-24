@@ -5,15 +5,18 @@ import NavButtons from './NavButtons';
 import FilterBar from './FilterBar';
 import { $IssueListHeader } from './style';
 
-const IssueListHeader = (props) => {
+const IssueListHeader = ({ labelCount, milestoneCount }) => {
   return (
     <$IssueListHeader>
       <FilterBar />
-      <NavButtons />
+      <NavButtons labelCount={labelCount} milestoneCount={milestoneCount} />
     </$IssueListHeader>
   );
 };
 
-IssueListHeader.propTypes = {};
+IssueListHeader.propTypes = {
+  labelCount: PropTypes.number.isRequired,
+  milestoneCount: PropTypes.number.isRequired,
+};
 
 export default IssueListHeader;

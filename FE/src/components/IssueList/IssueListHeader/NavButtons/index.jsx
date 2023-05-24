@@ -6,10 +6,10 @@ import TabButton from '../../../common/TabButton';
 import Icon from '../../../common/Icon';
 import { $NavButtons } from './style';
 
-const NavButtons = (props) => {
+const NavButtons = ({ labelCount, milestoneCount }) => {
   return (
     <$NavButtons>
-      <TabButton />
+      <TabButton labelCount={labelCount} milestoneCount={milestoneCount} />
       <Button type="contained" size="S">
         <Icon name="plus" />
         <p>이슈 작성</p>
@@ -18,6 +18,9 @@ const NavButtons = (props) => {
   );
 };
 
-NavButtons.propTypes = {};
+NavButtons.propTypes = {
+  labelCount: PropTypes.number.isRequired,
+  milestoneCount: PropTypes.number.isRequired,
+};
 
 export default NavButtons;
