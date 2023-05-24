@@ -8,18 +8,17 @@ const mockIssuesData = {
         writer: {
           userId: 6,
           name: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           createdAt: '2023-05-16T09:10:35.145Z',
         },
         assignee: [
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
           },
         ],
         milestone: {
@@ -49,6 +48,7 @@ const mockIssuesData = {
         writer: {
           userId: 1,
           name: '고뭉남',
+          url: 'https://avatars.githubusercontent.com/u/77562698?v=4',
           createdAt: '2023-05-17T09:10:35.145Z',
         },
         assignee: [
@@ -90,6 +90,7 @@ const mockIssuesData = {
         writer: {
           userId: 4,
           name: '아켄',
+          url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           createdAt: '2023-05-18T14:25:21.789Z',
         },
         assignee: [
@@ -125,6 +126,7 @@ const mockIssuesData = {
         writer: {
           userId: 2,
           name: '니노',
+          url: 'https://avatars.githubusercontent.com/u/95615105?v=4',
           createdAt: '2023-05-19T12:45:10.621Z',
         },
         assignee: [
@@ -160,6 +162,7 @@ const mockIssuesData = {
         writer: {
           userId: 4,
           name: '아켄',
+          url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           createdAt: '2023-05-20T10:35:45.321Z',
         },
         assignee: [
@@ -201,6 +204,7 @@ const mockIssuesData = {
         writer: {
           userId: 1,
           name: '고뭉남',
+          url: 'https://avatars.githubusercontent.com/u/77562698?v=4',
           createdAt: '2023-05-21T15:12:53.987Z',
         },
         assignee: [
@@ -236,6 +240,7 @@ const mockIssuesData = {
         writer: {
           userId: 6,
           name: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           createdAt: '2023-05-22T08:55:10.452Z',
         },
         assignee: [
@@ -277,6 +282,7 @@ const mockIssuesData = {
         writer: {
           userId: 2,
           name: '니노',
+          url: 'https://avatars.githubusercontent.com/u/95615105?v=4',
           createdAt: '2023-05-23T11:20:30.872Z',
         },
         assignee: [
@@ -312,6 +318,7 @@ const mockIssuesData = {
         writer: {
           userId: 4,
           name: '아켄',
+          url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           createdAt: '2023-05-24T13:40:15.521Z',
         },
         assignee: [
@@ -353,6 +360,7 @@ const mockIssuesData = {
         writer: {
           userId: 1,
           name: '고뭉남',
+          url: 'https://avatars.githubusercontent.com/u/77562698?v=4',
           createdAt: '2023-05-25T16:30:20.963',
         },
         assignee: [
@@ -392,7 +400,9 @@ const mockIssuesData = {
         issueTitle: '[BE]: Fixing API Endpoint',
         isOpened: false,
         writer: {
-          name: 'Sol',
+          userId: 5,
+          url: 'https://avatars.githubusercontent.com/u/86761640?v=4',
+          name: '솔',
           createdAt: '2023-05-26T09:45:35.212',
         },
         assignee: [
@@ -428,6 +438,7 @@ const mockIssuesData = {
         writer: {
           userId: 3,
           name: '에이든',
+          url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
           createdAt: '2023-05-27T11:20:15.587',
         },
         assignee: [
@@ -463,6 +474,7 @@ const mockIssuesData = {
         writer: {
           userId: 1,
           name: '고뭉남',
+          url: 'https://avatars.githubusercontent.com/u/77562698?v=4',
           createdAt: '2023-05-28T14:10:40.931',
         },
         assignee: [
@@ -496,7 +508,9 @@ const mockIssuesData = {
         issueTitle: '[FE]: Adding Unit Tests',
         isOpened: true,
         writer: {
-          name: 'Sol',
+          userId: 5,
+          url: 'https://avatars.githubusercontent.com/u/86761640?v=4',
+          name: '솔',
           createdAt: '2023-05-29T16:55:25.498',
         },
         assignee: [
@@ -538,6 +552,7 @@ const mockIssuesData = {
         writer: {
           userId: 3,
           name: '에이든',
+          url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
           createdAt: '2023-06-01T09:30:45.731',
         },
         assignee: [
@@ -573,6 +588,7 @@ const mockIssuesData = {
         writer: {
           userId: 2,
           name: '니노',
+          url: 'https://avatars.githubusercontent.com/u/95615105?v=4',
           createdAt: '2023-06-02T14:20:15.958',
         },
         assignee: [
@@ -608,6 +624,7 @@ const mockIssuesData = {
         writer: {
           userId: 1,
           name: '고뭉남',
+          url: 'https://avatars.githubusercontent.com/u/77562698?v=4',
           createdAt: '2023-06-03T17:40:30.521',
         },
         assignee: [
