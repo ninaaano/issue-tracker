@@ -49,7 +49,7 @@ const List = ({ issueId, issueTitle, label, writer, milestone, assignee }) => {
           <span>{milestone.milestoneName}</span>
         </$IssueInfo>
       </$LeftElements>
-      {assignee.length !== 0 && <$Assignee src={assignee[0].profileImgSrc} />}
+      {assignee.length !== 0 && <$Assignee src={writer.url} />}
     </$List>
   );
 };
