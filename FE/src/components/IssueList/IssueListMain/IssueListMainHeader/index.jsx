@@ -7,14 +7,14 @@ import Icon from '../../../common/Icon';
 import DropDown from '../../../common/DropDown';
 import { $IssueListMainHeader, $CheckBox, $LeftButton, $RightButton } from './style';
 
-const IssueButton = ({ status, count = 0, active = false }) => {
+const IssueButton = ({ onClick, status, count = 0, active }) => {
   const STATUS_MAP = {
     open: { iconName: 'alertCircle', buttonText: `열린 이슈(${count})` },
     close: { iconName: 'trash', buttonText: `닫힌 이슈(${count})` },
   };
 
   return (
-    <Button type="ghost" size="M" active={active}>
+    <Button type="ghost" size="M" active={active} onClick={onClick}>
       <Icon name={STATUS_MAP[status].iconName} />
       {STATUS_MAP[status].buttonText}
     </Button>
@@ -22,12 +22,22 @@ const IssueButton = ({ status, count = 0, active = false }) => {
 };
 
 IssueButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
   status: PropTypes.string.isRequired,
   count: PropTypes.number.isRequired,
-  active: PropTypes.bool,
+  active: PropTypes.bool.isRequired,
 };
 
-const IssueListMainHeader = ({ user, label, milestone }) => {
+const IssueListMainHeader = ({
+  openCount,
+  closeCount,
+  user,
+  label,
+  milestone,
+  openBtnHandler,
+  closeBtnHandler,
+  isOpened,
+}) => {
   const [isSelected, setIsSelected] = useState(false);
   const checkBoxClickHandler = () => {
     setIsSelected((prev) => !prev);
@@ -43,8 +53,8 @@ const IssueListMainHeader = ({ user, label, milestone }) => {
             fill={isSelected ? '#007AFF' : '#D9DBE9'}
           />
         </$CheckBox>
-        <IssueButton status="open" active />
-        <IssueButton status="close" />
+        <IssueButton status="open" count={openCount} onClick={openBtnHandler} active={isOpened} />
+        <IssueButton status="close" count={closeCount} onClick={closeBtnHandler} active={!isOpened} />
       </$LeftButton>
       <$RightButton>
         {/* { TODO: 조건부 렌더링으로 헤더부분 갈아끼워야함 } */}
@@ -63,9 +73,14 @@ const IssueListMainHeader = ({ user, label, milestone }) => {
 };
 
 IssueListMainHeader.propTypes = {
+  openCount: PropTypes.number,
+  closeCount: PropTypes.number,
   user: PropTypes.array.isRequired,
   label: PropTypes.array.isRequired,
   milestone: PropTypes.array.isRequired,
+  openBtnHandler: PropTypes.func.isRequired,
+  closeBtnHandler: PropTypes.func.isRequired,
+  isOpened: PropTypes.bool.isRequired,
 };
 
 export default IssueListMainHeader;
