@@ -72,6 +72,7 @@ const $List = styled.li`
   align-items: center;
   width: 100%;
   height: 100px;
+  background-color: ${({ theme }) => theme.colors.neutral.background.strong};
   // TODO: Remove
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
 `;

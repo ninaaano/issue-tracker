@@ -3,7 +3,14 @@ import styled from 'styled-components';
 const $Lists = styled.ul`
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.colors.neutral.background.strong};
+
+  & > li:first-child {
+    border-top: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
+  }
+
+  & > li:last-child {
+    border-radius: 0 0 16px 16px;
+  }
 `;
 
 const $IssueListMain = styled.div`
@@ -12,7 +19,6 @@ const $IssueListMain = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
   border-radius: 16px;
   margin-top: 24px;
-  overflow: hidden;
 `;
 
 export { $Lists, $IssueListMain };
