@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 @Slf4j
-@RequiredArgsConstructor    // final 멤버변수가 있으면 생성자 항목에 포함시킴
+@RequiredArgsConstructor
 @Component
 @Service
 public class S3Uploader {
@@ -27,8 +27,8 @@ public class S3Uploader {
         ObjectMetadata objMeta = new ObjectMetadata();
         objMeta.setContentLength(multipartFile.getInputStream().available());
 
-        amazonS3.putObject(s3Properties.getBucket(), s3FileName, multipartFile.getInputStream(), objMeta);
+        amazonS3.putObject(s3Properties.getS3().getBucket(), s3FileName, multipartFile.getInputStream(), objMeta);
 
-        return amazonS3.getUrl(s3Properties.getBucket(), s3FileName).toString();
+        return amazonS3.getUrl(s3Properties.getS3().getBucket(), s3FileName).toString();
     }
 }
