@@ -5,7 +5,7 @@ import Icon from '../../../common/Icon';
 import Label from '../../../common/Label';
 import { $List, $LeftElements, $UpElements, $IssueTitle, $IssueInfo, $Assignee, $CheckBox } from './style';
 
-const List = ({ issueId, issueTitle, label, writer, milestone, assignee }) => {
+const List = ({ issueId, issueTitle, label, writer, milestone, assignee, isOpened }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const checkBoxClickHandler = () => {
@@ -35,7 +35,8 @@ const List = ({ issueId, issueTitle, label, writer, milestone, assignee }) => {
             />
           </$CheckBox>
           <$IssueTitle>
-            <Icon name="alertCircle" fill="#007AFF" />
+            {isOpened ? <Icon name="alertCircle" fill="#007AFF" /> : <Icon name="archive" fill="#FF3B30" />}
+
             <span>{issueTitle}</span>
             {Labels}
             <Label />
@@ -61,6 +62,7 @@ List.propTypes = {
   writer: PropTypes.object,
   milestone: PropTypes.string,
   assignee: PropTypes.array,
+  isOpened: PropTypes.bool.isRequired,
 };
 
 export default List;
