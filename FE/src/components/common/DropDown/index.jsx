@@ -53,9 +53,9 @@ const DropDown = ({ className = '', type, name, width, height, menus, position =
 
   useEffect(() => {
     const closeHandler = ({ target }) => {
-      const isClickedOutside = !buttonRef.current?.contains(target) && !menusRef.current?.contains(target);
+      const isOutsideClicked = !buttonRef.current?.contains(target);
 
-      if (isClickedOutside) {
+      if (isOutsideClicked) {
         setIsOpen(false);
       }
     };
