@@ -3,20 +3,29 @@ import PropTypes from 'prop-types';
 
 import Button from '../Button';
 import Icon from '../Icon';
-import { $TextArea } from './style';
+import { $TextArea, $Label, $TextAreaInput } from './style';
 
-const TextArea = ({ id, value, onChange, labelText = '코멘트를 입력하세요.', disabled = false }) => {
+const TextArea = ({
+  id,
+  value,
+  onChange,
+  labelText = '코멘트를 입력하세요.',
+  disabled = false,
+  heightType,
+}) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const focusHandler = () => setIsFocused(true);
   const blurHandler = () => setIsFocused(false);
 
-  const hasValue = value?.trim().length > 0;
+  const hasValue = value.trim().length > 0;
 
   return (
-    <$TextArea disabled={disabled} hasValue={hasValue} isFocused={isFocused}>
-      <label htmlFor={id}>{labelText}</label>
-      <textarea
+    <$TextArea disabled={disabled} isFocused={isFocused} heightType={heightType}>
+      <$Label htmlFor={id} hasValue={hasValue} isFocused={isFocused}>
+        {labelText}
+      </$Label>
+      <$TextAreaInput
         id={id}
         name={id}
         value={value}
@@ -35,10 +44,11 @@ const TextArea = ({ id, value, onChange, labelText = '코멘트를 입력하세�
 
 TextArea.propTypes = {
   id: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   labelText: PropTypes.string,
   disabled: PropTypes.bool,
+  heightType: PropTypes.oneOf(['S', 'L']),
 };
 
 export default TextArea;
