@@ -5,38 +5,15 @@ import Header from './components/Header';
 import { USERS } from './constants/api';
 import IssueList from './pages/IssueList';
 import { ThemeProvider } from './context/themeProvider';
+import useFetch from './hooks/useFetch';
 
 const App = () => {
-  const [userData, setUserData] = useState({
-    userImgSrc: '',
-  });
-
-  const fetchData = useCallback(async () => {
-    try {
-      const response = await fetch(USERS.GET_USER_IMG(6));
-
-      if (!response.ok) {
-        throw new Error('fetch failed');
-      }
-
-      const { data } = await response.json();
-
-      setUserData((prev) => {
-        return { ...prev, userImgSrc: data.userImgURL };
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { data: userImgData } = useFetch(USERS.GET_USER_IMG(6));
 
   return (
     <ThemeProvider>
       <GlobalStyles />
-      <Header userImgSrc={userData.userImgSrc} />
+      {userImgData && <Header userImgSrc={userImgData.userImgURL} />}
       <IssueList />
     </ThemeProvider>
   );

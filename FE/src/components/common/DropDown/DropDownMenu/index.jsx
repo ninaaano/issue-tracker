@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
-import Icon from '../../Icon';
-import { $MenuWrapper, $MenuLeftWrapper, $MenuImg, $MenuText } from './style';
+import { FilterDispatchContext, FilterStateContext } from '../../../../context/filterContext';
+import { FILTER_ACTION_TYPES } from '../../../../context/filterReducer';
 
-const DropDownMenu = ({ menuImg = null, menuText, isChecked = false }) => {
+import Icon from '../../Icon';
+import { $MenuWrapper, $MenuLeftWrapper, $MenuImg, $MenuText, $LabelColor } from './style';
+
+const DropDownMenu = ({ menuId, menuType, menuImg = null, menuText, backgroundColor }) => {
+  const filterDispatch = useContext(FilterDispatchContext);
+
+  const filterState = useContext(FilterStateContext);
+  const checkedOption = filterState[menuType];
+
+  const isChecked = checkedOption === menuId;
   const menuClickHandler = () => {
-    // TODO: context API 적용(로직)
-    // TODO: 드롭다운 창도 닫아야함. -> 드롭다운 전체에 상태 둬야함.
+    filterDispatch({ type: FILTER_ACTION_TYPES.CLICK_MENU, payload: { filterType: menuType, id: menuId } });
   };
 
   return (
     <$MenuWrapper type="button" onClick={menuClickHandler}>
       <$MenuLeftWrapper>
+        {backgroundColor && <$LabelColor backgroundColor={backgroundColor} />}
         {menuImg !== null && <$MenuImg src={menuImg} />}
         <$MenuText $isChecked={isChecked}>{menuText}</$MenuText>
       </$MenuLeftWrapper>
@@ -22,9 +31,11 @@ const DropDownMenu = ({ menuImg = null, menuText, isChecked = false }) => {
 };
 
 DropDownMenu.propTypes = {
+  menuId: PropTypes.oneOfType(['string', 'number']),
+  menuType: PropTypes.string.isRequired,
   menuImg: PropTypes.string,
   menuText: PropTypes.string.isRequired,
-  isChecked: PropTypes.bool,
+  backgroundColor: PropTypes.string,
 };
 
 export default DropDownMenu;

@@ -25,6 +25,14 @@ const $MenuImg = styled.img`
   margin-right: 8px;
 `;
 
+const $LabelColor = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 8px;
+  background-color: ${({ backgroundColor }) => backgroundColor};
+`;
+
 const $MenuText = styled.div`
   font-size: ${({ theme }) => theme.fontSize.M.fontSize};
   // TODO: 선택된 상태면 weight, color 바꿔야함
@@ -34,4 +42,4 @@ const $MenuText = styled.div`
   }};
 `;
 
-export { $MenuWrapper, $MenuLeftWrapper, $MenuImg, $MenuText };
+export { $MenuWrapper, $MenuLeftWrapper, $MenuImg, $MenuText, $LabelColor };

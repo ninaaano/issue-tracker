@@ -28,7 +28,6 @@ const $IssueListMainHeader = styled.header`
 
   height: 64px;
   padding: 0px 32px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
 `;
 
 export { $IssueListMainHeader, $CheckBox, $LeftButton, $RightButton };

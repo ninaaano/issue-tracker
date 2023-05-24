@@ -6,21 +6,27 @@ const mockIssuesData = {
         issueTitle: '[FE]: Creating Components',
         isOpened: true,
         writer: {
+          userId: 6,
           name: '훈딩',
           createdAt: '2023-05-16T09:10:35.145Z',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:IssueTracker',
-        labels: [
+        milestone: {
+          milestoneId: 2,
+          milestoneName: 'IssueTracker',
+        },
+        label: [
           {
             labelId: 1,
             labelName: 'docs',
@@ -41,21 +47,27 @@ const mockIssuesData = {
         issueTitle: '[BE]: Designing the ERD Structure',
         isOpened: true,
         writer: {
+          userId: 1,
           name: '고뭉남',
           createdAt: '2023-05-17T09:10:35.145Z',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:IssueTracker',
-        labels: [
+        milestone: {
+          milestoneId: 2,
+          milestoneName: 'IssueTracker',
+        },
+        label: [
           {
             labelId: 1,
             labelName: 'docs',
@@ -76,21 +88,27 @@ const mockIssuesData = {
         issueTitle: '[FE]: Implementing UI Layout',
         isOpened: false,
         writer: {
+          userId: 4,
           name: '아켄',
           createdAt: '2023-05-18T14:25:21.789Z',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:IssueTracker',
-        labels: [
+        milestone: {
+          milestoneId: 2,
+          milestoneName: 'IssueTracker',
+        },
+        label: [
           {
             labelId: 3,
             labelName: 'enhancement',
@@ -105,21 +123,27 @@ const mockIssuesData = {
         issueTitle: '[BE]: Implementing Database Queries',
         isOpened: true,
         writer: {
+          userId: 2,
           name: '니노',
           createdAt: '2023-05-19T12:45:10.621Z',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:IssueTracker',
-        labels: [
+        milestone: {
+          milestoneId: 2,
+          milestoneName: 'IssueTracker',
+        },
+        label: [
           {
             labelId: 2,
             labelName: 'bug',
@@ -134,21 +158,27 @@ const mockIssuesData = {
         issueTitle: '[FE]: Implementing Authentication',
         isOpened: true,
         writer: {
+          userId: 4,
           name: '아켄',
           createdAt: '2023-05-20T10:35:45.321Z',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:IssueTracker',
-        labels: [
+        milestone: {
+          milestoneId: 2,
+          milestoneName: 'IssueTracker',
+        },
+        label: [
           {
             labelId: 1,
             labelName: 'docs',
@@ -169,21 +199,27 @@ const mockIssuesData = {
         issueTitle: '[BE]: Refactoring Backend Code',
         isOpened: true,
         writer: {
+          userId: 1,
           name: '고뭉남',
           createdAt: '2023-05-21T15:12:53.987Z',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:IssueTracker',
-        labels: [
+        milestone: {
+          milestoneId: 2,
+          milestoneName: 'IssueTracker',
+        },
+        label: [
           {
             labelId: 4,
             labelName: 'task',
@@ -198,21 +234,27 @@ const mockIssuesData = {
         issueTitle: '[FE]: Implementing Search Functionality',
         isOpened: false,
         writer: {
+          userId: 6,
           name: '훈딩',
           createdAt: '2023-05-22T08:55:10.452Z',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:IssueTracker',
-        labels: [
+        milestone: {
+          milestoneId: 2,
+          milestoneName: 'IssueTracker',
+        },
+        label: [
           {
             labelId: 1,
             labelName: 'docs',
@@ -231,23 +273,29 @@ const mockIssuesData = {
       {
         issueId: 8,
         issueTitle: '[FE]: Implementing Notifications',
-        isOpened: true,
+        isOpened: false,
         writer: {
+          userId: 2,
           name: '니노',
           createdAt: '2023-05-23T11:20:30.872Z',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:IssueTracker',
-        labels: [
+        milestone: {
+          milestoneId: 2,
+          milestoneName: 'IssueTracker',
+        },
+        label: [
           {
             labelId: 3,
             labelName: 'enhancement',
@@ -260,23 +308,29 @@ const mockIssuesData = {
       {
         issueId: 9,
         issueTitle: '[BE]: Handling File Uploads',
-        isOpened: true,
+        isOpened: false,
         writer: {
+          userId: 4,
           name: '아켄',
           createdAt: '2023-05-24T13:40:15.521Z',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:IssueTracker',
-        labels: [
+        milestone: {
+          milestoneId: 2,
+          milestoneName: 'IssueTracker',
+        },
+        label: [
           {
             labelId: 1,
             labelName: 'docs',
@@ -295,23 +349,29 @@ const mockIssuesData = {
       {
         issueId: 10,
         issueTitle: '[FE]: Improving Performance',
-        isOpened: true,
+        isOpened: false,
         writer: {
+          userId: 1,
           name: '고뭉남',
           createdAt: '2023-05-25T16:30:20.963',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:NewMilestone',
-        labels: [
+        milestone: {
+          milestoneId: 1,
+          milestoneName: 'NewMilestone',
+        },
+        label: [
           {
             labelId: 1,
             labelName: 'docs',
@@ -330,23 +390,28 @@ const mockIssuesData = {
       {
         issueId: 11,
         issueTitle: '[BE]: Fixing API Endpoint',
-        isOpened: true,
+        isOpened: false,
         writer: {
           name: 'Sol',
           createdAt: '2023-05-26T09:45:35.212',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:NewMilestone',
-        labels: [
+        milestone: {
+          milestoneId: 1,
+          milestoneName: 'NewMilestone',
+        },
+        label: [
           {
             labelId: 2,
             labelName: 'bug',
@@ -361,21 +426,27 @@ const mockIssuesData = {
         issueTitle: '[FE]: Implementing User Profile',
         isOpened: false,
         writer: {
+          userId: 3,
           name: '에이든',
           createdAt: '2023-05-27T11:20:15.587',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:NewMilestone',
-        labels: [
+        milestone: {
+          milestoneId: 1,
+          milestoneName: 'NewMilestone',
+        },
+        label: [
           {
             labelId: 3,
             labelName: 'enhancement',
@@ -390,21 +461,27 @@ const mockIssuesData = {
         issueTitle: '[BE]: Database Optimization',
         isOpened: true,
         writer: {
+          userId: 1,
           name: '고뭉남',
           createdAt: '2023-05-28T14:10:40.931',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:NewMilestone',
-        labels: [
+        milestone: {
+          milestoneId: 1,
+          milestoneName: 'NewMilestone',
+        },
+        label: [
           {
             labelId: 4,
             labelName: 'task',
@@ -422,18 +499,23 @@ const mockIssuesData = {
           name: 'Sol',
           createdAt: '2023-05-29T16:55:25.498',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:NewMilestone',
-        labels: [
+        milestone: {
+          milestoneId: 1,
+          milestoneName: 'NewMilestone',
+        },
+        label: [
           {
             labelId: 1,
             labelName: 'docs',
@@ -454,21 +536,27 @@ const mockIssuesData = {
         issueTitle: '[BE]: Resolving Performance Bottlenecks',
         isOpened: true,
         writer: {
+          userId: 3,
           name: '에이든',
           createdAt: '2023-06-01T09:30:45.731',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:NewMilestone',
-        labels: [
+        milestone: {
+          milestoneId: 1,
+          milestoneName: 'NewMilestone',
+        },
+        label: [
           {
             labelId: 2,
             labelName: 'bug',
@@ -483,21 +571,27 @@ const mockIssuesData = {
         issueTitle: '[FE]: Implementing Notifications',
         isOpened: true,
         writer: {
+          userId: 2,
           name: '니노',
           createdAt: '2023-06-02T14:20:15.958',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:NewMilestone',
-        labels: [
+        milestone: {
+          milestoneId: 1,
+          milestoneName: 'NewMilestone',
+        },
+        label: [
           {
             labelId: 3,
             labelName: 'enhancement',
@@ -512,21 +606,27 @@ const mockIssuesData = {
         issueTitle: '[BE]: Fixing Security Vulnerabilities',
         isOpened: true,
         writer: {
+          userId: 1,
           name: '고뭉남',
           createdAt: '2023-06-03T17:40:30.521',
         },
-        assignees: [
+        assignee: [
           {
+            userId: 4,
             name: '아켄',
             profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
+            userId: 6,
             name: '훈딩',
             profileImgSrc: '',
           },
         ],
-        milestone: 'GroupProject:NewMilestone',
-        labels: [
+        milestone: {
+          milestoneId: 1,
+          milestoneName: 'NewMilestone',
+        },
+        label: [
           {
             labelId: 4,
             labelName: 'task',
@@ -586,15 +686,12 @@ const mockUserImageData = (userId) => {
 
 const mockUserData = {
   data: [
-    { userName: '고뭉남', url: 'https://avatars.githubusercontent.com/u/77562698?v=4' },
-    {
-      userName: '니노',
-      url: 'https://avatars.githubusercontent.com/u/95615105?v=4',
-    },
-    { userName: '에이든', url: 'https://avatars.githubusercontent.com/u/115064144?v=4' },
-    { userName: '아켄', url: 'https://avatars.githubusercontent.com/u/96980857?v=4' },
-    { userName: '솔', url: 'https://avatars.githubusercontent.com/u/86761640?v=4' },
-    { userName: '훈딩', url: 'https://avatars.githubusercontent.com/u/56246060?v=4' },
+    { userId: 1, userName: '고뭉남', url: 'https://avatars.githubusercontent.com/u/77562698?v=4' },
+    { userId: 2, userName: '니노', url: 'https://avatars.githubusercontent.com/u/95615105?v=4' },
+    { userId: 3, userName: '에이든', url: 'https://avatars.githubusercontent.com/u/115064144?v=4' },
+    { userId: 4, userName: '아켄', url: 'https://avatars.githubusercontent.com/u/96980857?v=4' },
+    { userId: 5, userName: '솔', url: 'https://avatars.githubusercontent.com/u/86761640?v=4' },
+    { userId: 6, userName: '훈딩', url: 'https://avatars.githubusercontent.com/u/56246060?v=4' },
   ],
 };
 
@@ -628,7 +725,10 @@ const mockLabelData = {
 };
 
 const mockMilestoneData = {
-  data: ['GroupProject:NewMilestone', 'GroupProject:IssueTracker'],
+  data: [
+    { milestoneId: 1, milestoneName: 'NewMilestone' },
+    { milestoneId: 2, milestoneName: 'IssueTracker' },
+  ],
 };
 
 export { mockIssuesData, mockUserImageData, mockUserData, mockLabelData, mockMilestoneData };

@@ -5,14 +5,14 @@ import Icon from '../../../common/Icon';
 import Label from '../../../common/Label';
 import { $List, $LeftElements, $UpElements, $IssueTitle, $IssueInfo, $Assignee, $CheckBox } from './style';
 
-const List = ({ issueId, issueTitle, labels, writer, milestone, assignees }) => {
+const List = ({ issueId, issueTitle, label, writer, milestone, assignee }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const checkBoxClickHandler = () => {
     setIsSelected((prev) => !prev);
   };
 
-  const Labels = labels.map(({ labelId, textColor, backgroundColor, labelName }) => {
+  const Labels = label.map(({ labelId, textColor, backgroundColor, labelName }) => {
     return (
       <Label
         key={labelId}
@@ -46,10 +46,10 @@ const List = ({ issueId, issueTitle, labels, writer, milestone, assignees }) => 
           <span>{`#${issueId}`}</span>
           <span>{`이 이슈가 1분전, ${writer.name}님에 의해 작성되었습니다.`}</span>
           {milestone && <Icon name="milestone" fill="#6E7191" />}
-          <span>{milestone}</span>
+          <span>{milestone.milestoneName}</span>
         </$IssueInfo>
       </$LeftElements>
-      {assignees.length !== 0 && <$Assignee src={assignees[0].profileImgSrc} />}
+      {assignee.length !== 0 && <$Assignee src={assignee[0].profileImgSrc} />}
     </$List>
   );
 };
@@ -57,10 +57,10 @@ const List = ({ issueId, issueTitle, labels, writer, milestone, assignees }) => 
 List.propTypes = {
   issueId: PropTypes.number.isRequired,
   issueTitle: PropTypes.string.isRequired,
-  labels: PropTypes.arrayOf(PropTypes.object),
+  label: PropTypes.arrayOf(PropTypes.object),
   writer: PropTypes.object,
   milestone: PropTypes.string,
-  assignees: PropTypes.array,
+  assignee: PropTypes.array,
 };
 
 export default List;

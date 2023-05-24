@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { FILTER_TYPE, FILTER_NAME } from '../../../../constants/dropdownMenu';
 import Button from '../../../common/Button';
 import Icon from '../../../common/Icon';
 import DropDown from '../../../common/DropDown';
@@ -26,21 +27,7 @@ IssueButton.propTypes = {
   active: PropTypes.bool,
 };
 
-const FILTER_TYPE = {
-  LABEL: { en: 'label', ko: '라벨' },
-  MILESTONE: { en: 'milestone', ko: '마일스톤' },
-  ASSIGNEE: { en: 'assignee', ko: '담당자' },
-  WRITER: { en: 'writer', ko: '작성자' },
-};
-
-const menus = {
-  label: [],
-  milestone: [],
-  assignee: [],
-  writer: [],
-};
-
-const IssueListMainHeader = (props) => {
+const IssueListMainHeader = ({ user, label, milestone }) => {
   const [isSelected, setIsSelected] = useState(false);
   const checkBoxClickHandler = () => {
     setIsSelected((prev) => !prev);
@@ -61,15 +48,24 @@ const IssueListMainHeader = (props) => {
       </$LeftButton>
       <$RightButton>
         {/* { TODO: 조건부 렌더링으로 헤더부분 갈아끼워야함 } */}
-        <DropDown type={FILTER_TYPE.ASSIGNEE.ko} menus={menus.assignee} position="right" />
-        <DropDown type={FILTER_TYPE.LABEL.ko} menus={menus.label} position="right" />
-        <DropDown type={FILTER_TYPE.MILESTONE.ko} menus={menus.milestone} position="right" />
-        <DropDown type={FILTER_TYPE.WRITER.ko} menus={menus.writer} position="right" />
+        <DropDown type={FILTER_TYPE.ASSIGNEE} name={FILTER_NAME.ASSIGNEE} menus={user} position="right" />
+        <DropDown type={FILTER_TYPE.LABEL} name={FILTER_NAME.LABEL} menus={label} position="right" />
+        <DropDown
+          type={FILTER_TYPE.MILESTONE}
+          name={FILTER_NAME.MILESTONE}
+          menus={milestone}
+          position="right"
+        />
+        <DropDown type={FILTER_TYPE.WRITER} name={FILTER_NAME.WRITER} menus={user} position="right" />
       </$RightButton>
     </$IssueListMainHeader>
   );
 };
 
-IssueListMainHeader.propTypes = {};
+IssueListMainHeader.propTypes = {
+  user: PropTypes.array.isRequired,
+  label: PropTypes.array.isRequired,
+  milestone: PropTypes.array.isRequired,
+};
 
 export default IssueListMainHeader;
