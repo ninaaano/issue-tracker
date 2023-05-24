@@ -9,16 +9,16 @@ const meta = {
 export default meta;
 
 const Template = (args) => {
-  const [textAreaValue, setTextAreaValue] = useState('');
+  const [text, setText] = useState('');
 
-  const handler = ({ target }) => {
-    setTextAreaValue(target.value);
+  const changeHandler = ({ target }) => {
+    setText(target.value);
     console.log(target.value);
   };
 
   return (
-    <form>
-      <TextArea id="textarea" value={textAreaValue} onChange={handler} />
+    <form action="">
+      <TextArea id="textarea" value={text} onChange={changeHandler} heightType="S" />
     </form>
   );
 };
