@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { FilterStateContext } from '../../../context/filterContext';
 import List from './List';
 import IssueListMainHeader from './IssueListMainHeader';
-import { $Lists, $IssueListMain } from './style';
+import { $Lists, $NoResultMessage, $IssueListMain } from './style';
 
 const IssueListMain = ({ issues, user, label, milestone }) => {
   const filterState = useContext(FilterStateContext);
@@ -44,6 +44,8 @@ const IssueListMain = ({ issues, user, label, milestone }) => {
 
   const filteredIssues = isOpened ? filteredOpenIssues : filteredCloseIssues;
 
+  const noResultMessage = <$NoResultMessage>검색과 일치하는 결과가 없습니다.</$NoResultMessage>;
+
   return (
     <$IssueListMain>
       <IssueListMainHeader
@@ -57,6 +59,7 @@ const IssueListMain = ({ issues, user, label, milestone }) => {
         isOpened={isOpened}
       />
       <$Lists>
+        {filteredIssues.length === 0 && noResultMessage}
         {filteredIssues.map((issue) => (
           <List isOpened={isOpened} key={issue.issueId} {...issue} />
         ))}
