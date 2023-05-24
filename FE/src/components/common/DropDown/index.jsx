@@ -54,6 +54,8 @@ const DropDown = ({
   position = 'left',
   gap = 0,
   dropDownType,
+  onSelectItem,
+  isSelectItem,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef(null);
@@ -100,6 +102,8 @@ const DropDown = ({
                 menuText={text}
                 backgroundColor={backgroundColor}
                 dropDownType={dropDownType}
+                onSelectItem={onSelectItem}
+                isSelectItem={isSelectItem}
               />
             ))}
           </$DropDownMenus>
@@ -119,6 +123,8 @@ DropDown.propTypes = {
   position: PropTypes.oneOf(['right', 'left']),
   gap: PropTypes.number,
   dropDownType: PropTypes.string,
+  onSelectItem: PropTypes.func,
+  isSelectItem: PropTypes.any,
 };
 
 export default DropDown;

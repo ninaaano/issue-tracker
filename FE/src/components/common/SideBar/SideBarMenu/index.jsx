@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { FILTER_TYPE, FILTER_NAME } from '../../../../constants/dropdownMenu';
 import { $SideBarMenu, $DropDown } from './style';
 
 const SideBarMenu = ({ type, menus, selectedMenu = false }) => {
+  const [selectedItem, setSelectedItem] = useState({});
+
   return (
     <$SideBarMenu isSelected={selectedMenu}>
       <$DropDown
@@ -14,6 +16,8 @@ const SideBarMenu = ({ type, menus, selectedMenu = false }) => {
         width={222}
         dropDownType="sideBar"
         position="center"
+        onSelectItem={setSelectedItem}
+        isSelectItem={selectedItem.id}
       />
     </$SideBarMenu>
   );

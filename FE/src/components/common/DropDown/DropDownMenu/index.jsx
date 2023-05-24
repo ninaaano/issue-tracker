@@ -7,7 +7,16 @@ import { FILTER_ACTION_TYPES } from '../../../../context/filterReducer';
 import Icon from '../../Icon';
 import { $MenuWrapper, $MenuLeftWrapper, $MenuImg, $MenuText, $LabelColor } from './style';
 
-const DropDownMenu = ({ menuId, menuType, menuImg = null, menuText, backgroundColor, dropDownType }) => {
+const DropDownMenu = ({
+  menuId,
+  menuType,
+  menuImg = null,
+  menuText,
+  backgroundColor,
+  dropDownType,
+  onSelectItem,
+  isSelectItem,
+}) => {
   if (dropDownType !== 'sideBar') {
     const filterDispatch = useContext(FilterDispatchContext);
 
@@ -31,16 +40,25 @@ const DropDownMenu = ({ menuId, menuType, menuImg = null, menuText, backgroundCo
     );
   }
 
-  const isChecked = false;
+  const selectItemHandler = () => {
+    onSelectItem((prev) => {
+      if (prev.id === menuId) return {};
+
+      return {
+        type: menuType,
+        id: menuId,
+      };
+    });
+  };
 
   return (
-    <$MenuWrapper type="button" onClick={() => {}}>
+    <$MenuWrapper type="button" onClick={selectItemHandler}>
       <$MenuLeftWrapper>
         {backgroundColor && <$LabelColor backgroundColor={backgroundColor} />}
         {menuImg !== null && <$MenuImg src={menuImg} />}
-        <$MenuText $isChecked={isChecked}>{menuText}</$MenuText>
+        <$MenuText $isChecked={isSelectItem === menuId}>{menuText}</$MenuText>
       </$MenuLeftWrapper>
-      <Icon name={isChecked ? 'checkOnCircle' : 'checkOffCircle'} />
+      <Icon name={isSelectItem === menuId ? 'checkOnCircle' : 'checkOffCircle'} />
     </$MenuWrapper>
   );
 };
@@ -52,6 +70,8 @@ DropDownMenu.propTypes = {
   menuText: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string,
   dropDownType: PropTypes.string,
+  onSelectItem: PropTypes.func,
+  isSelectItem: PropTypes.any,
 };
 
 export default DropDownMenu;
