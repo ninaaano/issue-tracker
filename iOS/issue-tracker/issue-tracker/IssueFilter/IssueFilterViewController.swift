@@ -14,7 +14,7 @@ final class IssueFilterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.issuecFilterCollectionView.dataSource = self
+//        self.issuecFilterCollectionView.dataSource = self
         self.issuecFilterCollectionView.delegate = self
         self.layoutIssueFilterCollectionView()
         self.configureNavigationBar()
@@ -66,31 +66,31 @@ final class IssueFilterViewController: UIViewController {
     }
 }
 
-extension IssueFilterViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return issueFilterHeaders.title.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IssueFilterCell.identifier, for: indexPath) as? IssueFilterCell else {
-            return UICollectionViewCell()
-        }
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionHeader,
-              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IssueFilterHeaderView.identifier, for: indexPath ) as? IssueFilterHeaderView else {
-            return UICollectionReusableView()
-        }
-        header.configureTitle(of: issueFilterHeaders.title[indexPath.section])
-        return header
-    }
-}
+//extension IssueFilterViewController: UICollectionViewDataSource {
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return issueFilterHeaders.title.count
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 4
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IssueFilterCell.identifier, for: indexPath) as? IssueFilterCell else {
+//            return UICollectionViewCell()
+//        }
+//        return cell
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        guard kind == UICollectionView.elementKindSectionHeader,
+//              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IssueFilterHeaderView.identifier, for: indexPath ) as? IssueFilterHeaderView else {
+//            return UICollectionReusableView()
+//        }
+//        header.configureTitle(of: issueFilterHeaders.title[indexPath.section])
+//        return header
+//    }
+//}
 
 extension IssueFilterViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
