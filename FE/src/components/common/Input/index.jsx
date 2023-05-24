@@ -13,12 +13,12 @@ const Input = ({
   heightType = 'S',
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const inputRef = useRef();
+  const inputRef = useRef(null);
 
   const focusHandler = () => setIsFocused(true);
   const blurHandler = () => setIsFocused(false);
 
-  const hasValue = inputRef.current.value.trim().length > 0;
+  const hasValue = inputRef.current?.value.trim().length > 0;
 
   return (
     <React.Fragment>
