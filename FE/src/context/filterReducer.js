@@ -8,8 +8,6 @@ export const filterReducer = (state, action) => {
       const { filterType, id } = action.payload;
       const value = state[filterType] !== id || state[filterType] === null ? id : null;
 
-      console.log({ ...state, [filterType]: value });
-
       return { ...state, [filterType]: value };
     }
 
