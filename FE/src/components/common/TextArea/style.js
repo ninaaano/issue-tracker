@@ -19,8 +19,6 @@ const $Label = styled.label`
 const $TextAreaInput = styled.textarea`
   width: 100%;
   height: 100%;
-  padding-bottom: 18px;
-  border-bottom: 1px dashed ${({ theme }) => theme.colors.neutral.border.default};
 
   color: ${({ theme }) => theme.colors.neutral.text.strong};
   font-size: ${({ theme }) => theme.fontSize.M.fontSize};
@@ -28,6 +26,20 @@ const $TextAreaInput = styled.textarea`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
 
   resize: none;
+`;
+
+const $TextLength = styled.div`
+  width: 100%;
+  height: 20px;
+  border-bottom: 1px dashed ${({ theme }) => theme.colors.neutral.border.default};
+
+  display: flex;
+  justify-content: flex-end;
+
+  color: ${({ theme }) => theme.colors.neutral.text.weak};
+  font-size: ${({ theme }) => theme.fontSize.S.fontSize};
+  line-height: ${({ theme }) => theme.fontSize.S.lineHeight};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
 `;
 
 const $TextArea = styled.div`
@@ -53,4 +65,4 @@ const $TextArea = styled.div`
   opacity: ${({ disabled }) => (disabled ? 0.32 : 1)};
 `;
 
-export { $TextArea, $Label, $TextAreaInput };
+export { $TextArea, $Label, $TextAreaInput, $TextLength };
