@@ -6,9 +6,10 @@ import { $SideBarMenu, $DropDown } from './style';
 
 const SideBarMenu = ({ type, menus, selectedMenu = false }) => {
   const [selectedItem, setSelectedItem] = useState({});
+  const isSelectedItem = Object.keys(selectedItem).length !== 0;
 
   return (
-    <$SideBarMenu isSelected={selectedMenu}>
+    <$SideBarMenu isSelected={isSelectedItem}>
       <$DropDown
         type={FILTER_TYPE[type]}
         name={FILTER_NAME[type]}
