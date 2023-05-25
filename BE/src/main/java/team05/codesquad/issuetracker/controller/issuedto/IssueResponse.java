@@ -20,10 +20,14 @@ public class IssueResponse {
     private Long id;
     private String title;
     private LocalDateTime createAt;
+    //private Member author;
+    //private List<Member> assignees;
     private List<Label> labels;
+    //private Milestone name;
+    private boolean status;
 
     public static IssueResponse from(Issue issue) {
-        return new IssueResponse(issue.getId(), issue.getTitle(), issue.getCreatedAt(), issue.getLabels());
+        return new IssueResponse(issue.getId(), issue.getTitle(), issue.getCreatedAt(), issue.getLabels(),issue.getIsOpened());
     }
 
 }

@@ -23,9 +23,10 @@ public class IssueController {
         this.issueService = issueService;
     }
 
-    @GetMapping
+    // 기본화면일때, 다시 openIssue눌렀을때
+    @GetMapping()
     public List<Issue> getIssues() {
-        return issueService.getAllIssues();
+        return issueService.findByOpenIssue();
     }
 
     @GetMapping("/{issueId}")

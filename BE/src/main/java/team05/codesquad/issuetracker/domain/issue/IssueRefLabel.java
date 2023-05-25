@@ -7,7 +7,7 @@ import lombok.ToString;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table("issues_with_labels")
+@Table("label_attached_issues")
 @AllArgsConstructor
 @Getter
 @Setter

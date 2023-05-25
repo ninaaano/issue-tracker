@@ -34,8 +34,8 @@ public class Issue {
     private String title;
     private String contents;
 
-    @Column("status")
-    private Boolean openStatus;
+    @Column("isOpened")
+    private Boolean isOpened;
 
     @CreatedDate
     @Column("created_at")
@@ -51,7 +51,7 @@ public class Issue {
     public Issue() {
     }
 
-    @MappedCollection(idColumn = "issue_id", keyColumn = "id")
+    @MappedCollection(idColumn = "issue_id", keyColumn = "label_id")
     @Builder.Default
     private Set<IssueRefLabel> issueLabels = new HashSet<>();
 
@@ -66,13 +66,13 @@ public class Issue {
 
     public static long countOpenIssues(List<Issue> issues) {
         return issues.stream()
-                .filter(Issue::getOpenStatus)
+                .filter(Issue::getIsOpened)
                 .count();
     }
 
     public static long countClosedIssues(List<Issue> issues) {
         return issues.stream()
-                .filter(issue -> !issue.getOpenStatus())
+                .filter(issue -> !issue.getIsOpened())
                 .count();
     }
 }
