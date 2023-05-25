@@ -12,6 +12,7 @@ import { $NewIssueForm, $NewIssueFormMain, $UserImg, $InputWrapper, $SubmitButto
 const NewIssueForm = ({ userImgSrc, userData, labelData, milestoneData }) => {
   const [title, setTitle] = useState('');
   const [comment, setComment] = useState('');
+  const [files, setFiles] = useState([]);
   const navigate = useNavigate();
 
   const changeTitleHandler = ({ target }) => setTitle(target.value);
@@ -19,6 +20,10 @@ const NewIssueForm = ({ userImgSrc, userData, labelData, milestoneData }) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+  };
+
+  const filesUploadHandler = ({ target }) => {
+    setFiles([...target.files]);
   };
 
   const navigateToIssueList = () => navigate('/');
@@ -29,7 +34,14 @@ const NewIssueForm = ({ userImgSrc, userData, labelData, milestoneData }) => {
         <$UserImg src={userImgSrc} alt="myImg" />
         <$InputWrapper>
           <TextInput id="issueTitle" value={title} onChange={changeTitleHandler} labelText="제목" />
-          <TextArea id="issueComment" value={comment} onChange={changeCommentHandler} size="L" />
+          <TextArea
+            id="issueComment"
+            value={comment}
+            onChange={changeCommentHandler}
+            files={files}
+            filesUploadHandler={filesUploadHandler}
+            size="L"
+          />
         </$InputWrapper>
         <SideBar assignees={userData} labels={labelData} milestones={milestoneData} />
       </$NewIssueFormMain>
