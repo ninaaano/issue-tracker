@@ -1,7 +1,6 @@
 package team05.codesquad.issuetracker.domain;
 
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.jdbc.core.mapping.AggregateReference;
@@ -17,7 +16,7 @@ import java.time.LocalDate;
 public class Issue {
 
     @Id
-    @Column("id")
+    @Column("issue_id")
     private Long issueId;
 
     @Column("writer_id")
@@ -35,7 +34,7 @@ public class Issue {
     @Column("created_at")
     private LocalDate createdAt;
 
-    @Column("status")
-    private boolean status;
+    @Column("isopened")
+    private boolean isOpened;
 
 }
