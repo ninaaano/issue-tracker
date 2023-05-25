@@ -19,7 +19,7 @@ import java.util.List;
 public class Milestone {
 
     @Id
-    @Column("id")
+    @Column("milestone_id")
     private Long id;
 
     @Column("title")
@@ -31,29 +31,29 @@ public class Milestone {
     @Column("deadline")
     private LocalDate deadLine;
 
-    @Column("status")
-    private boolean status;
+    @Column("isopened")
+    private boolean isOpened;
 
-    @MappedCollection(idColumn = "id", keyColumn = "id")
+    @MappedCollection(idColumn = "milestone_id", keyColumn = "issue_id")
     private List<Issue> issues;
 
     public Milestone() {
     }
 
-    public Milestone(Long id, String title, String description, LocalDate deadLine, boolean status) {
+    public Milestone(Long id, String title, String description, LocalDate deadLine, boolean isOpened) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.deadLine = deadLine;
-        this.status = status;
+        this.isOpened = isOpened;
     }
 
     @Builder
-    public Milestone(String title, String description, LocalDate deadLine, boolean status) {
+    public Milestone(String title, String description, LocalDate deadLine, boolean isOpened) {
         this.title = title;
         this.description = description;
         this.deadLine = deadLine;
-        this.status = status;
+        this.isOpened = isOpened;
     }
 
     public static Milestone toEntity(MilestoneCreateRequest request) { // DTO를 Entity로 변환해주는 메서드
@@ -61,7 +61,7 @@ public class Milestone {
                 .title(request.getTitle())
                 .description(request.getDescription())
                 .deadLine(request.getDeadLine())
-                .status(true)
+                .isOpened(true)
                 .build();
     }
 
@@ -73,13 +73,13 @@ public class Milestone {
 
     public long countOpenIssues(){
         return issues.stream()
-                .filter(Issue::isStatus)
+                .filter(Issue::isOpened)
                 .count();
     }
 
     public long countCloseIssues(){
         return issues.stream()
-                .filter(issue -> !issue.isStatus()) // Issue 객체의 status 필드가 false인 경우 필터링
+                .filter(issue -> !issue.isOpened()) // Issue 객체의 status 필드가 false인 경우 필터링
                 .count();
     }
 
