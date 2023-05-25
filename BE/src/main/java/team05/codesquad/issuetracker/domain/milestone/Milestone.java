@@ -41,7 +41,15 @@ public class Milestone {
         this.description = description;
         this.deadLine = deadLine;
         this.status = status;
-        this.issues = issues;
+    }
+
+    public static Milestone toEntity(MilestoneCreateRequest request) { // DTO를 Entity로 변환해주는 메서드
+        return Milestone.builder()
+                .title(request.getTitle())
+                .description(request.getDescription())
+                .deadLine(request.getDeadLine())
+                .status(true)
+                .build();
     }
 
     public long countOpenIssues(){
