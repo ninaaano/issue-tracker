@@ -9,6 +9,8 @@ import SideBar from '../../components/common/SideBar';
 import IssueDetailHeader from '../../components/IssueDetail/IssueDetailHeader';
 import IssueDetailMain from '../../components/IssueDetail/IssueDetailMain';
 import { $IssueDetail, $IssueCommentArea, $IssueDetailMain } from './style';
+import Button from '../../components/common/Button';
+import Icon from '../../components/common/Icon';
 
 const IssueDetail = (props) => {
   const { issueId } = useParams();
@@ -38,6 +40,10 @@ const IssueDetail = (props) => {
               milestone={milestoneData}
             />
             <TextArea id="comment" value={text} onChange={changeHandler} size="S" />
+            <Button type="contained" size="S">
+              <Icon name="plus" />
+              코멘트 작성
+            </Button>
           </$IssueCommentArea>
           <SideBar assignees={userData} labels={labelData} milestones={milestoneData} />
         </$IssueDetailMain>

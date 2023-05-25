@@ -10,8 +10,14 @@ const $IssueDetailMain = styled.div`
   justify-content: space-between;
 `;
 const $IssueCommentArea = styled.div`
+  width: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  & > button {
+    margin-top: 24px;
+  }
 `;
 
 export { $IssueDetail, $IssueCommentArea, $IssueDetailMain };
