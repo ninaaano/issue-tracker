@@ -120,7 +120,7 @@ DropDown.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   menus: PropTypes.arrayOf(PropTypes.object).isRequired,
-  position: PropTypes.oneOf(['right', 'left']),
+  position: PropTypes.oneOf(['right', 'left', 'center']),
   gap: PropTypes.number,
   dropDownType: PropTypes.string,
   onSelectItem: PropTypes.func,
