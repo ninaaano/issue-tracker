@@ -49,7 +49,7 @@ const $Input = styled.div`
   display: flex;
   ${flexDirection}
 
-  height: ${({ heightType }) => (heightType === 'S' ? '40px' : '56px')};
+  height: ${({ size }) => (size === 'S' ? '40px' : '56px')};
   padding: 0 24px;
 
   border-radius: 14px;

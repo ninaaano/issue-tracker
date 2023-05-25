@@ -10,7 +10,7 @@ const Input = ({
   labelText = '',
   placeholderText = '',
   disabled = false,
-  heightType = 'S',
+  size = 'S',
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
@@ -24,7 +24,7 @@ const Input = ({
     <React.Fragment>
       <$Input
         direction={direction}
-        heightType={heightType}
+        size={size}
         labelText={labelText}
         hasValue={hasValue}
         isFocused={isFocused}
@@ -53,7 +53,7 @@ Input.propTypes = {
   labelText: PropTypes.string,
   placeholderText: PropTypes.string,
   disabled: PropTypes.bool,
-  heightType: PropTypes.oneOf(['S', 'M']),
+  size: PropTypes.oneOf(['S', 'M']),
   // helpText: PropTypes.string,
 };
 
