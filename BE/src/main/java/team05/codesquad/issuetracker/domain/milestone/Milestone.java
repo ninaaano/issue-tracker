@@ -73,13 +73,13 @@ public class Milestone {
 
     public long countOpenIssues(){
         return issues.stream()
-                .filter(Issue::getOpenStatus)
+                .filter(Issue::getIsOpened)
                 .count();
     }
 
     public long countCloseIssues(){
         return issues.stream()
-                .filter(issue -> !issue.getOpenStatus()) // Issue 객체의 status 필드가 false인 경우 필터링
+                .filter(issue -> !issue.getIsOpened()) // Issue 객체의 status 필드가 false인 경우 필터링
                 .count();
     }
 
