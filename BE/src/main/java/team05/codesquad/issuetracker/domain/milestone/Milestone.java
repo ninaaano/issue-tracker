@@ -19,7 +19,7 @@ import java.util.List;
 public class Milestone {
 
     @Id
-    @Column("milestone_id")
+    @Column("id")
     private Long id;
 
     @Column("title")
