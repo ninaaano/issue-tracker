@@ -23,11 +23,11 @@ public class MilestoneController {
         this.milestoneService = milestoneService;
     }
 
-//    @GetMapping
-//    public List<Milestone> allMilestones() {
-//        log.info(">>> MilestoneController allMilestones");
-//
-//    }
+    @GetMapping
+    public MilestoneListResponse allMilestones() {
+        log.info(">>> MilestoneController allMilestones");
+        return milestoneService.allMilestoneDto();
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
