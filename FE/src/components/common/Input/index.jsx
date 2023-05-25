@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 import { $Input, $Label, $TextInput } from './style';
@@ -6,12 +6,11 @@ import { $Input, $Label, $TextInput } from './style';
 // ! 추후에 prop에 helpText, iconName 추가
 const Input = ({ id, value, onChange, labelText = '', placeholderText = '', disabled = false }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const inputRef = useRef(null);
 
   const focusHandler = () => setIsFocused(true);
   const blurHandler = () => setIsFocused(false);
 
-  const hasValue = inputRef.current?.value.trim().length > 0;
+  const hasValue = value.trim().length > 0;
 
   const styleType = useMemo(() => {
     if (labelText && placeholderText) return 'both';
