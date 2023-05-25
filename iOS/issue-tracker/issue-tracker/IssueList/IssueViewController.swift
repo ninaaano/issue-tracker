@@ -45,7 +45,11 @@ final class IssueViewController: UIViewController {
             cell.titleLabel.text = item.title
             cell.explanationLabel.text = item.description
             cell.milestoneLabel.text = item.title
-            cell.labelLabel.text = item.badge?[0]
+            cell.labelStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+            item.badge?.forEach { data in
+                let custom = CustomCapsuleLabel(name: "레이블", textColor: "dark", backgroundColor: "0xFF3B30", font: FontStyle.label.font)
+                cell.labelStackView.addArrangedSubview(custom)
+            }
         }
         self.issueHeaderCellRegistration = UICollectionView.SupplementaryRegistration<IssueListHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { (cell, _, indexPath) in
             let section = self.snapshot.sectionIdentifiers[indexPath.section]

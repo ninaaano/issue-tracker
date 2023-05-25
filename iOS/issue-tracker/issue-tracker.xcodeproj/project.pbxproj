@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2A28CDC72A1F382700A067D9 /* IssueListSectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A28CDC62A1F382700A067D9 /* IssueListSectionData.swift */; };
+		2A28CDCD2A1F709000A067D9 /* CustomCapsuleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A28CDCC2A1F709000A067D9 /* CustomCapsuleLabel.swift */; };
 		2A59D1262A1DF141003032D6 /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A59D1252A1DF141003032D6 /* HTTPHandler.swift */; };
-		2A7F1BE42A17105B00120353 /* MockHeaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F1BE32A17105B00120353 /* MockHeaderData.swift */; };
 		2ABB37F92A1673330044171C /* SFsymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB37F82A1673330044171C /* SFsymbol.swift */; };
 		2AC16D2E2A12920C00E71F75 /* IssueListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC16D2D2A12920C00E71F75 /* IssueListHeaderView.swift */; };
 		2AC16D302A12957D00E71F75 /* IssueCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */; };
@@ -35,8 +35,8 @@
 
 /* Begin PBXFileReference section */
 		2A28CDC62A1F382700A067D9 /* IssueListSectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListSectionData.swift; sourceTree = "<group>"; };
+		2A28CDCC2A1F709000A067D9 /* CustomCapsuleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCapsuleLabel.swift; sourceTree = "<group>"; };
 		2A59D1252A1DF141003032D6 /* HTTPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHandler.swift; sourceTree = "<group>"; };
-		2A7F1BE32A17105B00120353 /* MockHeaderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHeaderData.swift; sourceTree = "<group>"; };
 		2ABB37F82A1673330044171C /* SFsymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFsymbol.swift; sourceTree = "<group>"; };
 		2AC16D2D2A12920C00E71F75 /* IssueListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListHeaderView.swift; sourceTree = "<group>"; };
 		2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCardCell.swift; sourceTree = "<group>"; };
@@ -150,6 +150,7 @@
 				2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */,
 				2A28CDC62A1F382700A067D9 /* IssueListSectionData.swift */,
 				2AC16D2D2A12920C00E71F75 /* IssueListHeaderView.swift */,
+				2A28CDCC2A1F709000A067D9 /* CustomCapsuleLabel.swift */,
 			);
 			path = IssueList;
 			sourceTree = "<group>";
@@ -293,6 +294,7 @@
 				FFFC0BBF2A14A754006F76AF /* IssueFilterHeaderView.swift in Sources */,
 				FF769E052A13D94E00A0DFF9 /* IssueFilterViewController.swift in Sources */,
 				2AF58EE32A0CF85800EE8623 /* LabelViewController.swift in Sources */,
+				2A28CDCD2A1F709000A067D9 /* CustomCapsuleLabel.swift in Sources */,
 				2AF58EE92A0D454000EE8623 /* TabBarType.swift in Sources */,
 				FF769DC92A11D81000A0DFF9 /* FontStyle.swift in Sources */,
 				2AF58EE92A0D454000EE8623 /* TabBarType.swift in Sources */,

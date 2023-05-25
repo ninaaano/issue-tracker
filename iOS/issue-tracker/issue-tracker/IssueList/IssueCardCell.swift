@@ -17,14 +17,13 @@ final class IssueCardCell: UICollectionViewCell {
         return label
     }()
     var milestoneLabel = CustomLabelView(text: "마일스톤", alignment: .left, font: FontStyle.body.font)
-    var labelLabel: CustomLabelView = {
-        let label = CustomLabelView(text: "레이블", alignment: .left, font: FontStyle.body.font)
-        label.backgroundColor = .blue
-        label.textColor = .white
-        label.layer.cornerRadius = 12
-        label.clipsToBounds = true
-        label.textAlignment = .center
-        return label
+    var labelStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .leading
+        stackView.distribution = .fillProportionally
+        return stackView
     }()
     private let milestoneImage = UIImageView(image: UIImage(named: TabBarType.milestone.image))
     private let informationArrowImage: UIImageView = {
@@ -53,7 +52,7 @@ final class IssueCardCell: UICollectionViewCell {
         explanationLabel.translatesAutoresizingMaskIntoConstraints = false
         milestoneImage.translatesAutoresizingMaskIntoConstraints = false
         milestoneLabel.translatesAutoresizingMaskIntoConstraints = false
-        labelLabel.translatesAutoresizingMaskIntoConstraints = false
+        labelStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16),
@@ -89,17 +88,16 @@ final class IssueCardCell: UICollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            labelLabel.topAnchor.constraint(equalTo: milestoneLabel.bottomAnchor, constant: 4),
-            labelLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
-            labelLabel.widthAnchor.constraint(equalToConstant: 66),
-            labelLabel.heightAnchor.constraint(equalToConstant: 24)
+            labelStackView.topAnchor.constraint(equalTo: milestoneLabel.bottomAnchor, constant: 4),
+            labelStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
+            labelStackView.heightAnchor.constraint(equalToConstant: 24)
         ])
     }
     
     private func configureIssueCardCell() {
         self.contentView.backgroundColor = .white
         
-        [titleLabel, informationArrowImage, explanationLabel, milestoneImage, milestoneLabel, labelLabel].forEach {
+        [titleLabel, informationArrowImage, explanationLabel, milestoneImage, milestoneLabel, labelStackView].forEach {
             self.contentView.addSubview($0)
         }
     }
