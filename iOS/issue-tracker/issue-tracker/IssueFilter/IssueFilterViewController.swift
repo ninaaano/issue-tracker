@@ -10,7 +10,8 @@ import UIKit
 final class IssueFilterViewController: UIViewController {
     private var datasource: UICollectionViewDiffableDataSource<FilterSection, FilterCellTitle>!
     private var snapShot: NSDiffableDataSourceSnapshot<FilterSection, FilterCellTitle>!
-    
+    private var issueFilterCellRegistration: UICollectionView.CellRegistration<IssueFilterCell, FilterCellTitle>!
+    private var issueFilterHeaderCellRegistration: UICollectionView.SupplementaryRegistration<IssueFilterHeaderView>!
     private let issuecFilterCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     override func viewDidLoad() {
@@ -39,12 +40,14 @@ final class IssueFilterViewController: UIViewController {
     private func configureIssueFilterCollectionView() {
         self.issuecFilterCollectionView.allowsMultipleSelection = true
         self.issuecFilterCollectionView.backgroundColor = ColorValue.gray100
-        self.issuecFilterCollectionView.register(IssueFilterCell.self, forCellWithReuseIdentifier: IssueFilterCell.identifier)
-        self.issuecFilterCollectionView.register(
-            IssueFilterHeaderView.self,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: IssueFilterHeaderView.identifier
-        )
+        
+        self.issueFilterCellRegistration = UICollectionView.CellRegistration<IssueFilterCell, FilterCellTitle> { (cell, _, item) in
+            cell.filterItemNameLabel.text = item.title
+        }
+        self.issueFilterHeaderCellRegistration = UICollectionView.SupplementaryRegistration<IssueFilterHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { (cell, _, indexPath) in
+            let section = self.snapShot.sectionIdentifiers[indexPath.section]
+            cell.titleLabel.text = section.title
+        }
     }
     
     private func layoutIssueFilterCollectionView() {
@@ -72,18 +75,11 @@ extension IssueFilterViewController {
     private func configueDataSource() {
         self.datasource = UICollectionViewDiffableDataSource<FilterSection, FilterCellTitle>(collectionView: self.issuecFilterCollectionView) { (collectionView: UICollectionView, indexPath: IndexPath, identifier: FilterCellTitle
         ) -> UICollectionViewCell? in
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IssueFilterCell.identifier, for: indexPath) as? IssueFilterCell else { return nil}
-            
-            cell.filterItemNameLabel.text = identifier.title
-            return cell
+            return collectionView.dequeueConfiguredReusableCell(using: self.issueFilterCellRegistration, for: indexPath, item: identifier)
         }
         
         self.datasource.supplementaryViewProvider = { collectionView, kind, indexPath in
-            guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionViewCell() }
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IssueFilterHeaderView.identifier, for: indexPath) as? IssueFilterHeaderView
-            let section = self.snapShot.sectionIdentifiers[indexPath.section]
-            headerView?.titleLabel.text = section.title
-            return headerView
+            return collectionView.dequeueConfiguredReusableSupplementary(using: self.issueFilterHeaderCellRegistration, for: indexPath)
         }
     }
     
