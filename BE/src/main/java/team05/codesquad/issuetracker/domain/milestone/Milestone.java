@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
@@ -11,6 +12,7 @@ import team05.codesquad.issuetracker.domain.issue.Issue;
 import team05.codesquad.issuetracker.controller.milestonedto.request.MilestoneCreateRequest;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Builder @Getter
@@ -34,8 +36,10 @@ public class Milestone {
     @Column("isopened")
     private boolean isOpened;
 
-    @MappedCollection(idColumn = "milestone_id", keyColumn = "issue_id")
-    private List<Issue> issues;
+    @Transient
+    private List<Issue> issues = new ArrayList<>();
+
+    // 마일스톤이 이슈를 가지고 있어야할 것 같은데....
 
     public Milestone() {
     }
@@ -73,13 +77,13 @@ public class Milestone {
 
     public long countOpenIssues(){
         return issues.stream()
-                .filter(Issue::getOpenStatus)
+                .filter(Issue::getIsOpened)
                 .count();
     }
 
     public long countCloseIssues(){
         return issues.stream()
-                .filter(issue -> !issue.getOpenStatus()) // Issue 객체의 status 필드가 false인 경우 필터링
+                .filter(issue -> !issue.getIsOpened()) // Issue 객체의 status 필드가 false인 경우 필터링
                 .count();
     }
 
