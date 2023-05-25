@@ -9,18 +9,15 @@ const $Label = styled.label`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
 `;
 
-const textInput = css`
-  & > input {
-    width: 100%;
+const $TextInput = styled.input`
+  width: 100%;
 
-    color: ${({ hasValue, theme }) => theme.colors.neutral.text[hasValue ? 'strong' : 'weak']};
-    font-size: ${({ theme }) => theme.fontSize.M.fontSize};
-    line-height: ${({ theme }) => theme.fontSize.M.lineHeight};
-    font-weight: 400;
-  }
-  & > input:focus {
-    color: ${({ theme }) => theme.colors.neutral.text.strong};
-  }
+  color: ${({ isFocused, hasValue, theme }) => {
+    return theme.colors.neutral.text[hasValue || isFocused ? 'strong' : 'weak'];
+  }};
+  font-size: ${({ theme }) => theme.fontSize.M.fontSize};
+  line-height: ${({ theme }) => theme.fontSize.M.lineHeight};
+  font-weight: 400;
 `;
 
 const row = css`
@@ -56,8 +53,6 @@ const $Input = styled.div`
     return theme.colors.neutral.background[isFocused ? 'strong' : 'bold'];
   }};
   opacity: ${({ disabled }) => (disabled ? 0.32 : 1)};
-
-  ${textInput};
 `;
 
-export { $Input, $Label };
+export { $Input, $Label, $TextInput };
