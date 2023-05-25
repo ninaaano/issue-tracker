@@ -4,10 +4,7 @@ import PropTypes from 'prop-types';
 import { $Input, $Label, $TextInput } from './style';
 
 // ! 추후에 prop에 helpText, iconName 추가
-// labelText, placeholderText => direction = row
-// labelText => direction = column
-// placeholderText => direction = row
-const Input = ({ id, labelText = '', placeholderText = '', disabled = false }) => {
+const Input = ({ id, value, onChange, labelText = '', placeholderText = '', disabled = false }) => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
 
@@ -36,8 +33,8 @@ const Input = ({ id, labelText = '', placeholderText = '', disabled = false }) =
           type="text"
           id={id}
           name={id}
-          placeholder={placeholderText}
-          ref={inputRef}
+          value={value}
+          onChange={onChange}
           hasValue={hasValue}
           isFocused={isFocused}
           onFocus={focusHandler}
@@ -52,11 +49,11 @@ const Input = ({ id, labelText = '', placeholderText = '', disabled = false }) =
 
 Input.propTypes = {
   id: PropTypes.string.isRequired,
-  // direction: PropTypes.oneOf(['row', 'column']),
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
   labelText: PropTypes.string,
   placeholderText: PropTypes.string,
   disabled: PropTypes.bool,
-  // size: PropTypes.oneOf(['S', 'M']),
   // helpText: PropTypes.string,
 };
 

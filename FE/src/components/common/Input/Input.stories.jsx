@@ -16,7 +16,6 @@ export const Primary = Template.bind({});
 
 Primary.args = {
   id: 'label',
-  direction: 'row',
   labelText: 'Label',
   placeholderText: 'Placeholder',
 };

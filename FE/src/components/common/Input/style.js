@@ -53,15 +53,11 @@ const onlyLabelText = css`
 const onlyPlaceholderText = css`
   flex-direction: row;
   align-items: center;
-
-  /* height: 40px; */
 `;
 
 const bothLabelTextAndPlaceholderText = css`
   flex-direction: row;
   align-items: center;
-
-  /* height: 40px; */
 `;
 
 const $Input = styled.div`
