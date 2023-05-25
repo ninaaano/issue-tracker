@@ -7,7 +7,31 @@
 
 import UIKit
 class CustomCapsuleLabel: UILabel {
+    enum TextColor {
+        case light
+        case dark
+        
+        init(color: String) {
+            switch color {
+            case "light":
+                self = .light
+            default:
+                self = .dark
+            }
+        }
+        
+        var color: UIColor {
+            switch self {
+            case .light:
+                return UIColor.white
+            case .dark:
+                return UIColor.black
+            }
+        }
+    }
+    
     private static let padding = UIEdgeInsets(top: 4.0, left: 16.0, bottom: 4.0, right: 16.0)
+    
     override var intrinsicContentSize: CGSize {
         var contentSize = super.intrinsicContentSize
         contentSize.width += Self.padding.left + Self.padding.right
@@ -19,8 +43,8 @@ class CustomCapsuleLabel: UILabel {
         self.init()
         self.text = name
         self.font = font
-        self.textColor = .black
-        setBackgroundColor(backgroundColor)
+        self.textColor = TextColor(color: textColor).color
+        self.setBackgroundColor(backgroundColor)
     }
     
     override func drawText(in rect: CGRect) {
@@ -33,7 +57,7 @@ class CustomCapsuleLabel: UILabel {
         layer.masksToBounds = true
     }
     
-    func setBackgroundColor(_ colorHex: String) {
+    private func setBackgroundColor(_ colorHex: String) {
         let value = Int(colorHex.dropFirst(2), radix: 16) ?? 0
         let red = (value >> 16) & 0xFF
         let green = (value >> 8) & 0xFF
