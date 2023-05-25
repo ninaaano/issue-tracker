@@ -31,7 +31,7 @@ struct HTTPHandler {
                 completion(.failure(error))
             }
             
-            if let issue = self.JSONParse(issueData: data) {
+            if let issue = self.JSONParse(issueData: dummyDatas.data(using: .utf8) ?? data) {
                 completion(.success(issue))
             }
         }

@@ -18,7 +18,43 @@ enum Section {
 }
 
 struct Item: Codable, Hashable {
-    let title: String
-    let description: String
-    let badge: [String]?
+    static func == (lhs: Item, rhs: Item) -> Bool {
+        return lhs.issueId == rhs.issueId
+    }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(issueId)
+    }
+    
+    let issueId: Int
+    let issueTitle: String
+    let isOpened: Bool
+    let writer: Writer
+    let assignee: [Assignee]
+    let milestone: Milestone
+    let label: [Label]
+    let commentedUser: [String]
+}
+
+struct Writer: Codable {
+    let userId: Int
+    let name: String
+    let url: String
+    let createdAt: String
+}
+
+struct Assignee: Codable {
+    let userId: Int
+    let name: String
+}
+
+struct Milestone: Codable {
+    let milestoneId: Int
+    let milestoneName: String
+}
+
+struct Label: Codable {
+    let labelId: Int
+    let labelName: String
+    let backgroundColor: String
+    let textColor: String
 }

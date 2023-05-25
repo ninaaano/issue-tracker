@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A28CDC72A1F382700A067D9 /* IssueListSectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A28CDC62A1F382700A067D9 /* IssueListSectionData.swift */; };
+		2A28CDC92A1F504800A067D9 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A28CDC82A1F504800A067D9 /* DummyData.swift */; };
 		2A28CDCD2A1F709000A067D9 /* CustomCapsuleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A28CDCC2A1F709000A067D9 /* CustomCapsuleLabel.swift */; };
 		2A59D1262A1DF141003032D6 /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A59D1252A1DF141003032D6 /* HTTPHandler.swift */; };
 		2ABB37F92A1673330044171C /* SFsymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB37F82A1673330044171C /* SFsymbol.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		2A28CDC62A1F382700A067D9 /* IssueListSectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListSectionData.swift; sourceTree = "<group>"; };
+		2A28CDC82A1F504800A067D9 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		2A28CDCC2A1F709000A067D9 /* CustomCapsuleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCapsuleLabel.swift; sourceTree = "<group>"; };
 		2A59D1252A1DF141003032D6 /* HTTPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHandler.swift; sourceTree = "<group>"; };
 		2ABB37F82A1673330044171C /* SFsymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFsymbol.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */,
 				2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */,
 				2A59D1252A1DF141003032D6 /* HTTPHandler.swift */,
+				2A28CDC82A1F504800A067D9 /* DummyData.swift */,
 				FF769DFC2A126EFB00A0DFF9 /* IssueFilter */,
 				FFFC0BC02A168166006F76AF /* IssueList */,
 				FFFC0BC22A16819E006F76AF /* TabBar */,
@@ -292,6 +295,7 @@
 				2AF58EE72A0D162900EE8623 /* TabBarViewController.swift in Sources */,
 				2A28CDC72A1F382700A067D9 /* IssueListSectionData.swift in Sources */,
 				FFFC0BBF2A14A754006F76AF /* IssueFilterHeaderView.swift in Sources */,
+				2A28CDC92A1F504800A067D9 /* DummyData.swift in Sources */,
 				FF769E052A13D94E00A0DFF9 /* IssueFilterViewController.swift in Sources */,
 				2AF58EE32A0CF85800EE8623 /* LabelViewController.swift in Sources */,
 				2A28CDCD2A1F709000A067D9 /* CustomCapsuleLabel.swift in Sources */,
