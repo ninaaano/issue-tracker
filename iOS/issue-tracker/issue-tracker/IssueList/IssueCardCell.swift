@@ -10,14 +10,14 @@ import UIKit
 final class IssueCardCell: UICollectionViewCell {
     static let identifier = "Cell"
     
-    private let titleLabel = CustomLabelView(text: "제목", alignment: .left, font: .systemFont(ofSize: 18, weight: .bold))
-    private let explanationLabel: CustomLabelView = {
+    var titleLabel = CustomLabelView(text: "제목", alignment: .left, font: .systemFont(ofSize: 18, weight: .bold))
+    var explanationLabel: CustomLabelView = {
         let label = CustomLabelView(text: "안녕하세요이번PR도잘부탁드립니다", alignment: .left, font: FontStyle.body.font)
         label.numberOfLines = 2
         return label
     }()
-    private let milestoneLabel = CustomLabelView(text: "마일스톤", alignment: .left, font: FontStyle.body.font)
-    private let labelLabel: CustomLabelView = {
+    var milestoneLabel = CustomLabelView(text: "마일스톤", alignment: .left, font: FontStyle.body.font)
+    var labelLabel: CustomLabelView = {
         let label = CustomLabelView(text: "레이블", alignment: .left, font: FontStyle.body.font)
         label.backgroundColor = .blue
         label.textColor = .white
