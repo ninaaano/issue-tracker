@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Button from '../common/Button';
@@ -11,6 +12,7 @@ import { $NewIssueForm, $NewIssueFormMain, $UserImg, $InputWrapper, $SubmitButto
 const NewIssueForm = ({ userImgSrc, userData, labelData, milestoneData }) => {
   const [title, setTitle] = useState('');
   const [comment, setComment] = useState('');
+  const navigate = useNavigate();
 
   const changeTitleHandler = ({ target }) => setTitle(target.value);
   const changeCommentHandler = ({ target }) => setComment(target.value);
@@ -18,6 +20,8 @@ const NewIssueForm = ({ userImgSrc, userData, labelData, milestoneData }) => {
   const submitHandler = (event) => {
     event.preventDefault();
   };
+
+  const navigateToIssueList = () => navigate('/');
 
   return (
     <$NewIssueForm onSubmit={submitHandler}>
@@ -30,7 +34,7 @@ const NewIssueForm = ({ userImgSrc, userData, labelData, milestoneData }) => {
         <SideBar assignees={userData} labels={labelData} milestones={milestoneData} />
       </$NewIssueFormMain>
       <$SubmitButtonWrapper>
-        <Button type="ghost" size="S">
+        <Button type="ghost" size="S" onClick={navigateToIssueList}>
           <Icon name="xSquare" />
           <p>작성 취소</p>
         </Button>
