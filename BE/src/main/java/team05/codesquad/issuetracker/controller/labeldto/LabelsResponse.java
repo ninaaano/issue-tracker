@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import team05.codesquad.issuetracker.domain.label.Label;
 
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 public class LabelsResponse {
-    private List<Label> labels;
+    private List<LabelResponse> labels;
     private int totalCount;
 
 }

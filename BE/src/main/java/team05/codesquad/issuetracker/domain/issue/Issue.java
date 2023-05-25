@@ -4,23 +4,23 @@ package team05.codesquad.issuetracker.domain.issue;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
-import team05.codesquad.issuetracker.domain.comment.Comment;
-import team05.codesquad.issuetracker.domain.member.Member;
-import team05.codesquad.issuetracker.domain.milestone.Milestone;
+import team05.codesquad.issuetracker.domain.label.Label;
 
-import javax.annotation.Generated;
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Table("issue")
 @Setter
 @Getter
 @ToString
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor
 public class Issue {
 
@@ -28,14 +28,10 @@ public class Issue {
     @Column("issue_id")
     private Long id;
 
-    @Column("writer_id")
-    private int writerId;
-    // TODO : 담당자, 라벨 변수 어떻게 추가할 것인가?
+//    @Column("writer_id")
+//    private Long writerId;
 
-    @Column("title")
     private String title;
-
-    @Column("contents")
     private String contents;
 
     @Column("status")
@@ -43,12 +39,30 @@ public class Issue {
 
     @CreatedDate
     @Column("created_at")
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
 
     @Column("milestone_id")
-    private Integer milestoneId;
+    private Long milestoneId;
 
-    private List<Comment> comments = new ArrayList<>();
+   // private List<Comment> comments = new ArrayList<>();
+    @Transient
+    private List<Label> labels = new ArrayList<>();
+
+    public Issue() {
+    }
+
+    @MappedCollection(idColumn = "issue_id", keyColumn = "id")
+    @Builder.Default
+    private Set<IssueRefLabel> issueLabels = new HashSet<>();
+
+    // 이슈에 라벨 더하기
+    public void addLabel(Label label){
+        labels.add(label);
+        // issue-label 테이블에 추가로 더하기 (동시성)
+        issueLabels.add(new IssueRefLabel(label.getId(),id));
+    }
+
+
 
     public static long countOpenIssues(List<Issue> issues) {
         return issues.stream()
