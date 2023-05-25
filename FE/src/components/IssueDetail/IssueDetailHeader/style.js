@@ -46,6 +46,7 @@ const $IssueDetailInfo = styled.div`
 const $IssueDetailHeader = styled.header`
   display: flex;
   flex-direction: column;
+  margin-bottom: 24px;
 `;
 
 const $IssueInfoText = styled.div`

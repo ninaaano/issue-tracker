@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 import { ISSUES, USERS, LABELS, MILESTONES } from '../../constants/api';
 import useFetch from '../../hooks/useFetch';
 import TextArea from '../../components/common/TextArea';
+import SideBar from '../../components/common/SideBar';
 import IssueDetailHeader from '../../components/IssueDetail/IssueDetailHeader';
 import IssueDetailMain from '../../components/IssueDetail/IssueDetailMain';
-import { $IssueDetail } from './style';
+import { $IssueDetail, $IssueCommentArea, $IssueDetailMain } from './style';
 
 const IssueDetail = (props) => {
   const { issueId } = useParams();
@@ -28,13 +29,18 @@ const IssueDetail = (props) => {
     allDataLoaded && (
       <$IssueDetail>
         <IssueDetailHeader issue={issueDetailData} />
-        <IssueDetailMain
-          issue={issueDetailData}
-          user={userData}
-          label={labelData}
-          milestone={milestoneData}
-        />
-        <TextArea id="comment" value={text} onChange={changeHandler} size="S" />
+        <$IssueDetailMain>
+          <$IssueCommentArea>
+            <IssueDetailMain
+              issue={issueDetailData}
+              user={userData}
+              label={labelData}
+              milestone={milestoneData}
+            />
+            <TextArea id="comment" value={text} onChange={changeHandler} size="S" />
+          </$IssueCommentArea>
+          <SideBar assignees={userData} labels={labelData} milestones={milestoneData} />
+        </$IssueDetailMain>
       </$IssueDetail>
     )
   );
