@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const $Header = styled.header`
   padding: 24px 0;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
 
   color: ${({ theme }) => theme.colors.neutral.text.strong};
   font-size: ${({ theme }) => theme.fontSize.XXL.fontSize};
