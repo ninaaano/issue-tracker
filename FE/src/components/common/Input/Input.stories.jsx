@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Input from '.';
 
 const meta = {
-  title: 'Input',
+  title: 'TextInput',
   component: Input,
 };
 
 export default meta;
 
 const Template = (args) => {
-  return <Input {...args} />;
+  const [text, setText] = useState('');
+
+  const changeHandler = ({ target }) => {
+    setText(target.value);
+    console.log(target.value);
+  };
+
+  return (
+    <form action="">
+      <Input id="textarea" value={text} onChange={changeHandler} labelText="label" />
+    </form>
+  );
 };
 
 export const Primary = Template.bind({});
 
-Primary.args = {
-  id: 'label',
-  labelText: 'Label',
-  placeholderText: 'Placeholder',
-};
+Primary.args = {};
