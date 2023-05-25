@@ -79,12 +79,9 @@ extension IssueFilterViewController {
         }
         
         self.datasource.supplementaryViewProvider = { collectionView, kind, indexPath in
-            // 4
             guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionViewCell() }
-            // 5
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IssueFilterHeaderView.identifier, for: indexPath) as? IssueFilterHeaderView
-            // 6
-            let section = self.datasource.snapshot().sectionIdentifiers[indexPath.section]
+            let section = self.snapShot.sectionIdentifiers[indexPath.section]
             headerView?.titleLabel.text = section.title
             return headerView
         }
