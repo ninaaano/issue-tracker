@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
 import Icon from '../../../common/Icon';
 import Label from '../../../common/Label';
 import { $List, $LeftElements, $UpElements, $IssueTitle, $IssueInfo, $Assignee, $CheckBox } from './style';
@@ -34,13 +35,15 @@ const List = ({ issueId, issueTitle, label, writer, milestone, assignee, isOpene
               fill={isSelected ? '#007AFF' : '#D9DBE9'}
             />
           </$CheckBox>
-          <$IssueTitle>
-            {isOpened ? <Icon name="alertCircle" fill="#007AFF" /> : <Icon name="archive" fill="#FF3B30" />}
+          <Link to={`detail/${issueId}`}>
+            <$IssueTitle>
+              {isOpened ? <Icon name="alertCircle" fill="#007AFF" /> : <Icon name="archive" fill="#FF3B30" />}
 
-            <span>{issueTitle}</span>
-            {Labels}
-            <Label />
-          </$IssueTitle>
+              <span>{issueTitle}</span>
+              {Labels}
+              <Label />
+            </$IssueTitle>
+          </Link>
         </$UpElements>
 
         <$IssueInfo>

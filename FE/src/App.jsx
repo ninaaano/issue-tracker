@@ -20,12 +20,11 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/login" />
-          <Route path="/" element={<Navigate to="/issues" />} />
-          <Route path="/issues" element={<IssueList />} />
-          <Route path="/issues/new" />
-          <Route path="/issues/:issueId" element={<DetailIssue />} />
-          <Route path="/issues/labels" />
-          <Route path="/issues/milestones" />
+          <Route path="/" element={<IssueList />} />
+          <Route path="/new" />
+          <Route path="/detail/:issueId" element={<DetailIssue />} />
+          <Route path="/labels" />
+          <Route path="/milestones" />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
