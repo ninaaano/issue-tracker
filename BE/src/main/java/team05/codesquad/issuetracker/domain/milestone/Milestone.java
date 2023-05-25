@@ -65,6 +65,12 @@ public class Milestone {
                 .build();
     }
 
+    public void updateProperties(String title, String description, LocalDate deadLine) {
+        this.title = title;
+        this.description = description;
+        this.deadLine = deadLine;
+    }
+
     public long countOpenIssues(){
         return issues.stream()
                 .filter(Issue::isStatus)
