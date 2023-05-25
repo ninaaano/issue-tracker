@@ -7,6 +7,9 @@ const $SideBar = styled.section`
   background-color: ${({ theme }) => theme.colors.neutral.background.strong};
   border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
   border-radius: 16px;
+  & > button:last-child {
+    border-bottom: none;
+  }
 `;
 
 export { $SideBar };
