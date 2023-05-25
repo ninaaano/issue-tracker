@@ -21,10 +21,19 @@ const IssueDetail = (props) => {
 
   const allDataLoaded = issueDetailData && userData && labelData && milestoneData;
 
-  const [text, setText] = useState('');
+  const [comment, setComment] = useState('');
 
   const changeHandler = ({ target }) => {
-    setText(target.value);
+    setComment(target.value);
+  };
+
+  const makeSelectItemsObj = () => {
+    const selectedItems = {};
+
+    selectedItems.assignee = issueDetailData.assignee[0].userId;
+    selectedItems.milestone = issueDetailData.milestone.milestoneId;
+    selectedItems.label = issueDetailData.label[0].labelId;
+    return selectedItems;
   };
 
   return (
@@ -39,13 +48,18 @@ const IssueDetail = (props) => {
               label={labelData}
               milestone={milestoneData}
             />
-            <TextArea id="comment" value={text} onChange={changeHandler} size="S" />
+            <TextArea id="comment" value={comment} onChange={changeHandler} size="S" />
             <Button type="contained" size="S">
               <Icon name="plus" />
               코멘트 작성
             </Button>
           </$IssueCommentArea>
-          <SideBar assignees={userData} labels={labelData} milestones={milestoneData} />
+          <SideBar
+            assignees={userData}
+            labels={labelData}
+            milestones={milestoneData}
+            selectedItems={makeSelectItemsObj()}
+          />
         </$IssueDetailMain>
       </$IssueDetail>
     )

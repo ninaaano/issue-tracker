@@ -10,7 +10,7 @@ const Comments = ({ issue }) => {
   return (
     <$Comments>
       {commentData.map((comment) => (
-        <Comment commentData={comment} />
+        <Comment commentData={comment} writerId={issue.writer.userId} />
       ))}
     </$Comments>
   );

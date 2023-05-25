@@ -15,7 +15,12 @@ import {
 import Label from '../../../../common/Label';
 import Icon from '../../../../common/Icon';
 
-const Comment = ({ isMine = true, commentData }) => {
+// TODO: 내 userId -> context로 빼기.
+const myId = 6;
+
+const Comment = ({ writerId, commentData }) => {
+  const isMine = commentData.commentUser.userId === myId;
+
   return (
     <$Comment>
       <$CommentHeader>
@@ -26,14 +31,14 @@ const Comment = ({ isMine = true, commentData }) => {
         </$UserInfo>
 
         <$HeaderButtons>
+          {writerId === commentData.commentUser.userId && (
+            <Label height={32} backgroundColor="#D9DBE9" name="작성자" />
+          )}
           {isMine && (
-            <React.Fragment>
-              <Label height={32} backgroundColor="#D9DBE9" name="작성자" />
-              <$HeaderButton>
-                <Icon name="edit" />
-                <p>편집</p>
-              </$HeaderButton>
-            </React.Fragment>
+            <$HeaderButton>
+              <Icon name="edit" />
+              <p>편집</p>
+            </$HeaderButton>
           )}
           <$HeaderButton>
             <Icon name="smile" />
@@ -48,8 +53,9 @@ const Comment = ({ isMine = true, commentData }) => {
 };
 
 Comment.propTypes = {
-  isMine: PropTypes.bool.isRequired,
+  // isMine: PropTypes.bool.isRequired,
   commentData: PropTypes.array.isRequired,
+  writerId: PropTypes.number.isRequired,
 };
 
 export default Comment;
