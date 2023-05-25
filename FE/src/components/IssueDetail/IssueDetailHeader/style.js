@@ -9,6 +9,7 @@ const $IssueDetailTitle = styled.div`
 
 const $TitleWrapper = styled.div`
   display: flex;
+  width: 1008px;
 `;
 
 const $IssueTitle = styled.div`

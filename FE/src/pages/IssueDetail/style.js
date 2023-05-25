@@ -10,7 +10,7 @@ const $IssueDetailMain = styled.div`
   justify-content: space-between;
 `;
 const $IssueCommentArea = styled.div`
-  width: 100%;
+  width: 958px;
   position: relative;
   display: flex;
   flex-direction: column;

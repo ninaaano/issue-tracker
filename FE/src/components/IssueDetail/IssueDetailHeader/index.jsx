@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../../common/Button';
@@ -15,26 +15,68 @@ import {
 } from './style';
 import Icon from '../../common/Icon';
 import Label from '../../common/Label';
+import TextInput from '../../common/TextInput';
 
 const IssueDetailHeader = ({ issue }) => {
+  const [isEdited, setIsEdited] = useState(false);
+  const [tempTitle, setTempTitle] = useState(issue.issueTitle);
+  const [editTitle, setEditTitle] = useState(issue.issueTitle);
+  const editBtnHandler = () => {
+    setIsEdited(true);
+  };
+
+  const cancelEditBtnHandler = () => {
+    setIsEdited(false);
+    setTempTitle(issue.issueTitle);
+    setEditTitle(issue.issueTitle);
+  };
+
+  const titleChangeHandler = ({ target }) => {
+    setTempTitle(target.value);
+  };
+
+  const completeEditHandler = () => {
+    setEditTitle(tempTitle);
+    setIsEdited(false);
+  };
+
   return (
     <$IssueDetailHeader>
       <$IssueDetailTitle>
-        <$TitleWrapper>
-          <$IssueTitle>{issue.issueTitle}</$IssueTitle>
-          <$IssueId>{`#${issue.issueId}`}</$IssueId>
-        </$TitleWrapper>
+        {!isEdited ? (
+          <$TitleWrapper>
+            <$IssueTitle>{editTitle}</$IssueTitle>
+            <$IssueId>{`#${issue.issueId}`}</$IssueId>
+          </$TitleWrapper>
+        ) : (
+          <$TitleWrapper>
+            <TextInput id="titleEdit" value={tempTitle} onChange={titleChangeHandler} labelText="" />
+          </$TitleWrapper>
+        )}
 
-        <$Buttons>
-          <Button type="outline" size="S">
-            <Icon name="edit" />
-            <p>제목 편집</p>
-          </Button>
-          <Button type="outline" size="S">
-            <Icon name="archive" />
-            <p>이슈 닫기</p>
-          </Button>
-        </$Buttons>
+        {!isEdited ? (
+          <$Buttons>
+            <Button type="outline" size="S" onClick={editBtnHandler}>
+              <Icon name="edit" />
+              <p>제목 편집</p>
+            </Button>
+            <Button type="outline" size="S">
+              <Icon name="archive" />
+              <p>이슈 닫기</p>
+            </Button>
+          </$Buttons>
+        ) : (
+          <$Buttons>
+            <Button type="outline" size="S" onClick={cancelEditBtnHandler}>
+              <Icon name="xSquare" />
+              <p>편집 취소</p>
+            </Button>
+            <Button type="contained" size="S" onClick={completeEditHandler}>
+              <Icon name="edit" fill="#FEFEFE" />
+              <p>편집 완료</p>
+            </Button>
+          </$Buttons>
+        )}
       </$IssueDetailTitle>
 
       <$IssueDetailInfo>
