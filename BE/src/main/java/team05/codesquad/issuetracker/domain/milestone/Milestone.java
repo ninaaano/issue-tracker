@@ -41,7 +41,16 @@ public class Milestone {
     public Milestone() {
     }
 
-    public Milestone(String title, String description, LocalDate deadLine, boolean status, List<Issue> issues) {
+    public Milestone(Long id, String title, String description, LocalDate deadLine, boolean status) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.deadLine = deadLine;
+        this.status = status;
+    }
+
+    @Builder
+    public Milestone(String title, String description, LocalDate deadLine, boolean status) {
         this.title = title;
         this.description = description;
         this.deadLine = deadLine;
