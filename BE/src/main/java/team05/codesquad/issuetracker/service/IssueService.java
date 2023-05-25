@@ -25,12 +25,6 @@ public class IssueService {
     private final LabelRepository labelRepository;
 
 
-    public List<Issue> getAllIssues() {
-        List<Issue> issueList = new ArrayList<>();
-        issueRepository.findAll().forEach(issueList::add);
-        return issueList;
-    }
-
     // issueRepo에서 table에 대한 내용만 가져옴 -> table에 있는 param id로 label, issueWithLabel join
     public Issue findById(Long issueId) {
         Issue issue = issueRepository.findById(issueId).orElseThrow();
@@ -41,6 +35,26 @@ public class IssueService {
                 .forEach(labelId -> issue.addLabel(labelRepository.findById(labelId)
                         .orElseThrow()));
         return issue;
+    }
+
+    // 열린 이슈만 가져와서 리스트로 만들어주고 -> 그럼 이슈 아이디 여러개가 있으니까 거기에 label들 가져와야함
+    public List<Issue> findByOpenIssue() {
+        List<Issue> openIssues = issueRepository.findByIsOpened(true);
+        List<Issue> responseList = new ArrayList<>();   // 모든 열린 이슈들, 각각의 라벨
+        for (Issue openIssue : openIssues) {
+            responseList.add(findById(openIssue.getId()));
+        }
+        return responseList;
+    }
+
+    // 닫힌 이슈 목록 가져오기
+    public List<Issue> findByCloseIssue(){
+        List<Issue> closeIssues = issueRepository.findByIsOpened(false);
+        List<Issue> responseList = new ArrayList<>();   // 모든 열린 이슈들, 각각의 라벨
+        for (Issue closeIssue : closeIssues) {
+            responseList.add(findById(closeIssue.getId()));
+        }
+        return responseList;
     }
 
     public Issue createIssue(Issue issue) {
