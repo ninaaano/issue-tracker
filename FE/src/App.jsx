@@ -1,11 +1,14 @@
-import React, { useEffect, useState, useCallback } from 'react';
-// import { ThemeProvider } from 'styled-components';
-import GlobalStyles from './styles/GlobalStyles';
-import Header from './components/Header';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+
 import { USERS } from './constants/api';
-import IssueList from './pages/IssueList';
+import GlobalStyles from './styles/GlobalStyles';
 import { ThemeProvider } from './context/themeProvider';
 import useFetch from './hooks/useFetch';
+
+import Header from './components/Header';
+import IssueList from './pages/IssueList';
+import DetailIssue from './pages/DetailIssue';
 
 const App = () => {
   const { data: userImgData } = useFetch(USERS.GET_USER_IMG(6));
@@ -14,7 +17,17 @@ const App = () => {
     <ThemeProvider>
       <GlobalStyles />
       {userImgData && <Header userImgSrc={userImgData.userImgURL} />}
-      <IssueList />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" />
+          <Route path="/" element={<Navigate to="/issues" />} />
+          <Route path="/issues" element={<IssueList />} />
+          <Route path="/issues/new" />
+          <Route path="/issues/:issueId" element={<DetailIssue />} />
+          <Route path="/issues/labels" />
+          <Route path="/issues/milestones" />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 };
