@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { $Input } from './style';
+import { $Input, $Label } from './style';
 
 // ! 추후에 prop에 helpText, iconName 추가
 const Input = ({
@@ -30,7 +30,9 @@ const Input = ({
         isFocused={isFocused}
         disabled={disabled}
       >
-        <label htmlFor={id}>{labelText}</label>
+        <$Label htmlFor={id} labelText={labelText}>
+          {labelText}
+        </$Label>
         <input
           type="text"
           id={id}

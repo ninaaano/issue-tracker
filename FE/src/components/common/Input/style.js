@@ -1,14 +1,12 @@
 import styled, { css } from 'styled-components';
 
-const label = css`
-  & > label {
-    width: ${({ labelText }) => (labelText ? '72px' : '0px')};
+const $Label = styled.label`
+  width: ${({ labelText }) => (labelText ? '72px' : '0px')};
 
-    color: ${({ theme }) => theme.colors.neutral.text.default};
-    font-size: ${({ theme }) => theme.fontSize.S.fontSize};
-    line-height: ${({ theme }) => theme.fontSize.S.lineHeight};
-    font-weight: ${({ theme }) => theme.fontWeight.regular};
-  }
+  color: ${({ theme }) => theme.colors.neutral.text.default};
+  font-size: ${({ theme }) => theme.fontSize.S.fontSize};
+  line-height: ${({ theme }) => theme.fontSize.S.lineHeight};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
 `;
 
 const textInput = css`
@@ -59,8 +57,7 @@ const $Input = styled.div`
   }};
   opacity: ${({ disabled }) => (disabled ? 0.32 : 1)};
 
-  ${label}
   ${textInput};
 `;
 
-export { $Input };
+export { $Input, $Label };
