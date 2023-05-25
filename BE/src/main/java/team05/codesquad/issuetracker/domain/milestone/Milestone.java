@@ -34,7 +34,7 @@ public class Milestone {
     @Column("status")
     private boolean status;
 
-    @MappedCollection
+    @MappedCollection(idColumn = "id", keyColumn = "id")
     private List<Issue> issues;
 
     public Milestone() {
