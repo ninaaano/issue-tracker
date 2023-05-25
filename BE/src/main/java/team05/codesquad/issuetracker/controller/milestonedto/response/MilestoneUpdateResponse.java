@@ -1,17 +1,15 @@
-package team05.codesquad.issuetracker.dto.request;
+package team05.codesquad.issuetracker.controller.milestonedto.response;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDate;
 
 @Slf4j
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
-public class MilestoneCreateRequest {
+@Builder
+public class MilestoneUpdateResponse {
 
     private String title;
     private String description;

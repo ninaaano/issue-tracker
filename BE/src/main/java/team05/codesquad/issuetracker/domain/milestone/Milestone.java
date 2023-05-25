@@ -8,7 +8,7 @@ import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
 import team05.codesquad.issuetracker.domain.issue.Issue;
-import team05.codesquad.issuetracker.dto.request.MilestoneCreateRequest;
+import team05.codesquad.issuetracker.controller.milestonedto.request.MilestoneCreateRequest;
 
 import java.time.LocalDate;
 import java.util.List;

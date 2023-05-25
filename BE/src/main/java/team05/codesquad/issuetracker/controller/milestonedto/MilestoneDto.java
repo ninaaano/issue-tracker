@@ -1,4 +1,4 @@
-package team05.codesquad.issuetracker.dto;
+package team05.codesquad.issuetracker.controller.milestonedto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
