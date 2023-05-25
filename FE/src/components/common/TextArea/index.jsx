@@ -3,9 +3,18 @@ import PropTypes from 'prop-types';
 
 import Button from '../Button';
 import Icon from '../Icon';
-import { $TextArea, $Label, $TextAreaInput, $TextLength, $Line } from './style';
+import { $TextArea, $Label, $filesUploadButtonWrapper, $TextAreaInput, $TextLength } from './style';
 
-const TextArea = ({ id, value, onChange, labelText = '코멘트를 입력하세요.', disabled = false, size }) => {
+const TextArea = ({
+  id,
+  value,
+  onChange,
+  files,
+  filesUploadHandler,
+  labelText = '코멘트를 입력하세요.',
+  disabled = false,
+  size,
+}) => {
   const [isFocused, setIsFocused] = useState(false);
   const [textLength, setTextLength] = useState(0);
   const fileInputRef = useRef(null);
@@ -17,10 +26,10 @@ const TextArea = ({ id, value, onChange, labelText = '코멘트를 입력하세�
     fileInputRef.current.click();
   };
 
-  // ! 부모 컴포넌트에서 prop으로 받을 예정
-  const fileUploadHandler = ({ target }) => {
-    console.log('Selected file:', target.files);
-  };
+  // ! 부모 컴포넌트에서 prop으로 받기
+  // const filesUploadHandler = ({ target }) => {
+  //   console.log([...target.files]);
+  // };
 
   const hasValue = value.trim().length > 0;
 
@@ -53,16 +62,19 @@ const TextArea = ({ id, value, onChange, labelText = '코멘트를 입력하세�
       {isFocused && <$TextLength>{`띄어쓰기 포함 ${textLength}자`}</$TextLength>}
       <input
         type="file"
+        accept="image/*"
         multiple="multiple"
         ref={fileInputRef}
-        onChange={fileUploadHandler}
+        onChange={filesUploadHandler}
         style={{ display: 'none' }}
       />
-      <$Line />
-      <Button type="ghost" size="S" disabled={disabled} onClick={fileSelectHandler}>
-        <Icon name="paperclip" />
-        파일 첨부하기
-      </Button>
+      <$filesUploadButtonWrapper>
+        <Button type="ghost" size="S" disabled={disabled} onClick={fileSelectHandler}>
+          <Icon name="paperclip" />
+          파일 첨부하기
+        </Button>
+        {files.length > 0 && <p>{files.map(({ name }) => name).join(' ')}</p>}
+      </$filesUploadButtonWrapper>
     </$TextArea>
   );
 };
@@ -71,6 +83,8 @@ TextArea.propTypes = {
   id: PropTypes.string.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  files: PropTypes.array,
+  filesUploadHandler: PropTypes.func.isRequired,
   labelText: PropTypes.string,
   disabled: PropTypes.bool,
   size: PropTypes.oneOf(['S', 'L']),
