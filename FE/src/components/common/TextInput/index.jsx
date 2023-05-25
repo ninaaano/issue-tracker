@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import { $Input, $Label, $TextInput } from './style';
+import { $TextInput, $Label, $Input } from './style';
 
 // ! 추후에 prop에 helpText, iconName 추가
 const Input = ({ id, value, onChange, labelText = '', placeholderText = '', disabled = false }) => {
@@ -22,13 +22,13 @@ const Input = ({ id, value, onChange, labelText = '', placeholderText = '', disa
 
   return (
     <React.Fragment>
-      <$Input styleType={styleType} isFocused={isFocused} disabled={disabled}>
+      <$TextInput styleType={styleType} isFocused={isFocused} disabled={disabled}>
         {labelText && (
           <$Label htmlFor={id} styleType={styleType} hasValue={hasValue} isFocused={isFocused}>
             {labelText}
           </$Label>
         )}
-        <$TextInput
+        <$Input
           type="text"
           id={id}
           name={id}
@@ -40,7 +40,7 @@ const Input = ({ id, value, onChange, labelText = '', placeholderText = '', disa
           onBlur={blurHandler}
           disabled={disabled}
         />
-      </$Input>
+      </$TextInput>
       {/* {helpText && <div>{helpText}</div>} */}
     </React.Fragment>
   );

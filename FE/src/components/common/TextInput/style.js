@@ -36,7 +36,7 @@ const $Label = styled.label`
   ${({ styleType }) => (styleType === 'onlyLabel' ? labelFontTransition : defaultLabelFont)}
 `;
 
-const $TextInput = styled.input`
+const $Input = styled.input`
   width: 100%;
 
   ${textInputFont}
@@ -60,7 +60,7 @@ const bothLabelTextAndPlaceholderText = css`
   align-items: center;
 `;
 
-const $Input = styled.div`
+const $TextInput = styled.div`
   display: flex;
 
   height: 40px;
@@ -84,4 +84,4 @@ const $Input = styled.div`
   opacity: ${({ disabled }) => (disabled ? 0.32 : 1)};
 `;
 
-export { $Input, $Label, $TextInput };
+export { $TextInput, $Label, $Input };
