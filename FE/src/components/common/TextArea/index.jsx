@@ -13,16 +13,13 @@ const TextArea = ({ id, value, onChange, labelText = '코멘트를 입력하세�
   const focusHandler = () => setIsFocused(true);
   const blurHandler = () => setIsFocused(false);
 
-  const handleFileSelect = () => {
+  const fileSelectHandler = () => {
     fileInputRef.current.click();
   };
 
   // ! 부모 컴포넌트에서 prop으로 받을 예정
-  const handleFileUpload = ({ target }) => {
-    const selectedFile = target.files[0];
-
-    // 선택한 파일을 업로드하는 로직을 추가
-    console.log('Selected file:', selectedFile);
+  const fileUploadHandler = ({ target }) => {
+    console.log('Selected file:', target.files);
   };
 
   const hasValue = value.trim().length > 0;
@@ -54,9 +51,15 @@ const TextArea = ({ id, value, onChange, labelText = '코멘트를 입력하세�
         disabled={disabled}
       />
       {isFocused && <$TextLength>{`띄어쓰기 포함 ${textLength}자`}</$TextLength>}
-      <input type="file" ref={fileInputRef} onChange={handleFileUpload} style={{ display: 'none' }} />
+      <input
+        type="file"
+        multiple="multiple"
+        ref={fileInputRef}
+        onChange={fileUploadHandler}
+        style={{ display: 'none' }}
+      />
       <$Line />
-      <Button type="ghost" size="S" disabled={disabled} onClick={handleFileSelect}>
+      <Button type="ghost" size="S" disabled={disabled} onClick={fileSelectHandler}>
         <Icon name="paperclip" />
         파일 첨부하기
       </Button>
