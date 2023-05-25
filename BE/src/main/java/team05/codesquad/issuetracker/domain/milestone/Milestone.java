@@ -16,7 +16,6 @@ import java.util.List;
 @Builder @Getter
 @AllArgsConstructor
 @Table("milestone")
-@Getter
 public class Milestone {
 
     @Id
