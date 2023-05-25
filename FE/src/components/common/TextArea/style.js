@@ -12,8 +12,11 @@ const labelFont = css`
 `;
 
 const $Label = styled.label`
-  transition: 200ms;
+  width: 100%;
+
   ${labelFont}
+
+  transition: 200ms;
 `;
 
 const $TextAreaInput = styled.textarea`
@@ -31,7 +34,6 @@ const $TextAreaInput = styled.textarea`
 const $TextLength = styled.div`
   width: 100%;
   height: 20px;
-  border-bottom: 1px dashed ${({ theme }) => theme.colors.neutral.border.default};
 
   display: flex;
   justify-content: flex-end;
@@ -42,11 +44,16 @@ const $TextLength = styled.div`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
 `;
 
+const $Line = styled.p`
+  width: 100%;
+  margin-bottom: 8px;
+  border-bottom: 1px dashed ${({ theme }) => theme.colors.neutral.border.default};
+`;
+
 const $TextArea = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
 
   height: ${({ size }) => {
     if (size === 'S') return '240px';
@@ -65,4 +72,4 @@ const $TextArea = styled.div`
   opacity: ${({ disabled }) => (disabled ? 0.32 : 1)};
 `;
 
-export { $TextArea, $Label, $TextAreaInput, $TextLength };
+export { $TextArea, $Label, $TextAreaInput, $TextLength, $Line };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Button from '../Button';
 import Icon from '../Icon';
-import { $TextArea, $Label, $TextAreaInput, $TextLength } from './style';
+import { $TextArea, $Label, $TextAreaInput, $TextLength, $Line } from './style';
 
 const TextArea = ({ id, value, onChange, labelText = '코멘트를 입력하세요.', disabled = false, size }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -55,6 +55,7 @@ const TextArea = ({ id, value, onChange, labelText = '코멘트를 입력하세�
       />
       {isFocused && <$TextLength>{`띄어쓰기 포함 ${textLength}자`}</$TextLength>}
       <input type="file" ref={fileInputRef} onChange={handleFileUpload} style={{ display: 'none' }} />
+      <$Line />
       <Button type="ghost" size="S" disabled={disabled} onClick={handleFileSelect}>
         <Icon name="paperclip" />
         파일 첨부하기
