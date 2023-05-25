@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import team05.codesquad.issuetracker.controller.issuedto.IssueResponse;
 import team05.codesquad.issuetracker.domain.issue.Issue;
 import team05.codesquad.issuetracker.service.IssueService;
 
@@ -28,8 +29,8 @@ public class IssueController {
     }
 
     @GetMapping("/{issueId}")
-    public Issue findIssueById(@PathVariable Long issueId) {
-        return issueService.findByIssueId(issueId);
+    public IssueResponse findById(@PathVariable Long issueId) {
+        return IssueResponse.from(issueService.findById(issueId));
     }
 
     @PostMapping
