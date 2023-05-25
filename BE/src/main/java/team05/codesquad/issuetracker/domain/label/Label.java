@@ -6,10 +6,10 @@ import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table("label")
-@Data
+@Getter
 public class Label {
     @Id
-    @Column("label_id")
+    @Column("id")
     private Long id;
     private String title;
     private String description;
