@@ -5,14 +5,7 @@ import Button from '../Button';
 import Icon from '../Icon';
 import { $TextArea, $Label, $TextAreaInput, $TextLength } from './style';
 
-const TextArea = ({
-  id,
-  value,
-  onChange,
-  labelText = '코멘트를 입력하세요.',
-  disabled = false,
-  heightType,
-}) => {
+const TextArea = ({ id, value, onChange, labelText = '코멘트를 입력하세요.', disabled = false, size }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [textLength, setTextLength] = useState(0);
   const fileInputRef = useRef(null);
@@ -47,7 +40,7 @@ const TextArea = ({
   }, [value]);
 
   return (
-    <$TextArea disabled={disabled} isFocused={isFocused} heightType={heightType}>
+    <$TextArea disabled={disabled} isFocused={isFocused} size={size}>
       <$Label htmlFor={id} hasValue={hasValue} isFocused={isFocused}>
         {labelText}
       </$Label>
@@ -76,7 +69,7 @@ TextArea.propTypes = {
   onChange: PropTypes.func.isRequired,
   labelText: PropTypes.string,
   disabled: PropTypes.bool,
-  heightType: PropTypes.oneOf(['S', 'L']),
+  size: PropTypes.oneOf(['S', 'L']),
 };
 
 export default TextArea;

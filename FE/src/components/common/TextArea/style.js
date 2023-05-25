@@ -48,9 +48,9 @@ const $TextArea = styled.div`
   align-items: flex-start;
   gap: 8px;
 
-  height: ${({ heightType }) => {
-    if (heightType === 'S') return '240px';
-    if (heightType === 'L') return '436px';
+  height: ${({ size }) => {
+    if (size === 'S') return '240px';
+    if (size === 'L') return '436px';
 
     return '';
   }};

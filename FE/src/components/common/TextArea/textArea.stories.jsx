@@ -18,7 +18,7 @@ const Template = (args) => {
 
   return (
     <form action="">
-      <TextArea id="textarea" value={text} onChange={changeHandler} heightType="S" />
+      <TextArea id="textarea" value={text} onChange={changeHandler} size="S" />
     </form>
   );
 };
