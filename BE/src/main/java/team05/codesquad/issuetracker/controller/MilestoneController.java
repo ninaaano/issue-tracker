@@ -4,11 +4,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import team05.codesquad.issuetracker.dto.request.MilestoneCreateRequest;
-import team05.codesquad.issuetracker.dto.request.MilestoneUpdateRequest;
-import team05.codesquad.issuetracker.dto.response.MilestoneCreateResponse;
-import team05.codesquad.issuetracker.dto.response.MilestoneListResponse;
-import team05.codesquad.issuetracker.dto.response.MilestoneUpdateResponse;
+import team05.codesquad.issuetracker.controller.milestonedto.request.MilestoneCreateRequest;
+import team05.codesquad.issuetracker.controller.milestonedto.request.MilestoneUpdateRequest;
+import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneCreateResponse;
+import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneListResponse;
+import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneUpdateResponse;
 import team05.codesquad.issuetracker.service.MilestoneService;
 
 @Slf4j

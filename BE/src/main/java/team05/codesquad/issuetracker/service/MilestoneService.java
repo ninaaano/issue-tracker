@@ -6,12 +6,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 import team05.codesquad.issuetracker.domain.milestone.Milestone;
-import team05.codesquad.issuetracker.dto.MilestoneDto;
-import team05.codesquad.issuetracker.dto.request.MilestoneCreateRequest;
-import team05.codesquad.issuetracker.dto.request.MilestoneUpdateRequest;
-import team05.codesquad.issuetracker.dto.response.MilestoneCreateResponse;
-import team05.codesquad.issuetracker.dto.response.MilestoneListResponse;
-import team05.codesquad.issuetracker.dto.response.MilestoneUpdateResponse;
+import team05.codesquad.issuetracker.controller.milestonedto.MilestoneDto;
+import team05.codesquad.issuetracker.controller.milestonedto.request.MilestoneCreateRequest;
+import team05.codesquad.issuetracker.controller.milestonedto.request.MilestoneUpdateRequest;
+import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneCreateResponse;
+import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneListResponse;
+import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneUpdateResponse;
 import team05.codesquad.issuetracker.repository.MilestoneRepository;
 
 import java.util.ArrayList;

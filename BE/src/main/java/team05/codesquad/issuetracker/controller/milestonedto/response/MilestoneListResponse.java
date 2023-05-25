@@ -1,8 +1,8 @@
-package team05.codesquad.issuetracker.dto.response;
+package team05.codesquad.issuetracker.controller.milestonedto.response;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import team05.codesquad.issuetracker.dto.MilestoneDto;
+import team05.codesquad.issuetracker.controller.milestonedto.MilestoneDto;
 
 import java.util.List;
 
