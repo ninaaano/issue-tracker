@@ -35,4 +35,18 @@ public class MilestoneController {
         log.info(">>> MilestoneController createMilestone");
         return milestoneService.createMilestone(request);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteMilestone(@PathVariable Long id) {
+        log.info(">>> MilestoneController deleteMilestone");
+        milestoneService.deleteMilestone(id);
+    }
+
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public MilestoneUpdateResponse updateMilestone(@PathVariable Long id, @RequestBody MilestoneUpdateRequest request) {
+        log.info(">>> MilestoneController updateMilestone");
+        return milestoneService.updateMilestone(id, request);
+    }
 }
