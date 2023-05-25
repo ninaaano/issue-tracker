@@ -808,6 +808,16 @@ const issueDetailData = [
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
+        },
+      },
     ],
   },
   {
@@ -871,6 +881,16 @@ const issueDetailData = [
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
+        },
+      },
     ],
   },
   {
@@ -928,6 +948,16 @@ const issueDetailData = [
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
+        },
+      },
     ],
   },
   {
@@ -983,6 +1013,16 @@ const issueDetailData = [
           userId: 3,
           userName: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
+        },
+      },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
     ],
@@ -1048,6 +1088,16 @@ const issueDetailData = [
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
+        },
+      },
     ],
   },
   {
@@ -1103,6 +1153,16 @@ const issueDetailData = [
           userId: 3,
           userName: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
+        },
+      },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
     ],
@@ -1168,6 +1228,16 @@ const issueDetailData = [
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
+        },
+      },
     ],
   },
   {
@@ -1223,6 +1293,16 @@ const issueDetailData = [
           userId: 3,
           userName: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
+        },
+      },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
     ],
@@ -1288,6 +1368,16 @@ const issueDetailData = [
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
+        },
+      },
     ],
   },
   {
@@ -1351,6 +1441,16 @@ const issueDetailData = [
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
+        },
+      },
     ],
   },
   {
@@ -1406,6 +1506,16 @@ const issueDetailData = [
           userId: 3,
           userName: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
+        },
+      },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
     ],
@@ -1465,6 +1575,16 @@ const issueDetailData = [
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
+        },
+      },
     ],
   },
   {
@@ -1520,6 +1640,16 @@ const issueDetailData = [
           userId: 3,
           userName: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
+        },
+      },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
     ],
@@ -1585,6 +1715,16 @@ const issueDetailData = [
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
+        },
+      },
     ],
   },
   {
@@ -1640,6 +1780,16 @@ const issueDetailData = [
           userId: 3,
           userName: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
+        },
+      },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
     ],
@@ -1699,6 +1849,16 @@ const issueDetailData = [
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
+        },
+      },
     ],
   },
   {
@@ -1754,6 +1914,16 @@ const issueDetailData = [
           userId: 3,
           userName: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
+        },
+      },
+      {
+        commentId: 3,
+        content: '다들 화이팅해서 이슈트래커 완성해보자요!!',
+        createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
     ],
