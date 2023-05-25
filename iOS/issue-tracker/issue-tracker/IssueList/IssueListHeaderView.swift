@@ -7,12 +7,11 @@
 
 import UIKit
 
-final class IssueListHeaderView: UICollectionReusableView {
+final class IssueListHeaderView: UICollectionViewCell {
     static let identifier = "IssueListHeaderView"
     
-    private let title: UILabel = {
+    var title: UILabel = {
         let title = UILabel()
-        title.text = "이슈"
         title.font = FontStyle.titleStrong.font
         title.textColor = .black
         title.textAlignment = .left
