@@ -15,14 +15,16 @@ import {
 } from './style';
 
 // TODO : util 함수로 빼기.
-const convertMenus = ({ type, name, menus }) => {
+const convertMenus = ({ type, name, menus, dropDownType }) => {
   const convertedMenus = [];
 
-  if (type === FILTER_TYPE.ASSIGNEE) {
-    convertedMenus.push({ id: 'none', text: `${name}가 없는 이슈` });
-  }
-  if (type === FILTER_TYPE.LABEL || type === FILTER_TYPE.MILESTONE) {
-    convertedMenus.push({ id: 'none', text: `${name}이 없는 이슈` });
+  if (dropDownType !== 'sideBar') {
+    if (type === FILTER_TYPE.ASSIGNEE) {
+      convertedMenus.push({ id: 'none', text: `${name}가 없는 이슈` });
+    }
+    if (type === FILTER_TYPE.LABEL || type === FILTER_TYPE.MILESTONE) {
+      convertedMenus.push({ id: 'none', text: `${name}이 없는 이슈` });
+    }
   }
 
   menus.forEach((menu) => {
@@ -42,7 +44,19 @@ const convertMenus = ({ type, name, menus }) => {
   return convertedMenus;
 };
 
-const DropDown = ({ className = '', type, name, width, height, menus, position = 'left', gap = 0 }) => {
+const DropDown = ({
+  className = '',
+  type,
+  name,
+  width,
+  height,
+  menus,
+  position = 'left',
+  gap = 0,
+  dropDownType,
+  onSelectItem,
+  isSelectItem,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef(null);
   const menusRef = useRef(null);
@@ -65,19 +79,19 @@ const DropDown = ({ className = '', type, name, width, height, menus, position =
     return () => window.removeEventListener('click', closeHandler);
   }, []);
 
-  const convertedMenus = type === 'issue' ? menus : convertMenus({ type, name, menus });
+  const convertedMenus = type === 'issue' ? menus : convertMenus({ type, name, menus, dropDownType });
 
   return (
     <$DropDown>
       <$DropDownButtonWrapper ref={buttonRef} width={width} height={height}>
-        <$DropDownButton type="ghost" size="M" onClick={toggleHandler}>
+        <$DropDownButton type="ghost" size="M" onClick={toggleHandler} dropDownType={dropDownType}>
           {type === 'issue' ? '필터' : `${name}`}
           <Icon name="chevronDown" />
         </$DropDownButton>
       </$DropDownButtonWrapper>
       {isOpen && (
         <$DropDownWrapper className={className} position={position} gap={gap} ref={menusRef}>
-          <$DropDownHeader>{`${name} 필터`}</$DropDownHeader>
+          {dropDownType !== 'sideBar' && <$DropDownHeader>{`${name} 필터`}</$DropDownHeader>}
           <$DropDownMenus>
             {convertedMenus.map(({ id, url, text, backgroundColor }) => (
               <DropDownMenu
@@ -87,6 +101,9 @@ const DropDown = ({ className = '', type, name, width, height, menus, position =
                 menuImg={url}
                 menuText={text}
                 backgroundColor={backgroundColor}
+                dropDownType={dropDownType}
+                onSelectItem={onSelectItem}
+                isSelectItem={isSelectItem}
               />
             ))}
           </$DropDownMenus>
@@ -105,6 +122,9 @@ DropDown.propTypes = {
   menus: PropTypes.arrayOf(PropTypes.object).isRequired,
   position: PropTypes.oneOf(['right', 'left']),
   gap: PropTypes.number,
+  dropDownType: PropTypes.string,
+  onSelectItem: PropTypes.func,
+  isSelectItem: PropTypes.any,
 };
 
 export default DropDown;

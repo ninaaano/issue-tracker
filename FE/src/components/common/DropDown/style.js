@@ -10,13 +10,23 @@ const leftPosition = css`
   left: 0;
 `;
 
+const centerPosition = css`
+  left: -12px;
+`;
+
+const sideBarStyle = css`
+  display: flex;
+  justify-content: space-between;
+  width: 222px;
+`;
+
 const modalPosition = css`
   position: absolute;
   top: calc(100% + ${({ gap }) => `${gap}px`});
   ${({ position }) => {
     if (position === 'right') return rightPosition;
     if (position === 'left') return leftPosition;
-
+    if (position === 'center') return centerPosition;
     return '';
   }}
 `;
@@ -46,7 +56,13 @@ const $DropDownButtonWrapper = styled.div`
 `;
 
 const $DropDownButton = styled(Button)`
-  gap: 8px;
+  gap: ${({ dropDownType }) => (dropDownType === 'sideBar' ? '145px' : '8px')};
+  ${({ dropDownType }) => {
+    if (dropDownType === 'sideBar') {
+      return sideBarStyle;
+    }
+    return '';
+  }}
 `;
 
 const $DropDownHeader = styled.header`
