@@ -2,7 +2,6 @@ package team05.codesquad.issuetracker.controller.issuedto;
 
 import lombok.*;
 import team05.codesquad.issuetracker.controller.labeldto.LabelResponse;
-import team05.codesquad.issuetracker.domain.issue.Assignee;
 import team05.codesquad.issuetracker.domain.issue.Issue;
 import team05.codesquad.issuetracker.domain.label.Label;
 import team05.codesquad.issuetracker.domain.member.Member;
