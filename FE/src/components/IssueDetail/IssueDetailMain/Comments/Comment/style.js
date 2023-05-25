@@ -12,6 +12,7 @@ const $Comment = styled.div`
   overflow: hidden;
   border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
   border-radius: 16px;
+  margin-bottom: 24px;
 `;
 
 const $CommentHeader = styled.div`
@@ -84,6 +85,12 @@ const $CommentTime = styled.div`
   line-height: ${({ theme }) => theme.fontSize.M.lineHeight};
 `;
 
+const $Buttons = styled.div`
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+`;
+
 export {
   $Comment,
   $CommentHeader,
@@ -94,4 +101,5 @@ export {
   $UserImg,
   $UserName,
   $CommentTime,
+  $Buttons,
 };
