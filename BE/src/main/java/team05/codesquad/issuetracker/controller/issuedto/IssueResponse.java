@@ -22,11 +22,11 @@ public class IssueResponse {
     //private Member author;
     //private List<Member> assignees;
     private List<Label> labels;
-    //private Milestone name;
-    private boolean status;
+    private Long milestoneId;
+    private boolean isOpened;
 
     public static IssueResponse from(Issue issue) {
-        return new IssueResponse(issue.getId(), issue.getTitle(), issue.getCreatedAt(), issue.getLabels(),issue.getIsOpened());
+        return new IssueResponse(issue.getId(), issue.getTitle(),issue.getCreatedAt(), issue.getLabels(),issue.getMilestoneId().getId(),issue.getIsOpened());
     }
 
 }

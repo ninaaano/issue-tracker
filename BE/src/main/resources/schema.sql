@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS `milestone`,`member`,`issue`,`assignee`,`label`,`label_attached_issues`;
+DROP TABLE IF EXISTS `milestone`,`member`,`issue`,`assignee`,`label`,`label_attached_issues` CASCADE ;
 
 CREATE TABLE `milestone`
 (

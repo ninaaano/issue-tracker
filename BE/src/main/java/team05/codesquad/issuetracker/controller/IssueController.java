@@ -24,7 +24,7 @@ public class IssueController {
     }
 
     // 기본화면일때, 다시 openIssue눌렀을때
-    @GetMapping()
+    @GetMapping
     public List<Issue> getIssues() {
         return issueService.findByOpenIssue();
     }
