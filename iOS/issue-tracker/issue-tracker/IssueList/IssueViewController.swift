@@ -42,12 +42,12 @@ final class IssueViewController: UIViewController {
     private func configureIssueCollectionView() {
         self.issueListCollectionView.backgroundColor = ColorValue.gray100
         self.issueCardCellRegistration = UICollectionView.CellRegistration<IssueCardCell, Item> { (cell, _, item) in
-            cell.titleLabel.text = item.title
-            cell.explanationLabel.text = item.description
-            cell.milestoneLabel.text = item.title
+            cell.titleLabel.text = item.issueTitle
+            cell.explanationLabel.text = "설명설명설명설명설명설명설명"
+            cell.milestoneLabel.text = item.milestone.milestoneName
             cell.labelStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
-            item.badge?.forEach { data in
-                let custom = CustomCapsuleLabel(name: "레이블", textColor: "dark", backgroundColor: "0xFF3B30", font: FontStyle.label.font)
+            item.label.forEach { data in
+                let custom = CustomCapsuleLabel(name: data.labelName, textColor: data.textColor, backgroundColor: data.backgroundColor, font: FontStyle.label.font)
                 cell.labelStackView.addArrangedSubview(custom)
             }
         }
