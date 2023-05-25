@@ -10,7 +10,7 @@ import UIKit
 final class IssueFilterHeaderView: UICollectionReusableView {
     static let identifier = "IssueFilerHeaderView"
     
-    private let titleLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "테스트 헤더입니다."
         label.font = FontStyle.bodyMiedium.font
