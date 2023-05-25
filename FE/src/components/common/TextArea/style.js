@@ -54,7 +54,7 @@ const $TextArea = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
+  width: 100%;
   height: ${({ size }) => {
     if (size === 'S') return '240px';
     if (size === 'L') return '436px';
