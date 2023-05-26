@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { FilterStateContext } from '../../../context/filterContext';
+import { useFilterStateContext } from '../../../context/filterContext';
 
 import { filterIssues } from '../../../utils';
 
@@ -10,7 +10,7 @@ import IssueListMainHeader from './IssueListMainHeader';
 import { $Lists, $NoResultMessage, $IssueListMain } from './style';
 
 const IssueListMain = ({ issues, user, label, milestone }) => {
-  const filterState = useContext(FilterStateContext);
+  const filterState = useFilterStateContext();
   const [isOpened, setIsOpened] = useState(true);
 
   const filteredOpenIssues = filterIssues({ type: 'open', issues, filterOptions: filterState });

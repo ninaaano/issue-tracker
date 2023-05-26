@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import { FilterDispatchContext, FilterStateContext } from '../../../../context/filterContext';
+import { useFilterDispatchContext, useFilterStateContext } from '../../../../context/filterContext';
 import { FILTER_ACTION_TYPES } from '../../../../context/filterReducer';
 
 import Icon from '../../Icon';
@@ -18,9 +18,8 @@ const DropDownMenu = ({
   isSelectItem,
 }) => {
   if (dropDownType !== 'sideBar') {
-    const filterDispatch = useContext(FilterDispatchContext);
-
-    const filterState = useContext(FilterStateContext);
+    const filterDispatch = useFilterDispatchContext();
+    const filterState = useFilterStateContext();
     const checkedOption = filterState[menuType];
 
     const isChecked = checkedOption === menuId;

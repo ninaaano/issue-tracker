@@ -1,10 +1,30 @@
-import React, { createContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 import PropTypes from 'prop-types';
 
 import { filterReducer } from './filterReducer';
 
 const FilterStateContext = createContext(null);
 const FilterDispatchContext = createContext(null);
+
+const useFilterStateContext = () => {
+  const filterState = useContext(FilterStateContext);
+
+  if (filterState === null) {
+    throw new Error('useFilterStateContextContext should be used within FilterStateProvider');
+  }
+
+  return filterState;
+};
+
+const useFilterDispatchContext = () => {
+  const filterDispatch = useContext(FilterDispatchContext);
+
+  if (filterDispatch === null) {
+    throw new Error('useFilterDispatchContext should be used within FilterDispatchProvider');
+  }
+
+  return filterDispatch;
+};
 
 const FilterProvider = ({ children }) => {
   const [filterState, filterDispatch] = useReducer(filterReducer, {
@@ -27,4 +47,4 @@ FilterProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export { FilterProvider, FilterStateContext, FilterDispatchContext };
+export { FilterProvider, useFilterStateContext, useFilterDispatchContext };
