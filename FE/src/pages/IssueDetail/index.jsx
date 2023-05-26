@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 import useFetch from '../../hooks/useFetch';
 
@@ -14,7 +13,7 @@ import SideBar from '../../components/common/SideBar';
 import TextArea from '../../components/common/TextArea';
 import { $IssueDetail, $IssueCommentArea, $IssueDetailMain } from './style';
 
-const IssueDetail = (props) => {
+const IssueDetail = () => {
   // TODO: Text Area UnControlled Component로 바꾸기.
   // 왜냐면 Text안에 Value가 바뀌면 전체 컴포넌트가 다 Rerender 일어남..!
   const { issueId } = useParams();
@@ -81,7 +80,5 @@ const IssueDetail = (props) => {
     )
   );
 };
-
-IssueDetail.propTypes = {};
 
 export default IssueDetail;
