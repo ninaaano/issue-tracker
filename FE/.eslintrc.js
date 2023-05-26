@@ -47,5 +47,7 @@ module.exports = {
     'react/jsx-no-constructed-context-values': 0, // context 전달할때 useMemo, useCallback으로 필수적으로 감싸야하는 설정 off
     'react/destructuring-assignment': 0, // context state받는데 depth 2개 이상되면 구조분해할당으로 받으라는 lint 규칙 삭제
     'operator-linebreak': 0, // 길어지는 조건문 오류처리 제거
+    'react/jsx-indent': 0, // Sidebar indent 수정위해 off.
+    indent: 0, // Sidebar indent 수정위해 off.
   },
 };
