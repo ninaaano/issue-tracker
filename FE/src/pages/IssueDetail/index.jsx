@@ -22,6 +22,7 @@ const IssueDetail = (props) => {
   const allDataLoaded = issueDetailData && userData && labelData && milestoneData;
 
   const [comment, setComment] = useState('');
+  const [files, setFiles] = useState([]);
 
   const changeHandler = ({ target }) => {
     setComment(target.value);
@@ -36,6 +37,10 @@ const IssueDetail = (props) => {
     return selectedItems;
   };
 
+  const filesUploadHandler = ({ target }) => {
+    setFiles([...target.files]);
+  };
+
   return (
     allDataLoaded && (
       <$IssueDetail>
@@ -48,7 +53,14 @@ const IssueDetail = (props) => {
               label={labelData}
               milestone={milestoneData}
             />
-            <TextArea id="comment" value={comment} onChange={changeHandler} size="S" />
+            <TextArea
+              id="comment"
+              value={comment}
+              onChange={changeHandler}
+              size="S"
+              files={files}
+              filesUploadHandler={filesUploadHandler}
+            />
             <Button type="contained" size="S">
               <Icon name="plus" />
               코멘트 작성

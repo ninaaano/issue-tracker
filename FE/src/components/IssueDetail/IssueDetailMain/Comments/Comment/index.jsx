@@ -26,6 +26,7 @@ const Comment = ({ writerId, commentData }) => {
   const [isEdited, setIsEdited] = useState(false);
   const [tempComment, setTempComment] = useState(commentData.content);
   const [editComment, setEditComment] = useState(commentData.content);
+  const [files, setFiles] = useState([]);
 
   const commentEditHandler = ({ target }) => {
     setTempComment(target.value);
@@ -44,6 +45,10 @@ const Comment = ({ writerId, commentData }) => {
   const completeEditHandler = () => {
     setEditComment(tempComment);
     setIsEdited(false);
+  };
+
+  const filesUploadHandler = ({ target }) => {
+    setFiles([...target.files]);
   };
 
   return (
@@ -73,7 +78,14 @@ const Comment = ({ writerId, commentData }) => {
           </$HeaderButtons>
         </$CommentHeader>
         {isEdited ? (
-          <TextArea id="commentEdit" value={tempComment} onChange={commentEditHandler} size="S" />
+          <TextArea
+            id="commentEdit"
+            value={tempComment}
+            onChange={commentEditHandler}
+            size="S"
+            files={files}
+            filesUploadHandler={filesUploadHandler}
+          />
         ) : (
           <$CommentText>{editComment}</$CommentText>
         )}
