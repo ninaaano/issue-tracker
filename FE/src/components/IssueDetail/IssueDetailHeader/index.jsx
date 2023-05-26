@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import Icon from '../../common/Icon';
+import Label from '../../common/Label';
 import Button from '../../common/Button';
-
+import TextInput from '../../common/TextInput';
 import {
   $IssueDetailHeader,
   $IssueDetailTitle,
@@ -13,9 +15,6 @@ import {
   $IssueDetailInfo,
   $IssueInfoText,
 } from './style';
-import Icon from '../../common/Icon';
-import Label from '../../common/Label';
-import TextInput from '../../common/TextInput';
 
 const IssueDetailHeader = ({ issue }) => {
   const [isEdited, setIsEdited] = useState(false);

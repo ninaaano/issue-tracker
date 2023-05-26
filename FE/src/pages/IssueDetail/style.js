@@ -4,20 +4,22 @@ const $IssueDetail = styled.section`
   display: flex;
   flex-direction: column;
 `;
-const $IssueDetailMain = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
 const $IssueCommentArea = styled.div`
-  width: 958px;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  position: relative;
+  width: 958px;
+
   & > button {
     margin-top: 24px;
   }
+`;
+
+const $IssueDetailMain = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 `;
 
 export { $IssueDetail, $IssueCommentArea, $IssueDetailMain };

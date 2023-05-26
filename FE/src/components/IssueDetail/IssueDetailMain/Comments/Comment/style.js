@@ -1,20 +1,5 @@
 import styled from 'styled-components';
 
-const $Comment = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 958px;
-  min-height: 125px;
-  max-height: fit-content;
-  margin-bottom: 24px;
-  overflow: hidden;
-  border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
-  border-radius: 16px;
-  margin-bottom: 24px;
-`;
-
 const $CommentHeader = styled.div`
   display: flex;
   justify-content: space-between;
@@ -31,7 +16,6 @@ const $UserInfo = styled.div`
   text-align: center;
   font-weight: 400;
   font-size: ${({ theme }) => theme.fontSize.M.fontSize};
-
   gap: 8px;
 `;
 
@@ -56,11 +40,8 @@ const $HeaderButton = styled.button`
 const $CommentText = styled.div`
   width: 100%;
   height: calc(100% - 64px);
-  align-items: flex-start;
-  text-align: left;
   padding: 16px 24px;
   background-color: ${({ theme }) => theme.colors.neutral.background.strong};
-
   font-weight: 400;
   font-size: ${({ theme }) => theme.fontSize.M.fontSize};
   line-height: 28px;
@@ -87,8 +68,22 @@ const $CommentTime = styled.div`
 
 const $Buttons = styled.div`
   display: flex;
-  gap: 8px;
   margin-bottom: 24px;
+  gap: 8px;
+`;
+
+const $Comment = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 958px;
+  min-height: 125px;
+  max-height: fit-content;
+  margin-bottom: 24px;
+  border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
+  border-radius: 16px;
 `;
 
 export {

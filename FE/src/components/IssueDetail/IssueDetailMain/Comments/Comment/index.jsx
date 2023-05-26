@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import Button from '../../../../common/Button';
+import Icon from '../../../../common/Icon';
+import Label from '../../../../common/Label';
+import TextArea from '../../../../common/TextArea';
 import {
   $Comment,
   $CommentHeader,
@@ -13,10 +17,6 @@ import {
   $CommentTime,
   $Buttons,
 } from './style';
-import Label from '../../../../common/Label';
-import Icon from '../../../../common/Icon';
-import Button from '../../../../common/Button';
-import TextArea from '../../../../common/TextArea';
 
 // TODO: 내 userId -> context로 빼기.
 const myId = 6;

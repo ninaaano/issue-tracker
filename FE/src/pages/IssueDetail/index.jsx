@@ -2,17 +2,21 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { ISSUES, USERS, LABELS, MILESTONES } from '../../constants/api';
 import useFetch from '../../hooks/useFetch';
-import TextArea from '../../components/common/TextArea';
-import SideBar from '../../components/common/SideBar';
+
+import { ISSUES, USERS, LABELS, MILESTONES } from '../../constants/api';
+
 import IssueDetailHeader from '../../components/IssueDetail/IssueDetailHeader';
 import IssueDetailMain from '../../components/IssueDetail/IssueDetailMain';
-import { $IssueDetail, $IssueCommentArea, $IssueDetailMain } from './style';
-import Button from '../../components/common/Button';
 import Icon from '../../components/common/Icon';
+import Button from '../../components/common/Button';
+import SideBar from '../../components/common/SideBar';
+import TextArea from '../../components/common/TextArea';
+import { $IssueDetail, $IssueCommentArea, $IssueDetailMain } from './style';
 
 const IssueDetail = (props) => {
+  // TODO: Text Area UnControlled Component로 바꾸기.
+  // 왜냐면 Text안에 Value가 바뀌면 전체 컴포넌트가 다 Rerender 일어남..!
   const { issueId } = useParams();
   const { data: issueDetailData } = useFetch(ISSUES.GET_ISSUE(issueId));
   const { data: userData } = useFetch(USERS.GET_ALL_USERS);
@@ -28,6 +32,10 @@ const IssueDetail = (props) => {
     setComment(target.value);
   };
 
+  const filesUploadHandler = ({ target }) => {
+    setFiles([...target.files]);
+  };
+
   const makeSelectItemsObj = () => {
     const selectedItems = {};
 
@@ -35,10 +43,6 @@ const IssueDetail = (props) => {
     selectedItems.milestone = issueDetailData.milestone.milestoneId;
     selectedItems.label = issueDetailData.label[0].labelId;
     return selectedItems;
-  };
-
-  const filesUploadHandler = ({ target }) => {
-    setFiles([...target.files]);
   };
 
   return (
