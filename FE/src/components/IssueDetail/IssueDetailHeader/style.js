@@ -10,8 +10,8 @@ const $IssueDetailTitle = styled.div`
 const $TitleWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 24px;
   width: 1008px;
+  gap: 24px;
 `;
 
 const $IssueTitle = styled.div`
@@ -37,12 +37,12 @@ const $IssueDetailInfo = styled.div`
   display: flex;
   align-items: center;
   height: 32px;
-  font-size: ${({ theme }) => theme.fontSize.M.fontSize};
-  font-weight: 400;
-  color: ${({ theme }) => theme.colors.neutral.text.weak};
   padding-top: 15px;
   padding-bottom: 45px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
+  font-size: ${({ theme }) => theme.fontSize.M.fontSize};
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.neutral.text.weak};
 `;
 
 // 이슈 이름, 제목편집, 이슈닫기 버튼
