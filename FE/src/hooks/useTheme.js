@@ -1,9 +1,9 @@
-import { useContext, useCallback } from 'react';
-import { ThemeContext } from '../context/themeProvider';
+import { useCallback } from 'react';
+import { useThemeContext } from '../context/themeContext';
 
 const useTheme = () => {
-  const context = useContext(ThemeContext);
-  const { themeMode, setThemeMode } = context;
+  const themeContext = useThemeContext();
+  const { themeMode, setThemeMode } = themeContext;
 
   const toggleTheme = useCallback(() => {
     if (themeMode === 'light') {

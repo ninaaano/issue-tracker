@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import { USERS } from './constants/api';
 import GlobalStyles from './styles/GlobalStyles';
-import { ThemeProvider } from './context/themeProvider';
+import { ThemeProvider } from './context/themeContext';
 import useFetch from './hooks/useFetch';
 
 import Header from './components/Header';
