@@ -59,7 +59,7 @@ const NewIssueForm = ({ userImgSrc, userData, labelData, milestoneData }) => {
 };
 
 NewIssueForm.propTypes = {
-  userImgSrc: PropTypes.string,
+  userImgSrc: PropTypes.string.isRequired,
   userData: PropTypes.array.isRequired,
   labelData: PropTypes.array.isRequired,
   milestoneData: PropTypes.array.isRequired,

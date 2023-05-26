@@ -22,7 +22,7 @@ const App = () => {
         <Routes>
           <Route path="/login" />
           <Route path="/" element={<IssueList />} />
-          <Route path="/new" element={<NewIssue />} />
+          {userImgData && <Route path="/new" element={<NewIssue userImgSrc={userImgData.userImgURL} />} />}
           <Route path="/detail/:issueId" element={<DetailIssue />} />
           <Route path="/labels" />
           <Route path="/milestones" />

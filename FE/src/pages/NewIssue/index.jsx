@@ -31,7 +31,7 @@ const NewIssue = ({ userImgSrc }) => {
 };
 
 NewIssue.propTypes = {
-  userImgSrc: PropTypes.string,
+  userImgSrc: PropTypes.string.isRequired,
 };
 
 export default NewIssue;
