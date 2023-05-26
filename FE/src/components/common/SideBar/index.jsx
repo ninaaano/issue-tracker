@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { FILTER_TYPE } from '../../../constants/dropdownMenu';
 import SideBarMenu from './SideBarMenu';
 import { $SideBar } from './style';
 
-const SideBar = ({ assignees, labels, milestones }) => {
+const SideBar = ({ assignees, labels, milestones, selectedItems }) => {
   const menuData = [
     // TODO: 선택된 데이터도 가지고 있어야함.
     {
@@ -27,7 +28,12 @@ const SideBar = ({ assignees, labels, milestones }) => {
   return (
     <$SideBar>
       {menuData.map(({ menuId, menuType, menus }) => (
-        <SideBarMenu key={menuId} type={menuType} menus={menus} />
+        <SideBarMenu
+          key={menuId}
+          type={menuType}
+          menus={menus}
+          selectedItemId={selectedItems[FILTER_TYPE[menuType]]}
+        />
       ))}
     </$SideBar>
   );
@@ -37,6 +43,7 @@ SideBar.propTypes = {
   assignees: PropTypes.array.isRequired,
   labels: PropTypes.array.isRequired,
   milestones: PropTypes.array.isRequired,
+  selectedItems: PropTypes.object.isRequired,
 };
 
 export default SideBar;

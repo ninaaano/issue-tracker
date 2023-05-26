@@ -116,6 +116,7 @@ const GlobalStyles = createGlobalStyle`
     font: inherit;
     letter-spacing: -0.4px;
     font-size:1.6rem;
+    color: ${({ theme }) => theme.colors.neutral.text.default};
   }
 
   #root {

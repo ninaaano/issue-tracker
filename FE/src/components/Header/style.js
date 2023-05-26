@@ -15,6 +15,7 @@ const $Header = styled.header`
   justify-content: space-between;
 
   padding: 27px 0;
+  margin-bottom: 19px;
 
   & > a > svg {
     fill: ${({ theme }) => theme.colors.neutral.text.default};
