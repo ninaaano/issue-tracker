@@ -5,7 +5,7 @@ import { FILTER_TYPE } from '../../../constants/dropdownMenu';
 import SideBarMenu from './SideBarMenu';
 import { $SideBar } from './style';
 
-const SideBar = ({ assignees, labels, milestones, selectedItems }) => {
+const SideBar = ({ assignees, labels, milestones, selectedItems = {} }) => {
   const menuData = [
     // TODO: 선택된 데이터도 가지고 있어야함.
     {
@@ -27,14 +27,18 @@ const SideBar = ({ assignees, labels, milestones, selectedItems }) => {
 
   return (
     <$SideBar>
-      {menuData.map(({ menuId, menuType, menus }) => (
-        <SideBarMenu
-          key={menuId}
-          type={menuType}
-          menus={menus}
-          selectedItemId={selectedItems[FILTER_TYPE[menuType]]}
-        />
-      ))}
+      {Object.keys(selectedItems).length !== 0
+        ? menuData.map(({ menuId, menuType, menus }) => (
+            <SideBarMenu
+              key={menuId}
+              type={menuType}
+              menus={menus}
+              selectedItemId={selectedItems[FILTER_TYPE[menuType]]}
+            />
+          ))
+        : menuData.map(({ menuId, menuType, menus }) => (
+            <SideBarMenu key={menuId} type={menuType} menus={menus} />
+          ))}
     </$SideBar>
   );
 };

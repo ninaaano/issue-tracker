@@ -11,7 +11,8 @@ const SideBarMenu = ({ type, menus, selectedItemId }) => {
     type,
     id: selectedItemId,
   });
-  const isSelectedItem = Object.keys(selectedItem).length !== 0;
+
+  const isSelectedItem = selectedItem.id !== undefined;
 
   const findSelectItemInfo = () => {
     return menus.filter((menu) => {

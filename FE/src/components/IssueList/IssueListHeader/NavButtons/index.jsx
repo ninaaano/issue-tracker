@@ -10,7 +10,7 @@ import { $NavButtons } from './style';
 const NavButtons = ({ labelCount, milestoneCount }) => {
   const navigate = useNavigate();
 
-  const navigateToNewIssue = () => navigate('/new');
+  const navigateToNewIssue = () => navigate('/issues/new');
 
   return (
     <$NavButtons>
