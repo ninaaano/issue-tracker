@@ -10,10 +10,10 @@ const $Label = styled.div`
   height: ${({ height }) => `${height}px`};
   border-radius: 50px;
   background-color: ${({ backgroundColor }) => backgroundColor};
-  color: ${({ theme, textColor }) => {
+  color: ${({ textColor }) => {
     return textColor === 'dark' ? '#14142B' : '#FEFEFE';
   }};
-
+  gap: 4px;
   // TODO : 글씨체 바꿔보고 삭제 요망
   letter-spacing: 0.5px;
 

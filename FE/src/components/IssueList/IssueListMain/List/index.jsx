@@ -35,7 +35,7 @@ const List = ({ issueId, issueTitle, label, writer, milestone, assignee, isOpene
               fill={isSelected ? '#007AFF' : '#D9DBE9'}
             />
           </$CheckBox>
-          <Link to={`detail/${issueId}`}>
+          <Link to={`${issueId}`}>
             <$IssueTitle>
               {isOpened ? <Icon name="alertCircle" fill="#007AFF" /> : <Icon name="archive" fill="#FF3B30" />}
 

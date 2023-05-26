@@ -6,8 +6,11 @@ import DropDown from '../../DropDown';
 
 import { $SideBarMenu, $SelectedItem } from './style';
 
-const SideBarMenu = ({ type, menus }) => {
-  const [selectedItem, setSelectedItem] = useState({});
+const SideBarMenu = ({ type, menus, selectedItemId }) => {
+  const [selectedItem, setSelectedItem] = useState({
+    type,
+    id: selectedItemId,
+  });
   const isSelectedItem = Object.keys(selectedItem).length !== 0;
 
   const findSelectItemInfo = () => {
@@ -55,6 +58,7 @@ const SideBarMenu = ({ type, menus }) => {
 SideBarMenu.propTypes = {
   type: PropTypes.string.isRequired,
   menus: PropTypes.array.isRequired,
+  selectedItemId: PropTypes.any,
 };
 
 export default SideBarMenu;

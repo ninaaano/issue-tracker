@@ -29,7 +29,7 @@ const SelectedItem = ({ className = '', type, info }) => {
   if (FILTER_TYPE[type] === 'milestone') {
     return (
       <$Milestone className={className}>
-        <$ProgressBar />
+        <$ProgressBar percent={(info.closeIssue / (info.openIssue + info.closeIssue)) * 100} />
         {info.milestoneName}
       </$Milestone>
     );
