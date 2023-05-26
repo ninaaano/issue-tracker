@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class IssueListHeaderView: UICollectionViewCell {
+final class IssueListHeaderView: UICollectionReusableView {
     static let identifier = "IssueListHeaderView"
     
     var title: UILabel = {
