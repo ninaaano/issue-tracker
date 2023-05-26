@@ -14,9 +14,6 @@ const IssueDetailMain = ({ issue }) => {
 
 IssueDetailMain.propTypes = {
   issue: PropTypes.object.isRequired,
-  //   user: PropTypes.object.isRequired,
-  //   label: PropTypes.string.isRequired,
-  //   milestone: PropTypes.string.isRequired,
 };
 
 export default IssueDetailMain;
