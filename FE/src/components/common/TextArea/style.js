@@ -44,10 +44,18 @@ const $TextLength = styled.div`
   font-weight: ${({ theme }) => theme.fontWeight.regular};
 `;
 
-const $Line = styled.p`
+const $filesUploadButtonWrapper = styled.div`
+  display: flex;
+  gap: 8px;
+
   width: 100%;
-  margin-bottom: 8px;
-  border-bottom: 1px dashed ${({ theme }) => theme.colors.neutral.border.default};
+  padding: 10px 0;
+  border-top: 1px dashed ${({ theme }) => theme.colors.neutral.border.default};
+
+  color: ${({ theme }) => theme.colors.neutral.text.strong};
+  font-size: ${({ theme }) => theme.fontSize.M.fontSize};
+  line-height: ${({ theme }) => theme.fontSize.M.lineHeight};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
 `;
 
 const $TextArea = styled.div`
@@ -72,4 +80,4 @@ const $TextArea = styled.div`
   opacity: ${({ disabled }) => (disabled ? 0.32 : 1)};
 `;
 
-export { $TextArea, $Label, $TextAreaInput, $TextLength, $Line };
+export { $TextArea, $Label, $filesUploadButtonWrapper, $TextAreaInput, $TextLength };

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const textInputFont = css`
+const inputFont = css`
   color: ${({ isFocused, hasValue, theme }) => {
     return theme.colors.neutral.text[hasValue || isFocused ? 'strong' : 'weak'];
   }};
@@ -31,7 +31,7 @@ const labelFontTransition = css`
 `;
 
 const $Label = styled.label`
-  width: ${({ styleType }) => (styleType === 'both' ? '72px' : '0')};
+  width: ${({ styleType }) => (styleType === 'both' ? '72px' : '100%')};
 
   ${({ styleType }) => (styleType === 'onlyLabel' ? labelFontTransition : defaultLabelFont)}
 `;
@@ -39,7 +39,7 @@ const $Label = styled.label`
 const $Input = styled.input`
   width: 100%;
 
-  ${textInputFont}
+  ${inputFont}
 `;
 
 const onlyLabelText = css`
@@ -53,17 +53,19 @@ const onlyLabelText = css`
 const onlyPlaceholderText = css`
   flex-direction: row;
   align-items: center;
+
+  height: 40px;
 `;
 
 const bothLabelTextAndPlaceholderText = css`
   flex-direction: row;
   align-items: center;
+
+  height: 40px;
 `;
 
 const $TextInput = styled.div`
   display: flex;
-
-  height: 40px;
 
   ${({ styleType }) => {
     if (styleType === 'both') return bothLabelTextAndPlaceholderText;
@@ -73,14 +75,13 @@ const $TextInput = styled.div`
   }}
 
   padding: 0 24px;
-
   border: 1px solid
     ${({ isFocused, theme }) => (isFocused ? theme.colors.neutral.border.active : 'transparent')};
   border-radius: 14px;
-
   background-color: ${({ isFocused, theme }) => {
     return theme.colors.neutral.background[isFocused ? 'strong' : 'bold'];
   }};
+
   opacity: ${({ disabled }) => (disabled ? 0.32 : 1)};
 `;
 

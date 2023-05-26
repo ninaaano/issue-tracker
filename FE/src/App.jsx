@@ -7,7 +7,10 @@ import { ThemeProvider } from './context/themeProvider';
 import useFetch from './hooks/useFetch';
 
 import Header from './components/Header';
+
 import IssueList from './pages/IssueList';
+import DetailIssue from './pages/DetailIssue';
+import NewIssue from './pages/NewIssue';
 import IssueDetail from './pages/IssueDetail';
 
 const App = () => {
@@ -22,7 +25,7 @@ const App = () => {
           <Route path="/login" />
           <Route path="/" element={<Navigate to="/issues" />} />
           <Route path="/issues" element={<IssueList />} />
-          <Route path="/issues/new" />
+          {userImgData && <Route path="/issues/new" element={<NewIssue userImgSrc={userImgData.userImgURL} />} />}
           <Route path="/issues/:issueId" element={<IssueDetail />} />
           <Route path="/issues/labels" />
           <Route path="/issues/milestones" />
