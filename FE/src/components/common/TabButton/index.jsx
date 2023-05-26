@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Icon from '../Icon';
-import { $TabButton, $LeftButton, $RightButton } from './style';
+import { $TabButton, $Button } from './style';
 
 const TabButton = ({ labelCount = 0, milestoneCount = 0 }) => {
   return (
     <$TabButton>
-      <$LeftButton type="ghost" size="M">
+      <$Button type="ghost" size="M" position="left">
         <Icon name="label" />
-        {`레이블(${labelCount})`}
-      </$LeftButton>
-      <$RightButton type="ghost" size="M">
+        <p>{`레이블(${labelCount})`}</p>
+      </$Button>
+      <$Button type="ghost" size="M" position="right">
         <Icon name="milestone" />
-        {`마일스톤(${milestoneCount})`}
-      </$RightButton>
+        <p>{`마일스톤(${milestoneCount})`}</p>
+      </$Button>
     </$TabButton>
   );
 };

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { $TextInput, $Label, $Input } from './style';
 
 // ! 추후에 prop에 helpText, iconName 추가
-const Input = ({ id, value, onChange, labelText = '', placeholderText = '', disabled = false }) => {
+const TextInput = ({ id, value, onChange, labelText = '', placeholderText = '', disabled = false }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const focusHandler = () => setIsFocused(true);
@@ -46,7 +46,7 @@ const Input = ({ id, value, onChange, labelText = '', placeholderText = '', disa
   );
 };
 
-Input.propTypes = {
+TextInput.propTypes = {
   id: PropTypes.string.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
@@ -56,4 +56,4 @@ Input.propTypes = {
   // helpText: PropTypes.string,
 };
 
-export default Input;
+export default TextInput;

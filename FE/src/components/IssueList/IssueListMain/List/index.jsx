@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { Link } from 'react-router-dom';
 import Icon from '../../../common/Icon';
 import Label from '../../../common/Label';
-import { $List, $LeftElements, $UpElements, $IssueTitle, $IssueInfo, $Assignee, $CheckBox } from './style';
+import {
+  $List,
+  $ListWrapper,
+  $IssueTitleWrapper,
+  $IssueTitle,
+  $IssueInfo,
+  $MileStone,
+  $Assignee,
+  $CheckBox,
+} from './style';
 
 const List = ({ issueId, issueTitle, label, writer, milestone, assignee, isOpened }) => {
   const [isSelected, setIsSelected] = useState(false);
@@ -27,8 +36,8 @@ const List = ({ issueId, issueTitle, label, writer, milestone, assignee, isOpene
 
   return (
     <$List>
-      <$LeftElements>
-        <$UpElements>
+      <$ListWrapper>
+        <$IssueTitleWrapper>
           <$CheckBox type="button" onClick={checkBoxClickHandler}>
             <Icon
               name={isSelected ? 'checkBoxActive' : 'checkBoxInitial'}
@@ -37,22 +46,22 @@ const List = ({ issueId, issueTitle, label, writer, milestone, assignee, isOpene
           </$CheckBox>
           <Link to={`${issueId}`}>
             <$IssueTitle>
-              {isOpened ? <Icon name="alertCircle" fill="#007AFF" /> : <Icon name="archive" fill="#FF3B30" />}
-
+              <Icon name={isOpened ? 'alertCircle' : 'archive'} fill={isOpened ? '#007AFF' : '#FF3B30'} />
               <span>{issueTitle}</span>
               {Labels}
-              <Label />
             </$IssueTitle>
           </Link>
-        </$UpElements>
+        </$IssueTitleWrapper>
 
         <$IssueInfo>
           <span>{`#${issueId}`}</span>
           <span>{`이 이슈가 1분전, ${writer.name}님에 의해 작성되었습니다.`}</span>
-          {milestone && <Icon name="milestone" fill="#6E7191" />}
-          <span>{milestone.milestoneName}</span>
+          <$MileStone>
+            {milestone && <Icon name="milestone" fill="#6E7191" />}
+            <span>{milestone.milestoneName}</span>
+          </$MileStone>
         </$IssueInfo>
-      </$LeftElements>
+      </$ListWrapper>
       {assignee.length !== 0 && <$Assignee src={writer.url} />}
     </$List>
   );

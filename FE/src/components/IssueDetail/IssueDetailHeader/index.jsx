@@ -50,7 +50,7 @@ const IssueDetailHeader = ({ issue }) => {
           </$TitleWrapper>
         ) : (
           <$TitleWrapper>
-            <TextInput id="titleEdit" value={tempTitle} onChange={titleChangeHandler} labelText="" />
+            <TextInput id="titleEdit" value={tempTitle} onChange={titleChangeHandler} labelText="제목" />
           </$TitleWrapper>
         )}
 

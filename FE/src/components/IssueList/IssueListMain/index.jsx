@@ -1,47 +1,20 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { FilterStateContext } from '../../../context/filterContext';
+import { useFilterStateContext } from '../../../context/filterContext';
+
+import { filterIssues } from '../../../utils';
+
 import List from './List';
 import IssueListMainHeader from './IssueListMainHeader';
 import { $Lists, $NoResultMessage, $IssueListMain } from './style';
 
 const IssueListMain = ({ issues, user, label, milestone }) => {
-  const filterState = useContext(FilterStateContext);
+  const filterState = useFilterStateContext();
   const [isOpened, setIsOpened] = useState(true);
 
-  const filteredOpenIssues = issues.filter((issue) => {
-    const { milestoneId } = issue.milestone;
-    const { userId: writerId } = issue.writer;
-    const labelIdArr = issue.label.map(({ labelId }) => labelId);
-    const assigneeIdArr = issue.assignee.map(({ userId }) => userId);
-
-    // const isOpenedMatched = filterState.isOpened === issue.isOpened;
-    const isMilestoneMatched = filterState.milestone === null || milestoneId === filterState.milestone;
-    const isLabelMatched = filterState.label === null || labelIdArr.includes(filterState.label);
-    const isAssigneeMatched = filterState.assignee === null || assigneeIdArr.includes(filterState.assignee);
-    const isWriterMatched = filterState.writer === null || writerId === filterState.writer;
-
-    // isOpenedMatched && isMilestoneMatched && isLabelMatched && isAssigneeMatched && isWriterMatched;
-    return issue.isOpened && isMilestoneMatched && isLabelMatched && isAssigneeMatched && isWriterMatched;
-  });
-
-  const filteredCloseIssues = issues.filter((issue) => {
-    const { milestoneId } = issue.milestone;
-    const { userId: writerId } = issue.writer;
-    const labelIdArr = issue.label.map(({ labelId }) => labelId);
-    const assigneeIdArr = issue.assignee.map(({ userId }) => userId);
-
-    // const isOpenedMatched = filterState.isOpened === issue.isOpened;
-    const isMilestoneMatched = filterState.milestone === null || milestoneId === filterState.milestone;
-    const isLabelMatched = filterState.label === null || labelIdArr.includes(filterState.label);
-    const isAssigneeMatched = filterState.assignee === null || assigneeIdArr.includes(filterState.assignee);
-    const isWriterMatched = filterState.writer === null || writerId === filterState.writer;
-
-    // isOpenedMatched && isMilestoneMatched && isLabelMatched && isAssigneeMatched && isWriterMatched;
-    return !issue.isOpened && isMilestoneMatched && isLabelMatched && isAssigneeMatched && isWriterMatched;
-  });
-
+  const filteredOpenIssues = filterIssues({ type: 'open', issues, filterOptions: filterState });
+  const filteredCloseIssues = filterIssues({ type: 'close', issues, filterOptions: filterState });
   const filteredIssues = isOpened ? filteredOpenIssues : filteredCloseIssues;
 
   const noResultMessage = <$NoResultMessage>검색과 일치하는 결과가 없습니다.</$NoResultMessage>;
