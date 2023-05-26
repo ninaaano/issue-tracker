@@ -2,22 +2,19 @@ import styled from 'styled-components';
 
 const $CheckBox = styled.button``;
 
-const $LeftButton = styled.div`
+const $IssueStateControls = styled.div`
   display: flex;
   align-items: center;
-
-  & > button:not(:last-child) {
-    margin-right: 24px;
-  }
-
-  & > button:first-child {
-    margin-right: 32px;
-  }
+  gap: 32px;
 `;
 
-const $RightButton = styled.div`
+const $IssueButtonsWrapper = styled.div`
   display: flex;
+  gap: 24px;
+`;
 
+const $FilterOptions = styled.div`
+  display: flex;
   gap: 36px;
 `;
 
@@ -30,4 +27,4 @@ const $IssueListMainHeader = styled.header`
   padding: 0px 32px;
 `;
 
-export { $IssueListMainHeader, $CheckBox, $LeftButton, $RightButton };
+export { $IssueListMainHeader, $CheckBox, $IssueStateControls, $IssueButtonsWrapper, $FilterOptions };
