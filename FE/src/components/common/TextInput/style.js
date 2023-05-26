@@ -74,6 +74,8 @@ const $TextInput = styled.div`
     return '';
   }}
 
+  width: 100%;
+
   padding: 0 24px;
   border: 1px solid
     ${({ isFocused, theme }) => (isFocused ? theme.colors.neutral.border.active : 'transparent')};
