@@ -25,7 +25,7 @@ final class IssueViewController: UIViewController {
         setupDatas()
     }
     
-    func setupDatas() {
+    private func setupDatas() {
         DispatchQueue.main.async {
             self.http.fetchIssue { result in
                 switch result {
@@ -89,17 +89,17 @@ extension IssueViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension IssueViewController {
-    func configureDataSource() {
+    private func configureDataSource() {
         self.dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: self.issueListCollectionView, cellProvider: { (collectionView, indexPath, itemIdentifier) -> UICollectionViewCell? in
             return collectionView.dequeueConfiguredReusableCell(using: self.issueCardCellRegistration, for: indexPath, item: itemIdentifier)
         })
         
-        self.dataSource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+        self.dataSource.supplementaryViewProvider = { (collectionView, _, indexPath) in
             return collectionView.dequeueConfiguredReusableSupplementary(using: self.issueHeaderCellRegistration, for: indexPath)
         }
     }
     
-    func configureSnapshot() {
+    private func configureSnapshot() {
         self.snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         self.snapshot.appendSections([.issue])
         self.snapshot.appendItems(self.datas, toSection: .issue)

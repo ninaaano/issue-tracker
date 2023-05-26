@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomLabelView: UILabel {
+final class CustomLabelView: UILabel {
     
     init(text: String, alignment: NSTextAlignment, font: UIFont) {
         super.init(frame: CGRect())

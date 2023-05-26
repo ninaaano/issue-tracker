@@ -38,7 +38,7 @@ struct HTTPHandler {
         .resume()
     }
     
-    func JSONParse(issueData: Data) -> [Item]? {
+    private func JSONParse(issueData: Data) -> [Item]? {
         do {
             let issueData = try JSONDecoder().decode(Response.self, from: issueData)
             return issueData.body

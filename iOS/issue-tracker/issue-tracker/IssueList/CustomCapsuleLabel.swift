@@ -6,7 +6,7 @@
 //
 
 import UIKit
-class CustomCapsuleLabel: UILabel {
+final class CustomCapsuleLabel: UILabel {
     enum TextColor {
         case light
         case dark

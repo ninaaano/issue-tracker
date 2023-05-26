@@ -38,8 +38,4 @@ final class IssueFilterHeaderView: UICollectionReusableView {
             self.titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
     }
-    
-    func configureTitle(of title: String) {
-        self.titleLabel.text = title
-    }
 }
