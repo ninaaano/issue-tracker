@@ -8,7 +8,7 @@ const $UserProfile = styled.img`
   border-radius: 50%;
 `;
 
-const $RightElements = styled.div`
+const $RightSection = styled.div`
   display: flex;
   gap: 15px;
 `;
@@ -29,4 +29,4 @@ const $Header = styled.header`
   }
 `;
 
-export { $Header, $RightElements, $UserProfile, $LogoIcon };
+export { $Header, $RightSection, $UserProfile, $LogoIcon };
