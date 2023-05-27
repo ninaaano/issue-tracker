@@ -32,6 +32,7 @@ const TextInput = ({ id, value, onChange, labelText = '', placeholderText = '', 
           type="text"
           id={id}
           name={id}
+          placeholder={placeholderText}
           value={value}
           onChange={onChange}
           hasValue={hasValue}
