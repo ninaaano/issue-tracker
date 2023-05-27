@@ -1,17 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import MilestoneMainHeader from './MilestoneMainHeader';
 import MilestoneListItem from './MilestoneListItem';
-import { $MilestoneMain } from './style';
+import { $MilestoneMain, $NoResult } from './style';
 
 const MilestoneMain = ({ milestoneData }) => {
+  const [isOpenView, setIsOpenView] = useState(true);
+
+  const classifyMilestonesByStatus = () => {
+    const openMilestones = [];
+    const closedMilestones = [];
+
+    milestoneData.forEach((milestone) => {
+      milestone.isOpened ? openMilestones.push(milestone) : closedMilestones.push(milestone);
+    });
+    return [openMilestones, closedMilestones];
+  };
+
+  const openViewBtnHandler = () => {
+    setIsOpenView(true);
+  };
+
+  const closedViewBtnHandler = () => {
+    setIsOpenView(false);
+  };
+
+  const [openMilestones, closedMilestones] = classifyMilestonesByStatus();
+
+  const currentViewMilestones = isOpenView ? openMilestones : closedMilestones;
+
+  const noResultMessage = <$NoResult>검색과 일치하는 결과가 없습니다.</$NoResult>;
+
   return (
     <$MilestoneMain>
-      <MilestoneMainHeader />
-      {milestoneData.map((milestone) => (
-        <MilestoneListItem milestone={milestone} />
-      ))}
+      <MilestoneMainHeader
+        openCount={openMilestones.length}
+        closeCount={closedMilestones.length}
+        isOpened={isOpenView}
+        openBtnHandler={openViewBtnHandler}
+        closeBtnHandler={closedViewBtnHandler}
+      />
+      {currentViewMilestones.length > 0
+        ? currentViewMilestones.map((milestone) => (
+            <MilestoneListItem key={milestone.milestoneId} milestone={milestone} />
+          ))
+        : noResultMessage}
     </$MilestoneMain>
   );
 };
