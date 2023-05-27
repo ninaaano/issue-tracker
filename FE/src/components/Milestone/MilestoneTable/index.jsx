@@ -6,7 +6,7 @@ import Button from '../../common/Button';
 import Icon from '../../common/Icon';
 import { $MilestoneTable, $TableTitle, $MilestoneTitleLayout, $Buttons } from './style';
 
-const MilestoneTable = ({ title = '', deadline = '', content = '', type = 'add' }) => {
+const MilestoneTable = ({ title = '', deadline = '', content = '', type = 'add', cancelClickHandler }) => {
   // 편집 페이지랑 같이 진행할 수 있도록
   const [milestoneInfo, setMilestoneInfo] = useState({
     title,
@@ -30,6 +30,11 @@ const MilestoneTable = ({ title = '', deadline = '', content = '', type = 'add' 
     setMilestoneInfo((prev) => {
       return { ...prev, content: target.value };
     });
+  };
+
+  const editCompleteHandler = () => {
+    // TODO: PATCH or PUT 로직 해야함.
+    cancelClickHandler();
   };
 
   return (
@@ -65,10 +70,16 @@ const MilestoneTable = ({ title = '', deadline = '', content = '', type = 'add' 
             완료
           </Button>
         ) : (
-          <Button type="contained" size="S">
-            <Icon name="edit" />
-            편집 완료
-          </Button>
+          <>
+            <Button type="outline" size="S" onClick={cancelClickHandler}>
+              <Icon name="xSquare" />
+              취소
+            </Button>
+            <Button type="contained" size="S" onClick={editCompleteHandler}>
+              <Icon name="edit" />
+              편집 완료
+            </Button>
+          </>
         )}
       </$Buttons>
     </$MilestoneTable>
@@ -80,6 +91,7 @@ MilestoneTable.propTypes = {
   deadline: PropTypes.string,
   content: PropTypes.string,
   type: PropTypes.string,
+  cancelClickHandler: PropTypes.func,
 };
 
 export default MilestoneTable;

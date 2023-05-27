@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import Icon from '../../../common/Icon';
+import Button from '../../../common/Button';
+import MilestoneTable from '../../MilestoneTable';
 import {
   $MilestoneListItem,
   $MilestoneInfo,
@@ -17,17 +20,33 @@ import {
   $OpenIssue,
   $CloseIssue,
 } from './style';
-import Icon from '../../../common/Icon';
-import Button from '../../../common/Button';
 
 const MilestoneListItem = ({ milestone }) => {
+  const [isEdit, setIsEdit] = useState(false);
+
   const calculatePercentage = () => {
     const totalIssues = milestone.openIssue + milestone.closeIssue;
 
     return Math.ceil((milestone.closeIssue / totalIssues) * 100);
   };
 
-  return (
+  const editButtonHandler = () => {
+    setIsEdit(true);
+  };
+
+  const cancelEditHandler = () => {
+    setIsEdit(false);
+  };
+
+  return isEdit ? (
+    <MilestoneTable
+      type="edit"
+      title={milestone.milestoneName}
+      deadline={milestone.deadline}
+      content={milestone.content}
+      cancelClickHandler={cancelEditHandler}
+    />
+  ) : (
     <$MilestoneListItem>
       <$MilestoneInfo>
         <$UpsideInfo>
@@ -46,7 +65,7 @@ const MilestoneListItem = ({ milestone }) => {
             <Icon name="archive" fill="#4E4B66" />
             닫기
           </Button>
-          <Button type="ghost" size="S">
+          <Button type="ghost" size="S" onClick={editButtonHandler}>
             <Icon name="edit" fill="#4E4B66" />
             편집
           </Button>
