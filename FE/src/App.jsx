@@ -12,6 +12,7 @@ import IssueList from './pages/IssueList';
 import NewIssue from './pages/NewIssue';
 import IssueDetail from './pages/IssueDetail';
 import Milestone from './pages/Milestone';
+import LabelList from './pages/LabelList';
 
 const App = () => {
   const { data: userImgData } = useFetch(USERS.GET_USER_IMG(6));
@@ -29,8 +30,8 @@ const App = () => {
             <Route path="/issues/new" element={<NewIssue userImgSrc={userImgData.userImgURL} />} />
           )}
           <Route path="/issues/:issueId" element={<IssueDetail />} />
-          <Route path="/issues/labels" />
           <Route path="/issues/milestones" element={<Milestone />} />
+          <Route path="/issues/labels" element={<LabelList />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
