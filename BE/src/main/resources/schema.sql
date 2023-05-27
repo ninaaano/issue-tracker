@@ -2,67 +2,69 @@ DROP TABLE IF EXISTS `milestone`,`member`,`issue`,`assignee`,`label`,`label_atta
 
 CREATE TABLE `milestone`
 (
-    `MILESTONE_ID` INT         NOT NULL AUTO_INCREMENT,
-    `TITLE`        VARCHAR(45) NOT NULL,
-    `DEADLINE`     DATETIME,
-    `DESCRIPTION`  VARCHAR(200),
-    `ISOPENED`     BIT DEFAULT 1,
-    PRIMARY KEY (`MILESTONE_ID`)
+    `milestone_id` INT         NOT NULL AUTO_INCREMENT,
+    `title`        VARCHAR(45) NOT NULL,
+    `deadline`     DATETIME,
+    `description`  VARCHAR(200),
+    `is_opened`     BIT DEFAULT 1,
+    PRIMARY KEY (`milestone_id`)
 );
 
 CREATE TABLE `member`
 (
-    `MEMBER_ID`   INT         NOT NULL AUTO_INCREMENT,
-    `NAME`        VARCHAR(45) NOT NULL,
-    `PASSWORD`    VARCHAR(45) NOT NULL,
-    `PROFILE_URL` VARCHAR(100),
-    PRIMARY KEY (`MEMBER_ID`)
+    `member_id`   INT         NOT NULL AUTO_INCREMENT,
+    `name`        VARCHAR(45) NOT NULL,
+    `password`    VARCHAR(45) NOT NULL,
+    `profile_url` VARCHAR(100),
+    PRIMARY KEY (`member_id`)
 );
 
 CREATE TABLE `issue`
 (
-    `ISSUE_ID`     INT          NOT NULL AUTO_INCREMENT,
-    `TITLE`        VARCHAR(100) NOT NULL,
-    `CONTENTS`     VARCHAR(500) NULL,
-    `WRITER_ID`    INT          NOT NULL,
-    `ISOPENED`     BIT DEFAULT 1,
-    `MILESTONE_ID` INT,
-    `CREATED_AT`   DATETIME     NOT NULL,
-    PRIMARY KEY (`ISSUE_ID`),
-    FOREIGN KEY (`MILESTONE_ID`)
-        REFERENCES `milestone` (`MILESTONE_ID`),
-    FOREIGN KEY (`WRITER_ID`)
-        REFERENCES `member` (`MEMBER_ID`)
+    `issue_id`     INT          NOT NULL AUTO_INCREMENT,
+    `title`        VARCHAR(100) NOT NULL,
+    `contents`     VARCHAR(500) NULL,
+    `writer_id`    INT          NOT NULL,
+    `is_opened`     BIT DEFAULT 1,
+    `milestone_id` INT,
+    `created_at`   DATETIME     NOT NULL,
+    PRIMARY KEY (`issue_id`),
+    CONSTRAINT `fk_issue_milestone_id`
+    FOREIGN KEY (`milestone_id`)
+        REFERENCES `milestone` (`milestone_id`),
+    CONSTRAINT `fk_issue_writer_id`
+    FOREIGN KEY (`writer_id`)
+        REFERENCES `member` (`member_id`)
 );
 
 CREATE TABLE `assignee`
 (
-    `MEMBER_ID` INT,
-    `ISSUE_ID`  INT,
-    PRIMARY KEY (`MEMBER_ID`, `ISSUE_ID`),
-    FOREIGN KEY (`MEMBER_ID`)
-        REFERENCES `member` (`MEMBER_ID`),
-    FOREIGN KEY (`ISSUE_ID`)
-        REFERENCES `issue` (`ISSUE_ID`)
+    `member_id` INT,
+    `issue_id`  INT,
+    PRIMARY KEY (`member_id`, `issue_id`),
+    FOREIGN KEY (`member_id`)
+        REFERENCES `member` (`member_id`),
+    FOREIGN KEY (`issue_id`)
+        REFERENCES `issue` (`issue_id`)
 );
 
 CREATE TABLE `label`
 (
-    `LABEL_ID`         INT         NOT NULL AUTO_INCREMENT,
-    `TITLE`            VARCHAR(45) NOT NULL,
-    `DESCRIPTION`      VARCHAR(100),
-    `BACKGROUND_COLOR` VARCHAR(45),
-    `FONT_COLOR`       VARCHAR(45),
-    PRIMARY KEY (`LABEL_ID`)
+    `label_id`         INT         NOT NULL AUTO_INCREMENT,
+    `title`            VARCHAR(45) NOT NULL,
+    `description`      VARCHAR(100),
+    `background_color` VARCHAR(45),
+    `font_color`       VARCHAR(45),
+    PRIMARY KEY (`label_id`)
 );
 
 CREATE TABLE `label_attached_issues`
 (
-    `ISSUE_ID` INT,
-    `LABEL_ID` INT,
-    PRIMARY KEY (`ISSUE_ID`, `LABEL_ID`),
-    FOREIGN KEY (`ISSUE_ID`)
-        REFERENCES `issue` (`ISSUE_ID`),
-    FOREIGN KEY (`LABEL_ID`)
-        REFERENCES `label` (`LABEL_ID`)
+    `issue_id` INT,
+    `label_id` INT,
+    PRIMARY KEY (`issue_id`, `label_id`),
+    FOREIGN KEY (`issue_id`)
+        REFERENCES `issue` (`issue_id`),
+    FOREIGN KEY (`label_id`)
+        REFERENCES `label` (`label_id`)
 );
