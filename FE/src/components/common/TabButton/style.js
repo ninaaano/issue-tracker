@@ -15,7 +15,7 @@ const $Button = styled(Button)`
   width: 160px;
   height: 40px;
   ${({ position }) => (position === 'left' ? left : right)}
-
+  color: ${({ theme, current }) => theme.colors.neutral.text[current ? 'strong' : 'default']};
   background-color: ${({ active, theme }) => {
     return theme.colors.neutral.background[active ? 'bold' : 'default'];
   }};
