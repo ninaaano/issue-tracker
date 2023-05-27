@@ -33,7 +33,7 @@ public class Milestone {
     @Column("deadline")
     private LocalDate deadLine;
 
-    @Column("isopened")
+    @Column("is_opened")
     private boolean isOpened;
 
     @Transient
