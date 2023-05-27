@@ -20,7 +20,7 @@ const Milestone = () => {
     allDataLoaded && (
       <$Milestone>
         <MilestoneHeader labelCount={labelData.length} milestoneCount={milestoneData.length} />
-        <MilestoneMain />
+        <MilestoneMain milestoneData={milestoneData} />
       </$Milestone>
     )
   );
