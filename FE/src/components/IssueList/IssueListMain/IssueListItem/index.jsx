@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import Icon from '../../../common/Icon';
 import Label from '../../../common/Label';
 import {
-  $List,
-  $ListWrapper,
+  $IssueListItem,
+  $IssueListItemWrapper,
   $IssueTitleWrapper,
   $IssueTitle,
   $IssueInfo,
@@ -15,7 +15,7 @@ import {
   $CheckBox,
 } from './style';
 
-const List = ({ issueId, issueTitle, label, writer, milestone, assignee, isOpened }) => {
+const IssueListItem = ({ issueId, issueTitle, label, writer, milestone, assignee, isOpened }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const checkBoxClickHandler = () => {
@@ -35,8 +35,8 @@ const List = ({ issueId, issueTitle, label, writer, milestone, assignee, isOpene
   });
 
   return (
-    <$List>
-      <$ListWrapper>
+    <$IssueListItem>
+      <$IssueListItemWrapper>
         <$IssueTitleWrapper>
           <$CheckBox type="button" onClick={checkBoxClickHandler}>
             <Icon
@@ -61,13 +61,13 @@ const List = ({ issueId, issueTitle, label, writer, milestone, assignee, isOpene
             <span>{milestone.milestoneName}</span>
           </$MileStone>
         </$IssueInfo>
-      </$ListWrapper>
+      </$IssueListItemWrapper>
       {assignee.length !== 0 && <$Assignee src={writer.url} />}
-    </$List>
+    </$IssueListItem>
   );
 };
 
-List.propTypes = {
+IssueListItem.propTypes = {
   issueId: PropTypes.number.isRequired,
   issueTitle: PropTypes.string.isRequired,
   label: PropTypes.arrayOf(PropTypes.object),
@@ -77,4 +77,4 @@ List.propTypes = {
   isOpened: PropTypes.bool.isRequired,
 };
 
-export default List;
+export default IssueListItem;

@@ -5,9 +5,9 @@ import { useFilterStateContext } from '../../../context/filterContext';
 
 import { filterIssues } from '../../../utils';
 
-import List from './List';
+import IssueListItem from './IssueListItem';
 import IssueListMainHeader from './IssueListMainHeader';
-import { $Lists, $NoResultMessage, $IssueListMain } from './style';
+import { $IssueList, $NoResultMessage, $IssueListMain } from './style';
 
 const IssueListMain = ({ issues, user, label, milestone }) => {
   const filterState = useFilterStateContext();
@@ -31,12 +31,12 @@ const IssueListMain = ({ issues, user, label, milestone }) => {
         closeBtnHandler={() => setIsOpened(false)}
         isOpened={isOpened}
       />
-      <$Lists>
+      <$IssueList>
         {filteredIssues.length === 0 && noResultMessage}
         {filteredIssues.map((issue) => (
-          <List isOpened={isOpened} key={issue.issueId} {...issue} />
+          <IssueListItem isOpened={isOpened} key={issue.issueId} {...issue} />
         ))}
-      </$Lists>
+      </$IssueList>
     </$IssueListMain>
   );
 };

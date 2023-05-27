@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const $ListWrapper = styled.div`
+const $IssueListItemWrapper = styled.div`
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -66,7 +66,7 @@ const $Assignee = styled.img`
   border-radius: 50%;
 `;
 
-const $List = styled.li`
+const $IssueListItem = styled.li`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -79,4 +79,13 @@ const $List = styled.li`
   background-color: ${({ theme }) => theme.colors.neutral.background.strong};
 `;
 
-export { $List, $ListWrapper, $IssueTitleWrapper, $IssueTitle, $IssueInfo, $MileStone, $Assignee, $CheckBox };
+export {
+  $IssueListItem,
+  $IssueListItemWrapper,
+  $IssueTitleWrapper,
+  $IssueTitle,
+  $IssueInfo,
+  $MileStone,
+  $Assignee,
+  $CheckBox,
+};
