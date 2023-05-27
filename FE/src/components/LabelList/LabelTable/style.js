@@ -22,6 +22,8 @@ const $LabelTableInputLayout = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  width: 100%;
 `;
 
 const $LabelColorInputLayout = styled.div`
@@ -34,12 +36,16 @@ const $LabelTableLayout = styled.div`
   gap: 24px;
 `;
 
+const $TableButtonsLayout = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 const $LabelTable = styled.main`
   display: flex;
   flex-direction: column;
   gap: 24px;
 
-  height: 337px;
   margin: 24px 0;
   padding: 32px;
   border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
@@ -54,5 +60,6 @@ export {
   $LabelPreview,
   $LabelTableInputLayout,
   $LabelColorInputLayout,
+  $TableButtonsLayout,
   $LabelTableLayout,
 };

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import Button from '../../common/Button';
+import Icon from '../../common/Icon';
 import TextInput from '../../common/TextInput';
 import Label from '../../common/Label';
 import {
@@ -9,6 +11,7 @@ import {
   $LabelPreview,
   $LabelTableInputLayout,
   $LabelColorInputLayout,
+  $TableButtonsLayout,
   $LabelTableLayout,
 } from './style';
 
@@ -63,6 +66,7 @@ const LabelTable = ({ labelName = '', content = '', backgroundColor = '', textCo
   return (
     <$LabelTable>
       <$LabelTableTitle>새로운 레이블 추가</$LabelTableTitle>
+
       <$LabelTableLayout>
         <$LabelPreview>
           <Label
@@ -72,6 +76,7 @@ const LabelTable = ({ labelName = '', content = '', backgroundColor = '', textCo
             backgroundColor={labelInfo.backgroundColor}
           />
         </$LabelPreview>
+
         <$LabelTableInputLayout>
           <TextInput
             id="labelName"
@@ -90,6 +95,20 @@ const LabelTable = ({ labelName = '', content = '', backgroundColor = '', textCo
           {ColorInputs}
         </$LabelTableInputLayout>
       </$LabelTableLayout>
+
+      <$TableButtonsLayout>
+        {type === 'edit' && (
+          <Button type="outline" size="S">
+            <Icon name="xSquare" />
+            <p>취소</p>
+          </Button>
+        )}
+
+        <Button type="contained" size="S">
+          <Icon name={type === 'add' ? 'plus' : 'edit'} />
+          <p>{type === 'add' ? '완료' : '편집 완료'}</p>
+        </Button>
+      </$TableButtonsLayout>
     </$LabelTable>
   );
 };
