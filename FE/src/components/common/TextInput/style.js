@@ -31,8 +31,8 @@ const labelFontTransition = css`
 `;
 
 const $Label = styled.label`
-  width: ${({ styleType }) => (styleType === 'both' ? '72px' : '100%')};
-
+  min-width: ${({ styleType }) => (styleType === 'both' ? 'fit-content' : '100%')};
+  padding-right: 13px;
   ${({ styleType }) => (styleType === 'onlyLabel' ? labelFontTransition : defaultLabelFont)}
 `;
 

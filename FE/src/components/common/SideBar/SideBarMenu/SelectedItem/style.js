@@ -38,7 +38,6 @@ const $ProgressBar = styled.div`
   width: 224px;
   height: 8px;
   border-radius: 10px;
-  // TODO: % 계산 필요.
   background: linear-gradient(90deg, #007aff ${({ percent }) => `${percent}%`}, #eff0f6 0%);
 `;
 
