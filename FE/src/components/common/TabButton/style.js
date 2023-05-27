@@ -2,34 +2,33 @@ import styled, { css } from 'styled-components';
 
 import Button from '../Button';
 
-const $TabButton = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 321px;
-  border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
-  border-radius: 11px;
+const left = css`
+  border-radius: 11px 0 0 11px;
+  border-right: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
 `;
 
-const buttonStyle = css`
+const right = css`
+  border-radius: 0 11px 11px 0;
+`;
+
+const $Button = styled(Button)`
   width: 160px;
   height: 40px;
+  ${({ position }) => (position === 'left' ? left : right)}
+  color: ${({ theme, current }) => theme.colors.neutral.text[current ? 'strong' : 'default']};
   background-color: ${({ active, theme }) => {
     return theme.colors.neutral.background[active ? 'bold' : 'default'];
   }};
 `;
 
-const $LeftButton = styled(Button)`
-  ${buttonStyle}
+const $TabButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-  border-radius: 11px 0 0 11px;
-  border-right: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
+  width: 321px;
+  border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
+  border-radius: 11px;
 `;
 
-const $RightButton = styled(Button)`
-  ${buttonStyle}
-
-  border-radius: 0 11px 11px 0;
-`;
-
-export { $TabButton, $LeftButton, $RightButton };
+export { $TabButton, $Button };

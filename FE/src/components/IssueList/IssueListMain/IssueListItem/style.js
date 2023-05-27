@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
-import Icon from '../../../common/Icon';
-
-const $LeftElements = styled.div`
+const $IssueListItemWrapper = styled.div`
   display: flex;
   height: 100%;
   flex-direction: column;
 `;
 
-const $UpElements = styled.div`
+const $IssueTitleWrapper = styled.div`
   display: flex;
   flex-direction: row;
 
@@ -19,17 +17,18 @@ const $UpElements = styled.div`
 `;
 
 const $CheckBox = styled.button`
-  margin-left: 32px;
-  margin-right: 32px;
+  margin: 0 32px;
 `;
 
 const $IssueTitle = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+
   color: ${({ theme }) => theme.colors.neutral.text.strong};
   font-size: ${({ theme }) => theme.fontSize.L.fontSize};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
+
   & > svg {
     margin-right: 8px;
   }
@@ -44,36 +43,49 @@ const $IssueTitle = styled.div`
 const $IssueInfo = styled.div`
   display: flex;
   flex-direction: row;
+  gap: 16px;
+
+  height: 50%;
   padding-top: 13px;
   margin-left: 80px;
-  height: 50%;
+
+  color: ${({ theme }) => theme.colors.neutral.text.weak};
   font-size: ${({ theme }) => theme.fontSize.M.fontSize};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
-  color: ${({ theme }) => theme.colors.neutral.text.weak};
-  & > span {
-    margin-right: 16px;
-  }
-  & > svg {
-    margin-right: 8px;
-  }
+`;
+
+const $MileStone = styled.div`
+  display: flex;
+  gap: 8px;
 `;
 
 const $Assignee = styled.img`
-  margin-right: 54px;
   width: 20px;
   height: 20px;
+  margin-right: 54px;
   border-radius: 50%;
 `;
 
-const $List = styled.li`
+const $IssueListItem = styled.li`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
   width: 100%;
   height: 100px;
-  // TODO: Remove
   border-bottom: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
+
+  background-color: ${({ theme }) => theme.colors.neutral.background.strong};
 `;
 
-export { $List, $LeftElements, $UpElements, $IssueTitle, $IssueInfo, $Assignee, $CheckBox };
+export {
+  $IssueListItem,
+  $IssueListItemWrapper,
+  $IssueTitleWrapper,
+  $IssueTitle,
+  $IssueInfo,
+  $MileStone,
+  $Assignee,
+  $CheckBox,
+};

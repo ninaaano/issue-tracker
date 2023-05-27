@@ -1,56 +1,130 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { $DropDownHeader, $DropDownMenus, $DropDownWrapper } from './style';
-import DropDownMenu from './DropDownMenu';
+import { FILTER_TYPE } from '../../../constants/dropdownMenu';
 
-const filterName = {
-  issue: '이슈',
-  milestone: '마일스톤',
-  label: '레이블',
-  writer: '작성자',
-  assignee: '담당자',
+import DropDownMenu from './DropDownMenu';
+import Icon from '../Icon';
+import {
+  $DropDown,
+  $DropDownButtonWrapper,
+  $DropDownButton,
+  $DropDownHeader,
+  $DropDownMenus,
+  $DropDownWrapper,
+} from './style';
+
+// TODO : util 함수로 빼기.
+const convertMenus = ({ type, name, menus, dropDownType }) => {
+  const convertedMenus = [];
+
+  if (dropDownType !== 'sideBar') {
+    if (type === FILTER_TYPE.ASSIGNEE) {
+      convertedMenus.push({ id: 'none', text: `${name}가 없는 이슈` });
+    }
+    if (type === FILTER_TYPE.LABEL || type === FILTER_TYPE.MILESTONE) {
+      convertedMenus.push({ id: 'none', text: `${name}이 없는 이슈` });
+    }
+  }
+
+  menus.forEach((menu) => {
+    const keys = Object.keys(menu);
+    const newMenu = {};
+
+    keys.forEach((key) => {
+      if (key.includes('Id')) newMenu.id = menu[key];
+      if (key.includes('Name')) newMenu.text = menu[key];
+      if (key.includes('url')) newMenu.url = menu[key];
+      if (key.includes('backgroundColor')) newMenu.backgroundColor = menu[key];
+    });
+
+    convertedMenus.push(newMenu);
+  });
+
+  return convertedMenus;
 };
 
-const DropDown = ({ className = '', type, menus, closeHandler }) => {
-  const dropDownElement = useRef(null);
+const DropDown = ({
+  className = '',
+  type,
+  name,
+  width,
+  height,
+  menus,
+  position = 'left',
+  gap = 0,
+  dropDownType,
+  onSelectItem,
+  isSelectItem,
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const buttonRef = useRef(null);
+  const menusRef = useRef(null);
 
-  const closeModalHandler = ({ target }) => {
-    if (dropDownElement.current && !dropDownElement.current.contains(target)) closeHandler();
+  const toggleHandler = () => {
+    setIsOpen((previous) => !previous);
   };
 
   useEffect(() => {
-    window.addEventListener('click', closeModalHandler);
-    return () => {
-      window.removeEventListener('click', closeModalHandler);
-    };
-  }, [closeModalHandler]);
+    const closeHandler = ({ target }) => {
+      const isOutsideClicked = !buttonRef.current?.contains(target);
 
+      if (isOutsideClicked) {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener('click', closeHandler);
+
+    return () => window.removeEventListener('click', closeHandler);
+  }, []);
+
+  const convertedMenus = type === 'issue' ? menus : convertMenus({ type, name, menus, dropDownType });
 
   return (
-    <$DropDownWrapper className={className} ref={dropDownElement}>
-      <$DropDownHeader>{`${filterName[type]} 필터`}</$DropDownHeader>
-      <$DropDownMenus>
-        {menus.map(({ id, imgSrc, text, isChecked }) => (
-          /*
-            menu : {
-                imgSrc: 이미지 주소 or 어떻게 할지 생각.
-                text: 메뉴 텍스트 ex) 내가 작성한 이슈
-                isChecked: 체크된 상태
-            }
-          */
-          <DropDownMenu key={id} menuImg={imgSrc} menuText={text} isChecked={isChecked} />
-        ))}
-      </$DropDownMenus>
-    </$DropDownWrapper>
+    <$DropDown>
+      <$DropDownButtonWrapper ref={buttonRef} width={width} height={height}>
+        <$DropDownButton type="ghost" size="M" onClick={toggleHandler} dropDownType={dropDownType}>
+          {type === 'issue' ? '필터' : `${name}`}
+          <Icon name="chevronDown" />
+        </$DropDownButton>
+      </$DropDownButtonWrapper>
+      {isOpen && (
+        <$DropDownWrapper className={className} position={position} gap={gap} ref={menusRef}>
+          {dropDownType !== 'sideBar' && <$DropDownHeader>{`${name} 필터`}</$DropDownHeader>}
+          <$DropDownMenus>
+            {convertedMenus.map(({ id, url, text, backgroundColor }) => (
+              <DropDownMenu
+                key={id}
+                menuId={id}
+                menuType={type}
+                menuImg={url}
+                menuText={text}
+                backgroundColor={backgroundColor}
+                dropDownType={dropDownType}
+                onSelectItem={onSelectItem}
+                isSelectItem={isSelectItem}
+              />
+            ))}
+          </$DropDownMenus>
+        </$DropDownWrapper>
+      )}
+    </$DropDown>
   );
 };
 
 DropDown.propTypes = {
   className: PropTypes.string,
   type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  width: PropTypes.number,
+  height: PropTypes.number,
   menus: PropTypes.arrayOf(PropTypes.object).isRequired,
-  closeHandler: PropTypes.func.isRequired,
+  position: PropTypes.oneOf(['right', 'left', 'center']),
+  gap: PropTypes.number,
+  dropDownType: PropTypes.string,
+  onSelectItem: PropTypes.func,
+  isSelectItem: PropTypes.any,
 };
 
 export default DropDown;

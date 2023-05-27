@@ -15,7 +15,7 @@ const Template = (args) => {
 export const Primary = Template.bind({});
 
 Primary.args = {
-  modalName: '이슈 필터',
+  type: '이슈',
 
   menus: [
     {

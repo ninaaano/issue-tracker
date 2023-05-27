@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import { $Button } from './style';
 
-const Button = ({ children, active = false, type, size, ...props }) => {
+const Button = ({ children, type, size, active = false, ...props }) => {
   return (
-    <$Button active={active} type={type} size={size} {...props}>
+    <$Button $type={type} size={size} active={active ? 1 : undefined} {...props}>
       {children}
     </$Button>
   );
@@ -13,9 +13,9 @@ const Button = ({ children, active = false, type, size, ...props }) => {
 
 Button.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-  active: PropTypes.bool,
   type: PropTypes.oneOf(['contained', 'outline', 'ghost']).isRequired,
   size: PropTypes.oneOf(['L', 'M', 'S']).isRequired,
+  active: PropTypes.bool,
 };
 
 export default Button;

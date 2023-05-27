@@ -20,6 +20,7 @@ import { ReactComponent as xSquare } from '../../../assets/Icons/xSquare.svg';
 import { ReactComponent as label } from '../../../assets/Icons/label.svg';
 import { ReactComponent as darkMode } from '../../../assets/Icons/darkMode.svg';
 import { ReactComponent as lightMode } from '../../../assets/Icons/lightMode.svg';
+import { ReactComponent as grip } from '../../../assets/Icons/grip.svg';
 
 export default {
   alertCircle,
@@ -44,4 +45,5 @@ export default {
   label,
   darkMode,
   lightMode,
+  grip,
 };

@@ -56,10 +56,10 @@ const ghostStyle = css`
 `;
 
 const typeStyle = css`
-  ${({ type }) => {
-    if (type === 'contained') return containerStyle;
-    if (type === 'outline') return outlineStyle;
-    if (type === 'ghost') return ghostStyle;
+  ${({ $type }) => {
+    if ($type === 'contained') return containerStyle;
+    if ($type === 'outline') return outlineStyle;
+    if ($type === 'ghost') return ghostStyle;
 
     return '';
   }}
@@ -72,7 +72,7 @@ const fontStyle = css`
 `;
 
 const $Button = styled.button`
-  ${({ type }) => type !== 'ghost' && sizeStyle}
+  ${({ $type }) => $type !== 'ghost' && sizeStyle}
   ${typeStyle}
   ${fontStyle}
 

@@ -1,40 +1,37 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ISSUES } from '../../constants/api';
+import { ISSUES, USERS, LABELS, MILESTONES } from '../../constants/api';
+
+import useFetch from '../../hooks/useFetch';
+import { FilterProvider } from '../../context/filterContext';
 
 import IssueListHeader from '../../components/IssueList/IssueListHeader';
 import IssueListMain from '../../components/IssueList/IssueListMain';
-import { $IssueList, $IssueListMain } from './style';
+import { $IssueList } from './style';
 
 const IssueList = () => {
-  const [issueData, setIssueData] = useState([]);
+  const { data: issueData } = useFetch(ISSUES.GET_ALL_ISSUES);
+  const { data: userData } = useFetch(USERS.GET_ALL_USERS);
+  const { data: labelData } = useFetch(LABELS.GET_ALL_LABELS);
+  const { data: milestoneData } = useFetch(MILESTONES.GET_ALL_MILESTONES);
 
-  const fetchIssueListsData = useCallback(async () => {
-    try {
-      const response = await fetch(ISSUES.GET_ALL_ISSUES);
-
-      if (!response.ok) {
-        throw new Error('fetch failed');
-      }
-
-      const { data } = await response.json();
-
-      setIssueData(data.issues);
-    } catch (error) {
-      console.error(error);
-    }
-  });
-
-  useEffect(() => {
-    fetchIssueListsData();
-  }, []);
+  const allDataLoaded = issueData && userData && labelData && milestoneData;
 
   return (
-    <$IssueList>
-      <IssueListHeader />
-      <$IssueListMain>{issueData.length !== 0 && <IssueListMain issues={issueData} />}</$IssueListMain>
-    </$IssueList>
+    <FilterProvider>
+      {allDataLoaded && (
+        <$IssueList>
+          <IssueListHeader labelCount={labelData.length} milestoneCount={milestoneData.length} />
+          <IssueListMain
+            issues={issueData.issues}
+            user={userData}
+            label={labelData}
+            milestone={milestoneData}
+          />
+        </$IssueList>
+      )}
+    </FilterProvider>
   );
 };
 

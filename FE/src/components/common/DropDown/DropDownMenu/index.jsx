@@ -1,30 +1,76 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Icon from '../../Icon';
-import { $MenuWrapper, $MenuLeftWrapper, $MenuImg, $MenuText } from './style';
+import { useFilterDispatchContext, useFilterStateContext } from '../../../../context/filterContext';
+import { FILTER_ACTION_TYPES } from '../../../../context/filterReducer';
 
-const DropDownMenu = ({ menuImg = null, menuText, isChecked = false }) => {
-  const menuClickHandler = () => {
-    // TODO: context API 적용(로직)
-    // TODO: 드롭다운 창도 닫아야함. -> 드롭다운 전체에 상태 둬야함.
+import Icon from '../../Icon';
+import { $MenuWrapper, $MenuLeftWrapper, $MenuImg, $MenuText, $LabelColor } from './style';
+
+const DropDownMenu = ({
+  menuId,
+  menuType,
+  menuImg = null,
+  menuText,
+  backgroundColor,
+  dropDownType,
+  onSelectItem,
+  isSelectItem,
+}) => {
+  if (dropDownType !== 'sideBar') {
+    const filterDispatch = useFilterDispatchContext();
+    const filterState = useFilterStateContext();
+    const checkedOption = filterState[menuType];
+
+    const isChecked = checkedOption === menuId;
+    const menuClickHandler = () => {
+      filterDispatch({ type: FILTER_ACTION_TYPES.CLICK_MENU, payload: { filterType: menuType, id: menuId } });
+    };
+
+    return (
+      <$MenuWrapper type="button" onClick={dropDownType !== 'sideBar' ? menuClickHandler : () => {}}>
+        <$MenuLeftWrapper>
+          {backgroundColor && <$LabelColor backgroundColor={backgroundColor} />}
+          {menuImg !== null && <$MenuImg src={menuImg} />}
+          <$MenuText $isChecked={isChecked}>{menuText}</$MenuText>
+        </$MenuLeftWrapper>
+        <Icon name={isChecked ? 'checkOnCircle' : 'checkOffCircle'} />
+      </$MenuWrapper>
+    );
+  }
+
+  const selectItemHandler = () => {
+    onSelectItem((prev) => {
+      if (prev.id === menuId) return {};
+
+      return {
+        type: menuType,
+        id: menuId,
+      };
+    });
   };
 
   return (
-    <$MenuWrapper type="button" onClick={menuClickHandler}>
+    <$MenuWrapper type="button" onClick={selectItemHandler}>
       <$MenuLeftWrapper>
+        {backgroundColor && <$LabelColor backgroundColor={backgroundColor} />}
         {menuImg !== null && <$MenuImg src={menuImg} />}
-        <$MenuText $isChecked={isChecked}>{menuText}</$MenuText>
+        <$MenuText $isChecked={isSelectItem === menuId}>{menuText}</$MenuText>
       </$MenuLeftWrapper>
-      <Icon name={isChecked ? 'checkOnCircle' : 'checkOffCircle'} />
+      <Icon name={isSelectItem === menuId ? 'checkOnCircle' : 'checkOffCircle'} />
     </$MenuWrapper>
   );
 };
 
 DropDownMenu.propTypes = {
+  menuId: PropTypes.oneOfType(['string', 'number']),
+  menuType: PropTypes.string.isRequired,
   menuImg: PropTypes.string,
   menuText: PropTypes.string.isRequired,
-  isChecked: PropTypes.bool,
+  backgroundColor: PropTypes.string,
+  dropDownType: PropTypes.string,
+  onSelectItem: PropTypes.func,
+  isSelectItem: PropTypes.any,
 };
 
 export default DropDownMenu;
