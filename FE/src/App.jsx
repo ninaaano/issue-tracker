@@ -11,6 +11,7 @@ import Header from './components/Header';
 import IssueList from './pages/IssueList';
 import NewIssue from './pages/NewIssue';
 import IssueDetail from './pages/IssueDetail';
+import Milestone from './pages/Milestone';
 
 const App = () => {
   const { data: userImgData } = useFetch(USERS.GET_USER_IMG(6));
@@ -29,7 +30,7 @@ const App = () => {
           )}
           <Route path="/issues/:issueId" element={<IssueDetail />} />
           <Route path="/issues/labels" />
-          <Route path="/issues/milestones" />
+          <Route path="/issues/milestones" element={<Milestone />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

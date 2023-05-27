@@ -10,6 +10,7 @@ import MilestoneMain from '../../components/Milestone/MilestoneMain';
 import { $Milestone } from './style';
 
 const Milestone = () => {
+  // TODO: 데이터 Fetch해오는것이 아닌 Context로 관리해야할듯 - 아켄이랑 상의!!
   const { data: labelData } = useFetch(LABELS.GET_ALL_LABELS);
   const { data: milestoneData } = useFetch(MILESTONES.GET_ALL_MILESTONES);
 
@@ -18,7 +19,7 @@ const Milestone = () => {
   return (
     allDataLoaded && (
       <$Milestone>
-        <MilestoneHeader />
+        <MilestoneHeader labelCount={labelData.length} milestoneCount={milestoneData.length} />
         <MilestoneMain />
       </$Milestone>
     )
