@@ -10,7 +10,7 @@ const MilestoneMain = ({ milestoneData }) => {
     <$MilestoneMain>
       <MilestoneMainHeader />
       {milestoneData.map((milestone) => (
-        <MilestoneListItem />
+        <MilestoneListItem milestone={milestone} />
       ))}
     </$MilestoneMain>
   );

@@ -9,6 +9,9 @@ const $MilestoneMain = styled.section`
   margin-top: 24px;
   border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
   border-radius: 16px;
+  & > div:last-child {
+    border-bottom: none;
+  }
 `;
 
 export { $MilestoneMain };
