@@ -49,5 +49,6 @@ module.exports = {
     'operator-linebreak': 0, // 길어지는 조건문 오류처리 제거
     'react/jsx-indent': 0, // Sidebar indent 수정위해 off.
     indent: 0, // Sidebar indent 수정위해 off.
+    'no-unused-expressions': 0, // 삼항연산자 길게 쓰면 오류뜨게함. if-else문으로 대체하래..휴..
   },
 };

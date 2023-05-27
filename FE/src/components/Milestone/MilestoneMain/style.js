@@ -1,5 +1,20 @@
 import styled from 'styled-components';
 
+const $NoResult = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+
+  background-color: ${({ theme }) => theme.colors.neutral.background.strong};
+
+  color: ${({ theme }) => theme.colors.neutral.text.weak};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  font-size: ${({ theme }) => theme.fontSize.M.fontSize};
+  line-height: ${({ theme }) => theme.fontSize.M.lineHeight};
+`;
+
 const $MilestoneMain = styled.section`
   display: flex;
   flex-direction: column;
@@ -14,4 +29,4 @@ const $MilestoneMain = styled.section`
   }
 `;
 
-export { $MilestoneMain };
+export { $MilestoneMain, $NoResult };
