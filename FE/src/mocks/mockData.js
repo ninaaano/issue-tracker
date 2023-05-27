@@ -1925,8 +1925,8 @@ const mockLabelData = {
 
 const mockMilestoneData = {
   data: [
-    { milestoneId: 1, milestoneName: 'NewMilestone', openIssue: 5, closeIssue: 3 },
-    { milestoneId: 2, milestoneName: 'IssueTracker', openIssue: 5, closeIssue: 4 },
+    { milestoneId: 1, milestoneName: 'NewMilestone', openIssue: 5, closeIssue: 3, isOpened: true },
+    { milestoneId: 2, milestoneName: 'IssueTracker', openIssue: 5, closeIssue: 4, isOpened: true },
   ],
 };
 
