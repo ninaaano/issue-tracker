@@ -6,4 +6,9 @@ const $LabelListHeader = styled.header`
   align-items: center;
 `;
 
-export { $LabelListHeader };
+const $LabelListHeaderLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export { $LabelListHeader, $LabelListHeaderLayout };

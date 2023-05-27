@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import Button from '../../common/Button';
 import Icon from '../../common/Icon';
 import TabButton from '../../common/TabButton';
-import { $LabelListHeader } from './style';
+import { $LabelListHeaderLayout, $LabelListHeader } from './style';
+import LabelTable from '../LabelTable';
 
 const LabelListHeader = ({ labelCount, milestoneCount }) => {
   const [isAddLabelButtonClicked, setIsAddLabelButtonClicked] = useState(false);
@@ -14,13 +15,16 @@ const LabelListHeader = ({ labelCount, milestoneCount }) => {
   };
 
   return (
-    <$LabelListHeader>
-      <TabButton labelCount={labelCount} milestoneCount={milestoneCount} currentButton="label" />
-      <Button type={isAddLabelButtonClicked ? 'outline' : 'contained'} size="S" onClick={labelFormHandler}>
-        <Icon name={isAddLabelButtonClicked ? 'xSquare' : 'plus'} />
-        <p>{isAddLabelButtonClicked ? '닫기' : '레이블 추가'}</p>
-      </Button>
-    </$LabelListHeader>
+    <$LabelListHeaderLayout>
+      <$LabelListHeader>
+        <TabButton labelCount={labelCount} milestoneCount={milestoneCount} currentButton="label" />
+        <Button type={isAddLabelButtonClicked ? 'outline' : 'contained'} size="S" onClick={labelFormHandler}>
+          <Icon name={isAddLabelButtonClicked ? 'xSquare' : 'plus'} />
+          <p>{isAddLabelButtonClicked ? '닫기' : '레이블 추가'}</p>
+        </Button>
+      </$LabelListHeader>
+      {isAddLabelButtonClicked && <LabelTable type="add" />}
+    </$LabelListHeaderLayout>
   );
 };
 
