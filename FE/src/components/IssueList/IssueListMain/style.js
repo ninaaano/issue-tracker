@@ -17,7 +17,7 @@ const $NoResultMessage = styled.p`
   line-height: ${({ theme }) => theme.fontSize.M.lineHeight};
 `;
 
-const $Lists = styled.ul`
+const $IssueList = styled.ul`
   display: flex;
   flex-direction: column;
 
@@ -40,4 +40,4 @@ const $IssueListMain = styled.div`
   border-radius: 16px;
 `;
 
-export { $Lists, $NoResultMessage, $IssueListMain };
+export { $IssueList, $NoResultMessage, $IssueListMain };
