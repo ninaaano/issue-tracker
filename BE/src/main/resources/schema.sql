@@ -1,9 +1,68 @@
-drop table if exists issue;
+DROP TABLE IF EXISTS `milestone`,`member`,`issue`,`assignee`,`label`,`label_attached_issues` CASCADE ;
 
-create table issue (
-    issue_id int auto_increment not null,
-    issue_writer int not null,
-    issue_title varchar(45) not null,
-    issue_contents varchar(500),
-    primary key (issue_id)
+CREATE TABLE `milestone`
+(
+    `MILESTONE_ID` INT         NOT NULL AUTO_INCREMENT,
+    `TITLE`        VARCHAR(45) NOT NULL,
+    `DEADLINE`     DATETIME,
+    `DESCRIPTION`  VARCHAR(200),
+    `ISOPENED`     BIT DEFAULT 1,
+    PRIMARY KEY (`MILESTONE_ID`)
+);
+
+CREATE TABLE `member`
+(
+    `MEMBER_ID`   INT         NOT NULL AUTO_INCREMENT,
+    `NAME`        VARCHAR(45) NOT NULL,
+    `PASSWORD`    VARCHAR(45) NOT NULL,
+    `PROFILE_URL` VARCHAR(100),
+    PRIMARY KEY (`MEMBER_ID`)
+);
+
+CREATE TABLE `issue`
+(
+    `ISSUE_ID`     INT          NOT NULL AUTO_INCREMENT,
+    `TITLE`        VARCHAR(100) NOT NULL,
+    `CONTENTS`     VARCHAR(500) NULL,
+    `WRITER_ID`    INT          NOT NULL,
+    `ISOPENED`     BIT DEFAULT 1,
+    `MILESTONE_ID` INT,
+    `CREATED_AT`   DATETIME     NOT NULL,
+    PRIMARY KEY (`ISSUE_ID`),
+    FOREIGN KEY (`MILESTONE_ID`)
+        REFERENCES `milestone` (`MILESTONE_ID`),
+    FOREIGN KEY (`WRITER_ID`)
+        REFERENCES `member` (`MEMBER_ID`)
+);
+
+CREATE TABLE `assignee`
+(
+    `MEMBER_ID` INT,
+    `ISSUE_ID`  INT,
+    PRIMARY KEY (`MEMBER_ID`, `ISSUE_ID`),
+    FOREIGN KEY (`MEMBER_ID`)
+        REFERENCES `member` (`MEMBER_ID`),
+    FOREIGN KEY (`ISSUE_ID`)
+        REFERENCES `issue` (`ISSUE_ID`)
+);
+
+CREATE TABLE `label`
+(
+    `LABEL_ID`         INT         NOT NULL AUTO_INCREMENT,
+    `TITLE`            VARCHAR(45) NOT NULL,
+    `DESCRIPTION`      VARCHAR(100),
+    `BACKGROUND_COLOR` VARCHAR(45),
+    `FONT_COLOR`       VARCHAR(45),
+    PRIMARY KEY (`LABEL_ID`)
+);
+
+CREATE TABLE `label_attached_issues`
+(
+    `ISSUE_ID` INT,
+    `LABEL_ID` INT,
+    PRIMARY KEY (`ISSUE_ID`, `LABEL_ID`),
+    FOREIGN KEY (`ISSUE_ID`)
+        REFERENCES `issue` (`ISSUE_ID`),
+    FOREIGN KEY (`LABEL_ID`)
+        REFERENCES `label` (`LABEL_ID`)
 );

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import team05.codesquad.issuetracker.controller.issuedto.IssueResponse;
 import team05.codesquad.issuetracker.domain.issue.Issue;
 import team05.codesquad.issuetracker.service.IssueService;
 
@@ -22,14 +23,15 @@ public class IssueController {
         this.issueService = issueService;
     }
 
+    // 기본화면일때, 다시 openIssue눌렀을때
     @GetMapping
     public List<Issue> getIssues() {
-        return issueService.getAllIssues();
+        return issueService.findByOpenIssue();
     }
 
     @GetMapping("/{issueId}")
-    public Issue findIssueById(@PathVariable Long issueId) {
-        return issueService.findByIssueId(issueId);
+    public IssueResponse findById(@PathVariable Long issueId) {
+        return IssueResponse.from(issueService.findById(issueId));
     }
 
     @PostMapping
