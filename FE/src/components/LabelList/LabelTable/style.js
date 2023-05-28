@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const $LabelTableTitle = styled.div`
   color: ${({ theme }) => theme.colors.neutral.text.strong};
@@ -41,15 +41,18 @@ const $TableButtonsLayout = styled.div`
   justify-content: flex-end;
 `;
 
-const $LabelTable = styled.main`
+const labelTableBorder = css`
+  border-radius: 16px;
+  border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
+`;
+
+const $LabelTable = styled.section`
   display: flex;
   flex-direction: column;
   gap: 24px;
 
-  margin: 24px 0;
   padding: 32px;
-  border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
-  border-radius: 16px;
+  ${({ type }) => type === 'add' && labelTableBorder}
 
   background-color: ${({ theme }) => theme.colors.neutral.background.strong};
 `;

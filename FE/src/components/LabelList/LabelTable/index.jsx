@@ -15,7 +15,7 @@ import {
   $LabelTableLayout,
 } from './style';
 
-const LabelTable = ({ labelName = '', content = '', backgroundColor = '', textColor = 'dark', type }) => {
+const LabelTable = ({ labelName = '', content = '', backgroundColor = '', textColor, type }) => {
   const [labelInfo, setLabelInfo] = useState({
     labelName,
     content,
@@ -56,7 +56,7 @@ const LabelTable = ({ labelName = '', content = '', backgroundColor = '', textCo
         labelText="배경 색상"
         placeholderText="입력해주세요"
       />
-      <select name="labelTextColor" defaultValue="dark" onChange={textColorChangeHandler}>
+      <select name="labelTextColor" defaultValue={textColor} onChange={textColorChangeHandler}>
         <option value="dark">dark text</option>
         <option value="light">light text</option>
       </select>
@@ -64,7 +64,7 @@ const LabelTable = ({ labelName = '', content = '', backgroundColor = '', textCo
   );
 
   return (
-    <$LabelTable>
+    <$LabelTable type={type}>
       <$LabelTableTitle>새로운 레이블 추가</$LabelTableTitle>
 
       <$LabelTableLayout>
@@ -104,6 +104,8 @@ const LabelTable = ({ labelName = '', content = '', backgroundColor = '', textCo
           </Button>
         )}
 
+        {/* type="add"일 때 완료 버튼을 클릭한 경우, LabelListHeader의 [닫기 -> 레이블 추가] 버튼으로 변경  */}
+        {/* 즉 LabelListHeader랑 type="add"인 LabelTable이 열린 유무인 상태를 공유해야 할 듯 */}
         <Button type="contained" size="S">
           <Icon name={type === 'add' ? 'plus' : 'edit'} />
           <p>{type === 'add' ? '완료' : '편집 완료'}</p>
@@ -118,7 +120,7 @@ LabelTable.propTypes = {
   content: PropTypes.string,
   backgroundColor: PropTypes.string,
   textColor: PropTypes.oneOf(['dark', 'light']),
-  type: PropTypes.oneOf(['add', 'edit']).isRequired,
+  type: PropTypes.oneOf(['add', 'edit']),
 };
 
 export default LabelTable;
