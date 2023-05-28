@@ -8,17 +8,25 @@ import LabelTable from '../../LabelTable';
 import { $LabelListItem, $LabelLayout, $LabelContent, $ButtonsLayout } from './style';
 
 const LabelListItem = ({ name, content, backgroundColor, textColor = 'dark' }) => {
-  const [isEditButtonClicked, setIsEditButtonClicked] = useState(false);
+  const [isLabelTableOpened, setIsLabelTableOpened] = useState(false);
   const [isDeleteButtonClicked, setIsDeleteButtonClicked] = useState(false);
 
-  const openLabelTableHandler = () => setIsEditButtonClicked(true);
+  const openLabelTableHandler = () => setIsLabelTableOpened(true);
+  const closeLabelTableHandler = () => setIsLabelTableOpened(false);
   const deleteLabelHandler = () => {
     // TODO: 해당 label를 삭제하는 기능 구현
     setIsDeleteButtonClicked(true);
   };
 
-  return isEditButtonClicked ? (
-    <LabelTable labelName={name} content={content} backgroundColor={backgroundColor} textColor={textColor} />
+  return isLabelTableOpened ? (
+    <LabelTable
+      type="edit"
+      labelName={name}
+      content={content}
+      backgroundColor={backgroundColor}
+      textColor={textColor}
+      closeHandler={closeLabelTableHandler}
+    />
   ) : (
     <$LabelListItem>
       <$LabelLayout>
