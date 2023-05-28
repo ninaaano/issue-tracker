@@ -15,7 +15,14 @@ import {
   $LabelTableLayout,
 } from './style';
 
-const LabelTable = ({ labelName = '', content = '', backgroundColor = '', textColor, type }) => {
+const LabelTable = ({
+  labelName = '',
+  content = '',
+  backgroundColor = '',
+  textColor,
+  type,
+  closeHandler,
+}) => {
   const [labelInfo, setLabelInfo] = useState({
     labelName,
     content,
@@ -47,22 +54,6 @@ const LabelTable = ({ labelName = '', content = '', backgroundColor = '', textCo
     });
   };
 
-  const ColorInputs = (
-    <$LabelColorInputLayout>
-      <TextInput
-        id="labelBackgroundColor"
-        value={labelInfo.backgroundColor}
-        onChange={backgroundColorChangeHandler}
-        labelText="배경 색상"
-        placeholderText="입력해주세요"
-      />
-      <select name="labelTextColor" defaultValue={textColor} onChange={textColorChangeHandler}>
-        <option value="dark">dark text</option>
-        <option value="light">light text</option>
-      </select>
-    </$LabelColorInputLayout>
-  );
-
   return (
     <$LabelTable type={type}>
       <$LabelTableTitle>새로운 레이블 추가</$LabelTableTitle>
@@ -85,6 +76,7 @@ const LabelTable = ({ labelName = '', content = '', backgroundColor = '', textCo
             labelText="레이블 이름"
             placeholderText="입력하세요"
           />
+
           <TextInput
             id="labelContent"
             value={labelInfo.content}
@@ -92,13 +84,27 @@ const LabelTable = ({ labelName = '', content = '', backgroundColor = '', textCo
             labelText="설명 (선택)"
             placeholderText="입력하세요"
           />
-          {ColorInputs}
+
+          <$LabelColorInputLayout>
+            <TextInput
+              id="labelBackgroundColor"
+              value={labelInfo.backgroundColor}
+              onChange={backgroundColorChangeHandler}
+              labelText="배경 색상"
+              placeholderText="입력해주세요"
+            />
+
+            <select name="labelTextColor" defaultValue={textColor} onChange={textColorChangeHandler}>
+              <option value="dark">dark text</option>
+              <option value="light">light text</option>
+            </select>
+          </$LabelColorInputLayout>
         </$LabelTableInputLayout>
       </$LabelTableLayout>
 
       <$TableButtonsLayout>
         {type === 'edit' && (
-          <Button type="outline" size="S">
+          <Button type="outline" size="S" onClick={closeHandler}>
             <Icon name="xSquare" />
             <p>취소</p>
           </Button>
@@ -121,6 +127,7 @@ LabelTable.propTypes = {
   backgroundColor: PropTypes.string,
   textColor: PropTypes.oneOf(['dark', 'light']),
   type: PropTypes.oneOf(['add', 'edit']),
+  closeHandler: PropTypes.func,
 };
 
 export default LabelTable;

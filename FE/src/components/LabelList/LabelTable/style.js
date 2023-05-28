@@ -39,6 +39,7 @@ const $LabelTableLayout = styled.div`
 const $TableButtonsLayout = styled.div`
   display: flex;
   justify-content: flex-end;
+  gap: 8px;
 `;
 
 const labelTableBorder = css`
