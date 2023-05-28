@@ -11,6 +11,7 @@
 		2A28CDC92A1F504800A067D9 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A28CDC82A1F504800A067D9 /* DummyData.swift */; };
 		2A28CDCD2A1F709000A067D9 /* CustomCapsuleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A28CDCC2A1F709000A067D9 /* CustomCapsuleLabel.swift */; };
 		2A59D1262A1DF141003032D6 /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A59D1252A1DF141003032D6 /* HTTPHandler.swift */; };
+		2A8B82BC2A23541E0025D95C /* DiffableDataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8B82BB2A23541E0025D95C /* DiffableDataSourceManager.swift */; };
 		2ABB37F92A1673330044171C /* SFsymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB37F82A1673330044171C /* SFsymbol.swift */; };
 		2AC16D2E2A12920C00E71F75 /* IssueListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC16D2D2A12920C00E71F75 /* IssueListHeaderView.swift */; };
 		2AC16D302A12957D00E71F75 /* IssueCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */; };
@@ -39,6 +40,7 @@
 		2A28CDC82A1F504800A067D9 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		2A28CDCC2A1F709000A067D9 /* CustomCapsuleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCapsuleLabel.swift; sourceTree = "<group>"; };
 		2A59D1252A1DF141003032D6 /* HTTPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHandler.swift; sourceTree = "<group>"; };
+		2A8B82BB2A23541E0025D95C /* DiffableDataSourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceManager.swift; sourceTree = "<group>"; };
 		2ABB37F82A1673330044171C /* SFsymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFsymbol.swift; sourceTree = "<group>"; };
 		2AC16D2D2A12920C00E71F75 /* IssueListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListHeaderView.swift; sourceTree = "<group>"; };
 		2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCardCell.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */,
 				2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */,
 				2A59D1252A1DF141003032D6 /* HTTPHandler.swift */,
+				2A8B82BB2A23541E0025D95C /* DiffableDataSourceManager.swift */,
 				2A28CDC82A1F504800A067D9 /* DummyData.swift */,
 				FF769DFC2A126EFB00A0DFF9 /* IssueFilter */,
 				FFFC0BC02A168166006F76AF /* IssueList */,
@@ -308,6 +311,7 @@
 				2AF58ECC2A0B390100EE8623 /* SceneDelegate.swift in Sources */,
 				2AF58EE52A0CF86700EE8623 /* MileStoneViewController.swift in Sources */,
 				2AC16D302A12957D00E71F75 /* IssueCardCell.swift in Sources */,
+				2A8B82BC2A23541E0025D95C /* DiffableDataSourceManager.swift in Sources */,
 				2A59D1262A1DF141003032D6 /* HTTPHandler.swift in Sources */,
 				2ABB37F92A1673330044171C /* SFsymbol.swift in Sources */,
 				2AC16D322A149CF400E71F75 /* CustomLabelView.swift in Sources */,

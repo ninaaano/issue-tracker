@@ -10,16 +10,15 @@ import UIKit
 final class IssueFilterViewController: UIViewController {
     private var datasource: UICollectionViewDiffableDataSource<FilterSection, FilterCellTitle>!
     private var currentSnapShot: NSDiffableDataSourceSnapshot<FilterSection, FilterCellTitle>!
-    private var issueFilterCellRegistration: UICollectionView.CellRegistration<IssueFilterCell, FilterCellTitle>!
-    private var issueFilterHeaderCellRegistration: UICollectionView.SupplementaryRegistration<IssueFilterHeaderView>!
     private let issuecFilterCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.issuecFilterCollectionView.allowsMultipleSelection = true
+        self.issuecFilterCollectionView.backgroundColor = ColorValue.gray100
         self.issuecFilterCollectionView.delegate = self
         self.layoutIssueFilterCollectionView()
         self.configureNavigationBar()
-        self.configureIssueFilterCollectionView()
         self.configueDataSource()
         self.applySnapshot()
     }
@@ -35,19 +34,6 @@ final class IssueFilterViewController: UIViewController {
         let saveButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonTapped))
         saveButtonItem.setTitleTextAttributes([.font: FontStyle.title.font], for: .normal)
         self.navigationItem.rightBarButtonItem = saveButtonItem
-    }
-    
-    private func configureIssueFilterCollectionView() {
-        self.issuecFilterCollectionView.allowsMultipleSelection = true
-        self.issuecFilterCollectionView.backgroundColor = ColorValue.gray100
-        
-        self.issueFilterCellRegistration = UICollectionView.CellRegistration<IssueFilterCell, FilterCellTitle> { (cell, _, item) in
-            cell.filterItemNameLabel.text = item.title
-        }
-        self.issueFilterHeaderCellRegistration = UICollectionView.SupplementaryRegistration<IssueFilterHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { (cell, _, indexPath) in
-            let section = self.currentSnapShot.sectionIdentifiers[indexPath.section]
-            cell.titleLabel.text = section.title
-        }
     }
     
     private func layoutIssueFilterCollectionView() {
@@ -68,30 +54,6 @@ final class IssueFilterViewController: UIViewController {
     
     @objc func backButtonTapped() {
         self.dismiss(animated: true)
-    }
-}
-
-extension IssueFilterViewController {
-    private func configueDataSource() {
-        self.datasource = UICollectionViewDiffableDataSource<FilterSection, FilterCellTitle>(collectionView: self.issuecFilterCollectionView) { (collectionView: UICollectionView, indexPath: IndexPath, identifier: FilterCellTitle
-        ) -> UICollectionViewCell? in
-            return collectionView.dequeueConfiguredReusableCell(using: self.issueFilterCellRegistration, for: indexPath, item: identifier)
-        }
-        
-        self.datasource.supplementaryViewProvider = { collectionView, kind, indexPath in
-            return collectionView.dequeueConfiguredReusableSupplementary(using: self.issueFilterHeaderCellRegistration, for: indexPath)
-        }
-    }
-    
-    private func applySnapshot() {
-        self.currentSnapShot = NSDiffableDataSourceSnapshot<FilterSection, FilterCellTitle>()
-        currentSnapShot.appendSections([.status, .manager, .label, .milestone])
-        currentSnapShot.appendItems(statusItem, toSection: .status)
-        currentSnapShot.appendItems(managerItem, toSection: .manager)
-        currentSnapShot.appendItems(labelItem, toSection: .label)
-        currentSnapShot.appendItems(milestoneItem, toSection: .milestone)
-        
-        datasource.apply(currentSnapShot, animatingDifferences: true)
     }
 }
 
@@ -116,5 +78,53 @@ extension IssueFilterViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         UIEdgeInsets(top: 1, left: 0, bottom: 4, right: 0)
+    }
+}
+
+extension IssueFilterViewController: DiffableDataSourceManager {
+    typealias ItemIndetifierType = FilterCellTitle
+    typealias CellType = IssueFilterCell
+    typealias ReusableView = IssueFilterHeaderView
+    
+    func createListCellRegistration() -> UICollectionView.CellRegistration<IssueFilterCell, FilterCellTitle> {
+        return UICollectionView.CellRegistration<IssueFilterCell, FilterCellTitle> { (cell, _, item) in
+            var content = UIListContentConfiguration.valueCell()
+            content.text = item.title
+            cell.contentConfiguration = content
+            cell.accessories 
+            cell.filterItemNameLabel.text = item.title
+        }
+    }
+    
+    func createHeaderCellRegistration() -> UICollectionView.SupplementaryRegistration<IssueFilterHeaderView> {
+        return UICollectionView.SupplementaryRegistration<IssueFilterHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { (cell, _, indexPath) in
+            let section = self.currentSnapShot.sectionIdentifiers[indexPath.section]
+            cell.titleLabel.text = section.title
+        }
+    }
+    
+    private func configueDataSource() {
+        let listCellRegistration = createListCellRegistration()
+        let headerCellRegistration = createHeaderCellRegistration()
+        
+        self.datasource = UICollectionViewDiffableDataSource<FilterSection, FilterCellTitle>(collectionView: self.issuecFilterCollectionView) { (collectionView: UICollectionView, indexPath: IndexPath, identifier: FilterCellTitle
+        ) -> UICollectionViewCell? in
+            return collectionView.dequeueConfiguredReusableCell(using: listCellRegistration, for: indexPath, item: identifier)
+        }
+        
+        self.datasource.supplementaryViewProvider = { collectionView, _, indexPath in
+            return collectionView.dequeueConfiguredReusableSupplementary(using: headerCellRegistration, for: indexPath)
+        }
+    }
+    
+    private func applySnapshot() {
+        self.currentSnapShot = NSDiffableDataSourceSnapshot<FilterSection, FilterCellTitle>()
+        currentSnapShot.appendSections([.status, .manager, .label, .milestone])
+        currentSnapShot.appendItems(statusItem, toSection: .status)
+        currentSnapShot.appendItems(managerItem, toSection: .manager)
+        currentSnapShot.appendItems(labelItem, toSection: .label)
+        currentSnapShot.appendItems(milestoneItem, toSection: .milestone)
+        
+        datasource.apply(currentSnapShot, animatingDifferences: true)
     }
 }
