@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const $LabelCount = styled.div`
   display: flex;
@@ -16,9 +16,17 @@ const $LabelCount = styled.div`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
 
+const lastLabelListItemBorder = css`
+  & > li:last-child {
+    border-radius: 0 0 16px 16px;
+  }
+`;
+
 const $LabelListMain = styled.section`
   border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
   border-radius: 16px;
+
+  ${lastLabelListItemBorder}
 `;
 
 export { $LabelListMain, $LabelCount };
