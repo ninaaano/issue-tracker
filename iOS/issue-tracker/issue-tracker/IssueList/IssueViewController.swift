@@ -12,7 +12,7 @@ final class IssueViewController: UIViewController {
     private var snapshot: NSDiffableDataSourceSnapshot<Section, Item>!
     private var issueCardCellRegistration: UICollectionView.CellRegistration<IssueCardCell, Item>!
     private var issueHeaderCellRegistration: UICollectionView.SupplementaryRegistration<IssueListHeaderView>!
-    private var http = HTTPHandler()
+    private var itemHttpHandler = HTTPHandler<Item>()
     private var datas: [Item] = []
     private let issueListCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
@@ -27,7 +27,7 @@ final class IssueViewController: UIViewController {
     
     private func setupDatas() {
         DispatchQueue.main.async {
-            self.http.fetchIssue { result in
+            self.itemHttpHandler.fetchIssue { result in
                 switch result {
                 case.success(let issueDatas):
                     self.datas = issueDatas

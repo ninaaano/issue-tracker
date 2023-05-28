@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Response: Codable {
+struct Response<T: Codable>: Codable {
     let statusCode: Int
-    let body: [Item]
+    let body: [T]
 }
 
-struct HTTPHandler {
-    func fetchIssue(completion: @escaping (Result<[Item], Error>) -> Void) {
+struct HTTPHandler<T: Codable> {
+    func fetchIssue(completion: @escaping (Result<[T], Error>) -> Void) {
         guard let url = URL(string: "https://api.codesquad.kr/onban/main") else {
             return
         }
@@ -38,9 +38,9 @@ struct HTTPHandler {
         .resume()
     }
     
-    private func JSONParse(issueData: Data) -> [Item]? {
+    private func JSONParse(issueData: Data) -> [T]? {
         do {
-            let issueData = try JSONDecoder().decode(Response.self, from: issueData)
+            let issueData = try JSONDecoder().decode(Response<T>.self, from: issueData)
             return issueData.body
         } catch {
             print(error.localizedDescription)
