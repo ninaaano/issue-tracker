@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public interface IssueRepository extends CrudRepository<Issue, Long> {
 
-    @Query("SELECT * FROM issue WHERE ISOPENED=:isOpened")
+    @Query("SELECT * FROM issue WHERE is_opened=:isOpened")
     public List<Issue> findByIsOpened(@Param("isOpened") boolean isOpened);
 
 }
