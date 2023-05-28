@@ -19,7 +19,7 @@ const LabelTable = ({
   labelName = '',
   content = '',
   backgroundColor = '',
-  textColor,
+  textColor = 'dark',
   type,
   closeHandler,
 }) => {
