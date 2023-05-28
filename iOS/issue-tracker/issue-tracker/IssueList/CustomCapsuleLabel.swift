@@ -7,7 +7,7 @@
 
 import UIKit
 final class CustomCapsuleLabel: UILabel {
-    enum TextColor {
+    private enum TextColor {
         case light
         case dark
         
@@ -44,7 +44,7 @@ final class CustomCapsuleLabel: UILabel {
         self.text = name
         self.font = font
         self.textColor = TextColor(color: textColor).color
-        self.setBackgroundColor(backgroundColor)
+        self.backgroundColor = UIColor(colorHex: backgroundColor)
     }
     
     override func drawText(in rect: CGRect) {
@@ -56,13 +56,15 @@ final class CustomCapsuleLabel: UILabel {
         layer.cornerRadius = bounds.height / 2
         layer.masksToBounds = true
     }
-    
-    private func setBackgroundColor(_ colorHex: String) {
+}
+
+extension UIColor {
+    convenience init(colorHex: String) {
         let value = Int(colorHex.dropFirst(2), radix: 16) ?? 0
         let red = (value >> 16) & 0xFF
         let green = (value >> 8) & 0xFF
         let blue = value & 0xFF
 
-        self.backgroundColor = UIColor(red: CGFloat(red) / 255, green: CGFloat(green) / 255, blue: CGFloat(blue) / 255, alpha: 1)
+        self.init(red: CGFloat(red) / 255, green: CGFloat(green) / 255, blue: CGFloat(blue) / 255, alpha: 1)
     }
 }
