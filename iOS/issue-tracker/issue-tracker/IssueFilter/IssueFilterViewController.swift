@@ -9,7 +9,7 @@ import UIKit
 
 final class IssueFilterViewController: UIViewController {
     private var datasource: UICollectionViewDiffableDataSource<FilterSection, FilterCellTitle>!
-    private var snapShot: NSDiffableDataSourceSnapshot<FilterSection, FilterCellTitle>!
+    private var currentSnapShot: NSDiffableDataSourceSnapshot<FilterSection, FilterCellTitle>!
     private var issueFilterCellRegistration: UICollectionView.CellRegistration<IssueFilterCell, FilterCellTitle>!
     private var issueFilterHeaderCellRegistration: UICollectionView.SupplementaryRegistration<IssueFilterHeaderView>!
     private let issuecFilterCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -45,7 +45,7 @@ final class IssueFilterViewController: UIViewController {
             cell.filterItemNameLabel.text = item.title
         }
         self.issueFilterHeaderCellRegistration = UICollectionView.SupplementaryRegistration<IssueFilterHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { (cell, _, indexPath) in
-            let section = self.snapShot.sectionIdentifiers[indexPath.section]
+            let section = self.currentSnapShot.sectionIdentifiers[indexPath.section]
             cell.titleLabel.text = section.title
         }
     }
@@ -84,14 +84,14 @@ extension IssueFilterViewController {
     }
     
     private func applySnapshot() {
-        self.snapShot = NSDiffableDataSourceSnapshot<FilterSection, FilterCellTitle>()
-        snapShot.appendSections([.status, .manager, .label, .milestone])
-        snapShot.appendItems(statusItem, toSection: .status)
-        snapShot.appendItems(managerItem, toSection: .manager)
-        snapShot.appendItems(labelItem, toSection: .label)
-        snapShot.appendItems(milestoneItem, toSection: .milestone)
+        self.currentSnapShot = NSDiffableDataSourceSnapshot<FilterSection, FilterCellTitle>()
+        currentSnapShot.appendSections([.status, .manager, .label, .milestone])
+        currentSnapShot.appendItems(statusItem, toSection: .status)
+        currentSnapShot.appendItems(managerItem, toSection: .manager)
+        currentSnapShot.appendItems(labelItem, toSection: .label)
+        currentSnapShot.appendItems(milestoneItem, toSection: .milestone)
         
-        datasource.apply(snapShot, animatingDifferences: true)
+        datasource.apply(currentSnapShot, animatingDifferences: true)
     }
 }
 

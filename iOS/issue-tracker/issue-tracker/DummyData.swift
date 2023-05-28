@@ -6,7 +6,7 @@
 //
 
 import Foundation
-let dummyDatas = """
+let dummyData = """
 { "statusCode": 200,
         "body": [
             {

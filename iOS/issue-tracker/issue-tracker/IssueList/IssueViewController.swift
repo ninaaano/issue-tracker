@@ -9,11 +9,11 @@ import UIKit
 
 final class IssueViewController: UIViewController {
     private var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
-    private var snapshot: NSDiffableDataSourceSnapshot<Section, Item>!
+    private var currentSnapshot: NSDiffableDataSourceSnapshot<Section, Item>!
     private var issueCardCellRegistration: UICollectionView.CellRegistration<IssueCardCell, Item>!
     private var issueHeaderCellRegistration: UICollectionView.SupplementaryRegistration<IssueListHeaderView>!
     private var itemHttpHandler = HTTPHandler<Item>()
-    private var datas: [Item] = []
+    private var data: [Item] = []
     private let issueListCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     override func viewDidLoad() {
@@ -22,15 +22,15 @@ final class IssueViewController: UIViewController {
         self.configureIssueCollectionView()
         self.layoutIssueListCollectionView()
         configureDataSource()
-        setupDatas()
+        setupData()
     }
     
-    private func setupDatas() {
+    private func setupData() {
         DispatchQueue.main.async {
             self.itemHttpHandler.fetchIssue { result in
                 switch result {
-                case.success(let issueDatas):
-                    self.datas = issueDatas
+                case.success(let issueData):
+                    self.data = issueData
                     self.configureSnapshot()
                 default:
                     break
@@ -52,7 +52,7 @@ final class IssueViewController: UIViewController {
             }
         }
         self.issueHeaderCellRegistration = UICollectionView.SupplementaryRegistration<IssueListHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { (cell, _, indexPath) in
-            let section = self.snapshot.sectionIdentifiers[indexPath.section]
+            let section = self.currentSnapshot.sectionIdentifiers[indexPath.section]
             cell.title.text = section.title
         }
     }
@@ -100,9 +100,9 @@ extension IssueViewController {
     }
     
     private func configureSnapshot() {
-        self.snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-        self.snapshot.appendSections([.issue])
-        self.snapshot.appendItems(self.datas, toSection: .issue)
-        self.dataSource.apply(self.snapshot)
+        self.currentSnapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        self.currentSnapshot.appendSections([.issue])
+        self.currentSnapshot.appendItems(self.data, toSection: .issue)
+        self.dataSource.apply(self.currentSnapshot)
     }
 }
