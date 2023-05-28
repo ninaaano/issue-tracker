@@ -37,7 +37,7 @@ public class Issue {
     private String title;
     private String contents;
 
-    @Column("isOpened")
+    @Column("is_opened")
     private Boolean isOpened;
 
     @CreatedDate
