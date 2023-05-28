@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../../../common/Button';
 import Icon from '../../../common/Icon';
 import Label from '../../../common/Label';
+import LabelTable from '../../LabelTable';
 import { $LabelListItem, $LabelLayout, $LabelContent, $ButtonsLayout } from './style';
 
 const LabelListItem = ({ name, content, backgroundColor, textColor = 'dark' }) => {
-  return (
+  const [isEditButtonClicked, setIsEditButtonClicked] = useState(false);
+  const [isDeleteButtonClicked, setIsDeleteButtonClicked] = useState(false);
+
+  const openLabelTableHandler = () => setIsEditButtonClicked(true);
+  const deleteLabelHandler = () => {
+    // TODO: 해당 label를 삭제하는 기능 구현
+    setIsDeleteButtonClicked(true);
+  };
+
+  return isEditButtonClicked ? (
+    <LabelTable labelName={name} content={content} backgroundColor={backgroundColor} textColor={textColor} />
+  ) : (
     <$LabelListItem>
       <$LabelLayout>
         <Label height={24} name={name} textColor={textColor} backgroundColor={backgroundColor} />
@@ -16,12 +28,12 @@ const LabelListItem = ({ name, content, backgroundColor, textColor = 'dark' }) =
       <$LabelContent>{content || '레이블에 대한 설명이 없습니다.'}</$LabelContent>
 
       <$ButtonsLayout>
-        <Button type="ghost" size="S">
+        <Button type="ghost" size="S" onClick={openLabelTableHandler}>
           <Icon name="edit" />
           <p>편집</p>
         </Button>
 
-        <Button type="ghost" size="S">
+        <Button type="ghost" size="S" onClick={deleteLabelHandler}>
           <Icon name="trash" />
           <p>삭제</p>
         </Button>
