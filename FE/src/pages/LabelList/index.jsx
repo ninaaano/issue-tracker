@@ -6,6 +6,7 @@ import { LABELS, MILESTONES } from '../../constants/api';
 import useFetch from '../../hooks/useFetch';
 
 import LabelListHeader from '../../components/LabelList/LabelListHeader';
+import LabelListMain from '../../components/LabelList/LabelListMain';
 import { $LabelList } from './style';
 
 const LabelList = (props) => {
@@ -18,6 +19,7 @@ const LabelList = (props) => {
     allDataLoaded && (
       <$LabelList>
         <LabelListHeader labelCount={labelData.length} milestoneCount={milestoneData.length} />
+        <LabelListMain labels={labelData} />
       </$LabelList>
     )
   );
