@@ -88,10 +88,6 @@ extension IssueFilterViewController: DiffableDataSourceManager {
     
     func createListCellRegistration() -> UICollectionView.CellRegistration<IssueFilterCell, FilterCellTitle> {
         return UICollectionView.CellRegistration<IssueFilterCell, FilterCellTitle> { (cell, _, item) in
-            var content = UIListContentConfiguration.valueCell()
-            content.text = item.title
-            cell.contentConfiguration = content
-            cell.accessories 
             cell.filterItemNameLabel.text = item.title
         }
     }
