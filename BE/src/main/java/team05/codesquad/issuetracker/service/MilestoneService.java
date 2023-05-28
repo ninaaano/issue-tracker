@@ -1,5 +1,6 @@
 package team05.codesquad.issuetracker.service;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,16 +21,12 @@ import java.util.List;
 @Slf4j
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class MilestoneService {
 
     private static final boolean STATUS_DEFAULT = true;
 
     private final MilestoneRepository milestoneRepository;
-
-    @Autowired
-    public MilestoneService(MilestoneRepository milestoneRepository) {
-        this.milestoneRepository = milestoneRepository;
-    }
 
     public MilestoneCreateResponse createMilestone(@RequestBody MilestoneCreateRequest request) { // Milestone 생성
         Milestone milestone = Milestone.toEntity(request);
