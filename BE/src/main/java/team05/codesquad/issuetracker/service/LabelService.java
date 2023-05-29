@@ -11,8 +11,6 @@ import team05.codesquad.issuetracker.controller.labeldto.response.LabelsResponse
 import team05.codesquad.issuetracker.domain.label.Label;
 import team05.codesquad.issuetracker.repository.LabelRepository;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @Transactional

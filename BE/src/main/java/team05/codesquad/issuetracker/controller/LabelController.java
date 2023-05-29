@@ -7,10 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import team05.codesquad.issuetracker.controller.labeldto.request.LabelRequest;
 import team05.codesquad.issuetracker.controller.labeldto.response.LabelResponse;
 import team05.codesquad.issuetracker.controller.labeldto.response.LabelsResponse;
-import team05.codesquad.issuetracker.domain.label.Label;
 import team05.codesquad.issuetracker.service.LabelService;
-
-import java.util.List;
 
 
 @Slf4j

@@ -1,13 +1,10 @@
 package team05.codesquad.issuetracker.controller.labeldto.response;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import team05.codesquad.issuetracker.controller.labeldto.response.LabelResponse;
 import team05.codesquad.issuetracker.domain.label.Label;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 

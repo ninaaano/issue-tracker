@@ -1,10 +1,8 @@
 package team05.codesquad.issuetracker.controller.issuedto.response;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import team05.codesquad.issuetracker.controller.issuedto.response.IssueResponse;
 
 import java.util.List;
 

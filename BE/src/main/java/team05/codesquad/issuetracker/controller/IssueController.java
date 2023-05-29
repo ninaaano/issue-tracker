@@ -2,17 +2,14 @@ package team05.codesquad.issuetracker.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import team05.codesquad.issuetracker.controller.issuedto.request.IssueRequest;
 import team05.codesquad.issuetracker.controller.issuedto.response.IssueResponse;
 import team05.codesquad.issuetracker.controller.issuedto.response.IssuesResponse;
-import team05.codesquad.issuetracker.domain.issue.Issue;
 import team05.codesquad.issuetracker.service.IssueService;
 
 import java.net.URI;
-import java.util.List;
 
 @Slf4j
 @RestController
