@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const $IssueDetailTitle = styled.div`
+const $IssueDetailTitle = styled.header`
   display: flex;
   justify-content: space-between;
   height: 48px;

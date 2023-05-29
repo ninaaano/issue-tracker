@@ -16,10 +16,10 @@ const $IssueCommentArea = styled.div`
   }
 `;
 
-const $IssueDetailMain = styled.div`
+const $IssueDetailMainLayout = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
 `;
 
-export { $IssueDetail, $IssueCommentArea, $IssueDetailMain };
+export { $IssueDetail, $IssueCommentArea, $IssueDetailMainLayout };

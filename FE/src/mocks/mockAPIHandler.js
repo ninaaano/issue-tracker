@@ -41,6 +41,52 @@ const getIssueDetailData = (request, response, context) => {
   return response(context.status(200), context.json(data));
 };
 
+const postMilestoneNewData = (request, response, context) => {
+  const lastMilestoneId = mockMilestoneData.data[mockMilestoneData.data.length - 1].milestoneId;
+  const { title, content, deadline } = request.body;
+  const responseBody = {
+    milestoneId: lastMilestoneId + 1,
+    milestoneName: title,
+    content: content === undefined ? null : content,
+    deadline: deadline === undefined ? null : deadline,
+    openIssue: 0,
+    closeIssue: 0,
+    isOpened: true,
+  };
+
+  mockMilestoneData.data.push(responseBody);
+  return response(
+    context.status(200),
+    context.json({
+      status: 200,
+      message: '요청이 완료되었습니다.',
+      data: responseBody,
+    }),
+  );
+};
+
+const postLabelNewData = (request, response, context) => {
+  const lastLabelId = mockLabelData.data[mockLabelData.data.length - 1].labelId;
+  const { labelName, content, backgroundColor, textColor } = request.body;
+  const responseBody = {
+    labelId: lastLabelId + 1,
+    labelName,
+    content: content === undefined ? null : content,
+    backgroundColor,
+    textColor,
+  };
+
+  mockLabelData.data.push(responseBody);
+  return response(
+    context.status(200),
+    context.json({
+      status: 200,
+      message: '요청이 완료되었습니다.',
+      data: responseBody,
+    }),
+  );
+};
+
 const mockAPIHandler = [
   rest.get(ISSUES.GET_ALL_ISSUES, getIssues),
   rest.get(USERS.GET_USER_IMG(':userId'), getUserImage),
@@ -48,6 +94,8 @@ const mockAPIHandler = [
   rest.get(LABELS.GET_ALL_LABELS, getLabelData),
   rest.get(MILESTONES.GET_ALL_MILESTONES, getMilestoneData),
   rest.get(ISSUES.GET_ISSUE(':issueId'), getIssueDetailData),
+  rest.post(MILESTONES.POST_MILESTONE, postMilestoneNewData),
+  rest.post(LABELS.POST_LABEL, postLabelNewData),
 ];
 
 export { mockAPIHandler };

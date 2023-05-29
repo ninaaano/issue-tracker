@@ -11,7 +11,7 @@ import Icon from '../../components/common/Icon';
 import Button from '../../components/common/Button';
 import SideBar from '../../components/common/SideBar';
 import TextArea from '../../components/common/TextArea';
-import { $IssueDetail, $IssueCommentArea, $IssueDetailMain } from './style';
+import { $IssueDetail, $IssueCommentArea, $IssueDetailMainLayout } from './style';
 
 const IssueDetail = () => {
   // TODO: Text Area UnControlled Component로 바꾸기.
@@ -27,7 +27,7 @@ const IssueDetail = () => {
   const [comment, setComment] = useState('');
   const [files, setFiles] = useState([]);
 
-  const changeHandler = ({ target }) => {
+  const commentEditHandler = ({ target }) => {
     setComment(target.value);
   };
 
@@ -38,6 +38,7 @@ const IssueDetail = () => {
   const makeSelectItemsObj = () => {
     const selectedItems = {};
 
+    // TODO: 담당자, label 중복 처리
     selectedItems.assignee = issueDetailData.assignee[0].userId;
     selectedItems.milestone = issueDetailData.milestone.milestoneId;
     selectedItems.label = issueDetailData.label[0].labelId;
@@ -48,7 +49,7 @@ const IssueDetail = () => {
     allDataLoaded && (
       <$IssueDetail>
         <IssueDetailHeader issue={issueDetailData} />
-        <$IssueDetailMain>
+        <$IssueDetailMainLayout>
           <$IssueCommentArea>
             <IssueDetailMain
               issue={issueDetailData}
@@ -59,7 +60,7 @@ const IssueDetail = () => {
             <TextArea
               id="comment"
               value={comment}
-              onChange={changeHandler}
+              onChange={commentEditHandler}
               size="S"
               files={files}
               filesUploadHandler={filesUploadHandler}
@@ -75,7 +76,7 @@ const IssueDetail = () => {
             milestones={milestoneData}
             selectedItems={makeSelectItemsObj()}
           />
-        </$IssueDetailMain>
+        </$IssueDetailMainLayout>
       </$IssueDetail>
     )
   );

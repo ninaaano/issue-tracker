@@ -27,18 +27,16 @@ const SideBar = ({ assignees, labels, milestones, selectedItems = {} }) => {
 
   return (
     <$SideBar>
-      {Object.keys(selectedItems).length !== 0
-        ? menuData.map(({ menuId, menuType, menus }) => (
-            <SideBarMenu
-              key={menuId}
-              type={menuType}
-              menus={menus}
-              selectedItemId={selectedItems[FILTER_TYPE[menuType]]}
-            />
-          ))
-        : menuData.map(({ menuId, menuType, menus }) => (
-            <SideBarMenu key={menuId} type={menuType} menus={menus} />
-          ))}
+      {menuData.map(({ menuId, menuType, menus }) => (
+        <SideBarMenu
+          key={menuId}
+          type={menuType}
+          menus={menus}
+          selectedItemId={
+            Object.keys(selectedItems).length !== 0 ? selectedItems[FILTER_TYPE[menuType]] : undefined
+          }
+        />
+      ))}
     </$SideBar>
   );
 };

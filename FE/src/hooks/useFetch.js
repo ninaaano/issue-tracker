@@ -2,12 +2,12 @@ import { useState, useCallback, useEffect, useReducer } from 'react';
 
 const fetchReducer = () => {};
 
-const useFetch = (url, method = 'GET', body = null) => {
-  const [fetchState, fetchDispatch] = useReducer(fetchReducer, {
-    loading: false,
-    data: null,
-    error: false,
-  });
+const useFetch = (url, method = 'GET', body = null, skip = false) => {
+  // const [fetchState, fetchDispatch] = useReducer(fetchReducer, {
+  //   loading: false,
+  //   data: null,
+  //   error: false,
+  // });
 
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -49,10 +49,11 @@ const useFetch = (url, method = 'GET', body = null) => {
   }, [url, method, body]);
 
   useEffect(() => {
+    if (skip) return;
     fetchData();
   }, []);
 
-  return { data, error, loading };
+  return { fetchData, data, error, loading };
 };
 
 export default useFetch;
