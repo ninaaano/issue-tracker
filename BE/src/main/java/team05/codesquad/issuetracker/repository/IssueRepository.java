@@ -3,16 +3,18 @@ package team05.codesquad.issuetracker.repository;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import team05.codesquad.issuetracker.domain.issue.Issue;
+import team05.codesquad.issuetracker.domain.issue.IssueRowMapper;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface IssueRepository extends CrudRepository<Issue, Long> {
 
-    @Query("SELECT * FROM issue WHERE is_opened=:isOpened")
-    public List<Issue> findByIsOpened(@Param("isOpened") boolean isOpened);
+    @Query(value = "SELECT i.issue_id as id, i.title, i.contents, i.is_opened, i.created_at, m.milestone_id " +
+            "as milestone_id, m.title as milestone_title, m.description as milestone_description, m.deadline as milestone_deadline, m.is_opened as milestone_is_opened FROM issue i " +
+            "LEFT OUTER JOIN milestone m ON m.milestone_id = i.milestone_id WHERE i.is_opened = :isOpened",
+            rowMapperClass = IssueRowMapper.class)
+    List<Issue> findByIsOpened(@Param("isOpened") boolean isOpened);
+
 
 }
