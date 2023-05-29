@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -16,6 +16,8 @@ const NewIssueForm = ({ userImgSrc, userData, labelData, milestoneData }) => {
     files: [],
     selectedItems: {},
   });
+  const commentRef = useRef('');
+  const filesRef = useRef([]);
   const navigate = useNavigate();
 
   const changeTitleHandler = ({ target }) => {
@@ -23,20 +25,15 @@ const NewIssueForm = ({ userImgSrc, userData, labelData, milestoneData }) => {
       return { ...previous, title: target.value };
     });
   };
-  const changeCommentHandler = ({ target }) => {
-    setIssue((previous) => {
-      return { ...previous, comment: target.value };
-    });
-  };
-  const filesUploadHandler = ({ target }) => {
-    setIssue((previous) => {
-      return { ...previous, files: target.value };
-    });
-  };
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(issue);
+    const newIssue = {
+      commentRef: commentRef.current.value,
+      files: filesRef.current.files,
+    };
+
+    console.log(newIssue);
   };
   const navigateToIssueList = () => navigate('/');
 
@@ -46,14 +43,7 @@ const NewIssueForm = ({ userImgSrc, userData, labelData, milestoneData }) => {
         <$UserImg src={userImgSrc} alt="myImg" />
         <$InputsLayout>
           <TextInput id="issueTitle" value={issue.title} onChange={changeTitleHandler} labelText="제목" />
-          <TextArea
-            id="issueComment"
-            value={issue.comment}
-            onChange={changeCommentHandler}
-            files={issue.files}
-            filesUploadHandler={filesUploadHandler}
-            size="L"
-          />
+          <TextArea id="issueComment" ref={{ commentRef, filesRef }} size="L" />
         </$InputsLayout>
         <SideBar
           assignees={userData}
