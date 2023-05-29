@@ -21,15 +21,17 @@ const App = () => {
     <ThemeProvider>
       <GlobalStyles />
       {userImgData && <Header userImgSrc={userImgData.userImgURL} />}
-      <BrowserRouter basename="/issues">
+      <BrowserRouter basename="/">
         <Routes>
           <Route path="/login" />
-          <Route path="/" element={<IssueList />} />
-
-          {userImgData && <Route path="/new" element={<NewIssue userImgSrc={userImgData.userImgURL} />} />}
-          <Route path="/:issueId" element={<IssueDetail />} />
-          <Route path="/milestones" element={<Milestone />} />
-          <Route path="/labels" element={<LabelList />} />
+          <Route path="/" element={<Navigate to="/issues" />} />
+          <Route path="/issues" element={<IssueList />} />
+          {userImgData && (
+            <Route path="/issues/new" element={<NewIssue userImgSrc={userImgData.userImgURL} />} />
+          )}
+          <Route path="/issues/:issueId" element={<IssueDetail />} />
+          <Route path="/issues/milestones" element={<Milestone />} />
+          <Route path="/issues/labels" element={<LabelList />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
