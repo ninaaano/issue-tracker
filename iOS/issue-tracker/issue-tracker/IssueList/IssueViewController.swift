@@ -8,21 +8,33 @@
 import UIKit
 
 final class IssueViewController: UIViewController {
-    
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Item>!
+    private var currentSnapshot: NSDiffableDataSourceSnapshot<Section, Item>!
+    private var itemHttpHandler = HTTPHandler<Item>()
+    private var data: [Item] = []
     private let issueListCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.issueListCollectionView.backgroundColor = ColorValue.gray100
         self.issueListCollectionView.delegate = self
-        self.issueListCollectionView.dataSource = self
-        self.configureIssueCollectionView()
         self.layoutIssueListCollectionView()
+        self.configureDataSource()
+        self.setupData()
     }
     
-    private func configureIssueCollectionView() {
-        issueListCollectionView.backgroundColor = ColorValue.gray100
-        issueListCollectionView.register(IssueCardCell.self, forCellWithReuseIdentifier: IssueCardCell.identifier)
-        issueListCollectionView.register(IssueListHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: IssueListHeaderView.identifier)
+    private func setupData() {
+        DispatchQueue.main.async {
+            self.itemHttpHandler.fetchIssue { result in
+                switch result {
+                case.success(let issueData):
+                    self.data = issueData
+                    self.configureSnapshot()
+                default:
+                    break
+                }
+            }
+        }
     }
     
     private func layoutIssueListCollectionView() {
@@ -35,31 +47,6 @@ final class IssueViewController: UIViewController {
             issueListCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             issueListCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-    }
-}
-
-extension IssueViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IssueCardCell.identifier, for: indexPath) as? IssueCardCell else {
-            return UICollectionViewCell()
-        }
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionHeader,
-              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IssueListHeaderView.identifier, for: indexPath ) as? IssueListHeaderView else {
-            return UICollectionReusableView()
-        }
-        return header
     }
 }
 
@@ -78,5 +65,52 @@ extension IssueViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 1.0
+    }
+}
+
+extension IssueViewController: DiffableDataSourceManager {
+    typealias ItemIndetifierType = Item
+    typealias CellType = IssueCardCell
+    typealias ReusableView = IssueListHeaderView
+    
+    func createListCellRegistration() -> UICollectionView.CellRegistration<IssueCardCell, Item> {
+        return UICollectionView.CellRegistration<IssueCardCell, Item> { (cell, _, item) in
+            cell.titleLabel.text = item.issueTitle
+            cell.explanationLabel.text = "설명설명설명설명설명설명설명"
+            cell.milestoneLabel.text = item.milestone.milestoneName
+            cell.labelStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+            item.label.forEach { data in
+                let custom = CustomCapsuleLabel(name: data.labelName, textColor: data.textColor, backgroundColor: data.backgroundColor, font: FontStyle.label.font)
+                cell.labelStackView.addArrangedSubview(custom)
+            }
+        }
+    }
+    
+    func createHeaderCellRegistration() -> UICollectionView.SupplementaryRegistration<IssueListHeaderView> {
+        return UICollectionView.SupplementaryRegistration<IssueListHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { (cell, _, indexPath) in
+            let section = self.currentSnapshot.sectionIdentifiers[indexPath.section]
+            cell.title.text = section.title
+        }
+    }
+
+    private func configureDataSource() {
+        let listCellRegistration = createListCellRegistration()
+        let headerCellRegistration = createHeaderCellRegistration()
+        
+        self.dataSource = UICollectionViewDiffableDataSource<Section, Item>(collectionView: self.issueListCollectionView, cellProvider: { (collectionView, indexPath, itemIdentifier) -> UICollectionViewCell? in
+            return collectionView.dequeueConfiguredReusableCell(using: listCellRegistration, for: indexPath, item: itemIdentifier)
+        })
+
+        self.dataSource.supplementaryViewProvider = { (collectionView, _, indexPath) in
+            return collectionView.dequeueConfiguredReusableSupplementary(using: headerCellRegistration, for: indexPath)
+        }
+    }
+
+    private func configureSnapshot() {
+        self.currentSnapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        self.currentSnapshot.appendSections([.issue])
+        self.currentSnapshot.appendItems(self.data, toSection: .issue)
+        
+        self.dataSource.apply(self.currentSnapshot)
     }
 }

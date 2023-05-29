@@ -1,0 +1,70 @@
+//
+//  CustomCapsuleLabel.swift
+//  issue-tracker
+//
+//  Created by PJB on 2023/05/25.
+//
+
+import UIKit
+final class CustomCapsuleLabel: UILabel {
+    private enum TextColor {
+        case light
+        case dark
+        
+        init(color: String) {
+            switch color {
+            case "light":
+                self = .light
+            default:
+                self = .dark
+            }
+        }
+        
+        var color: UIColor {
+            switch self {
+            case .light:
+                return UIColor.white
+            case .dark:
+                return UIColor.black
+            }
+        }
+    }
+    
+    private static let padding = UIEdgeInsets(top: 4.0, left: 16.0, bottom: 4.0, right: 16.0)
+    
+    override var intrinsicContentSize: CGSize {
+        var contentSize = super.intrinsicContentSize
+        contentSize.width += Self.padding.left + Self.padding.right
+        contentSize.height += Self.padding.top + Self.padding.bottom
+        return contentSize
+    }
+    
+    convenience init(name: String, textColor: String, backgroundColor: String, font: UIFont) {
+        self.init()
+        self.text = name
+        self.font = font
+        self.textColor = TextColor(color: textColor).color
+        self.backgroundColor = UIColor(colorHex: backgroundColor)
+    }
+    
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: rect.inset(by: Self.padding))
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = bounds.height / 2
+        layer.masksToBounds = true
+    }
+}
+
+extension UIColor {
+    convenience init(colorHex: String) {
+        let value = Int(colorHex.dropFirst(2), radix: 16) ?? 0
+        let red = (value >> 16) & 0xFF
+        let green = (value >> 8) & 0xFF
+        let blue = value & 0xFF
+
+        self.init(red: CGFloat(red) / 255, green: CGFloat(green) / 255, blue: CGFloat(blue) / 255, alpha: 1)
+    }
+}

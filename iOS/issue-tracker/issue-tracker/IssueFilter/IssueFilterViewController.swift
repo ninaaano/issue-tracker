@@ -8,17 +8,19 @@
 import UIKit
 
 final class IssueFilterViewController: UIViewController {
-    private let issueFilterHeaders = MockHeaderData()
-    
+    private var datasource: UICollectionViewDiffableDataSource<FilterSection, FilterCellTitle>!
+    private var currentSnapShot: NSDiffableDataSourceSnapshot<FilterSection, FilterCellTitle>!
     private let issuecFilterCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.issuecFilterCollectionView.dataSource = self
+        self.issuecFilterCollectionView.allowsMultipleSelection = true
+        self.issuecFilterCollectionView.backgroundColor = ColorValue.gray100
         self.issuecFilterCollectionView.delegate = self
         self.layoutIssueFilterCollectionView()
         self.configureNavigationBar()
-        self.configureIssueFilterCollectionView()
+        self.configueDataSource()
+        self.applySnapshot()
     }
     
     private func configureNavigationBar() {
@@ -32,17 +34,6 @@ final class IssueFilterViewController: UIViewController {
         let saveButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonTapped))
         saveButtonItem.setTitleTextAttributes([.font: FontStyle.title.font], for: .normal)
         self.navigationItem.rightBarButtonItem = saveButtonItem
-    }
-    
-    private func configureIssueFilterCollectionView() {
-        self.issuecFilterCollectionView.allowsMultipleSelection = true
-        self.issuecFilterCollectionView.backgroundColor = ColorValue.gray100
-        self.issuecFilterCollectionView.register(IssueFilterCell.self, forCellWithReuseIdentifier: IssueFilterCell.identifier)
-        self.issuecFilterCollectionView.register(
-            IssueFilterHeaderView.self,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: IssueFilterHeaderView.identifier
-        )
     }
     
     private func layoutIssueFilterCollectionView() {
@@ -63,32 +54,6 @@ final class IssueFilterViewController: UIViewController {
     
     @objc func backButtonTapped() {
         self.dismiss(animated: true)
-    }
-}
-
-extension IssueFilterViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return issueFilterHeaders.title.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IssueFilterCell.identifier, for: indexPath) as? IssueFilterCell else {
-            return UICollectionViewCell()
-        }
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionView.elementKindSectionHeader,
-              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IssueFilterHeaderView.identifier, for: indexPath ) as? IssueFilterHeaderView else {
-            return UICollectionReusableView()
-        }
-        header.configureTitle(of: issueFilterHeaders.title[indexPath.section])
-        return header
     }
 }
 
@@ -113,5 +78,49 @@ extension IssueFilterViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         UIEdgeInsets(top: 1, left: 0, bottom: 4, right: 0)
+    }
+}
+
+extension IssueFilterViewController: DiffableDataSourceManager {
+    typealias ItemIndetifierType = FilterCellTitle
+    typealias CellType = IssueFilterCell
+    typealias ReusableView = IssueFilterHeaderView
+    
+    func createListCellRegistration() -> UICollectionView.CellRegistration<IssueFilterCell, FilterCellTitle> {
+        return UICollectionView.CellRegistration<IssueFilterCell, FilterCellTitle> { (cell, _, item) in
+            cell.filterItemNameLabel.text = item.title
+        }
+    }
+    
+    func createHeaderCellRegistration() -> UICollectionView.SupplementaryRegistration<IssueFilterHeaderView> {
+        return UICollectionView.SupplementaryRegistration<IssueFilterHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { (cell, _, indexPath) in
+            let section = self.currentSnapShot.sectionIdentifiers[indexPath.section]
+            cell.titleLabel.text = section.title
+        }
+    }
+    
+    private func configueDataSource() {
+        let listCellRegistration = createListCellRegistration()
+        let headerCellRegistration = createHeaderCellRegistration()
+        
+        self.datasource = UICollectionViewDiffableDataSource<FilterSection, FilterCellTitle>(collectionView: self.issuecFilterCollectionView) { (collectionView: UICollectionView, indexPath: IndexPath, identifier: FilterCellTitle
+        ) -> UICollectionViewCell? in
+            return collectionView.dequeueConfiguredReusableCell(using: listCellRegistration, for: indexPath, item: identifier)
+        }
+        
+        self.datasource.supplementaryViewProvider = { collectionView, _, indexPath in
+            return collectionView.dequeueConfiguredReusableSupplementary(using: headerCellRegistration, for: indexPath)
+        }
+    }
+    
+    private func applySnapshot() {
+        self.currentSnapShot = NSDiffableDataSourceSnapshot<FilterSection, FilterCellTitle>()
+        currentSnapShot.appendSections([.status, .manager, .label, .milestone])
+        currentSnapShot.appendItems(statusItem, toSection: .status)
+        currentSnapShot.appendItems(managerItem, toSection: .manager)
+        currentSnapShot.appendItems(labelItem, toSection: .label)
+        currentSnapShot.appendItems(milestoneItem, toSection: .milestone)
+        
+        datasource.apply(currentSnapShot, animatingDifferences: true)
     }
 }

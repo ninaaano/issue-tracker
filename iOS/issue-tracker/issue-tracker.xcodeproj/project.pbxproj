@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A7F1BE42A17105B00120353 /* MockHeaderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F1BE32A17105B00120353 /* MockHeaderData.swift */; };
+		2A28CDC72A1F382700A067D9 /* IssueListSectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A28CDC62A1F382700A067D9 /* IssueListSectionData.swift */; };
+		2A28CDC92A1F504800A067D9 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A28CDC82A1F504800A067D9 /* DummyData.swift */; };
+		2A28CDCD2A1F709000A067D9 /* CustomCapsuleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A28CDCC2A1F709000A067D9 /* CustomCapsuleLabel.swift */; };
+		2A59D1262A1DF141003032D6 /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A59D1252A1DF141003032D6 /* HTTPHandler.swift */; };
+		2A8B82BC2A23541E0025D95C /* DiffableDataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8B82BB2A23541E0025D95C /* DiffableDataSourceManager.swift */; };
 		2ABB37F92A1673330044171C /* SFsymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB37F82A1673330044171C /* SFsymbol.swift */; };
 		2AC16D2E2A12920C00E71F75 /* IssueListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC16D2D2A12920C00E71F75 /* IssueListHeaderView.swift */; };
 		2AC16D302A12957D00E71F75 /* IssueCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */; };
@@ -24,6 +28,7 @@
 		2AF58EE92A0D454000EE8623 /* TabBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE82A0D454000EE8623 /* TabBarType.swift */; };
 		2AF58EED2A12555E00EE8623 /* ColorValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EEC2A12555E00EE8623 /* ColorValue.swift */; };
 		7411FA6CF0FEC5333D727E00 /* Pods_issue_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3A8C7D88E017C59BA638F3 /* Pods_issue_tracker.framework */; };
+		FF5A64202A1F05F300D07D7F /* IsuueFilterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A641F2A1F05F300D07D7F /* IsuueFilterData.swift */; };
 		FF769DC92A11D81000A0DFF9 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF769DC82A11D81000A0DFF9 /* FontStyle.swift */; };
 		FF769DFB2A126EF300A0DFF9 /* IssueFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF769DFA2A126EF300A0DFF9 /* IssueFilterCell.swift */; };
 		FF769E052A13D94E00A0DFF9 /* IssueFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF769E042A13D94E00A0DFF9 /* IssueFilterViewController.swift */; };
@@ -31,7 +36,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2A7F1BE32A17105B00120353 /* MockHeaderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHeaderData.swift; sourceTree = "<group>"; };
+		2A28CDC62A1F382700A067D9 /* IssueListSectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListSectionData.swift; sourceTree = "<group>"; };
+		2A28CDC82A1F504800A067D9 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		2A28CDCC2A1F709000A067D9 /* CustomCapsuleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCapsuleLabel.swift; sourceTree = "<group>"; };
+		2A59D1252A1DF141003032D6 /* HTTPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHandler.swift; sourceTree = "<group>"; };
+		2A8B82BB2A23541E0025D95C /* DiffableDataSourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSourceManager.swift; sourceTree = "<group>"; };
 		2ABB37F82A1673330044171C /* SFsymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFsymbol.swift; sourceTree = "<group>"; };
 		2AC16D2D2A12920C00E71F75 /* IssueListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListHeaderView.swift; sourceTree = "<group>"; };
 		2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCardCell.swift; sourceTree = "<group>"; };
@@ -52,6 +61,7 @@
 		4B3A8C7D88E017C59BA638F3 /* Pods_issue_tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_issue_tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		830385C1D453460DCB214050 /* Pods-issue-tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-issue-tracker.release.xcconfig"; path = "Target Support Files/Pods-issue-tracker/Pods-issue-tracker.release.xcconfig"; sourceTree = "<group>"; };
 		B83F6B8CE4C95FD091430C5D /* Pods-issue-tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-issue-tracker.debug.xcconfig"; path = "Target Support Files/Pods-issue-tracker/Pods-issue-tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		FF5A641F2A1F05F300D07D7F /* IsuueFilterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsuueFilterData.swift; sourceTree = "<group>"; };
 		FF769DC82A11D81000A0DFF9 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		FF769DFA2A126EF300A0DFF9 /* IssueFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueFilterCell.swift; sourceTree = "<group>"; };
 		FF769E042A13D94E00A0DFF9 /* IssueFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueFilterViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +106,9 @@
 				2AF58ECB2A0B390100EE8623 /* SceneDelegate.swift */,
 				2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */,
 				2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */,
+				2A59D1252A1DF141003032D6 /* HTTPHandler.swift */,
+				2A8B82BB2A23541E0025D95C /* DiffableDataSourceManager.swift */,
+				2A28CDC82A1F504800A067D9 /* DummyData.swift */,
 				FF769DFC2A126EFB00A0DFF9 /* IssueFilter */,
 				FFFC0BC02A168166006F76AF /* IssueList */,
 				FFFC0BC22A16819E006F76AF /* TabBar */,
@@ -128,8 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				FF769E042A13D94E00A0DFF9 /* IssueFilterViewController.swift */,
+				FF5A641F2A1F05F300D07D7F /* IsuueFilterData.swift */,
 				FF769DFA2A126EF300A0DFF9 /* IssueFilterCell.swift */,
-				2A7F1BE32A17105B00120353 /* MockHeaderData.swift */,
 				FFFC0BBE2A14A754006F76AF /* IssueFilterHeaderView.swift */,
 			);
 			path = IssueFilter;
@@ -141,7 +154,9 @@
 				2AF58ECD2A0B390100EE8623 /* IssueViewController.swift */,
 				2AC16D312A149CF400E71F75 /* CustomLabelView.swift */,
 				2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */,
+				2A28CDC62A1F382700A067D9 /* IssueListSectionData.swift */,
 				2AC16D2D2A12920C00E71F75 /* IssueListHeaderView.swift */,
+				2A28CDCC2A1F709000A067D9 /* CustomCapsuleLabel.swift */,
 			);
 			path = IssueList;
 			sourceTree = "<group>";
@@ -281,20 +296,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AF58EE72A0D162900EE8623 /* TabBarViewController.swift in Sources */,
+				2A28CDC72A1F382700A067D9 /* IssueListSectionData.swift in Sources */,
 				FFFC0BBF2A14A754006F76AF /* IssueFilterHeaderView.swift in Sources */,
+				2A28CDC92A1F504800A067D9 /* DummyData.swift in Sources */,
 				FF769E052A13D94E00A0DFF9 /* IssueFilterViewController.swift in Sources */,
 				2AF58EE32A0CF85800EE8623 /* LabelViewController.swift in Sources */,
+				2A28CDCD2A1F709000A067D9 /* CustomCapsuleLabel.swift in Sources */,
 				2AF58EE92A0D454000EE8623 /* TabBarType.swift in Sources */,
 				FF769DC92A11D81000A0DFF9 /* FontStyle.swift in Sources */,
 				2AF58EE92A0D454000EE8623 /* TabBarType.swift in Sources */,
 				2AF58ECE2A0B390100EE8623 /* IssueViewController.swift in Sources */,
+				FF5A64202A1F05F300D07D7F /* IsuueFilterData.swift in Sources */,
 				2AF58ECA2A0B390100EE8623 /* AppDelegate.swift in Sources */,
 				2AF58ECC2A0B390100EE8623 /* SceneDelegate.swift in Sources */,
 				2AF58EE52A0CF86700EE8623 /* MileStoneViewController.swift in Sources */,
 				2AC16D302A12957D00E71F75 /* IssueCardCell.swift in Sources */,
+				2A8B82BC2A23541E0025D95C /* DiffableDataSourceManager.swift in Sources */,
+				2A59D1262A1DF141003032D6 /* HTTPHandler.swift in Sources */,
 				2ABB37F92A1673330044171C /* SFsymbol.swift in Sources */,
 				2AC16D322A149CF400E71F75 /* CustomLabelView.swift in Sources */,
-				2A7F1BE42A17105B00120353 /* MockHeaderData.swift in Sources */,
 				2AF58EED2A12555E00EE8623 /* ColorValue.swift in Sources */,
 				FF769DFB2A126EF300A0DFF9 /* IssueFilterCell.swift in Sources */,
 				2AC16D2E2A12920C00E71F75 /* IssueListHeaderView.swift in Sources */,

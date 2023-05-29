@@ -10,7 +10,7 @@ import UIKit
 final class IssueFilterCell: UICollectionViewCell {
     static let identifier = "IssueFilterViewCell"
     
-    private let filterItemNameLabel: UILabel = {
+    let filterItemNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.text = "테스트입니다"
