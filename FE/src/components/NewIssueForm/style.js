@@ -15,7 +15,7 @@ const $UserImg = styled.img`
   border-radius: 50%;
 `;
 
-const $InputWrapper = styled.div`
+const $InputsLayout = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -23,7 +23,7 @@ const $InputWrapper = styled.div`
   width: 100%;
 `;
 
-const $SubmitButtonWrapper = styled.div`
+const $ButtonsLayout = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 32px;
@@ -36,4 +36,4 @@ const $NewIssueForm = styled.form`
   gap: 24px; */
 `;
 
-export { $NewIssueForm, $NewIssueFormMain, $UserImg, $InputWrapper, $SubmitButtonWrapper };
+export { $NewIssueForm, $NewIssueFormMain, $UserImg, $InputsLayout, $ButtonsLayout };

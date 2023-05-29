@@ -7,53 +7,71 @@ import Icon from '../common/Icon';
 import TextInput from '../common/TextInput';
 import TextArea from '../common/TextArea';
 import SideBar from '../common/SideBar';
-import { $NewIssueForm, $NewIssueFormMain, $UserImg, $InputWrapper, $SubmitButtonWrapper } from './style';
+import { $NewIssueForm, $NewIssueFormMain, $UserImg, $InputsLayout, $ButtonsLayout } from './style';
 
 const NewIssueForm = ({ userImgSrc, userData, labelData, milestoneData }) => {
-  const [title, setTitle] = useState('');
-  const [comment, setComment] = useState('');
-  const [files, setFiles] = useState([]);
+  const [issue, setIssue] = useState({
+    title: '',
+    comment: '',
+    files: [],
+    selectedItems: {},
+  });
   const navigate = useNavigate();
 
-  const changeTitleHandler = ({ target }) => setTitle(target.value);
-  const changeCommentHandler = ({ target }) => setComment(target.value);
+  const changeTitleHandler = ({ target }) => {
+    setIssue((previous) => {
+      return { ...previous, title: target.value };
+    });
+  };
+  const changeCommentHandler = ({ target }) => {
+    setIssue((previous) => {
+      return { ...previous, comment: target.value };
+    });
+  };
+  const filesUploadHandler = ({ target }) => {
+    setIssue((previous) => {
+      return { ...previous, files: target.value };
+    });
+  };
 
   const submitHandler = (event) => {
     event.preventDefault();
+    console.log(issue);
   };
-
-  const filesUploadHandler = ({ target }) => {
-    setFiles([...target.files]);
-  };
-
   const navigateToIssueList = () => navigate('/');
 
   return (
     <$NewIssueForm onSubmit={submitHandler}>
       <$NewIssueFormMain>
         <$UserImg src={userImgSrc} alt="myImg" />
-        <$InputWrapper>
-          <TextInput id="issueTitle" value={title} onChange={changeTitleHandler} labelText="제목" />
+        <$InputsLayout>
+          <TextInput id="issueTitle" value={issue.title} onChange={changeTitleHandler} labelText="제목" />
           <TextArea
             id="issueComment"
-            value={comment}
+            value={issue.comment}
             onChange={changeCommentHandler}
-            files={files}
+            files={issue.files}
             filesUploadHandler={filesUploadHandler}
             size="L"
           />
-        </$InputWrapper>
-        <SideBar assignees={userData} labels={labelData} milestones={milestoneData} />
+        </$InputsLayout>
+        <SideBar
+          assignees={userData}
+          labels={labelData}
+          milestones={milestoneData}
+          selectedItems={issue.selectedItems}
+        />
       </$NewIssueFormMain>
-      <$SubmitButtonWrapper>
+      <$ButtonsLayout>
+        {/* TODO: 버튼을 누르면 페이지 이동한다면, button 보단 link가 더 적합 */}
         <Button type="ghost" size="S" onClick={navigateToIssueList}>
           <Icon name="xSquare" />
           <p>작성 취소</p>
         </Button>
-        <Button type="contained" size="L" onClick={submitHandler} disabled={title.length === 0}>
+        <Button type="contained" size="L" onClick={submitHandler} disabled={issue.title.length === 0}>
           완료
         </Button>
-      </$SubmitButtonWrapper>
+      </$ButtonsLayout>
     </$NewIssueForm>
   );
 };
