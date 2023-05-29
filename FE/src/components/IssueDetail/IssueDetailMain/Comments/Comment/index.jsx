@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../../../../common/Button';
@@ -21,34 +21,34 @@ import {
 // TODO: 내 userId -> context로 빼기.
 const myId = 6;
 
+// ? filesData도 받아와야 할 듯
 const Comment = ({ writerId, commentData }) => {
   const isMine = commentData.commentUser.userId === myId;
   const [isEdited, setIsEdited] = useState(false);
-  const [tempComment, setTempComment] = useState(commentData.content);
+  // ? 정말 필요한 상태일까?
   const [editComment, setEditComment] = useState(commentData.content);
-  const [files, setFiles] = useState([]);
-
-  const commentEditHandler = ({ target }) => {
-    setTempComment(target.value);
-  };
-
+  const tempCommentRef = useRef('');
+  const filesRef = useRef([]);
   const editBtnHandler = () => {
     setIsEdited(true);
   };
 
   const cancelEditBtnHandler = () => {
+    tempCommentRef.current.value = commentData.content;
     setIsEdited(false);
-    setTempComment(commentData.content);
     setEditComment(commentData.content);
   };
 
   const completeEditHandler = () => {
-    setEditComment(tempComment);
-    setIsEdited(false);
-  };
+    const newComment = {
+      editedComment: tempCommentRef.current.value,
+      files: filesRef.current.files,
+    };
 
-  const filesUploadHandler = ({ target }) => {
-    setFiles([...target.files]);
+    setEditComment(tempCommentRef.current.value);
+    setIsEdited(false);
+
+    console.log(newComment);
   };
 
   return (
@@ -78,14 +78,7 @@ const Comment = ({ writerId, commentData }) => {
           </$HeaderButtons>
         </$CommentHeader>
         {isEdited ? (
-          <TextArea
-            id="commentEdit"
-            value={tempComment}
-            onChange={commentEditHandler}
-            size="S"
-            files={files}
-            filesUploadHandler={filesUploadHandler}
-          />
+          <TextArea id="commentEdit" ref={{ commentRef: tempCommentRef, filesRef }} size="S" />
         ) : (
           <$CommentText>{editComment}</$CommentText>
         )}
