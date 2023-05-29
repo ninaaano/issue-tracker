@@ -1,49 +1,32 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../Button';
 import Icon from '../Icon';
 import { $TextArea, $Label, $filesUploadButtonWrapper, $TextAreaInput, $TextLength } from './style';
 
-const TextArea = ({
-  id,
-  value,
-  onChange,
-  files,
-  filesUploadHandler,
-  labelText = '코멘트를 입력하세요.',
-  disabled = false,
-  size,
-}) => {
+const TextArea = forwardRef(({ id, labelText = '코멘트를 입력하세요.', disabled = false, size }, ref) => {
   const [isFocused, setIsFocused] = useState(false);
   const [textLength, setTextLength] = useState(0);
-  const fileInputRef = useRef(null);
+  const [files, setFiles] = useState([]);
+  const { commentRef, filesRef } = ref;
 
   const focusHandler = () => setIsFocused(true);
   const blurHandler = () => setIsFocused(false);
 
   const fileSelectHandler = () => {
-    fileInputRef.current.click();
+    filesRef.current.click();
   };
 
-  // ! 부모 컴포넌트에서 prop으로 받기
-  // const filesUploadHandler = ({ target }) => {
-  //   console.log([...target.files]);
-  // };
+  const filesUploadHandler = () => {
+    const selectedFiles = filesRef.current?.files || [];
 
-  const hasValue = value.trim().length > 0;
+    setFiles(selectedFiles);
+  };
 
-  useEffect(() => {
-    // ? 기획서에서 입력이 멈춘 후 2초 뒤에 글자수를 보여줘야 하지만, 사용자 입장에서 과연 편할까?
-    // 지금 코드는 typing하는 동안 글자수를 보여주도록 구현
-    const timerId = setTimeout(() => {
-      setTextLength(value.length);
-    });
+  const inputChangeHandler = () => setTextLength(commentRef.current.value.length);
 
-    return () => {
-      clearTimeout(timerId);
-    };
-  }, [value]);
+  const hasValue = commentRef.current?.value?.trim().length > 0;
 
   return (
     <$TextArea disabled={disabled} isFocused={isFocused} size={size}>
@@ -53,8 +36,8 @@ const TextArea = ({
       <$TextAreaInput
         id={id}
         name={id}
-        value={value}
-        onChange={onChange}
+        ref={commentRef}
+        onChange={inputChangeHandler}
         onFocus={focusHandler}
         onBlur={blurHandler}
         disabled={disabled}
@@ -64,7 +47,7 @@ const TextArea = ({
         type="file"
         accept="image/*"
         multiple="multiple"
-        ref={fileInputRef}
+        ref={filesRef}
         onChange={filesUploadHandler}
         style={{ display: 'none' }}
       />
@@ -73,18 +56,20 @@ const TextArea = ({
           <Icon name="paperclip" />
           파일 첨부하기
         </Button>
-        {files.length > 0 && <p>{files.map(({ name }) => name).join(' ')}</p>}
+        {files.length > 0 && (
+          <p>
+            {Array.from(files)
+              .map(({ name }) => name)
+              .join(' ')}
+          </p>
+        )}
       </$filesUploadButtonWrapper>
     </$TextArea>
   );
-};
+});
 
 TextArea.propTypes = {
   id: PropTypes.string.isRequired,
-  value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  files: PropTypes.array,
-  filesUploadHandler: PropTypes.func.isRequired,
   labelText: PropTypes.string,
   disabled: PropTypes.bool,
   size: PropTypes.oneOf(['S', 'L']),
