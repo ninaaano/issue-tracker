@@ -43,7 +43,7 @@ const NewIssueForm = ({ userImgSrc, userData, labelData, milestoneData }) => {
         <$UserImg src={userImgSrc} alt="myImg" />
         <$InputsLayout>
           <TextInput id="issueTitle" value={issue.title} onChange={changeTitleHandler} labelText="제목" />
-          <TextArea id="issueComment" ref={{ commentRef, filesRef }} size="L" />
+          <TextArea name="issueComment" ref={{ commentRef, filesRef }} size="L" />
         </$InputsLayout>
         <SideBar
           assignees={userData}

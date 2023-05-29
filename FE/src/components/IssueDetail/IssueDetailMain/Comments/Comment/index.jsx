@@ -78,7 +78,7 @@ const Comment = ({ writerId, commentData }) => {
           </$HeaderButtons>
         </$CommentHeader>
         {isEdited ? (
-          <TextArea id="commentEdit" ref={{ commentRef: tempCommentRef, filesRef }} size="S" />
+          <TextArea name="commentEdit" ref={{ commentRef: tempCommentRef, filesRef }} size="S" />
         ) : (
           <$CommentText>{editComment}</$CommentText>
         )}

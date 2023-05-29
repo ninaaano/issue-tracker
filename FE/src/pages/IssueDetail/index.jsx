@@ -57,7 +57,7 @@ const IssueDetail = () => {
               label={labelData}
               milestone={milestoneData}
             />
-            <TextArea id="comment" ref={{ commentRef, filesRef }} size="S" />
+            <TextArea name="comment" ref={{ commentRef, filesRef }} size="S" />
             <Button type="contained" size="S" onClick={submitHandler}>
               <Icon name="plus" />
               코멘트 작성
