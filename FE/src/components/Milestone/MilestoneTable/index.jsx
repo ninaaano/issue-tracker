@@ -1,18 +1,38 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import useFetch from '../../../hooks/useFetch';
+import { MILESTONES } from '../../../constants/api';
+
 import TextInput from '../../common/TextInput';
 import Button from '../../common/Button';
 import Icon from '../../common/Icon';
 import { $MilestoneTable, $TableTitle, $MilestoneTitleLayout, $Buttons } from './style';
 
-const MilestoneTable = ({ title = '', deadline = '', content = '', type = 'add', cancelClickHandler }) => {
+const MilestoneTable = ({
+  title = '',
+  deadline = '',
+  content = '',
+  type = 'add',
+  cancelClickHandler,
+  getNewMilestoneData,
+}) => {
   // 편집 페이지랑 같이 진행할 수 있도록
   const [milestoneInfo, setMilestoneInfo] = useState({
     title,
     deadline,
     content,
   });
+  const { fetchData: postNewMilestone } = useFetch(
+    MILESTONES.GET_ALL_MILESTONES,
+    'POST',
+    {
+      title: milestoneInfo.title,
+      deadline: milestoneInfo.deadline,
+      content: milestoneInfo.content,
+    },
+    true,
+  );
 
   const titleChangeHandler = ({ target }) => {
     setMilestoneInfo((prev) => {
@@ -35,6 +55,12 @@ const MilestoneTable = ({ title = '', deadline = '', content = '', type = 'add',
   const editCompleteHandler = () => {
     // TODO: PATCH or PUT 로직 해야함.
     cancelClickHandler();
+  };
+
+  const createNewMilestoneHandler = async () => {
+    // TODO: 에러 헨들링
+    await postNewMilestone();
+    getNewMilestoneData();
   };
 
   return (
@@ -65,7 +91,7 @@ const MilestoneTable = ({ title = '', deadline = '', content = '', type = 'add',
       />
       <$Buttons>
         {type === 'add' ? (
-          <Button type="contained" size="S">
+          <Button type="contained" size="S" onClick={createNewMilestoneHandler}>
             <Icon name="plus" />
             완료
           </Button>
@@ -92,6 +118,7 @@ MilestoneTable.propTypes = {
   content: PropTypes.string,
   type: PropTypes.string,
   cancelClickHandler: PropTypes.func,
+  getNewMilestoneData: PropTypes.func,
 };
 
 export default MilestoneTable;
