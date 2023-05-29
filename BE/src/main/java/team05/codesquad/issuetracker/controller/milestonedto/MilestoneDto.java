@@ -16,7 +16,7 @@ public class MilestoneDto {
     private LocalDate deadLine;
     private Long openedIssues;
     private Long closedIssues;
-    private Boolean status;
+    private Boolean isOpened;
 
     private MilestoneDto(Milestone milestone) { // 정적 팩토리 메서드를 위한 생성자
         this.id = milestone.getId();
@@ -25,7 +25,7 @@ public class MilestoneDto {
         this.deadLine = milestone.getDeadLine();
         this.openedIssues = milestone.countOpenIssues();
         this.closedIssues = milestone.countCloseIssues();
-        this.status = true;
+        this.isOpened = true;
     }
 
     public static MilestoneDto of(Milestone milestone) { // 정적 팩토리 메서드
