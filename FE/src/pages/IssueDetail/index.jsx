@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 
 import useFetch from '../../hooks/useFetch';
@@ -15,7 +15,6 @@ import { $IssueDetail, $IssueCommentArea, $IssueDetailMainLayout } from './style
 
 const IssueDetail = () => {
   // TODO: Text Area UnControlled Component로 바꾸기.
-  // 왜냐면 Text안에 Value가 바뀌면 전체 컴포넌트가 다 Rerender 일어남..!
   const { issueId } = useParams();
   const { data: issueDetailData } = useFetch(ISSUES.GET_ISSUE(issueId));
   const { data: userData } = useFetch(USERS.GET_ALL_USERS);
@@ -24,16 +23,8 @@ const IssueDetail = () => {
 
   const allDataLoaded = issueDetailData && userData && labelData && milestoneData;
 
-  const [comment, setComment] = useState('');
-  const [files, setFiles] = useState([]);
-
-  const commentEditHandler = ({ target }) => {
-    setComment(target.value);
-  };
-
-  const filesUploadHandler = ({ target }) => {
-    setFiles([...target.files]);
-  };
+  const commentRef = useRef('');
+  const filesRef = useRef([]);
 
   const makeSelectItemsObj = () => {
     const selectedItems = {};
@@ -43,6 +34,15 @@ const IssueDetail = () => {
     selectedItems.milestone = issueDetailData.milestone.milestoneId;
     selectedItems.label = issueDetailData.label[0].labelId;
     return selectedItems;
+  };
+
+  const submitHandler = () => {
+    const newComment = {
+      commentRef: commentRef.current.value,
+      files: filesRef.current.files,
+    };
+
+    console.log(newComment);
   };
 
   return (
@@ -57,15 +57,8 @@ const IssueDetail = () => {
               label={labelData}
               milestone={milestoneData}
             />
-            <TextArea
-              id="comment"
-              value={comment}
-              onChange={commentEditHandler}
-              size="S"
-              files={files}
-              filesUploadHandler={filesUploadHandler}
-            />
-            <Button type="contained" size="S">
+            <TextArea id="comment" ref={{ commentRef, filesRef }} size="S" />
+            <Button type="contained" size="S" onClick={submitHandler}>
               <Icon name="plus" />
               코멘트 작성
             </Button>
