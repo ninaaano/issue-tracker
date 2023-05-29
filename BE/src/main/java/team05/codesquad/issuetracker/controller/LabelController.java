@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import team05.codesquad.issuetracker.controller.labeldto.LabelRequest;
-import team05.codesquad.issuetracker.controller.labeldto.LabelResponse;
-import team05.codesquad.issuetracker.controller.labeldto.LabelsResponse;
+import team05.codesquad.issuetracker.controller.labeldto.request.LabelRequest;
+import team05.codesquad.issuetracker.controller.labeldto.response.LabelResponse;
+import team05.codesquad.issuetracker.controller.labeldto.response.LabelsResponse;
 import team05.codesquad.issuetracker.domain.label.Label;
 import team05.codesquad.issuetracker.service.LabelService;
 
@@ -24,9 +24,8 @@ public class LabelController {
 
     // 전체 목록 조회
     @GetMapping
-    public ResponseEntity<Iterable<Label>> getLabels() {
-        Iterable<Label> labelList = labelService.findAll();
-        return ResponseEntity.ok().body(labelList);
+    public ResponseEntity<LabelsResponse> getLabels() {
+        return ResponseEntity.ok().body(labelService.findAll());
     }
 
 
@@ -38,7 +37,7 @@ public class LabelController {
     }
 
     // 레이블 수정하기
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}") // put -> 전체, patch -> 일부교체. 근데 전체를 받고있는데 일부를 교체한다고 볼 수 있나? 이건 put이 맞다. 어차피 id는 변경이 안된다
     public ResponseEntity<LabelResponse> editLabel(@PathVariable Long id, @RequestBody LabelRequest request) {
         LabelResponse response = labelService.edit(id, request);
         return ResponseEntity.ok().body(response);
@@ -46,8 +45,9 @@ public class LabelController {
 
     // 레이블 삭제하기
     @DeleteMapping("/{id}")
-    public void deleteLabel(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteLabel(@PathVariable Long id) {
         labelService.delete(id);
+        return ResponseEntity.ok().build(); // 삭제를 빌더패턴으로 생성
     }
 
 }
