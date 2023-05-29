@@ -63,7 +63,7 @@ const DropDownMenu = ({
 };
 
 DropDownMenu.propTypes = {
-  menuId: PropTypes.oneOfType(['string', 'number']),
+  menuId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   menuType: PropTypes.string.isRequired,
   menuImg: PropTypes.string,
   menuText: PropTypes.string.isRequired,
