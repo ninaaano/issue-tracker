@@ -1,4 +1,4 @@
-package team05.codesquad.issuetracker.controller.labeldto;
+package team05.codesquad.issuetracker.controller.labeldto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
