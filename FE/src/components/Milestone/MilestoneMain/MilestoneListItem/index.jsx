@@ -24,11 +24,11 @@ import {
 const MilestoneListItem = ({ milestone }) => {
   const [isEdit, setIsEdit] = useState(false);
 
-  const calculatePercentage = () => {
+  const calculatePercentage = (() => {
     const totalIssues = milestone.openIssue + milestone.closeIssue;
 
     return Math.ceil((milestone.closeIssue / totalIssues) * 100);
-  };
+  })();
 
   const editButtonHandler = () => {
     setIsEdit(true);
@@ -74,9 +74,9 @@ const MilestoneListItem = ({ milestone }) => {
             삭제
           </Button>
         </$Buttons>
-        <$MilestoneProgress percent={calculatePercentage()} />
+        <$MilestoneProgress percent={calculatePercentage} />
         <$ProgressInfo>
-          <$Percent>{`${calculatePercentage()}%`}</$Percent>
+          <$Percent>{`${calculatePercentage}%`}</$Percent>
           <$Issues>
             <$OpenIssue>{`열린 이슈 ${milestone.openIssue}`}</$OpenIssue>
             <$CloseIssue>{`닫힌 이슈 ${milestone.closeIssue}`}</$CloseIssue>

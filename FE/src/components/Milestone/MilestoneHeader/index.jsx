@@ -7,7 +7,7 @@ import TabButton from '../../common/TabButton';
 import MilestoneAddTable from '../MilestoneTable';
 import { $MilestoneHeader, $MilestoneHeaderLayout } from './style';
 
-const MilestoneHeader = ({ labelCount = 0, milestoneCount = 0 }) => {
+const MilestoneHeader = ({ labelCount = 0, milestoneCount = 0, getNewMilestoneData }) => {
   const [isAdding, setIsAdding] = useState(false);
 
   const addMilestoneHandler = () => {
@@ -18,7 +18,7 @@ const MilestoneHeader = ({ labelCount = 0, milestoneCount = 0 }) => {
     setIsAdding(false);
   };
 
-  const createButton = () => {
+  const createButton = (() => {
     return isAdding ? (
       <Button type="outline" size="S" onClick={cancelAddHandler}>
         <Icon name="xSquare" />
@@ -30,15 +30,15 @@ const MilestoneHeader = ({ labelCount = 0, milestoneCount = 0 }) => {
         마일스톤 추가
       </Button>
     );
-  };
+  })();
 
   return (
     <$MilestoneHeaderLayout>
       <$MilestoneHeader>
         <TabButton labelCount={labelCount} milestoneCount={milestoneCount} currentButton="milestone" />
-        {createButton()}
+        {createButton}
       </$MilestoneHeader>
-      {isAdding && <MilestoneAddTable />}
+      {isAdding && <MilestoneAddTable getNewMilestoneData={getNewMilestoneData} />}
     </$MilestoneHeaderLayout>
   );
 };
@@ -46,6 +46,7 @@ const MilestoneHeader = ({ labelCount = 0, milestoneCount = 0 }) => {
 MilestoneHeader.propTypes = {
   labelCount: PropTypes.number.isRequired,
   milestoneCount: PropTypes.number.isRequired,
+  getNewMilestoneData: PropTypes.func.isRequired,
 };
 
 export default MilestoneHeader;
