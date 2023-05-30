@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Button from '../../../common/Button';
 
 const $LabelLayout = styled.div`
-  width: 150px;
+  width: 220px;
 `;
 
 const $LabelContent = styled.div`
@@ -18,6 +18,11 @@ const $ButtonsLayout = styled.div`
   gap: 35px;
 `;
 
+const $LabelInfo = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const $LabelListItem = styled.li`
   display: flex;
   justify-content: space-between;
@@ -25,8 +30,9 @@ const $LabelListItem = styled.li`
 
   height: 100px;
   padding: 0 32px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
 
   background-color: ${({ theme }) => theme.colors.neutral.background.strong};
 `;
 
-export { $LabelListItem, $LabelLayout, $LabelContent, $ButtonsLayout };
+export { $LabelListItem, $LabelLayout, $LabelContent, $ButtonsLayout, $LabelInfo };

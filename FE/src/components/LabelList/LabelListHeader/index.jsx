@@ -7,7 +7,7 @@ import TabButton from '../../common/TabButton';
 import { $LabelListHeaderLayout, $LabelListHeader } from './style';
 import LabelTable from '../LabelTable';
 
-const LabelListHeader = ({ labelCount, milestoneCount }) => {
+const LabelListHeader = ({ labelCount, milestoneCount, getNewLabelData }) => {
   const [isAddLabelButtonClicked, setIsAddLabelButtonClicked] = useState(false);
 
   const labelFormHandler = () => {
@@ -23,7 +23,9 @@ const LabelListHeader = ({ labelCount, milestoneCount }) => {
           <p>{isAddLabelButtonClicked ? '닫기' : '레이블 추가'}</p>
         </Button>
       </$LabelListHeader>
-      {isAddLabelButtonClicked && <LabelTable type="add" />}
+      {isAddLabelButtonClicked && (
+        <LabelTable type="add" closeHandler={labelFormHandler} getNewLabelData={getNewLabelData} />
+      )}
     </$LabelListHeaderLayout>
   );
 };
@@ -31,6 +33,7 @@ const LabelListHeader = ({ labelCount, milestoneCount }) => {
 LabelListHeader.propTypes = {
   labelCount: PropTypes.number.isRequired,
   milestoneCount: PropTypes.number.isRequired,
+  getNewLabelData: PropTypes.func.isRequired,
 };
 
 export default LabelListHeader;

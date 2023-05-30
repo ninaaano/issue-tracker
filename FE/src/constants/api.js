@@ -38,14 +38,14 @@ const COMMENTS = Object.freeze({
 const LABELS = Object.freeze({
   GET_ALL_LABELS: `${BASE_URL}/${API_TYPE.LABELS}`,
   POST_LABEL: `${BASE_URL}/${API_TYPE.LABELS}`,
-  PUT_LABEL: (labelId) => `${BASE_URL}/${API_TYPE.LABELS}/${labelId}`,
+  PATCH_LABEL: (labelId) => `${BASE_URL}/${API_TYPE.LABELS}/${labelId}`,
   DELETE_LABEL: (labelId) => `${BASE_URL}/${API_TYPE.LABELS}/${labelId}`,
 });
 
 const MILESTONES = Object.freeze({
   GET_ALL_MILESTONES: `${BASE_URL}/${API_TYPE.MILESTONES}`,
   POST_MILESTONE: `${BASE_URL}/${API_TYPE.MILESTONES}`,
-  PUT_MILESTONE: (milestoneId) => `${BASE_URL}/${API_TYPE.MILESTONES}/${milestoneId}`,
+  PATCH_MILESTONE: (milestoneId) => `${BASE_URL}/${API_TYPE.MILESTONES}/${milestoneId}`,
   DELETE_MILESTONE: (milestoneId) => `${BASE_URL}/${API_TYPE.MILESTONES}/${milestoneId}`,
 });
 
