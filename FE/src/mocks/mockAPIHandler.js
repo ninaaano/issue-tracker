@@ -126,6 +126,8 @@ const postLabelNewData = (request, response, context) => {
   };
 
   mockLabelData.data.push(responseBody);
+  console.log(mockLabelData);
+
   return response(
     context.status(200),
     context.json({

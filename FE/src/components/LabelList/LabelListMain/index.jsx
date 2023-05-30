@@ -5,8 +5,14 @@ import LabelListItem from './LabelListItem';
 import { $LabelListMain, $LabelCount } from './style';
 
 const LabelListMain = ({ labels }) => {
-  const LabelItems = labels.map(({ labelId, labelName, backgroundColor, textColor }) => (
-    <LabelListItem key={labelId} name={labelName} backgroundColor={backgroundColor} textColor={textColor} />
+  const LabelItems = labels.map(({ labelId, labelName, backgroundColor, textColor, content }) => (
+    <LabelListItem
+      key={labelId}
+      name={labelName}
+      backgroundColor={backgroundColor}
+      textColor={textColor}
+      content={content}
+    />
   ));
 
   return (
