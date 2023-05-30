@@ -15,12 +15,12 @@ import java.util.List;
 public class IssueResponse {
     private Long id;
     private String title;
-    private LocalDateTime createAt;
+    private LocalDateTime createdAt;
     //private Member author;
     //private List<Member> assignees;
     private List<LabelResponse> labels;
     private Long milestoneId;
-    private boolean isOpened;
+    private boolean isopened;
 
     public static IssueResponse from(Issue issue) {
         Long milestoneId = null; // null 써야해서 Integer사용
