@@ -95,6 +95,25 @@ const editMilestoneData = (request, response, context) => {
   );
 };
 
+const deleteMilestone = (request, response, context) => {
+  const { milestoneId } = request.params;
+
+  const updatedMilestoneData = mockMilestoneData.data.filter(
+    (milestone) => milestone.milestoneId !== Number(milestoneId),
+  );
+
+  mockMilestoneData.data = updatedMilestoneData; // 해당 id에 해당하는 데이터를 지운 데이터로 바꿔줌.
+
+  return response(
+    context.status(200),
+    context.json({
+      status: 200,
+      message: 'milestone Data Patch 완료',
+      data: mockMilestoneData.data,
+    }),
+  );
+};
+
 const postLabelNewData = (request, response, context) => {
   const lastLabelId = mockLabelData.data[mockLabelData.data.length - 1].labelId;
   const { labelName, content, backgroundColor, textColor } = request.body;
@@ -120,11 +139,15 @@ const postLabelNewData = (request, response, context) => {
 const mockAPIHandler = [
   rest.get(ISSUES.GET_ALL_ISSUES, getIssues),
   rest.get(ISSUES.GET_ISSUE(':issueId'), getIssueDetailData),
+
   rest.get(USERS.GET_USER_IMG(':userId'), getUserImage),
   rest.get(USERS.GET_ALL_USERS, getUserData),
+
   rest.get(MILESTONES.GET_ALL_MILESTONES, getMilestoneData),
   rest.post(MILESTONES.POST_MILESTONE, postMilestoneNewData),
   rest.patch(MILESTONES.PATCH_MILESTONE(':milestoneId'), editMilestoneData),
+  rest.delete(MILESTONES.DELETE_MILESTONE(':milestoneId'), deleteMilestone),
+
   rest.get(LABELS.GET_ALL_LABELS, getLabelData),
   rest.post(LABELS.POST_LABEL, postLabelNewData),
 ];

@@ -36,6 +36,13 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
     true,
   );
 
+  const { fetchData: deleteMilestone } = useFetch(
+    MILESTONES.DELETE_MILESTONE(milestone.milestoneId),
+    'DELETE',
+    {},
+    true,
+  );
+
   const calculatePercentage = (() => {
     const totalIssues = milestone.openIssue + milestone.closeIssue;
 
@@ -52,8 +59,14 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
   };
 
   const changeMilestoneStatusHandler = async () => {
-    // TODO: 삭제하시겠습니까? 모달 구현하기.
+    // TODO: 닫겠습니까? 모달 구현하기.
     await changeMilestoneStatus();
+    getNewMilestoneData();
+  };
+
+  const deleteMilestoneHandler = async () => {
+    // TODO: 마일스톤을 삭제하시겠습니까? 모달 구현.
+    await deleteMilestone();
     getNewMilestoneData();
   };
 
@@ -99,7 +112,7 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
             <Icon name="edit" fill="#4E4B66" />
             편집
           </Button>
-          <Button type="ghost" size="S">
+          <Button type="ghost" size="S" onClick={deleteMilestoneHandler}>
             <Icon name="trash" fill="#FF3B30" />
             삭제
           </Button>
