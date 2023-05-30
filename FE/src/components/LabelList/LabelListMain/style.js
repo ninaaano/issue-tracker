@@ -24,6 +24,7 @@ const lastLabelListItemBorder = css`
 `;
 
 const $LabelListMain = styled.section`
+  overflow: hidden;
   border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
   border-radius: 16px;
 

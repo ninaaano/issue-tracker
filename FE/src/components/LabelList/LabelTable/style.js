@@ -63,13 +63,17 @@ const labelTableBorder = css`
   border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
 `;
 
+const labelEditTableBorder = css`
+  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
+`;
+
 const $LabelTable = styled.section`
   display: flex;
   flex-direction: column;
   gap: 24px;
 
   padding: 32px;
-  ${({ type }) => type === 'add' && labelTableBorder}
+  ${({ type }) => (type === 'add' ? labelTableBorder : labelEditTableBorder)}
 
   background-color: ${({ theme }) => theme.colors.neutral.background.strong};
 `;
