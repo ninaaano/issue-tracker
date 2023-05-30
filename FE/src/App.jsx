@@ -21,7 +21,7 @@ const App = () => {
     <ThemeProvider>
       <GlobalStyles />
       {userImgData && <Header userImgSrc={userImgData.userImgURL} />}
-      <BrowserRouter>
+      <BrowserRouter basename="/">
         <Routes>
           <Route path="/login" />
           <Route path="/" element={<Navigate to="/issues" />} />

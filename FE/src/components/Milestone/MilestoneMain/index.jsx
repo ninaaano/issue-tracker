@@ -5,7 +5,7 @@ import MilestoneMainHeader from './MilestoneMainHeader';
 import MilestoneListItem from './MilestoneListItem';
 import { $MilestoneMain, $NoResult } from './style';
 
-const MilestoneMain = ({ milestoneData }) => {
+const MilestoneMain = ({ milestoneData, getNewMilestoneData }) => {
   const [isOpenView, setIsOpenView] = useState(true);
 
   const classifyMilestonesByStatus = () => {
@@ -43,7 +43,11 @@ const MilestoneMain = ({ milestoneData }) => {
       />
       {currentViewMilestones.length > 0
         ? currentViewMilestones.map((milestone) => (
-            <MilestoneListItem key={milestone.milestoneId} milestone={milestone} />
+            <MilestoneListItem
+              key={milestone.milestoneId}
+              milestone={milestone}
+              getNewMilestoneData={getNewMilestoneData}
+            />
           ))
         : noResultMessage}
     </$MilestoneMain>
@@ -52,6 +56,7 @@ const MilestoneMain = ({ milestoneData }) => {
 
 MilestoneMain.propTypes = {
   milestoneData: PropTypes.array.isRequired,
+  getNewMilestoneData: PropTypes.func.isRequired,
 };
 
 export default MilestoneMain;

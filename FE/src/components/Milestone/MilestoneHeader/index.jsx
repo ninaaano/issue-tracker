@@ -38,7 +38,9 @@ const MilestoneHeader = ({ labelCount = 0, milestoneCount = 0, getNewMilestoneDa
         <TabButton labelCount={labelCount} milestoneCount={milestoneCount} currentButton="milestone" />
         {createButton}
       </$MilestoneHeader>
-      {isAdding && <MilestoneAddTable getNewMilestoneData={getNewMilestoneData} />}
+      {isAdding && (
+        <MilestoneAddTable getNewMilestoneData={getNewMilestoneData} closeTableHandler={cancelAddHandler} />
+      )}
     </$MilestoneHeaderLayout>
   );
 };

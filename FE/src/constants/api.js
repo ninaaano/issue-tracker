@@ -45,7 +45,7 @@ const LABELS = Object.freeze({
 const MILESTONES = Object.freeze({
   GET_ALL_MILESTONES: `${BASE_URL}/${API_TYPE.MILESTONES}`,
   POST_MILESTONE: `${BASE_URL}/${API_TYPE.MILESTONES}`,
-  PUT_MILESTONE: (milestoneId) => `${BASE_URL}/${API_TYPE.MILESTONES}/${milestoneId}`,
+  PATCH_MILESTONE: (milestoneId) => `${BASE_URL}/${API_TYPE.MILESTONES}/${milestoneId}`,
   DELETE_MILESTONE: (milestoneId) => `${BASE_URL}/${API_TYPE.MILESTONES}/${milestoneId}`,
 });
 

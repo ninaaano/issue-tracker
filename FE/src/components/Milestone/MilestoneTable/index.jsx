@@ -10,18 +10,22 @@ import Icon from '../../common/Icon';
 import { $MilestoneTable, $TableTitle, $MilestoneTitleLayout, $Buttons } from './style';
 
 const MilestoneTable = ({
+  id = 0,
   title = '',
   deadline = '',
   content = '',
+  isOpened = true,
   type = 'add',
   cancelClickHandler,
   getNewMilestoneData,
+  closeTableHandler,
 }) => {
   // 편집 페이지랑 같이 진행할 수 있도록
   const [milestoneInfo, setMilestoneInfo] = useState({
     title,
-    deadline,
-    content,
+    deadline: deadline === null ? '' : deadline,
+    content: content === null ? '' : content,
+    isOpened,
   });
   const { fetchData: postNewMilestone } = useFetch(
     MILESTONES.GET_ALL_MILESTONES,
@@ -30,6 +34,18 @@ const MilestoneTable = ({
       title: milestoneInfo.title,
       deadline: milestoneInfo.deadline,
       content: milestoneInfo.content,
+    },
+    true,
+  );
+
+  const { fetchData: editMilestoneData } = useFetch(
+    MILESTONES.PATCH_MILESTONE(id),
+    'PATCH',
+    {
+      title: milestoneInfo.title,
+      deadline: milestoneInfo.deadline,
+      content: milestoneInfo.content,
+      isOpened,
     },
     true,
   );
@@ -52,8 +68,10 @@ const MilestoneTable = ({
     });
   };
 
-  const editCompleteHandler = () => {
-    // TODO: PATCH or PUT 로직 해야함.
+  const editCompleteHandler = async () => {
+    // TODO: Patch 요청 보내고 성공 시 Get요청 다시 보내서 받아오기.
+    await editMilestoneData();
+    getNewMilestoneData();
     cancelClickHandler();
   };
 
@@ -61,6 +79,7 @@ const MilestoneTable = ({
     // TODO: 에러 헨들링
     await postNewMilestone();
     getNewMilestoneData();
+    closeTableHandler();
   };
 
   return (
@@ -91,7 +110,12 @@ const MilestoneTable = ({
       />
       <$Buttons>
         {type === 'add' ? (
-          <Button type="contained" size="S" onClick={createNewMilestoneHandler}>
+          <Button
+            type="contained"
+            size="S"
+            onClick={createNewMilestoneHandler}
+            disabled={milestoneInfo.title.length === 0}
+          >
             <Icon name="plus" />
             완료
           </Button>
@@ -113,12 +137,15 @@ const MilestoneTable = ({
 };
 
 MilestoneTable.propTypes = {
+  id: PropTypes.number,
   title: PropTypes.string,
   deadline: PropTypes.string,
   content: PropTypes.string,
+  isOpened: PropTypes.bool,
   type: PropTypes.string,
   cancelClickHandler: PropTypes.func,
   getNewMilestoneData: PropTypes.func,
+  closeTableHandler: PropTypes.func,
 };
 
 export default MilestoneTable;
