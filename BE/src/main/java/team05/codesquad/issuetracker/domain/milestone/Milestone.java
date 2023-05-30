@@ -37,20 +37,7 @@ public class Milestone {
     @Column("is_opened")
     private boolean isOpened;
 
-    @Transient
-    private List<Issue> issues = new ArrayList<>();
-
-    // 마일스톤이 이슈를 가지고 있어야할 것 같은데....
-
     public Milestone() {
-    }
-
-    public Milestone(Long id, String title, String description, LocalDate deadLine, boolean isOpened) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.deadLine = deadLine;
-        this.isOpened = isOpened;
     }
 
     @Builder
@@ -74,18 +61,6 @@ public class Milestone {
         this.title = title;
         this.description = description;
         this.deadLine = deadLine;
-    }
-
-    public long countOpenIssues(){
-        return issues.stream()
-                .filter(Issue::getIsOpened)
-                .count();
-    }
-
-    public long countCloseIssues(){
-        return issues.stream()
-                .filter(issue -> !issue.getIsOpened()) // Issue 객체의 status 필드가 false인 경우 필터링
-                .count();
     }
 
 }
