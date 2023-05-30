@@ -16,5 +16,11 @@ public interface LabelRepository extends CrudRepository<Label, Long> {
     @Query("UPDATE label SET title = :title, description = :description, background_color =:backgroundColor, font_color =:fontColor where label_id = :id")
     void update(Long id, String title, String description, String backgroundColor, String fontColor);
 
+    @Query("SELECT l.label_id, l.title, l.description, l.background_color, l.font_color " +
+            "FROM label l " +
+            "LEFT OUTER JOIN label_attached_issues lai ON lai.label_id = l.label_id " +
+            "WHERE lai.issue_id = :issueId")
+    List<Label> findAllByIssueId(Long issueId);
+
 
 }

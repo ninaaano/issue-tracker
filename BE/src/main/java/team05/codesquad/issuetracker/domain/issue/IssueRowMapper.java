@@ -11,9 +11,10 @@ public class IssueRowMapper implements RowMapper<Issue> {
 
     @Override
     public Issue mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Issue issue = new BeanPropertyRowMapper<>(Issue.class).mapRow(rs,rowNum);
+        Issue issue = new BeanPropertyRowMapper<>(Issue.class).mapRow(rs, rowNum);
+        Long milestoneId = rs.getLong("milestone_id");
         Milestone milestone = Milestone.builder()
-                .id(rs.getLong("milestone_id"))
+                .id(milestoneId == 0 ? null : milestoneId)
                 .title(rs.getString("milestone_title"))
                 .deadLine(null)
                 .description(rs.getString("milestone_description"))
