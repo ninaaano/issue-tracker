@@ -23,7 +23,7 @@ public class IssueResponse {
     private boolean isopened;
 
     public static IssueResponse from(Issue issue) {
-        Long milestoneId = null; // null 써야해서 Integer사용
+        Long milestoneId = null;
         if(issue.getMilestone() != null){
             milestoneId = issue.getMilestone().getId();
         }
