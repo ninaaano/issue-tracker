@@ -21,7 +21,7 @@ import {
   $CloseIssue,
 } from './style';
 
-const MilestoneListItem = ({ milestone }) => {
+const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
   const [isEdit, setIsEdit] = useState(false);
 
   const calculatePercentage = (() => {
@@ -42,10 +42,13 @@ const MilestoneListItem = ({ milestone }) => {
   return isEdit ? (
     <MilestoneTable
       type="edit"
+      id={milestone.milestoneId}
       title={milestone.milestoneName}
       deadline={milestone.deadline}
       content={milestone.content}
       cancelClickHandler={cancelEditHandler}
+      isOpened={milestone.isOpened}
+      getNewMilestoneData={getNewMilestoneData}
     />
   ) : (
     <$MilestoneListItem>
@@ -90,6 +93,7 @@ const MilestoneListItem = ({ milestone }) => {
 
 MilestoneListItem.propTypes = {
   milestone: PropTypes.object.isRequired,
+  getNewMilestoneData: PropTypes.func.isRequired,
 };
 
 export default MilestoneListItem;

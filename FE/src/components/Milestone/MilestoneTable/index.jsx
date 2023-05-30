@@ -10,9 +10,11 @@ import Icon from '../../common/Icon';
 import { $MilestoneTable, $TableTitle, $MilestoneTitleLayout, $Buttons } from './style';
 
 const MilestoneTable = ({
+  id = 0,
   title = '',
   deadline = '',
   content = '',
+  isOpened = true,
   type = 'add',
   cancelClickHandler,
   getNewMilestoneData,
@@ -23,6 +25,7 @@ const MilestoneTable = ({
     title,
     deadline,
     content,
+    isOpened,
   });
   const { fetchData: postNewMilestone } = useFetch(
     MILESTONES.GET_ALL_MILESTONES,
@@ -31,6 +34,18 @@ const MilestoneTable = ({
       title: milestoneInfo.title,
       deadline: milestoneInfo.deadline,
       content: milestoneInfo.content,
+    },
+    true,
+  );
+
+  const { fetchData: editMilestoneData } = useFetch(
+    MILESTONES.PATCH_MILESTONE(id),
+    'PATCH',
+    {
+      title: milestoneInfo.title,
+      deadline: milestoneInfo.deadline,
+      content: milestoneInfo.content,
+      isOpened,
     },
     true,
   );
@@ -53,8 +68,10 @@ const MilestoneTable = ({
     });
   };
 
-  const editCompleteHandler = () => {
-    // TODO: PATCH or PUT 로직 해야함.
+  const editCompleteHandler = async () => {
+    // TODO: Patch 요청 보내고 성공 시 Get요청 다시 보내서 받아오기.
+    await editMilestoneData();
+    getNewMilestoneData();
     cancelClickHandler();
   };
 
@@ -120,9 +137,11 @@ const MilestoneTable = ({
 };
 
 MilestoneTable.propTypes = {
+  id: PropTypes.number,
   title: PropTypes.string,
   deadline: PropTypes.string,
   content: PropTypes.string,
+  isOpened: PropTypes.bool,
   type: PropTypes.string,
   cancelClickHandler: PropTypes.func,
   getNewMilestoneData: PropTypes.func,

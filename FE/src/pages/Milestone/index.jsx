@@ -32,7 +32,7 @@ const Milestone = () => {
           milestoneCount={milestoneData.length}
           getNewMilestoneData={getNewMilestoneData}
         />
-        <MilestoneMain milestoneData={milestone} />
+        <MilestoneMain milestoneData={milestone} getNewMilestoneData={getNewMilestoneData} />
       </$Milestone>
     )
   );

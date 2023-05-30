@@ -65,6 +65,36 @@ const postMilestoneNewData = (request, response, context) => {
   );
 };
 
+const editMilestoneData = (request, response, context) => {
+  const { milestoneId } = request.params;
+
+  const { title, content, deadline, isOpened } = request.body;
+  let targetMilestoneIndex = -1;
+
+  mockMilestoneData.data.forEach((milestone, index) => {
+    if (milestone.milestoneId === Number(milestoneId)) {
+      targetMilestoneIndex = index;
+    }
+  });
+
+  mockMilestoneData.data[targetMilestoneIndex] = {
+    ...mockMilestoneData.data[targetMilestoneIndex],
+    milestoneName: title === undefined ? mockMilestoneData.data[targetMilestoneIndex].milestoneName : title,
+    content: content === undefined ? null : content,
+    deadline: deadline === undefined ? null : deadline,
+    isOpened,
+  };
+
+  return response(
+    context.status(200),
+    context.json({
+      status: 200,
+      message: 'milestone Data Patch 완료',
+      data: mockMilestoneData.data[targetMilestoneIndex],
+    }),
+  );
+};
+
 const postLabelNewData = (request, response, context) => {
   const lastLabelId = mockLabelData.data[mockLabelData.data.length - 1].labelId;
   const { labelName, content, backgroundColor, textColor } = request.body;
@@ -89,12 +119,13 @@ const postLabelNewData = (request, response, context) => {
 
 const mockAPIHandler = [
   rest.get(ISSUES.GET_ALL_ISSUES, getIssues),
+  rest.get(ISSUES.GET_ISSUE(':issueId'), getIssueDetailData),
   rest.get(USERS.GET_USER_IMG(':userId'), getUserImage),
   rest.get(USERS.GET_ALL_USERS, getUserData),
-  rest.get(LABELS.GET_ALL_LABELS, getLabelData),
   rest.get(MILESTONES.GET_ALL_MILESTONES, getMilestoneData),
-  rest.get(ISSUES.GET_ISSUE(':issueId'), getIssueDetailData),
   rest.post(MILESTONES.POST_MILESTONE, postMilestoneNewData),
+  rest.patch(MILESTONES.PATCH_MILESTONE(':milestoneId'), editMilestoneData),
+  rest.get(LABELS.GET_ALL_LABELS, getLabelData),
   rest.post(LABELS.POST_LABEL, postLabelNewData),
 ];
 
