@@ -14,6 +14,7 @@ import {
   $TableButtonsLayout,
   $LabelTableLayout,
   $TextColorSelect,
+  $ColorRandomButton,
 } from './style';
 
 const LabelTable = ({
@@ -94,7 +95,9 @@ const LabelTable = ({
               labelText="배경 색상"
               placeholderText="입력해주세요"
             />
-
+            <$ColorRandomButton type="button">
+              <Icon name="refreshCcw" width={20} height={20} fill="#4E4B66" />
+            </$ColorRandomButton>
             <$TextColorSelect
               name="labelTextColor"
               defaultValue={textColor}

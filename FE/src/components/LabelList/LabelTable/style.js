@@ -30,6 +30,7 @@ const $LabelColorInputLayout = styled.div`
   display: flex;
   align-items: center;
   width: 380px;
+  gap: 8px;
 `;
 
 const $TextColorSelect = styled.select`
@@ -39,6 +40,11 @@ const $TextColorSelect = styled.select`
   color: ${({ theme }) => theme.colors.neutral.text.weak};
   font-size: ${({ theme }) => theme.fontSize.M.fontSize};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
+`;
+
+const $ColorRandomButton = styled.button`
+  width: 24px;
+  height: 24px;
 `;
 
 const $LabelTableLayout = styled.div`
@@ -77,4 +83,5 @@ export {
   $TableButtonsLayout,
   $LabelTableLayout,
   $TextColorSelect,
+  $ColorRandomButton,
 };
