@@ -28,7 +28,17 @@ const $LabelTableInputLayout = styled.div`
 
 const $LabelColorInputLayout = styled.div`
   display: flex;
-  gap: 24px;
+  align-items: center;
+  width: 380px;
+`;
+
+const $TextColorSelect = styled.select`
+  width: 100px;
+  margin-left: 24px;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.neutral.text.weak};
+  font-size: ${({ theme }) => theme.fontSize.M.fontSize};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
 
 const $LabelTableLayout = styled.div`
@@ -66,4 +76,5 @@ export {
   $LabelColorInputLayout,
   $TableButtonsLayout,
   $LabelTableLayout,
+  $TextColorSelect,
 };

@@ -13,6 +13,7 @@ import {
   $LabelColorInputLayout,
   $TableButtonsLayout,
   $LabelTableLayout,
+  $TextColorSelect,
 } from './style';
 
 const LabelTable = ({
@@ -94,10 +95,15 @@ const LabelTable = ({
               placeholderText="입력해주세요"
             />
 
-            <select name="labelTextColor" defaultValue={textColor} onChange={textColorChangeHandler}>
+            <$TextColorSelect
+              name="labelTextColor"
+              defaultValue={textColor}
+              onChange={textColorChangeHandler}
+            >
               <option value="dark">dark text</option>
               <option value="light">light text</option>
-            </select>
+            </$TextColorSelect>
+            <Icon name="chevronDown" width={24} height={24} fill="#6E7191" />
           </$LabelColorInputLayout>
         </$LabelTableInputLayout>
       </$LabelTableLayout>
