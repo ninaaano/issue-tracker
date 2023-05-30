@@ -26,7 +26,7 @@ const $Buttons = styled.div`
 const $MilestoneTable = styled.section`
   display: flex;
   flex-direction: column;
-  width: 1280px;
+  width: 100%;
   height: 284px;
   padding: 36px 32px;
   background-color: ${({ theme }) => theme.colors.neutral.background.strong};
