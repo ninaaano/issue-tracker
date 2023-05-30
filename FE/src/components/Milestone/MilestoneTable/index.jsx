@@ -23,8 +23,8 @@ const MilestoneTable = ({
   // 편집 페이지랑 같이 진행할 수 있도록
   const [milestoneInfo, setMilestoneInfo] = useState({
     title,
-    deadline,
-    content,
+    deadline: deadline === null ? '' : deadline,
+    content: content === null ? '' : content,
     isOpened,
   });
   const { fetchData: postNewMilestone } = useFetch(
