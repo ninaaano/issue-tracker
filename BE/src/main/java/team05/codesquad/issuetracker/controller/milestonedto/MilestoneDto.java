@@ -2,9 +2,11 @@ package team05.codesquad.issuetracker.controller.milestonedto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import team05.codesquad.issuetracker.controller.issuedto.response.IssuesResponse;
 import team05.codesquad.issuetracker.domain.milestone.Milestone;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -14,22 +16,20 @@ public class MilestoneDto {
     private String title;
     private String description;
     private LocalDate deadLine;
-    private Long openedIssues;
-    private Long closedIssues;
-    private Boolean status;
+    private Boolean isOpened;
+    private IssuesResponse issuesResponse;
 
-    private MilestoneDto(Milestone milestone) { // 정적 팩토리 메서드를 위한 생성자
+    private MilestoneDto(Milestone milestone, IssuesResponse issuesResponse) {
         this.id = milestone.getId();
         this.title = milestone.getTitle();
         this.description = milestone.getDescription();
         this.deadLine = milestone.getDeadLine();
-        this.openedIssues = milestone.countOpenIssues();
-        this.closedIssues = milestone.countCloseIssues();
-        this.status = true;
+        this.isOpened = true;
+        this.issuesResponse = issuesResponse;
     }
 
-    public static MilestoneDto of(Milestone milestone) { // 정적 팩토리 메서드
-        return new MilestoneDto(milestone);
+    public static MilestoneDto of(Milestone milestone, IssuesResponse issuesResponse) {
+        return new MilestoneDto(milestone, issuesResponse);
     }
 
 }
