@@ -15,8 +15,6 @@ const IssueDetailMain = ({ detailIssue, user: userData, label: labelData, milest
     label: detailIssue.label[0]?.labelId,
   });
 
-  console.log(detailIssue);
-
   const [comment, setComment] = useState('');
   const [files, setFiles] = useState([]);
 
@@ -33,7 +31,7 @@ const IssueDetailMain = ({ detailIssue, user: userData, label: labelData, milest
     setSelectedItems({ ...selectedItems, milestone: milestoneId });
   };
 
-  // console.log(selectedItems);
+  console.log(selectedItems);
 
   return (
     <$IssueDetailMainLayout>

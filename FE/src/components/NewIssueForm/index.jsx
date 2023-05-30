@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -23,44 +23,49 @@ const NewIssueForm = ({ userImgSrc, userData, labelData, milestoneData }) => {
   });
   const navigate = useNavigate();
 
-  // const { fetchData: postNewIssue, data: newIssue } = useFetch(
-  //   ISSUES.POST_ISSUE,
-  //   'POST',
-  //   {
-  //     issueTitle: issueInfo.title,
-  //     comment: [issueInfo.comment],
-  //     assignee: [issueInfo.assignee],
-  //     label: [issueInfo.label],
-  //     milestoneData: issueInfo.milestone,
-  //   },
-  //   true,
-  // );
+  const { fetchData: postNewIssue, data: newIssue } = useFetch(
+    ISSUES.POST_ISSUE,
+    'POST',
+    {
+      issueTitle: issueInfo.title,
+      comment: issueInfo.comment,
+      assignee: issueInfo.assignee === null ? [] : [issueInfo.assignee],
+      label: issueInfo.label === null ? [] : [issueInfo.label],
+      milestone: issueInfo.milestone,
+    },
+    true,
+  );
 
-  const changeTitleHandler = ({ target }) => setIssueInfo({ ...issueInfo, title: target.value });
-  const changeCommentHandler = ({ target }) => setIssueInfo({ ...issueInfo, comment: target.value });
+  const changeTitleHandler = ({ target }) => {
+    setIssueInfo({ ...issueInfo, title: target.value });
+  };
+  const changeCommentHandler = ({ target }) => {
+    setIssueInfo({ ...issueInfo, comment: target.value || 'No description provided.' });
+  };
   const changeAssigneeHandler = (userId) => setIssueInfo({ ...issueInfo, assignee: userId });
   const changeLabelHandler = (labelId) => setIssueInfo({ ...issueInfo, label: labelId });
   const changeMilestoneHandler = (milestoneId) => setIssueInfo({ ...issueInfo, milestone: milestoneId });
 
   const navigateToIssueList = () => navigate('/');
-  // const navigateToDetailIssue = () => navigate(`/issues/${issueInfo.issueId}`);
+  const navigateToDetailIssue = () => navigate(`/issues/${newIssue.issueId}`);
 
   const submitHandler = async (event) => {
     event.preventDefault();
 
-    // await postNewIssue();
-    // console.log(newIssue.issueId);
-    // navigateToDetailIssue(newIssue.issueId);
-
-    console.log(issueInfo);
+    await postNewIssue();
   };
 
   const filesUploadHandler = ({ target }) => {
     setFiles([...target.files]);
   };
 
+  useEffect(() => {
+    if (!newIssue) return;
+    navigateToDetailIssue();
+  }, [newIssue]);
+
   return (
-    <$NewIssueForm onSubmit={submitHandler}>
+    <$NewIssueForm>
       <$NewIssueFormMain>
         <$UserImg src={userImgSrc} alt="myImg" />
         <$InputWrapper>
