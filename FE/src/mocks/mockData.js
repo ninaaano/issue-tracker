@@ -29,12 +29,14 @@ const mockIssuesData = {
           {
             labelId: 1,
             labelName: 'docs',
+            content: 'docs에 관련된 라벨입니다.',
             backgroundColor: '#0025E6',
             textColor: 'light',
           },
           {
             labelId: 2,
             labelName: 'bug',
+            content: 'bug에 관련된 라벨입니다.',
             backgroundColor: '#DE4123',
             textColor: 'dark',
           },
@@ -71,12 +73,14 @@ const mockIssuesData = {
           {
             labelId: 1,
             labelName: 'docs',
+            content: 'docs에 관련된 라벨입니다.',
             backgroundColor: '#0025E6',
             textColor: 'light',
           },
           {
             labelId: 2,
             labelName: 'bug',
+            content: 'bug에 관련된 라벨입니다.',
             backgroundColor: '#DE4123',
             textColor: 'dark',
           },
@@ -113,6 +117,7 @@ const mockIssuesData = {
           {
             labelId: 3,
             labelName: 'enhancement',
+            content: 'enhancement에 관련된 라벨입니다.',
             backgroundColor: '#50C878',
             textColor: 'dark',
           },
@@ -149,6 +154,7 @@ const mockIssuesData = {
           {
             labelId: 2,
             labelName: 'bug',
+            content: 'bug에 관련된 라벨입니다.',
             backgroundColor: '#DE4123',
             textColor: 'dark',
           },
@@ -185,12 +191,14 @@ const mockIssuesData = {
           {
             labelId: 1,
             labelName: 'docs',
+            content: 'docs에 관련된 라벨입니다.',
             backgroundColor: '#0025E6',
             textColor: 'light',
           },
           {
             labelId: 2,
             labelName: 'bug',
+            content: 'bug에 관련된 라벨입니다.',
             backgroundColor: '#DE4123',
             textColor: 'dark',
           },
@@ -227,6 +235,7 @@ const mockIssuesData = {
           {
             labelId: 4,
             labelName: 'task',
+            content: '',
             backgroundColor: '#FFD700',
             textColor: 'dark',
           },
@@ -263,12 +272,14 @@ const mockIssuesData = {
           {
             labelId: 1,
             labelName: 'docs',
+            content: 'docs에 관련된 라벨입니다.',
             backgroundColor: '#0025E6',
             textColor: 'light',
           },
           {
             labelId: 3,
             labelName: 'enhancement',
+            content: 'enhancement에 관련된 라벨입니다.',
             backgroundColor: '#50C878',
             textColor: 'dark',
           },
@@ -305,6 +316,7 @@ const mockIssuesData = {
           {
             labelId: 3,
             labelName: 'enhancement',
+            content: 'enhancement에 관련된 라벨입니다.',
             backgroundColor: '#50C878',
             textColor: 'dark',
           },
@@ -341,12 +353,14 @@ const mockIssuesData = {
           {
             labelId: 1,
             labelName: 'docs',
+            content: 'docs에 관련된 라벨입니다.',
             backgroundColor: '#0025E6',
             textColor: 'light',
           },
           {
             labelId: 4,
             labelName: 'task',
+            content: '',
             backgroundColor: '#FFD700',
             textColor: 'dark',
           },
@@ -383,12 +397,14 @@ const mockIssuesData = {
           {
             labelId: 1,
             labelName: 'docs',
+            content: 'docs에 관련된 라벨입니다.',
             backgroundColor: '#0025E6',
             textColor: 'light',
           },
           {
             labelId: 3,
             labelName: 'enhancement',
+            content: 'enhancement에 관련된 라벨입니다.',
             backgroundColor: '#50C878',
             textColor: 'dark',
           },
@@ -425,6 +441,7 @@ const mockIssuesData = {
           {
             labelId: 2,
             labelName: 'bug',
+            content: 'bug에 관련된 라벨입니다.',
             backgroundColor: '#DE4123',
             textColor: 'dark',
           },
@@ -461,6 +478,7 @@ const mockIssuesData = {
           {
             labelId: 3,
             labelName: 'enhancement',
+            content: 'enhancement에 관련된 라벨입니다.',
             backgroundColor: '#50C878',
             textColor: 'dark',
           },
@@ -497,6 +515,7 @@ const mockIssuesData = {
           {
             labelId: 4,
             labelName: 'task',
+            content: '',
             backgroundColor: '#FFD700',
             textColor: 'dark',
           },
@@ -533,12 +552,14 @@ const mockIssuesData = {
           {
             labelId: 1,
             labelName: 'docs',
+            content: 'docs에 관련된 라벨입니다.',
             backgroundColor: '#0025E6',
             textColor: 'light',
           },
           {
             labelId: 3,
             labelName: 'enhancement',
+            content: 'enhancement에 관련된 라벨입니다.',
             backgroundColor: '#50C878',
             textColor: 'dark',
           },
@@ -575,6 +596,7 @@ const mockIssuesData = {
           {
             labelId: 2,
             labelName: 'bug',
+            content: 'bug에 관련된 라벨입니다.',
             backgroundColor: '#DE4123',
             textColor: 'dark',
           },
@@ -611,6 +633,7 @@ const mockIssuesData = {
           {
             labelId: 3,
             labelName: 'enhancement',
+            content: 'enhancement에 관련된 라벨입니다.',
             backgroundColor: '#50C878',
             textColor: 'dark',
           },
@@ -647,6 +670,7 @@ const mockIssuesData = {
           {
             labelId: 4,
             labelName: 'task',
+            content: '',
             backgroundColor: '#FFD700',
             textColor: 'dark',
           },
@@ -730,12 +754,14 @@ const issueDetailData = [
       {
         labelId: 1,
         labelName: 'docs',
+        content: 'docs에 관련된 라벨입니다.',
         backgroundColor: '#0025E6',
         textColor: 'light',
       },
       {
         labelId: 2,
         labelName: 'bug',
+        content: 'bug에 관련된 라벨입니다.',
         backgroundColor: '#DE4123',
         textColor: 'dark',
       },
@@ -803,12 +829,14 @@ const issueDetailData = [
       {
         labelId: 1,
         labelName: 'docs',
+        content: 'docs에 관련된 라벨입니다.',
         backgroundColor: '#0025E6',
         textColor: 'light',
       },
       {
         labelId: 2,
         labelName: 'bug',
+        content: 'bug에 관련된 라벨입니다.',
         backgroundColor: '#DE4123',
         textColor: 'dark',
       },
@@ -876,6 +904,7 @@ const issueDetailData = [
       {
         labelId: 3,
         labelName: 'enhancement',
+        content: 'enhancement에 관련된 라벨입니다.',
         backgroundColor: '#50C878',
         textColor: 'dark',
       },
@@ -943,6 +972,7 @@ const issueDetailData = [
       {
         labelId: 2,
         labelName: 'bug',
+        content: 'bug에 관련된 라벨입니다.',
         backgroundColor: '#DE4123',
         textColor: 'dark',
       },
@@ -1010,12 +1040,14 @@ const issueDetailData = [
       {
         labelId: 1,
         labelName: 'docs',
+        content: 'docs에 관련된 라벨입니다.',
         backgroundColor: '#0025E6',
         textColor: 'light',
       },
       {
         labelId: 2,
         labelName: 'bug',
+        content: 'bug에 관련된 라벨입니다.',
         backgroundColor: '#DE4123',
         textColor: 'dark',
       },
@@ -1083,6 +1115,7 @@ const issueDetailData = [
       {
         labelId: 4,
         labelName: 'task',
+        content: '',
         backgroundColor: '#FFD700',
         textColor: 'dark',
       },
@@ -1150,12 +1183,14 @@ const issueDetailData = [
       {
         labelId: 1,
         labelName: 'docs',
+        content: 'docs에 관련된 라벨입니다.',
         backgroundColor: '#0025E6',
         textColor: 'light',
       },
       {
         labelId: 3,
         labelName: 'enhancement',
+        content: 'enhancement에 관련된 라벨입니다.',
         backgroundColor: '#50C878',
         textColor: 'dark',
       },
@@ -1223,6 +1258,7 @@ const issueDetailData = [
       {
         labelId: 3,
         labelName: 'enhancement',
+        content: 'enhancement에 관련된 라벨입니다.',
         backgroundColor: '#50C878',
         textColor: 'dark',
       },
@@ -1290,12 +1326,14 @@ const issueDetailData = [
       {
         labelId: 1,
         labelName: 'docs',
+        content: 'docs에 관련된 라벨입니다.',
         backgroundColor: '#0025E6',
         textColor: 'light',
       },
       {
         labelId: 4,
         labelName: 'task',
+        content: '',
         backgroundColor: '#FFD700',
         textColor: 'dark',
       },
@@ -1363,12 +1401,14 @@ const issueDetailData = [
       {
         labelId: 1,
         labelName: 'docs',
+        content: 'docs에 관련된 라벨입니다.',
         backgroundColor: '#0025E6',
         textColor: 'light',
       },
       {
         labelId: 3,
         labelName: 'enhancement',
+        content: 'enhancement에 관련된 라벨입니다.',
         backgroundColor: '#50C878',
         textColor: 'dark',
       },
@@ -1436,6 +1476,7 @@ const issueDetailData = [
       {
         labelId: 2,
         labelName: 'bug',
+        content: 'bug에 관련된 라벨입니다.',
         backgroundColor: '#DE4123',
         textColor: 'dark',
       },
@@ -1503,6 +1544,7 @@ const issueDetailData = [
       {
         labelId: 3,
         labelName: 'enhancement',
+        content: 'enhancement에 관련된 라벨입니다.',
         backgroundColor: '#50C878',
         textColor: 'dark',
       },
@@ -1570,6 +1612,7 @@ const issueDetailData = [
       {
         labelId: 4,
         labelName: 'task',
+        content: '',
         backgroundColor: '#FFD700',
         textColor: 'dark',
       },
@@ -1637,12 +1680,14 @@ const issueDetailData = [
       {
         labelId: 1,
         labelName: 'docs',
+        content: 'docs에 관련된 라벨입니다.',
         backgroundColor: '#0025E6',
         textColor: 'light',
       },
       {
         labelId: 3,
         labelName: 'enhancement',
+        content: 'enhancement에 관련된 라벨입니다.',
         backgroundColor: '#50C878',
         textColor: 'dark',
       },
@@ -1710,6 +1755,7 @@ const issueDetailData = [
       {
         labelId: 2,
         labelName: 'bug',
+        content: 'bug에 관련된 라벨입니다.',
         backgroundColor: '#DE4123',
         textColor: 'dark',
       },
@@ -1777,6 +1823,7 @@ const issueDetailData = [
       {
         labelId: 3,
         labelName: 'enhancement',
+        content: 'enhancement에 관련된 라벨입니다.',
         backgroundColor: '#50C878',
         textColor: 'dark',
       },
@@ -1844,6 +1891,7 @@ const issueDetailData = [
       {
         labelId: 4,
         labelName: 'task',
+        content: '',
         backgroundColor: '#FFD700',
         textColor: 'dark',
       },
@@ -1899,24 +1947,28 @@ const mockLabelData = {
     {
       labelId: 1,
       labelName: 'docs',
+      content: 'docs에 관련된 라벨입니다.',
       backgroundColor: '#0025E6',
       textColor: 'light',
     },
     {
       labelId: 2,
       labelName: 'bug',
+      content: 'bug에 관련된 라벨입니다.',
       backgroundColor: '#DE4123',
       textColor: 'dark',
     },
     {
       labelId: 3,
       labelName: 'enhancement',
+      content: 'enhancement에 관련된 라벨입니다.',
       backgroundColor: '#50C878',
       textColor: 'dark',
     },
     {
       labelId: 4,
       labelName: 'task',
+      content: '',
       backgroundColor: '#FFD700',
       textColor: 'dark',
     },
