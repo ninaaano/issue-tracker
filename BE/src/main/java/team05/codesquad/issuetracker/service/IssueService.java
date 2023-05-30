@@ -57,8 +57,9 @@ public class IssueService {
     private List<IssueResponse> getIssueResponses(boolean isOpened) {
         List<Issue> findIssues = issueRepository.findByIsOpened(isOpened);
         List<IssueResponse> responseList = new ArrayList<>();   // 모든 열린 이슈들, 각각의 라벨
-        for (Issue openIssue : findIssues) {
-            responseList.add(findById(openIssue.getId()));
+        for (Issue issue : findIssues) {
+            issue.setLabels(labelRepository.findAllByIssueId(issue.getId()));
+            responseList.add(IssueResponse.from(issue));
         }
         return responseList;
     }
