@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
+import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneWithIssuesResponse;
+import team05.codesquad.issuetracker.domain.issue.Issue;
 import team05.codesquad.issuetracker.domain.milestone.Milestone;
 import team05.codesquad.issuetracker.controller.milestonedto.MilestoneDto;
 import team05.codesquad.issuetracker.controller.milestonedto.request.MilestoneCreateRequest;
@@ -13,6 +15,7 @@ import team05.codesquad.issuetracker.controller.milestonedto.request.MilestoneUp
 import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneCreateResponse;
 import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneListResponse;
 import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneUpdateResponse;
+import team05.codesquad.issuetracker.repository.IssueRepository;
 import team05.codesquad.issuetracker.repository.MilestoneRepository;
 
 import java.util.ArrayList;
@@ -27,6 +30,7 @@ public class MilestoneService {
     private static final boolean STATUS_DEFAULT = true;
 
     private final MilestoneRepository milestoneRepository;
+    private final IssueRepository issueRepository;
 
     public MilestoneCreateResponse createMilestone(@RequestBody MilestoneCreateRequest request) { // Milestone 생성
         Milestone milestone = Milestone.toEntity(request);
@@ -39,12 +43,22 @@ public class MilestoneService {
         log.info(">>> MilestoneService allMilestoneDto");
         Iterable<Milestone> milestones = milestoneRepository.findAll();
 
+        List<Issue> issues;
         List<MilestoneDto> milestoneDto = new ArrayList<>();
         for (Milestone milestone : milestones) {
-            milestoneDto.add(MilestoneDto.of(milestone));
+            issues = issueRepository.findByMilestoneId(milestone.getId());
+            milestoneDto.add(MilestoneDto.of(milestone, countOpenIssues(issues), countClosedIssues(issues)));
         }
 
         return new MilestoneListResponse(milestoneDto);
+    }
+
+    public MilestoneWithIssuesResponse getMilestoneWithIssues(Long milestoneId) {
+        log.info(">>> MilestoneService getMilestoneWithIssues");
+
+        Milestone milestone = milestoneRepository.findById(milestoneId).orElseThrow();
+        List<Issue> issues = issueRepository.findByMilestoneId(milestoneId);
+        return new MilestoneWithIssuesResponse(MilestoneDto.of(milestone, issues));
     }
 
     public void deleteMilestone(Long milestoneId) {
@@ -65,5 +79,17 @@ public class MilestoneService {
                 .description(targetMilestone.getDescription())
                 .deadLine(targetMilestone.getDeadLine())
                 .build();
+    }
+
+    public long countOpenIssues(List<Issue> issues){
+        return issues.stream()
+                .filter(Issue::getIsOpened)
+                .count();
+    }
+
+    public long countClosedIssues(List<Issue> issues){
+        return issues.stream()
+                .filter(issue -> !issue.getIsOpened()) // Issue 객체의 status 필드가 false인 경우 필터링
+                .count();
     }
 }
