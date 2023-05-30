@@ -25,6 +25,7 @@ const $LabelListItem = styled.li`
 
   height: 100px;
   padding: 0 32px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
 
   background-color: ${({ theme }) => theme.colors.neutral.background.strong};
 `;

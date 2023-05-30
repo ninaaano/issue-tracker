@@ -9,7 +9,7 @@ const $LabelCount = styled.div`
   border-radius: 16px 16px 0 0;
 
   background-color: ${({ theme }) => theme.colors.neutral.background.default};
-
+  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
   color: ${({ theme }) => theme.colors.neutral.text.default};
   font-size: ${({ theme }) => theme.fontSize.M.fontSize};
   line-height: ${({ theme }) => theme.fontSize.M.lineHeight};
@@ -19,6 +19,7 @@ const $LabelCount = styled.div`
 const lastLabelListItemBorder = css`
   & > li:last-child {
     border-radius: 0 0 16px 16px;
+    border-bottom: none;
   }
 `;
 
