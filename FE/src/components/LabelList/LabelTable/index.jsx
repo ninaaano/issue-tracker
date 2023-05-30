@@ -131,7 +131,7 @@ const LabelTable = ({
 
         {/* type="add"일 때 완료 버튼을 클릭한 경우, LabelListHeader의 [닫기 -> 레이블 추가] 버튼으로 변경  */}
         {/* 즉 LabelListHeader랑 type="add"인 LabelTable이 열린 유무인 상태를 공유해야 할 듯 */}
-        <Button type="contained" size="S">
+        <Button type="contained" size="S" disabled={labelInfo.labelName.length === 0}>
           <Icon name={type === 'add' ? 'plus' : 'edit'} />
           <p>{type === 'add' ? '완료' : '편집 완료'}</p>
         </Button>
