@@ -2,7 +2,7 @@ package team05.codesquad.issuetracker.controller.milestonedto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import team05.codesquad.issuetracker.domain.issue.Issue;
+import team05.codesquad.issuetracker.controller.issuedto.response.IssuesResponse;
 import team05.codesquad.issuetracker.domain.milestone.Milestone;
 
 import java.time.LocalDate;
@@ -16,36 +16,20 @@ public class MilestoneDto {
     private String title;
     private String description;
     private LocalDate deadLine;
-    private Long openedIssues;
-    private Long closedIssues;
     private Boolean isOpened;
-    private List<Issue> issues;
+    private IssuesResponse issuesResponse;
 
-    private MilestoneDto(Milestone milestone, Long openedIssues, Long closedIssues) { // 정적 팩토리 메서드를 위한 생성자
+    private MilestoneDto(Milestone milestone, IssuesResponse issuesResponse) {
         this.id = milestone.getId();
         this.title = milestone.getTitle();
         this.description = milestone.getDescription();
         this.deadLine = milestone.getDeadLine();
         this.isOpened = true;
-        this.openedIssues = openedIssues;
-        this.closedIssues = closedIssues;
+        this.issuesResponse = issuesResponse;
     }
 
-    private MilestoneDto(Milestone milestone, List<Issue> issues) {
-        this.id = milestone.getId();
-        this.title = milestone.getTitle();
-        this.description = milestone.getDescription();
-        this.deadLine = milestone.getDeadLine();
-        this.isOpened = true;
-        this.issues = issues;
-    }
-
-    public static MilestoneDto of(Milestone milestone, List<Issue> issues) {
-        return new MilestoneDto(milestone, issues);
-    }
-
-    public static MilestoneDto of(Milestone milestone, Long openedIssues, Long closedIssues) { // 정적 팩토리 메서드
-        return new MilestoneDto(milestone, openedIssues, closedIssues);
+    public static MilestoneDto of(Milestone milestone, IssuesResponse issuesResponse) {
+        return new MilestoneDto(milestone, issuesResponse);
     }
 
 }
