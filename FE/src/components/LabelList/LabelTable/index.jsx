@@ -28,9 +28,9 @@ const LabelTable = ({
   closeHandler,
 }) => {
   const [labelInfo, setLabelInfo] = useState({
-    labelName,
+    labelName: labelName || '레이블',
     content,
-    backgroundColor: backgroundColor || '#EFF0F6',
+    backgroundColor: backgroundColor || generateRandomColor(),
     textColor,
   });
 
