@@ -10,10 +10,13 @@ import { $IssueDetailMain, $IssueCommentArea, $IssueDetailMainLayout } from './s
 
 const IssueDetailMain = ({ detailIssue, user: userData, label: labelData, milestone: milestoneData }) => {
   const [selectedItems, setSelectedItems] = useState({
-    assignee: detailIssue.assignee[0].userId,
-    milestone: detailIssue.milestone.milestoneId,
-    label: detailIssue.label[0].labelId,
+    assignee: detailIssue.assignee[0]?.userId,
+    milestone: detailIssue.milestone?.milestoneId,
+    label: detailIssue.label[0]?.labelId,
   });
+
+  console.log(detailIssue);
+
   const [comment, setComment] = useState('');
   const [files, setFiles] = useState([]);
 
@@ -30,7 +33,7 @@ const IssueDetailMain = ({ detailIssue, user: userData, label: labelData, milest
     setSelectedItems({ ...selectedItems, milestone: milestoneId });
   };
 
-  console.log(selectedItems);
+  // console.log(selectedItems);
 
   return (
     <$IssueDetailMainLayout>
