@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import LabelListItem from './LabelListItem';
-import { $LabelListMain, $LabelCount } from './style';
+import { $LabelListMain, $LabelCount, $NoResult } from './style';
 
 const LabelListMain = ({ labels, getNewLabelData }) => {
   const LabelItems = labels.map(({ labelId, labelName, backgroundColor, textColor, content }) => (
@@ -20,7 +20,7 @@ const LabelListMain = ({ labels, getNewLabelData }) => {
   return (
     <$LabelListMain>
       <$LabelCount>{`${labels.length}개의 레이블`}</$LabelCount>
-      {LabelItems}
+      {labels.length === 0 ? <$NoResult>레이블이 없습니다. 새로 추가하세요!</$NoResult> : LabelItems}
     </$LabelListMain>
   );
 };

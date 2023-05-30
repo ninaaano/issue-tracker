@@ -16,6 +16,21 @@ const $LabelCount = styled.div`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
 
+const $NoResult = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+
+  background-color: ${({ theme }) => theme.colors.neutral.background.strong};
+
+  color: ${({ theme }) => theme.colors.neutral.text.weak};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
+  font-size: ${({ theme }) => theme.fontSize.M.fontSize};
+  line-height: ${({ theme }) => theme.fontSize.M.lineHeight};
+`;
+
 const lastLabelListItemBorder = css`
   & > li:last-child {
     border-radius: 0 0 16px 16px;
@@ -31,4 +46,4 @@ const $LabelListMain = styled.section`
   ${lastLabelListItemBorder}
 `;
 
-export { $LabelListMain, $LabelCount };
+export { $LabelListMain, $LabelCount, $NoResult };
