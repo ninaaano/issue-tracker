@@ -16,6 +16,7 @@ const MilestoneTable = ({
   type = 'add',
   cancelClickHandler,
   getNewMilestoneData,
+  closeTableHandler,
 }) => {
   // 편집 페이지랑 같이 진행할 수 있도록
   const [milestoneInfo, setMilestoneInfo] = useState({
@@ -61,6 +62,7 @@ const MilestoneTable = ({
     // TODO: 에러 헨들링
     await postNewMilestone();
     getNewMilestoneData();
+    closeTableHandler();
   };
 
   return (
@@ -91,7 +93,12 @@ const MilestoneTable = ({
       />
       <$Buttons>
         {type === 'add' ? (
-          <Button type="contained" size="S" onClick={createNewMilestoneHandler}>
+          <Button
+            type="contained"
+            size="S"
+            onClick={createNewMilestoneHandler}
+            disabled={milestoneInfo.title.length === 0}
+          >
             <Icon name="plus" />
             완료
           </Button>
@@ -119,6 +126,7 @@ MilestoneTable.propTypes = {
   type: PropTypes.string,
   cancelClickHandler: PropTypes.func,
   getNewMilestoneData: PropTypes.func,
+  closeTableHandler: PropTypes.func,
 };
 
 export default MilestoneTable;
