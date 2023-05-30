@@ -5,6 +5,7 @@ import { ISSUES, USERS, LABELS, MILESTONES } from '../../constants/api';
 
 import useFetch from '../../hooks/useFetch';
 import { FilterProvider } from '../../context/filterContext';
+import { CheckBoxProvider } from '../../context/checkBoxContext';
 
 import IssueListHeader from '../../components/IssueList/IssueListHeader';
 import IssueListMain from '../../components/IssueList/IssueListMain';
@@ -20,17 +21,19 @@ const IssueList = () => {
 
   return (
     <FilterProvider>
-      {allDataLoaded && (
-        <$IssueList>
-          <IssueListHeader labelCount={labelData.length} milestoneCount={milestoneData.length} />
-          <IssueListMain
-            issues={issueData.issues}
-            user={userData}
-            label={labelData}
-            milestone={milestoneData}
-          />
-        </$IssueList>
-      )}
+      <CheckBoxProvider>
+        {allDataLoaded && (
+          <$IssueList>
+            <IssueListHeader labelCount={labelData.length} milestoneCount={milestoneData.length} />
+            <IssueListMain
+              issues={issueData.issues}
+              user={userData}
+              label={labelData}
+              milestone={milestoneData}
+            />
+          </$IssueList>
+        )}
+      </CheckBoxProvider>
     </FilterProvider>
   );
 };
