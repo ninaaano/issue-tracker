@@ -28,7 +28,23 @@ const $LabelTableInputLayout = styled.div`
 
 const $LabelColorInputLayout = styled.div`
   display: flex;
-  gap: 24px;
+  align-items: center;
+  width: 380px;
+  gap: 8px;
+`;
+
+const $TextColorSelect = styled.select`
+  width: 100px;
+  margin-left: 24px;
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.neutral.text.weak};
+  font-size: ${({ theme }) => theme.fontSize.M.fontSize};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+`;
+
+const $ColorRandomButton = styled.button`
+  width: 24px;
+  height: 24px;
 `;
 
 const $LabelTableLayout = styled.div`
@@ -47,13 +63,17 @@ const labelTableBorder = css`
   border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
 `;
 
+const labelEditTableBorder = css`
+  border-bottom: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
+`;
+
 const $LabelTable = styled.section`
   display: flex;
   flex-direction: column;
   gap: 24px;
 
   padding: 32px;
-  ${({ type }) => type === 'add' && labelTableBorder}
+  ${({ type }) => (type === 'add' ? labelTableBorder : labelEditTableBorder)}
 
   background-color: ${({ theme }) => theme.colors.neutral.background.strong};
 `;
@@ -66,4 +86,6 @@ export {
   $LabelColorInputLayout,
   $TableButtonsLayout,
   $LabelTableLayout,
+  $TextColorSelect,
+  $ColorRandomButton,
 };

@@ -42,7 +42,10 @@ const getIssueDetailData = (request, response, context) => {
 };
 
 const postMilestoneNewData = (request, response, context) => {
-  const lastMilestoneId = mockMilestoneData.data[mockMilestoneData.data.length - 1].milestoneId;
+  const lastMilestoneId =
+    mockMilestoneData.data.length !== 0
+      ? mockMilestoneData.data[mockMilestoneData.data.length - 1].milestoneId
+      : 1;
   const { title, content, deadline } = request.body;
   const responseBody = {
     milestoneId: lastMilestoneId + 1,
@@ -102,20 +105,21 @@ const deleteMilestone = (request, response, context) => {
     (milestone) => milestone.milestoneId !== Number(milestoneId),
   );
 
-  mockMilestoneData.data = updatedMilestoneData; // 해당 id에 해당하는 데이터를 지운 데이터로 바꿔줌.
+  mockMilestoneData.data = updatedMilestoneData || []; // 해당 id에 해당하는 데이터를 지운 데이터로 바꿔줌.
 
   return response(
     context.status(200),
     context.json({
       status: 200,
-      message: 'milestone Data Patch 완료',
+      message: 'milestone Data Delete 완료',
       data: mockMilestoneData.data,
     }),
   );
 };
 
 const postLabelNewData = (request, response, context) => {
-  const lastLabelId = mockLabelData.data[mockLabelData.data.length - 1].labelId;
+  const lastLabelId =
+    mockLabelData.data.length !== 0 ? mockLabelData.data[mockLabelData.data.length - 1].labelId : 1;
   const { labelName, content, backgroundColor, textColor } = request.body;
   const responseBody = {
     labelId: lastLabelId + 1,
@@ -126,12 +130,60 @@ const postLabelNewData = (request, response, context) => {
   };
 
   mockLabelData.data.push(responseBody);
+
   return response(
     context.status(200),
     context.json({
       status: 200,
-      message: '요청이 완료되었습니다.',
+      message: 'label 생성 완료',
       data: responseBody,
+    }),
+  );
+};
+
+const editLabelData = (request, response, context) => {
+  const { labelId } = request.params;
+
+  const { labelName, content, backgroundColor, textColor } = request.body;
+  let targetLabelIndex = -1;
+
+  mockLabelData.data.forEach((label, index) => {
+    if (label.labelId === Number(labelId)) {
+      targetLabelIndex = index;
+    }
+  });
+
+  mockLabelData.data[targetLabelIndex] = {
+    ...mockLabelData.data[targetLabelIndex],
+    labelName,
+    content: content === undefined ? null : content,
+    backgroundColor,
+    textColor,
+  };
+
+  return response(
+    context.status(200),
+    context.json({
+      status: 200,
+      message: 'Label Data Patch 완료',
+      data: mockLabelData.data[targetLabelIndex],
+    }),
+  );
+};
+
+const deleteLabel = (request, response, context) => {
+  const { labelId } = request.params;
+
+  const updatedLabelData = mockLabelData.data.filter((label) => label.labelId !== Number(labelId));
+
+  mockLabelData.data = updatedLabelData || []; // 해당 id에 해당하는 데이터를 지운 데이터로 바꿔줌.
+
+  return response(
+    context.status(200),
+    context.json({
+      status: 200,
+      message: 'Label Data 삭제 완료',
+      data: mockMilestoneData.data,
     }),
   );
 };
@@ -150,6 +202,8 @@ const mockAPIHandler = [
 
   rest.get(LABELS.GET_ALL_LABELS, getLabelData),
   rest.post(LABELS.POST_LABEL, postLabelNewData),
+  rest.patch(LABELS.PATCH_LABEL(':labelId'), editLabelData),
+  rest.delete(LABELS.DELETE_LABEL(':labelId'), deleteLabel),
 ];
 
 export { mockAPIHandler };

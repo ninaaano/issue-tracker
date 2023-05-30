@@ -38,7 +38,7 @@ const COMMENTS = Object.freeze({
 const LABELS = Object.freeze({
   GET_ALL_LABELS: `${BASE_URL}/${API_TYPE.LABELS}`,
   POST_LABEL: `${BASE_URL}/${API_TYPE.LABELS}`,
-  PUT_LABEL: (labelId) => `${BASE_URL}/${API_TYPE.LABELS}/${labelId}`,
+  PATCH_LABEL: (labelId) => `${BASE_URL}/${API_TYPE.LABELS}/${labelId}`,
   DELETE_LABEL: (labelId) => `${BASE_URL}/${API_TYPE.LABELS}/${labelId}`,
 });
 

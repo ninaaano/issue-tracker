@@ -20,7 +20,6 @@ const $MilestoneMain = styled.section`
   flex-direction: column;
   align-items: flex-start;
   overflow: hidden;
-  width: 1280px;
   margin-top: 24px;
   border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
   border-radius: 16px;
