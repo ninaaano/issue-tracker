@@ -9,6 +9,7 @@ import team05.codesquad.issuetracker.controller.milestonedto.request.MilestoneUp
 import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneCreateResponse;
 import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneListResponse;
 import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneUpdateResponse;
+import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneWithIssuesResponse;
 import team05.codesquad.issuetracker.service.MilestoneService;
 
 @Slf4j
@@ -34,6 +35,12 @@ public class MilestoneController {
     public MilestoneCreateResponse createMilestone(@RequestBody MilestoneCreateRequest request) {
         log.info(">>> MilestoneController createMilestone");
         return milestoneService.createMilestone(request);
+    }
+
+    @GetMapping("/{milestoneId}")
+    public MilestoneWithIssuesResponse milestoneWithIssues(@PathVariable Long milestoneId) {
+        log.info(">>> MilestoneController milestoneWithIssues");
+        return milestoneService.getMilestoneWithIssues(milestoneId);
     }
 
     @DeleteMapping("/{id}")
