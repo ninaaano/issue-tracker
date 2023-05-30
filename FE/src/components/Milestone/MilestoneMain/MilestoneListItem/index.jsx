@@ -27,6 +27,7 @@ const MilestoneListItem = ({ milestone }) => {
   const calculatePercentage = (() => {
     const totalIssues = milestone.openIssue + milestone.closeIssue;
 
+    if (totalIssues === 0) return 0;
     return Math.ceil((milestone.closeIssue / totalIssues) * 100);
   })();
 
