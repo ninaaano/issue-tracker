@@ -8,10 +8,12 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import team05.codesquad.issuetracker.auth.S3Properties;
 
 @Configuration
 @EnableConfigurationProperties(value = {S3Properties.class})
+@PropertySource("classpath:config/application.properties")
 public class AmazonS3Config {
 
     private final S3Properties s3Properties;
