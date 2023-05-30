@@ -16,6 +16,6 @@ public interface IssueRepository extends CrudRepository<Issue, Long> {
             rowMapperClass = IssueRowMapper.class)
     List<Issue> findByIsOpened(@Param("isOpened") boolean isOpened);
 
-    @Query("SELECT issue_id, title, contents, writer_id, is_opened, milestone_id, created_at FROM issue WHERE milestone_id = :milestoneId")
-    List<Issue> findByMilestoneId(@Param("milestoneId") Long milestoneId);
+    @Query("SELECT issue_id, title, contents, writer_id, is_opened, milestone_id, created_at from issue where milestone_id=:milestoneId and is_opened = :isOpened")
+    List<Issue> findByMilestoneIdAndIsOpened(@Param("milestoneId") Long milestoneId, @Param("isOpened") boolean isOpened);
 }
