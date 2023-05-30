@@ -1,5 +1,7 @@
 const createRandomNumberToHexCode = (number) => {
-  return Math.floor(Math.random() * number).toString(16);
+  return Math.floor(Math.random() * number)
+    .toString(16)
+    .toUpperCase();
 };
 
 const generateRandomColor = () => {

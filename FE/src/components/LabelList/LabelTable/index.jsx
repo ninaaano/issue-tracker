@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import generateRandomColor from '../../../utils/generateRandomColor';
+
 import Button from '../../common/Button';
 import Icon from '../../common/Icon';
 import TextInput from '../../common/TextInput';
@@ -56,6 +58,14 @@ const LabelTable = ({
     });
   };
 
+  const generateColor = () => {
+    const randomColor = generateRandomColor();
+
+    setLabelInfo((prev) => {
+      return { ...prev, backgroundColor: randomColor };
+    });
+  };
+
   return (
     <$LabelTable type={type}>
       <$LabelTableTitle>새로운 레이블 추가</$LabelTableTitle>
@@ -95,7 +105,7 @@ const LabelTable = ({
               labelText="배경 색상"
               placeholderText="입력해주세요"
             />
-            <$ColorRandomButton type="button">
+            <$ColorRandomButton type="button" onClick={generateColor}>
               <Icon name="refreshCcw" width={20} height={20} fill="#4E4B66" />
             </$ColorRandomButton>
             <$TextColorSelect
