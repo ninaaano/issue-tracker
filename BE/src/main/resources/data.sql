@@ -12,7 +12,7 @@ VALUES ('마일스톤 3번 제목', '마일스톤 3번 내용', '2023-05-15');
 INSERT INTO `member` (`NAME`, `PASSWORD`)
 VALUES ('고건호', '1q2w3e4r!');
 INSERT INTO `member` (`NAME`, `PASSWORD`, `PROFILE_URL`)
-VALUES ('노민정', '1234', 'https://team05.s3.amazonaws.com/ninanino');
+VALUES ('노민정', '1234', 'asdfasdf');
 
 -- issue 테이블 더미 데이터 추가
 
@@ -20,8 +20,8 @@ INSERT INTO `issue` (`TITLE`, `CONTENTS`, `WRITER_ID`, `CREATED_AT`)
 VALUES ('이슈 1번 제목', '이슈 1번 내용', 1, '2023-04-25');
 INSERT INTO `issue` (`TITLE`, `CONTENTS`, `WRITER_ID`, `CREATED_AT`)
 VALUES ('이슈 2번 제목', '이슈 2번 내용', 2, '2023-04-27');
-INSERT INTO `issue` (`TITLE`, `CONTENTS`, `WRITER_ID`, `CREATED_AT`)
-VALUES ('이슈 3번 제목', '이슈 3번 내용', 2, '2023-05-05');
+INSERT INTO `issue` (`TITLE`, `CONTENTS`, `WRITER_ID`, `MILESTONE_ID`, `CREATED_AT`)
+VALUES ('이슈 3번 제목', '이슈 3번 내용', 2, 1, '2023-05-05');
 INSERT INTO `issue` (`TITLE`, `CONTENTS`, `WRITER_ID`, `IS_OPENED`, `MILESTONE_ID`, `CREATED_AT`)
 VALUES ('이슈 4번 제목', '이슈 4번 내용', 1, false, 2, '2023-05-07');
 
