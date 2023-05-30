@@ -5,7 +5,15 @@ import { FILTER_TYPE } from '../../../constants/dropdownMenu';
 import SideBarMenu from './SideBarMenu';
 import { $SideBar } from './style';
 
-const SideBar = ({ assignees, labels, milestones, selectedItems = {} }) => {
+const SideBar = ({
+  assignees,
+  labels,
+  milestones,
+  selectedItems = {},
+  changeAssigneeHandler,
+  changeLabelHandler,
+  changeMilestoneHandler,
+}) => {
   const menuData = [
     // TODO: 선택된 데이터도 가지고 있어야함.
     {
@@ -25,6 +33,27 @@ const SideBar = ({ assignees, labels, milestones, selectedItems = {} }) => {
     },
   ];
 
+  const getChangeHandler = (type) => {
+    if (type === 'LABEL') return changeLabelHandler;
+    if (type === 'MILESTONE') return changeMilestoneHandler;
+    if (type === 'ASSIGNEE') return changeAssigneeHandler;
+
+    return '';
+    // switch (type) {
+    //   case 'ASSIGNEE':
+    //     return changeAssigneeHandler;
+
+    //   case 'LABEL':
+    //     return changeLabelHandler;
+
+    //   case 'MILESTONE':
+    //     return changeMilestoneHandler;
+
+    //   default:
+    //     return undefined;
+    // }
+  };
+
   return (
     <$SideBar>
       {menuData.map(({ menuId, menuType, menus }) => (
@@ -35,6 +64,7 @@ const SideBar = ({ assignees, labels, milestones, selectedItems = {} }) => {
           selectedItemId={
             Object.keys(selectedItems).length !== 0 ? selectedItems[FILTER_TYPE[menuType]] : undefined
           }
+          changeHandler={getChangeHandler(menuType)}
         />
       ))}
     </$SideBar>
@@ -46,6 +76,9 @@ SideBar.propTypes = {
   labels: PropTypes.array.isRequired,
   milestones: PropTypes.array.isRequired,
   selectedItems: PropTypes.object.isRequired,
+  changeAssigneeHandler: PropTypes.func,
+  changeLabelHandler: PropTypes.func,
+  changeMilestoneHandler: PropTypes.func,
 };
 
 export default SideBar;
