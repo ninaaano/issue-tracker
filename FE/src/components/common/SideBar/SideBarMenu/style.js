@@ -5,7 +5,7 @@ const $SelectedItem = styled(SelectedItem)`
   margin-top: 18px;
 `;
 
-const $SideBarMenu = styled.button`
+const $SideBarMenu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
