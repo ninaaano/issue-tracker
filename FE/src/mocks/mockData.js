@@ -1941,4 +1941,5 @@ export {
   mockLabelData,
   mockMilestoneData,
   mockIssueDetailData,
+  issueDetailData,
 };

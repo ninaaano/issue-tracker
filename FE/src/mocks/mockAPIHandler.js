@@ -8,6 +8,7 @@ import {
   mockLabelData,
   mockMilestoneData,
   mockIssueDetailData,
+  issueDetailData,
 } from './mockData';
 
 const getIssues = (request, response, context) => {
@@ -39,6 +40,50 @@ const getIssueDetailData = (request, response, context) => {
   };
 
   return response(context.status(200), context.json(data));
+};
+
+const postNewIssueData = (request, response, context) => {
+  const lastIssueId = issueDetailData.length !== 0 ? issueDetailData[issueDetailData.length - 1].issueId : 0;
+  const { issueTitle, comment, assignee, writer, label, milestone } = request.body;
+  const createdAt = new Date();
+
+  const responseBody = {
+    issueId: lastIssueId + 1,
+    issueTitle,
+    isOpened: true,
+    writer: {
+      userId: 6,
+      name: '훈딩',
+      url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
+      createdAt,
+    },
+    assignee: mockUserData.data.filter(({ userId }) => assignee.includes(userId)),
+    milestone: mockMilestoneData.data.filter(({ milestoneId }) => milestone === milestoneId)[0] || null,
+    label: mockLabelData.data.filter(({ labelId }) => label.includes(labelId)),
+    comment: [
+      {
+        commentId: 1,
+        content: comment.content,
+        createdAt,
+        commentUser: {
+          userId: 6,
+          userName: '훈딩',
+          url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
+        },
+      },
+    ],
+  };
+
+  issueDetailData.push(responseBody);
+
+  return response(
+    context.status(200),
+    context.json({
+      status: 200,
+      message: '요청이 완료되었습니다.',
+      data: responseBody,
+    }),
+  );
 };
 
 const postMilestoneNewData = (request, response, context) => {
@@ -191,6 +236,7 @@ const deleteLabel = (request, response, context) => {
 const mockAPIHandler = [
   rest.get(ISSUES.GET_ALL_ISSUES, getIssues),
   rest.get(ISSUES.GET_ISSUE(':issueId'), getIssueDetailData),
+  rest.post(ISSUES.POST_ISSUE, postNewIssueData),
 
   rest.get(USERS.GET_USER_IMG(':userId'), getUserImage),
   rest.get(USERS.GET_ALL_USERS, getUserData),
