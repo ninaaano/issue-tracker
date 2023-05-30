@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { useCheckBoxContext } from '../../../../context/checkBoxContext';
+
 import Icon from '../../../common/Icon';
 import Label from '../../../common/Label';
 import {
@@ -16,10 +18,12 @@ import {
 } from './style';
 
 const IssueListItem = ({ issueId, issueTitle, label, writer, milestone, assignee, isOpened }) => {
-  const [isSelected, setIsSelected] = useState(false);
+  const { checkList, checkBoxHandler } = useCheckBoxContext();
+
+  const isSelected = checkList.includes(issueId);
 
   const checkBoxClickHandler = () => {
-    setIsSelected((prev) => !prev);
+    checkBoxHandler(issueId);
   };
 
   const Labels = label.map(({ labelId, textColor, backgroundColor, labelName }) => {

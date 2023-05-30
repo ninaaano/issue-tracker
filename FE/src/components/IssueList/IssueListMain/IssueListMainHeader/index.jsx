@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { useCheckBoxContext } from '../../../../context/checkBoxContext';
+
 import { FILTER_TYPE, FILTER_NAME } from '../../../../constants/dropdownMenu';
 
 import Button from '../../../common/Button';
@@ -23,11 +25,12 @@ const IssueListMainHeader = ({
   openBtnHandler,
   closeBtnHandler,
   isOpened,
+  filteredIssuesIds,
 }) => {
-  const [isSelected, setIsSelected] = useState(false);
-
+  const { resetCheckList, allCheck, checkList } = useCheckBoxContext();
+  const isSelected = checkList.length !== 0;
   const checkBoxClickHandler = () => {
-    setIsSelected((prev) => !prev);
+    isSelected ? resetCheckList() : allCheck(filteredIssuesIds);
   };
 
   const openIssueButton = (
@@ -83,6 +86,7 @@ IssueListMainHeader.propTypes = {
   openBtnHandler: PropTypes.func.isRequired,
   closeBtnHandler: PropTypes.func.isRequired,
   isOpened: PropTypes.bool.isRequired,
+  filteredIssuesIds: PropTypes.array.isRequired,
 };
 
 export default IssueListMainHeader;
