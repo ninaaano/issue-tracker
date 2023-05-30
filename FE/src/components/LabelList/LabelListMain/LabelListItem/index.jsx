@@ -7,7 +7,7 @@ import Label from '../../../common/Label';
 import LabelTable from '../../LabelTable';
 import { $LabelListItem, $LabelLayout, $LabelContent, $ButtonsLayout, $LabelInfo } from './style';
 
-const LabelListItem = ({ name, content, backgroundColor, textColor = 'dark' }) => {
+const LabelListItem = ({ labelId, name, content, backgroundColor, textColor = 'dark', getNewLabelData }) => {
   const [isLabelTableOpened, setIsLabelTableOpened] = useState(false);
   const [isDeleteButtonClicked, setIsDeleteButtonClicked] = useState(false);
 
@@ -21,11 +21,13 @@ const LabelListItem = ({ name, content, backgroundColor, textColor = 'dark' }) =
   return isLabelTableOpened ? (
     <LabelTable
       type="edit"
+      labelId={labelId}
       labelName={name}
       content={content}
       backgroundColor={backgroundColor}
       textColor={textColor}
       closeHandler={closeLabelTableHandler}
+      getNewLabelData={getNewLabelData}
     />
   ) : (
     <$LabelListItem>
@@ -53,10 +55,12 @@ const LabelListItem = ({ name, content, backgroundColor, textColor = 'dark' }) =
 };
 
 LabelListItem.propTypes = {
+  labelId: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   content: PropTypes.string,
   backgroundColor: PropTypes.string.isRequired,
   textColor: PropTypes.oneOf(['dark', 'light']).isRequired,
+  getNewLabelData: PropTypes.func.isRequired,
 };
 
 export default LabelListItem;

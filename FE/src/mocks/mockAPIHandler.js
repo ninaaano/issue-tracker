@@ -138,6 +138,37 @@ const postLabelNewData = (request, response, context) => {
   );
 };
 
+const editLabelData = (request, response, context) => {
+  const { labelId } = request.params;
+
+  const { labelName, content, backgroundColor, textColor } = request.body;
+  let targetLabelIndex = -1;
+
+  mockLabelData.data.forEach((label, index) => {
+    if (label.labelId === Number(labelId)) {
+      targetLabelIndex = index;
+    }
+  });
+
+  mockLabelData.data[targetLabelIndex] = {
+    ...mockLabelData.data[targetLabelIndex],
+    labelName,
+    content: content === undefined ? null : content,
+    backgroundColor,
+    textColor,
+  };
+  console.log(mockLabelData);
+
+  return response(
+    context.status(200),
+    context.json({
+      status: 200,
+      message: 'Label Data Patch 완료',
+      data: mockLabelData.data[targetLabelIndex],
+    }),
+  );
+};
+
 const mockAPIHandler = [
   rest.get(ISSUES.GET_ALL_ISSUES, getIssues),
   rest.get(ISSUES.GET_ISSUE(':issueId'), getIssueDetailData),
@@ -152,6 +183,7 @@ const mockAPIHandler = [
 
   rest.get(LABELS.GET_ALL_LABELS, getLabelData),
   rest.post(LABELS.POST_LABEL, postLabelNewData),
+  rest.patch(LABELS.PATCH_LABEL(':labelId'), editLabelData),
 ];
 
 export { mockAPIHandler };

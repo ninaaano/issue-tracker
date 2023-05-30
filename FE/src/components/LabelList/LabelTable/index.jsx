@@ -22,6 +22,7 @@ import {
 } from './style';
 
 const LabelTable = ({
+  labelId = 0,
   labelName = '',
   content = '',
   backgroundColor = '',
@@ -40,6 +41,18 @@ const LabelTable = ({
   const { fetchData: createNewLabel } = useFetch(
     LABELS.POST_LABEL,
     'POST',
+    {
+      labelName: labelInfo.labelName,
+      content: labelInfo.content,
+      backgroundColor: labelInfo.backgroundColor,
+      textColor: labelInfo.textColor,
+    },
+    true,
+  );
+
+  const { fetchData: editLabel } = useFetch(
+    LABELS.PATCH_LABEL(labelId),
+    'PATCH',
     {
       labelName: labelInfo.labelName,
       content: labelInfo.content,
@@ -85,7 +98,7 @@ const LabelTable = ({
     if (type === 'add') {
       await createNewLabel();
     } else if (type === 'edit') {
-      // await editLabel();
+      await editLabel();
     }
     closeHandler();
     getNewLabelData();
@@ -171,6 +184,7 @@ const LabelTable = ({
 };
 
 LabelTable.propTypes = {
+  labelId: PropTypes.number,
   labelName: PropTypes.string,
   content: PropTypes.string,
   backgroundColor: PropTypes.string,

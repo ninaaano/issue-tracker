@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 import LabelListItem from './LabelListItem';
 import { $LabelListMain, $LabelCount } from './style';
 
-const LabelListMain = ({ labels }) => {
+const LabelListMain = ({ labels, getNewLabelData }) => {
   const LabelItems = labels.map(({ labelId, labelName, backgroundColor, textColor, content }) => (
     <LabelListItem
       key={labelId}
+      labelId={labelId}
       name={labelName}
       backgroundColor={backgroundColor}
       textColor={textColor}
       content={content}
+      getNewLabelData={getNewLabelData}
     />
   ));
 
@@ -25,6 +27,7 @@ const LabelListMain = ({ labels }) => {
 
 LabelListMain.propTypes = {
   labels: PropTypes.array.isRequired,
+  getNewLabelData: PropTypes.func.isRequired,
 };
 
 export default LabelListMain;
