@@ -18,6 +18,12 @@ const $FilterOptions = styled.div`
   gap: 36px;
 `;
 
+const $CheckStatus = styled.div`
+  color: ${({ theme }) => theme.colors.neutral.text.weak};
+  font-size: ${({ theme }) => theme.fontSize.M.fontSize};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+`;
+
 const $IssueListMainHeader = styled.header`
   display: flex;
   justify-content: space-between;
@@ -27,4 +33,11 @@ const $IssueListMainHeader = styled.header`
   padding: 0px 32px;
 `;
 
-export { $IssueListMainHeader, $CheckBox, $IssueStateControls, $IssueButtonsWrapper, $FilterOptions };
+export {
+  $IssueListMainHeader,
+  $CheckBox,
+  $IssueStateControls,
+  $IssueButtonsWrapper,
+  $FilterOptions,
+  $CheckStatus,
+};

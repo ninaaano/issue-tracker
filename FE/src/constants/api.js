@@ -1,4 +1,4 @@
-const BASE_URL = '';
+const BASE_URL = 'http://52.78.7.230:8080/';
 
 const API_TYPE = Object.freeze({
   LOGIN: 'login',
