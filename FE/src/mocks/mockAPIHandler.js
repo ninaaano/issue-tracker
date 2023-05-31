@@ -63,7 +63,7 @@ const postNewIssueData = (request, response, context) => {
     comment: [
       {
         commentId: 1,
-        content: comment.content,
+        content: comment,
         createdAt,
         commentUser: {
           userId: 6,

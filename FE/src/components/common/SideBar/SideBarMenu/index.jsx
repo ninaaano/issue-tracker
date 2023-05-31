@@ -12,39 +12,34 @@ const SideBarMenu = ({ type, menus, selectedItemId, changeHandler }) => {
     id: selectedItemId,
   });
 
-  const isSelectedItem = selectedItem.id !== undefined;
+  const isSelected = selectedItem.id !== undefined;
 
-  const findSelectItemInfo = () => {
+  const findSelectedItemInfo = () => {
     return menus.filter((menu) => {
-      let shouldInclude = false;
+      let isMatched = false;
 
-      if (FILTER_TYPE[type] === 'label') {
-        if (menu.labelId === selectedItem.id) {
-          shouldInclude = true;
-        }
+      if (FILTER_TYPE[type] === 'label' && menu.labelId === selectedItem.id) {
+        isMatched = true;
       }
-      if (FILTER_TYPE[type] === 'assignee') {
-        if (menu.userId === selectedItem.id) {
-          shouldInclude = true;
-        }
+      if (FILTER_TYPE[type] === 'assignee' && menu.userId === selectedItem.id) {
+        isMatched = true;
       }
-      if (FILTER_TYPE[type] === 'milestone') {
-        if (menu.milestoneId === selectedItem.id) {
-          shouldInclude = true;
-        }
+      if (FILTER_TYPE[type] === 'milestone' && menu.milestoneId === selectedItem.id) {
+        isMatched = true;
       }
 
-      return shouldInclude;
+      return isMatched;
     });
   };
-  const selectItemInfo = findSelectItemInfo();
+
+  const selectedItemInfo = findSelectedItemInfo();
 
   useEffect(() => {
     changeHandler(selectedItem.id);
   }, [selectedItem.id]);
 
   return (
-    <$SideBarMenu isSelected={isSelectedItem}>
+    <$SideBarMenu isSelected={isSelected}>
       <DropDown
         type={FILTER_TYPE[type]}
         name={FILTER_NAME[type]}
@@ -55,7 +50,7 @@ const SideBarMenu = ({ type, menus, selectedItemId, changeHandler }) => {
         onSelectItem={setSelectedItem}
         isSelectItem={selectedItem.id}
       />
-      {isSelectedItem && <$SelectedItem type={type} info={selectItemInfo[0]} />}
+      {isSelected && <$SelectedItem type={type} info={selectedItemInfo[0]} />}
     </$SideBarMenu>
   );
 };

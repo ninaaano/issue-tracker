@@ -14,7 +14,7 @@ const SideBar = ({
   changeLabelHandler,
   changeMilestoneHandler,
 }) => {
-  const menuData = [
+  const dropdownData = [
     // TODO: 선택된 데이터도 가지고 있어야함.
     {
       menuId: 1,
@@ -33,38 +33,23 @@ const SideBar = ({
     },
   ];
 
-  const getChangeHandler = (type) => {
-    if (type === 'LABEL') return changeLabelHandler;
-    if (type === 'MILESTONE') return changeMilestoneHandler;
-    if (type === 'ASSIGNEE') return changeAssigneeHandler;
-
-    return '';
-    // switch (type) {
-    //   case 'ASSIGNEE':
-    //     return changeAssigneeHandler;
-
-    //   case 'LABEL':
-    //     return changeLabelHandler;
-
-    //   case 'MILESTONE':
-    //     return changeMilestoneHandler;
-
-    //   default:
-    //     return undefined;
-    // }
+  const changeHandlers = {
+    [FILTER_TYPE.ASSIGNEE]: changeAssigneeHandler,
+    [FILTER_TYPE.LABEL]: changeLabelHandler,
+    [FILTER_TYPE.MILESTONE]: changeMilestoneHandler,
   };
 
   return (
     <$SideBar>
-      {menuData.map(({ menuId, menuType, menus }) => (
+      {dropdownData.map(({ menuId, menuType, menus }) => (
         <SideBarMenu
           key={menuId}
           type={menuType}
           menus={menus}
           selectedItemId={
-            Object.keys(selectedItems).length !== 0 ? selectedItems[FILTER_TYPE[menuType]] : undefined
+            Object.keys(selectedItems).length > 0 ? selectedItems[FILTER_TYPE[menuType]] : undefined
           }
-          changeHandler={getChangeHandler(menuType)}
+          changeHandler={changeHandlers[FILTER_TYPE[menuType]]}
         />
       ))}
     </$SideBar>

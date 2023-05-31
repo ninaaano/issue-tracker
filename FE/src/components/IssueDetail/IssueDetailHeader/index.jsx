@@ -87,7 +87,7 @@ const IssueDetailHeader = ({ issue }) => {
       <$IssueDetailInfo>
         {issue.isOpened ? (
           <Label
-            height="32"
+            height={32}
             name="열린 이슈"
             textColor="#FEFEFE"
             backgroundColor="#007AFF"
