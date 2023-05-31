@@ -17,8 +17,8 @@
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
         "label": [
-          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "textColor": "light" },
-          { "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "textColor": "dark" }
+          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "fontColor": "light" },
+          { "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "fontColor": "dark" }
         ],
         "commentedUser": ["훈딩", "아켄"]
       },
@@ -42,8 +42,8 @@
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
         "label": [
-          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "textColor": "light" },
-          { "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "textColor": "dark" }
+          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "fontColor": "light" },
+          { "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "fontColor": "dark" }
         ],
         "commentedUser": ["니노", "고뭉남"]
       },
@@ -67,7 +67,7 @@
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
         "label": [
-          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "textColor": "dark" }
+          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "fontColor": "dark" }
         ],
         "commentedUser": ["아켄", "훈딩"]
       },
@@ -90,7 +90,7 @@
           { "userId": 6, "name": "훈딩", "profileImgSrc": "" }
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
-        "label": [{ "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "textColor": "dark" }],
+        "label": [{ "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "fontColor": "dark" }],
         "commentedUser": ["니노", "고뭉남"]
       },
       {
@@ -113,8 +113,8 @@
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
         "label": [
-          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "textColor": "light" },
-          { "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "textColor": "dark" }
+          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "fontColor": "light" },
+          { "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "fontColor": "dark" }
         ],
         "commentedUser": ["아켄", "훈딩"]
       },
@@ -137,7 +137,7 @@
           { "userId": 6, "name": "훈딩", "profileImgSrc": "" }
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
-        "label": [{ "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "textColor": "dark" }],
+        "label": [{ "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "fontColor": "dark" }],
         "commentedUser": ["고뭉남", "니노"]
       },
       {
@@ -160,8 +160,8 @@
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
         "label": [
-          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "textColor": "light" },
-          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "textColor": "dark" }
+          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "fontColor": "light" },
+          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "fontColor": "dark" }
         ],
         "commentedUser": ["훈딩", "아켄"]
       },
@@ -185,7 +185,7 @@
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
         "label": [
-          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "textColor": "dark" }
+          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "fontColor": "dark" }
         ],
         "commentedUser": ["니노", "훈딩"]
       },
@@ -209,8 +209,8 @@
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
         "label": [
-          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "textColor": "light" },
-          { "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "textColor": "dark" }
+          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "fontColor": "light" },
+          { "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "fontColor": "dark" }
         ],
         "commentedUser": ["아켄", "고뭉남"]
       },
@@ -234,8 +234,8 @@
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
         "label": [
-          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "textColor": "light" },
-          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "textColor": "dark" }
+          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "fontColor": "light" },
+          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "fontColor": "dark" }
         ],
         "commentedUser": ["고뭉남", "에이든"]
       },
@@ -258,7 +258,7 @@
           { "userId": 6, "name": "훈딩", "profileImgSrc": "" }
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
-        "label": [{ "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "textColor": "dark" }],
+        "label": [{ "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "fontColor": "dark" }],
         "commentedUser": ["Sol", "고뭉남"]
       },
       {
@@ -281,7 +281,7 @@
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
         "label": [
-          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "textColor": "dark" }
+          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "fontColor": "dark" }
         ],
         "commentedUser": ["에이든", "Sol"]
       },
@@ -304,7 +304,7 @@
           { "userId": 6, "name": "훈딩", "profileImgSrc": "" }
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
-        "label": [{ "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "textColor": "dark" }],
+        "label": [{ "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "fontColor": "dark" }],
         "commentedUser": ["고뭉남", "에이든"]
       },
       {
@@ -327,8 +327,8 @@
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
         "label": [
-          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "textColor": "light" },
-          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "textColor": "dark" }
+          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "fontColor": "light" },
+          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "fontColor": "dark" }
         ],
         "commentedUser": ["Sol", "고뭉남", "에이든", "니노", "아켄", "훈딩"]
       },
@@ -351,7 +351,7 @@
           { "userId": 6, "name": "훈딩", "profileImgSrc": "" }
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
-        "label": [{ "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "textColor": "dark" }],
+        "label": [{ "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "fontColor": "dark" }],
         "commentedUser": ["에이든", "고뭉남", "니노"]
       },
       {
@@ -374,7 +374,7 @@
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
         "label": [
-          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "textColor": "dark" }
+          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "fontColor": "dark" }
         ],
         "commentedUser": ["니노", "아켄", "훈딩"]
       },
@@ -397,7 +397,7 @@
           { "userId": 6, "name": "훈딩", "profileImgSrc": "" }
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
-        "label": [{ "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "textColor": "dark" }],
+        "label": [{ "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "fontColor": "dark" }],
         "commentedUser": ["고뭉남", "Sol", "에이든"]
       }
     ]

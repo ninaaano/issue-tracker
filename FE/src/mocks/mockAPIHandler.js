@@ -165,13 +165,13 @@ const deleteMilestone = (request, response, context) => {
 const postLabelNewData = (request, response, context) => {
   const lastLabelId =
     mockLabelData.data.length !== 0 ? mockLabelData.data[mockLabelData.data.length - 1].labelId : 1;
-  const { labelName, content, backgroundColor, textColor } = request.body;
+  const { labelName, content, backgroundColor, fontColor } = request.body;
   const responseBody = {
     labelId: lastLabelId + 1,
     labelName,
     content: content === undefined ? null : content,
     backgroundColor,
-    textColor,
+    fontColor,
   };
 
   mockLabelData.data.push(responseBody);
@@ -189,7 +189,7 @@ const postLabelNewData = (request, response, context) => {
 const editLabelData = (request, response, context) => {
   const { labelId } = request.params;
 
-  const { labelName, content, backgroundColor, textColor } = request.body;
+  const { labelName, content, backgroundColor, fontColor } = request.body;
   let targetLabelIndex = -1;
 
   mockLabelData.data.forEach((label, index) => {
@@ -203,7 +203,7 @@ const editLabelData = (request, response, context) => {
     labelName,
     content: content === undefined ? null : content,
     backgroundColor,
-    textColor,
+    fontColor,
   };
 
   return response(

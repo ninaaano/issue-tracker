@@ -12,7 +12,7 @@ const SelectedItem = ({ className = '', type, info }) => {
         <Label
           height={24}
           name={info.labelName}
-          textColor={info.textColor}
+          fontColor={info.fontColor}
           backgroundColor={info.backgroundColor}
         />
       </$LabelWrapper>

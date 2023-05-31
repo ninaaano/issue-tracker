@@ -63,7 +63,7 @@ const Comment = ({ writerId, commentData }) => {
 
           <$HeaderButtons>
             {writerId === commentData.commentUser.userId && (
-              <Label height={32} backgroundColor="#D9DBE9" textColor="dark" name="작성자" />
+              <Label height={32} backgroundColor="#D9DBE9" fontColor="dark" name="작성자" />
             )}
             {isMine && (
               <$HeaderButton onClick={editBtnHandler}>

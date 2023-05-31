@@ -26,12 +26,12 @@ const IssueListItem = ({ issueId, issueTitle, label, writer, milestone, assignee
     checkBoxHandler(issueId);
   };
 
-  const Labels = label.map(({ labelId, textColor, backgroundColor, labelName }) => {
+  const Labels = label.map(({ labelId, fontColor, backgroundColor, labelName }) => {
     return (
       <Label
         key={labelId}
         height={24}
-        textColor={textColor}
+        fontColor={fontColor}
         backgroundColor={backgroundColor}
         name={labelName}
       />

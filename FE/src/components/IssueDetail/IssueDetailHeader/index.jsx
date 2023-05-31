@@ -89,7 +89,7 @@ const IssueDetailHeader = ({ issue }) => {
           <Label
             height={32}
             name="열린 이슈"
-            textColor="#FEFEFE"
+            fontColor="#FEFEFE"
             backgroundColor="#007AFF"
             iconName="alertCircle"
           />
@@ -97,7 +97,7 @@ const IssueDetailHeader = ({ issue }) => {
           <Label
             height="32"
             name="닫힌 이슈"
-            textColor="#FEFEFE"
+            fontColor="#FEFEFE"
             backgroundColor="#FF3B30"
             iconName="archive"
           />
