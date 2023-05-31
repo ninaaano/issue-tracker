@@ -48,3 +48,14 @@ INSERT INTO `label_attached_issues`
 VALUES (2, 3);
 INSERT INTO `label_attached_issues`
 VALUES (3, 4);
+
+-- comment 더미 데이터 추가
+
+INSERT INTO `comment`(`writer_id`,`issue_id`,`contents`,`created_at`)
+VALUES (1,1,'안녕하세연','2023-04-25');
+INSERT INTO `comment`(`writer_id`,`issue_id`,`contents`,`created_at`)
+VALUES (2,1,'그래 반갑다','2023-04-26');
+INSERT INTO `comment`(`writer_id`,`issue_id`,`contents`,`created_at`)
+VALUES (1,1,'왜 반말이냐','2023-04-27');
+INSERT INTO `comment`(`writer_id`,`issue_id`,`contents`,`created_at`)
+VALUES (2,2,'빠큐','2023-04-27');
