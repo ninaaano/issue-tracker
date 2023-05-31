@@ -1,6 +1,8 @@
 package team05.codesquad.issuetracker.controller.issuedto.response;
 
 import lombok.*;
+import team05.codesquad.issuetracker.controller.commentdto.CommentDto;
+import team05.codesquad.issuetracker.controller.commentdto.response.CommentDtoListResponse;
 import team05.codesquad.issuetracker.controller.labeldto.response.LabelResponse;
 import team05.codesquad.issuetracker.domain.issue.Issue;
 
@@ -19,15 +21,16 @@ public class IssueResponse {
     //private Member author;
     //private List<Member> assignees;
     private List<LabelResponse> labels;
+    private CommentDtoListResponse comments;
     private Long milestoneId;
     private boolean isopened;
 
     public static IssueResponse from(Issue issue) {
         Long milestoneId = null;
-        if(issue.getMilestone() != null){
+        if (issue.getMilestone() != null) {
             milestoneId = issue.getMilestone().getId();
         }
-        return new IssueResponse(issue.getId(), issue.getTitle(),issue.getCreatedAt(), LabelResponse.from(issue.getLabels()),milestoneId,issue.getIsOpened());
+        return new IssueResponse(issue.getId(), issue.getTitle(), issue.getCreatedAt(), LabelResponse.from(issue.getLabels()), CommentDtoListResponse.of(issue.getComments()), milestoneId, issue.getIsOpened());
     }
 
 }

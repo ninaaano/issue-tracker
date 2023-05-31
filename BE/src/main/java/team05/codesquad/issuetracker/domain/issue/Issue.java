@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
+import team05.codesquad.issuetracker.domain.comment.Comment;
 import team05.codesquad.issuetracker.domain.label.Label;
 import team05.codesquad.issuetracker.domain.milestone.Milestone;
 
@@ -44,6 +45,9 @@ public class Issue {
 
     @Column("milestone_id")
     private Milestone milestone;
+
+    @Transient
+    private List<Comment> comments = new ArrayList<>();
 
     @Transient
     private List<Label> labels = new ArrayList<>();

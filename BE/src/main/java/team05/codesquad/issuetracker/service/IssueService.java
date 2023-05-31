@@ -8,6 +8,7 @@ import team05.codesquad.issuetracker.controller.issuedto.response.IssueResponse;
 import team05.codesquad.issuetracker.controller.issuedto.response.IssuesResponse;
 import team05.codesquad.issuetracker.domain.issue.Issue;
 import team05.codesquad.issuetracker.domain.issue.IssueRefLabel;
+import team05.codesquad.issuetracker.repository.CommentRepository;
 import team05.codesquad.issuetracker.repository.IssueRepository;
 import team05.codesquad.issuetracker.repository.LabelRepository;
 import team05.codesquad.issuetracker.repository.MilestoneRepository;
@@ -24,6 +25,7 @@ public class IssueService {
     private final IssueRepository issueRepository;
     private final LabelRepository labelRepository;
     private final MilestoneRepository milestoneRepository;
+    private final CommentRepository commentRepository;
 
     public IssueResponse createIssue(IssueRequest request) {
         // 마일스톤이 123밖에없는데 4오면? 그냥 null
@@ -43,6 +45,7 @@ public class IssueService {
                 .collect(Collectors.toList())
                 .forEach(labelId -> issue.addLabel(labelRepository.findById(labelId)
                         .orElseThrow()));
+        commentRepository.findByIssueId(issueId);
         return IssueResponse.from(issue);
     }
 
@@ -63,6 +66,7 @@ public class IssueService {
         }
         return responseList;
     }
+
 
 
     // 마일스톤 추가하기
