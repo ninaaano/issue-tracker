@@ -84,7 +84,7 @@ const DropDown = ({
   return (
     <$DropDown>
       <$DropDownButtonWrapper ref={buttonRef} width={width} height={height}>
-        <$DropDownButton type="ghost" size="M" onClick={toggleHandler} dropDownType={dropDownType}>
+        <$DropDownButton type="ghost" size="M" onClick={toggleHandler} dropdowntype={dropDownType}>
           {type === 'issue' ? '필터' : `${name}`}
           <Icon name="chevronDown" />
         </$DropDownButton>

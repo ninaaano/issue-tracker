@@ -56,9 +56,9 @@ const $DropDownButtonWrapper = styled.div`
 `;
 
 const $DropDownButton = styled(Button)`
-  gap: ${({ dropDownType }) => (dropDownType === 'sideBar' ? '145px' : '8px')};
-  ${({ dropDownType }) => {
-    if (dropDownType === 'sideBar') {
+  gap: ${({ dropdowntype }) => (dropdowntype === 'sideBar' ? '145px' : '8px')};
+  ${({ dropdowntype }) => {
+    if (dropdowntype === 'sideBar') {
       return sideBarStyle;
     }
     return '';

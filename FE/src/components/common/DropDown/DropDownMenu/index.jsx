@@ -30,7 +30,7 @@ const DropDownMenu = ({
     return (
       <$MenuWrapper type="button" onClick={dropDownType !== 'sideBar' ? menuClickHandler : () => {}}>
         <$MenuLeftWrapper>
-          {backgroundColor && <$LabelColor backgroundColor={backgroundColor} />}
+          {backgroundColor && <$LabelColor backgroundcolor={backgroundColor} />}
           {menuImg !== null && <$MenuImg src={menuImg} />}
           <$MenuText $isChecked={isChecked}>{menuText}</$MenuText>
         </$MenuLeftWrapper>
@@ -53,7 +53,7 @@ const DropDownMenu = ({
   return (
     <$MenuWrapper type="button" onClick={selectItemHandler}>
       <$MenuLeftWrapper>
-        {backgroundColor && <$LabelColor backgroundColor={backgroundColor} />}
+        {backgroundColor && <$LabelColor backgroundcolor={backgroundColor} />}
         {menuImg !== null && <$MenuImg src={menuImg} />}
         <$MenuText $isChecked={isSelectItem === menuId}>{menuText}</$MenuText>
       </$MenuLeftWrapper>

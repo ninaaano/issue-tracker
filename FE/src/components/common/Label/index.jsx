@@ -7,7 +7,7 @@ import Icon from '../Icon';
 const Label = ({ height, name, textColor, backgroundColor, iconName }) => {
   // TODO: 옆에 아이콘 넣기 해야함.
   return (
-    <$Label height={height} textColor={textColor} backgroundColor={backgroundColor}>
+    <$Label height={height} textcolor={textColor} backgroundcolor={backgroundColor}>
       {iconName && <Icon name={iconName} fill="#FEFEFE" />}
       {name}
     </$Label>

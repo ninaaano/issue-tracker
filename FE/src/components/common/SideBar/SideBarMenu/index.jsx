@@ -39,7 +39,7 @@ const SideBarMenu = ({ type, menus, selectedItemId, changeHandler }) => {
   }, [selectedItem.id]);
 
   return (
-    <$SideBarMenu isSelected={isSelected}>
+    <$SideBarMenu isselected={isSelected ? 1 : 0}>
       <DropDown
         type={FILTER_TYPE[type]}
         name={FILTER_NAME[type]}

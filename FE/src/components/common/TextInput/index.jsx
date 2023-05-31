@@ -22,9 +22,14 @@ const TextInput = ({ id, value, onChange, labelText = '', placeholderText = '', 
 
   return (
     <React.Fragment>
-      <$TextInput styleType={styleType} isFocused={isFocused} disabled={disabled}>
+      <$TextInput styletype={styleType} isfocused={isFocused ? 1 : 0} disabled={disabled}>
         {labelText && (
-          <$Label htmlFor={id} styleType={styleType} hasValue={hasValue} isFocused={isFocused}>
+          <$Label
+            htmlFor={id}
+            styletype={styleType}
+            hasvalue={hasValue ? 1 : 0}
+            isfocused={isFocused ? 1 : 0}
+          >
             {labelText}
           </$Label>
         )}
@@ -35,8 +40,8 @@ const TextInput = ({ id, value, onChange, labelText = '', placeholderText = '', 
           placeholder={placeholderText}
           value={value}
           onChange={onChange}
-          hasValue={hasValue}
-          isFocused={isFocused}
+          hasvalue={hasValue ? 1 : 0}
+          isfocused={isFocused ? 1 : 0}
           onFocus={focusHandler}
           onBlur={blurHandler}
           disabled={disabled}
