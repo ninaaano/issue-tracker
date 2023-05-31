@@ -67,7 +67,7 @@ const IssueDetailHeader = ({ issue }) => {
             </Button>
             <Button type="outline" size="S">
               <Icon name="archive" />
-              <p>이슈 닫기</p>
+              <p>{`이슈 ${issue.isOpened ? '닫기' : '열기'} `}</p>
             </Button>
           </$Buttons>
         ) : (
