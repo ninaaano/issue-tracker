@@ -2,6 +2,7 @@ package team05.codesquad.issuetracker.controller.issuedto.response;
 
 import lombok.*;
 import team05.codesquad.issuetracker.controller.labeldto.response.LabelResponse;
+import team05.codesquad.issuetracker.controller.memberdto.response.MemberResponse;
 import team05.codesquad.issuetracker.domain.issue.Issue;
 
 import java.time.LocalDateTime;
@@ -17,8 +18,8 @@ public class IssueResponse {
     private String issueTitle;
     private LocalDateTime createdAt;
     //private Member author;
-    //private List<Member> assignees;
     private List<LabelResponse> label;
+    private List<MemberResponse> assignee;
     private Long milestoneId;
     private boolean isopened;
 
@@ -27,7 +28,7 @@ public class IssueResponse {
         if (issue.getMilestone() != null) {
             milestoneId = issue.getMilestone().getId();
         }
-        return new IssueResponse(issue.getId(), issue.getTitle(), issue.getCreatedAt(), LabelResponse.from(issue.getLabels()), milestoneId, issue.getIsOpened());
+        return new IssueResponse(issue.getId(), issue.getTitle(), issue.getCreatedAt(), LabelResponse.from(issue.getLabels()), MemberResponse.from(issue.getAssignees()), milestoneId, issue.getIsOpened());
     }
 
 }

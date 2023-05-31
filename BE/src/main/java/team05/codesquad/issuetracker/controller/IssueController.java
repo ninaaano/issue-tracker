@@ -2,7 +2,6 @@ package team05.codesquad.issuetracker.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import team05.codesquad.issuetracker.controller.issuedto.request.IssueRequest;
@@ -38,8 +37,12 @@ public class IssueController {
     @PostMapping
     public ResponseEntity<Void> writeIssue(@RequestBody IssueRequest issueRequest) {
         IssueResponse createdIssue = issueService.createIssue(issueRequest);
-        //return new ResponseEntity<>(createdIssue, HttpStatus.CREATED);
         return ResponseEntity.created(URI.create("/issues/" + createdIssue.getIssueId())).build();
+    }
+
+    @PatchMapping("/{issueId}")
+    public ResponseEntity<IssueResponse> editTitle(@PathVariable Long issueId, @RequestBody IssueRequest issueRequest) {
+        return ResponseEntity.ok().body(issueService.editTitle(issueId, issueRequest));
     }
 }
 
