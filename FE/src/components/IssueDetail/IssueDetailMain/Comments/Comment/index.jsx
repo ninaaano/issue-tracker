@@ -87,7 +87,7 @@ const Comment = ({ writerId, commentData }) => {
             filesUploadHandler={filesUploadHandler}
           />
         ) : (
-          <$CommentText>{editComment || 'No description provided.'}</$CommentText>
+          <$CommentText>{editComment}</$CommentText>
         )}
       </$Comment>
       {isEdited && (

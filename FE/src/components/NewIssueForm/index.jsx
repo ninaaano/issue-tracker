@@ -40,7 +40,7 @@ const NewIssueForm = ({ userImgSrc, userData, labelData, milestoneData }) => {
     setIssueInfo({ ...issueInfo, title: target.value });
   };
   const changeCommentHandler = ({ target }) => {
-    setIssueInfo({ ...issueInfo, comment: target.value || 'No description provided.' });
+    setIssueInfo({ ...issueInfo, comment: target.value });
   };
   const changeAssigneeHandler = (userId) => setIssueInfo({ ...issueInfo, assignee: userId });
   const changeLabelHandler = (labelId) => setIssueInfo({ ...issueInfo, label: labelId });
