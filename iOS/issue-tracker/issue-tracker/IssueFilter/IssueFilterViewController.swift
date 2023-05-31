@@ -12,6 +12,9 @@ final class IssueFilterViewController: UIViewController {
     private var currentSnapShot: NSDiffableDataSourceSnapshot<FilterSection, FilterCellTitle>!
     private let issuecFilterCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    private let filterManager: FilteringModel = FilteringModel()
+    var didFilterData: ((FilteringModel) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.issuecFilterCollectionView.allowsMultipleSelection = true
@@ -49,7 +52,10 @@ final class IssueFilterViewController: UIViewController {
     }
     
     @objc func saveButtonTapped() {
-        print("내마음 속에 저장")
+        if let didFilterData = didFilterData {
+            didFilterData(filterManager)
+        }
+        self.dismiss(animated: true)
     }
     
     @objc func backButtonTapped() {
