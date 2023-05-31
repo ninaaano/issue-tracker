@@ -15,6 +15,7 @@ import {
   $IssueButtonsWrapper,
   $FilterOptions,
   $CheckStatus,
+  $StatusChangeButton,
 } from './style';
 
 const IssueListMainHeader = ({
@@ -34,6 +35,8 @@ const IssueListMainHeader = ({
     isSelected ? resetCheckList() : allCheck(filteredIssuesIds);
   };
 
+  const statusChangeHandler = () => {};
+
   const openIssueButton = (
     <Button type="ghost" size="M" active={isOpened} onClick={openBtnHandler}>
       <Icon name="alertCircle" />
@@ -45,6 +48,12 @@ const IssueListMainHeader = ({
       <Icon name="trash" />
       <p>{`닫힌 이슈(${closeCount})`}</p>
     </Button>
+  );
+  const statusChangeButton = (
+    <$StatusChangeButton type="ghost" size="M" onClick={statusChangeHandler} open={isOpened}>
+      <Icon name={isOpened ? 'archive' : 'alertCircle'} fill={isOpened ? '#FF3B30' : '#007AFF'} />
+      <p>{`선택된 이슈 ${isOpened ? 'Close' : 'Open'}`}</p>
+    </$StatusChangeButton>
   );
 
   return (
@@ -66,16 +75,22 @@ const IssueListMainHeader = ({
         )}
       </$IssueStateControls>
       <$FilterOptions>
+        {checkList.length !== 0 ? (
+          statusChangeButton
+        ) : (
+          <React.Fragment>
+            <DropDown type={FILTER_TYPE.ASSIGNEE} name={FILTER_NAME.ASSIGNEE} menus={user} position="right" />
+            <DropDown type={FILTER_TYPE.LABEL} name={FILTER_NAME.LABEL} menus={label} position="right" />
+            <DropDown
+              type={FILTER_TYPE.MILESTONE}
+              name={FILTER_NAME.MILESTONE}
+              menus={milestone}
+              position="right"
+            />
+            <DropDown type={FILTER_TYPE.WRITER} name={FILTER_NAME.WRITER} menus={user} position="right" />
+          </React.Fragment>
+        )}
         {/* { TODO: 조건부 렌더링으로 헤더부분 갈아끼워야함 } */}
-        <DropDown type={FILTER_TYPE.ASSIGNEE} name={FILTER_NAME.ASSIGNEE} menus={user} position="right" />
-        <DropDown type={FILTER_TYPE.LABEL} name={FILTER_NAME.LABEL} menus={label} position="right" />
-        <DropDown
-          type={FILTER_TYPE.MILESTONE}
-          name={FILTER_NAME.MILESTONE}
-          menus={milestone}
-          position="right"
-        />
-        <DropDown type={FILTER_TYPE.WRITER} name={FILTER_NAME.WRITER} menus={user} position="right" />
       </$FilterOptions>
     </$IssueListMainHeader>
   );
