@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from '../../common/Button';
 
 const $NoResultMessage = styled.p`
   display: flex;
@@ -30,6 +31,11 @@ const $IssueList = styled.ul`
   }
 `;
 
+const $InitFilterButton = styled(Button)`
+  margin-top: 30px;
+  justify-content: flex-start;
+`;
+
 const $IssueListMain = styled.div`
   display: flex;
   flex-direction: column;
@@ -40,4 +46,4 @@ const $IssueListMain = styled.div`
   border-radius: 16px;
 `;
 
-export { $IssueList, $NoResultMessage, $IssueListMain };
+export { $IssueList, $NoResultMessage, $IssueListMain, $InitFilterButton };
