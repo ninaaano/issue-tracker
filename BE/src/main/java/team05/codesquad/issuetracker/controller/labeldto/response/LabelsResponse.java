@@ -12,12 +12,12 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 public class LabelsResponse {
-    private List<LabelResponse> labels;
+    private List<LabelResponse> data;
     private int totalCount;
 
 
     public LabelsResponse(List<LabelResponse> labels) {
-        this.labels = labels;
+        this.data = labels;
         this.totalCount = labels.size();
     }
 

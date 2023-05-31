@@ -10,9 +10,9 @@ import java.util.List;
 @NoArgsConstructor
 public class MilestoneListResponse {
 
-    private List<MilestoneDto> allMilestones;
+    private List<MilestoneDto> data;
 
     public MilestoneListResponse(List<MilestoneDto> allMilestones) {
-        this.allMilestones = allMilestones;
+        this.data = allMilestones;
     }
 }

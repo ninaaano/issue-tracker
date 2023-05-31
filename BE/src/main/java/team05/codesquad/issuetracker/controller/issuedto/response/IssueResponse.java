@@ -13,21 +13,21 @@ import java.util.List;
 @Builder
 @ToString
 public class IssueResponse {
-    private Long id;
-    private String title;
+    private Long issueId;
+    private String issueTitle;
     private LocalDateTime createdAt;
     //private Member author;
     //private List<Member> assignees;
-    private List<LabelResponse> labels;
+    private List<LabelResponse> label;
     private Long milestoneId;
     private boolean isopened;
 
     public static IssueResponse from(Issue issue) {
         Long milestoneId = null;
-        if(issue.getMilestone() != null){
+        if (issue.getMilestone() != null) {
             milestoneId = issue.getMilestone().getId();
         }
-        return new IssueResponse(issue.getId(), issue.getTitle(),issue.getCreatedAt(), LabelResponse.from(issue.getLabels()),milestoneId,issue.getIsOpened());
+        return new IssueResponse(issue.getId(), issue.getTitle(), issue.getCreatedAt(), LabelResponse.from(issue.getLabels()), milestoneId, issue.getIsOpened());
     }
 
 }
