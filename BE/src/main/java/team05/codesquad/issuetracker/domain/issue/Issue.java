@@ -9,6 +9,8 @@ import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
 import team05.codesquad.issuetracker.domain.label.Label;
+import team05.codesquad.issuetracker.domain.member.Assignee;
+import team05.codesquad.issuetracker.domain.member.Member;
 import team05.codesquad.issuetracker.domain.milestone.Milestone;
 
 
@@ -46,6 +48,9 @@ public class Issue {
     @Transient
     private List<Label> labels = new ArrayList<>();
 
+    @Transient
+    private List<Member> assignees = new ArrayList<>();
+
     public Issue() {
     }
 
@@ -53,10 +58,22 @@ public class Issue {
     @Builder.Default
     private Set<IssueRefLabel> issueLabels = new HashSet<>();
 
-    // 이슈에 라벨 더하기
+    @MappedCollection(idColumn = "issue_id", keyColumn = "member_id")
+    @Builder.Default
+    private Set<Assignee> issueAssignees = new HashSet<>();
+
     public void addLabel(Label label) {
         labels.add(label);
         issueLabels.add(new IssueRefLabel(label.getId(), id));
+    }
+
+    public void addAssignee(Member member) {
+        assignees.add(member);
+        issueAssignees.add(new Assignee(member.getId(), id));
+    }
+
+    public void editIssue(String title) {
+        this.title = title;
     }
 
     public boolean isOpened() {

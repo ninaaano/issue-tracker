@@ -1,6 +1,8 @@
 package team05.codesquad.issuetracker.service;
 
+import com.amazonaws.services.kms.model.NotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import team05.codesquad.issuetracker.controller.issuedto.request.IssueRequest;
@@ -8,8 +10,10 @@ import team05.codesquad.issuetracker.controller.issuedto.response.IssueResponse;
 import team05.codesquad.issuetracker.controller.issuedto.response.IssuesResponse;
 import team05.codesquad.issuetracker.domain.issue.Issue;
 import team05.codesquad.issuetracker.domain.issue.IssueRefLabel;
+import team05.codesquad.issuetracker.domain.member.Assignee;
 import team05.codesquad.issuetracker.repository.IssueRepository;
 import team05.codesquad.issuetracker.repository.LabelRepository;
+import team05.codesquad.issuetracker.repository.MemberRepository;
 import team05.codesquad.issuetracker.repository.MilestoneRepository;
 
 import java.util.ArrayList;
@@ -24,9 +28,9 @@ public class IssueService {
     private final IssueRepository issueRepository;
     private final LabelRepository labelRepository;
     private final MilestoneRepository milestoneRepository;
+    private final MemberRepository memberRepository;
 
     public IssueResponse createIssue(IssueRequest request) {
-        // 마일스톤이 123밖에없는데 4오면? 그냥 null
         Issue issue = request.toEntity(null);
         if (request.getMilestoneId() != null) {
             issue = request.toEntity(milestoneRepository.findById(request.getMilestoneId()).orElseThrow());
@@ -43,10 +47,15 @@ public class IssueService {
                 .collect(Collectors.toList())
                 .forEach(labelId -> issue.addLabel(labelRepository.findById(labelId)
                         .orElseThrow()));
+        issue.getIssueAssignees()
+                .stream()
+                .map(Assignee::getMemberId)
+                .collect(Collectors.toList())
+                .forEach(memberId -> issue.addAssignee(memberRepository.findById(memberId)
+                        .orElseThrow()));
         return IssueResponse.from(issue);
     }
 
-    // 열린 이슈만 가져와서 리스트로 만들어주고 -> 그럼 이슈 아이디 여러개가 있으니까 거기에 label들 가져와야함
     public IssuesResponse findAll() {
         List<IssueResponse> openList = getIssueResponses(true);
         List<IssueResponse> closeList = getIssueResponses(false);
@@ -64,14 +73,12 @@ public class IssueService {
         return responseList;
     }
 
-
-    // 마일스톤 추가하기
-
-
-    /**
-     * 1. 한번에 모든 걸 뿌려서 필터가 바뀌지 않은 한 요청을 안보낸다 -> 슬랙에 보낸 값
-     * 2. Controller에서 open 따로, close 따로 -> close issue, close count
-     */
+    public IssueResponse editTitle(Long id, IssueRequest request){
+        Issue issue = issueRepository.findById(id).orElseThrow(()->new NotFoundException(HttpStatus.NOT_FOUND + "정보를 찾을 수 없습니다"));
+        issue.editIssue(request.getTitle());
+        issueRepository.editTitle(issue.getId(), issue.getTitle());
+        return IssueResponse.from(issue);
+    }
 
 
 }

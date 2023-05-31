@@ -48,3 +48,8 @@ INSERT INTO `label_attached_issues`
 VALUES (2, 3);
 INSERT INTO `label_attached_issues`
 VALUES (3, 4);
+
+INSERT INTO `assignee`
+VALUES (1, 1);
+INSERT INTO `assignee`
+VALUES (2, 1);
