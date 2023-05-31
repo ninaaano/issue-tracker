@@ -117,17 +117,17 @@ const MilestoneTable = ({
             disabled={milestoneInfo.title.length === 0}
           >
             <Icon name="plus" />
-            완료
+            <p>완료</p>
           </Button>
         ) : (
           <>
             <Button type="outline" size="S" onClick={cancelClickHandler}>
               <Icon name="xSquare" />
-              취소
+              <p>취소</p>
             </Button>
             <Button type="contained" size="S" onClick={editCompleteHandler}>
               <Icon name="edit" />
-              편집 완료
+              <p>편집 완료</p>
             </Button>
           </>
         )}

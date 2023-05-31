@@ -98,23 +98,23 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
         <$Buttons>
           {milestone.isOpened ? (
             <Button type="ghost" size="S" onClick={changeMilestoneStatusHandler}>
-              <Icon name="archive" fill="#4E4B66" />
-              마일스톤 닫기
+              <Icon name="archive" />
+              <p>마일스톤 닫기</p>
             </Button>
           ) : (
             <Button type="ghost" size="S" onClick={changeMilestoneStatusHandler}>
-              <Icon name="milestone" fill="#4E4B66" />
-              마일스톤 열기
+              <Icon name="milestone" />
+              <p>마일스톤 열기</p>
             </Button>
           )}
 
           <Button type="ghost" size="S" onClick={editButtonHandler}>
-            <Icon name="edit" fill="#4E4B66" />
-            편집
+            <Icon name="edit" />
+            <p>편집</p>
           </Button>
-          <Button type="ghost" size="S" onClick={deleteMilestoneHandler}>
-            <Icon name="trash" fill="#FF3B30" />
-            삭제
+          <Button type="ghost" size="S" onClick={deleteMilestoneHandler} colorstype="danger">
+            <Icon name="trash" />
+            <p>삭제</p>
           </Button>
         </$Buttons>
         <$MilestoneProgress percent={calculatePercentage} />
