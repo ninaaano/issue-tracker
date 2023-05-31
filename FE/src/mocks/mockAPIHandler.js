@@ -97,8 +97,8 @@ const postMilestoneNewData = (request, response, context) => {
     milestoneName: title,
     content: content === undefined ? null : content,
     deadline: deadline === undefined ? null : deadline,
-    openIssue: 0,
-    closeIssue: 0,
+    openCount: 0,
+    closeCount: 0,
     isOpened: true,
   };
 
