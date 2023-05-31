@@ -14,6 +14,7 @@ import {
   $IssueStateControls,
   $IssueButtonsWrapper,
   $FilterOptions,
+  $CheckStatus,
 } from './style';
 
 const IssueListMainHeader = ({
@@ -51,15 +52,18 @@ const IssueListMainHeader = ({
       <$IssueStateControls>
         <$CheckBox type="button" onClick={checkBoxClickHandler}>
           <Icon
-            name={isSelected ? 'checkBoxActive' : 'checkBoxInitial'}
+            name={isSelected ? 'checkBoxDisable' : 'checkBoxInitial'}
             fill={isSelected ? '#007AFF' : '#D9DBE9'}
           />
         </$CheckBox>
-        {/* { TODO: 조건부 렌더링으로 헤더부분 갈아끼워야함 } */}
-        <$IssueButtonsWrapper>
-          {openIssueButton}
-          {closeIssueButton}
-        </$IssueButtonsWrapper>
+        {checkList.length !== 0 ? (
+          <$CheckStatus>{`${checkList.length}개 이슈 선택`}</$CheckStatus>
+        ) : (
+          <$IssueButtonsWrapper>
+            {openIssueButton}
+            {closeIssueButton}
+          </$IssueButtonsWrapper>
+        )}
       </$IssueStateControls>
       <$FilterOptions>
         {/* { TODO: 조건부 렌더링으로 헤더부분 갈아끼워야함 } */}

@@ -19,7 +19,7 @@ const DropDownMenu = ({
 }) => {
   if (dropDownType !== 'sideBar') {
     const filterDispatch = useFilterDispatchContext();
-    const filterState = useFilterStateContext();
+    const { filterState } = useFilterStateContext();
     const checkedOption = filterState[menuType];
 
     const isChecked = checkedOption === menuId;
