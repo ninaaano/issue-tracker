@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS `milestone`,`member`,`issue`,`assignee`,`label`,`label_attached_issues` CASCADE ;
+DROP TABLE IF EXISTS `milestone`,`member`,`issue`,`assignee`,`label`,`label_attached_issues`,`comment` CASCADE ;
 
 CREATE TABLE `milestone`
 (
@@ -66,3 +66,18 @@ CREATE TABLE `label_attached_issues`
     FOREIGN KEY (`LABEL_ID`)
         REFERENCES `label` (`LABEL_ID`)
 );
+
+CREATE TABLE `comment`
+(
+    `COMMENT_ID` INT          NOT NULL AUTO_INCREMENT,
+    `WRITER_ID`  INT          NOT NULL,
+    `ISSUE_ID`   INT          NOT NULL,
+    `CONTENTS`   VARCHAR(500) NOT NULL,
+    `CREATED_AT` DATETIME     NOT NULL,
+    PRIMARY KEY (`COMMENT_ID`),
+    FOREIGN KEY (`WRITER_ID`)
+        REFERENCES `member` (`MEMBER_ID`),
+    FOREIGN KEY (`ISSUE_ID`)
+        REFERENCES `issue` (`ISSUE_ID`)
+);
+
