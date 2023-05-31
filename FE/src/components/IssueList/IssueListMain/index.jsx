@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { useFilterStateContext } from '../../../context/filterContext';
 import { useCheckBoxContext } from '../../../context/checkBoxContext';
 
+import { isEqualObj } from '../../../utils/isEqualObj';
 import { filterIssues } from '../../../utils';
 
 import IssueListItem from './IssueListItem';
@@ -11,18 +12,19 @@ import IssueListMainHeader from './IssueListMainHeader';
 import { $IssueList, $NoResultMessage, $IssueListMain } from './style';
 
 const IssueListMain = ({ issues, user, label, milestone }) => {
-  const filterState = useFilterStateContext();
+  const { filterState, isFilterChanged } = useFilterStateContext();
   const { resetCheckList } = useCheckBoxContext();
   const [isOpened, setIsOpened] = useState(true);
-
-  useEffect(() => {
-    // TODO : filter 적용된 상태를 의존성 배열로 넣어서 resetCheckList 해보기.
-    resetCheckList();
-  }, [isOpened]);
+  const prevFilterState = useRef(filterState);
 
   const filteredOpenIssues = filterIssues({ type: 'open', issues, filterOptions: filterState });
   const filteredCloseIssues = filterIssues({ type: 'close', issues, filterOptions: filterState });
   const filteredIssues = isOpened ? filteredOpenIssues : filteredCloseIssues;
+
+  useEffect(() => {
+    // TODO : filter 적용된 상태를 의존성 배열로 넣어서 resetCheckList 해보기.
+    if (!isEqualObj(prevFilterState, filterState)) resetCheckList();
+  }, [isOpened, isFilterChanged, filterState]);
 
   const noResultMessage = <$NoResultMessage>검색과 일치하는 결과가 없습니다.</$NoResultMessage>;
 

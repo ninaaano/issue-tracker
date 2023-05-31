@@ -46,12 +46,10 @@ const FilterProvider = ({ children }) => {
     writer: null,
   };
 
-  // const checkFiltered = () => {
-  //   return Object.keys(initState).some((key) => initState[key] === filterState[key]);
-  // };
+  const isFilterChanged = JSON.stringify(filterState) !== JSON.stringify(initState);
 
   return (
-    <FilterStateContext.Provider value={filterState}>
+    <FilterStateContext.Provider value={{ filterState, isFilterChanged }}>
       <FilterDispatchContext.Provider value={filterDispatch}>{children}</FilterDispatchContext.Provider>
     </FilterStateContext.Provider>
   );
