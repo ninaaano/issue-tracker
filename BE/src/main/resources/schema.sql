@@ -23,7 +23,6 @@ CREATE TABLE `issue`
 (
     `ISSUE_ID`     INT          NOT NULL AUTO_INCREMENT,
     `TITLE`        VARCHAR(100) NOT NULL,
-    `CONTENTS`     VARCHAR(500) NULL,
     `WRITER_ID`    INT          NOT NULL,
     `IS_OPENED`     BIT DEFAULT 1,
     `MILESTONE_ID` INT,
