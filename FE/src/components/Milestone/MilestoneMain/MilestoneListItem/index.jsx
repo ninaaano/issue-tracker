@@ -112,7 +112,7 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
             <Icon name="edit" />
             <p>편집</p>
           </Button>
-          <Button type="ghost" size="S" onClick={deleteMilestoneHandler} colorstype="danger">
+          <Button type="ghost" size="S" onClick={deleteMilestoneHandler} colorstype="danger" fill="#FF3B30">
             <Icon name="trash" />
             <p>삭제</p>
           </Button>
