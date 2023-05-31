@@ -25,7 +25,6 @@ const IssueListMain = ({ issues, user, label, milestone }) => {
   const filteredIssues = isOpened ? filteredOpenIssues : filteredCloseIssues;
 
   useEffect(() => {
-    // TODO : filter 적용된 상태를 의존성 배열로 넣어서 resetCheckList 해보기.
     if (!isEqualObj(prevFilterState, filterState)) resetCheckList();
   }, [isOpened, isFilterChanged, filterState]);
 

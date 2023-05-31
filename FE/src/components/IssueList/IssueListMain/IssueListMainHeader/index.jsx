@@ -51,7 +51,7 @@ const IssueListMainHeader = ({
       <$IssueStateControls>
         <$CheckBox type="button" onClick={checkBoxClickHandler}>
           <Icon
-            name={isSelected ? 'checkBoxActive' : 'checkBoxInitial'}
+            name={isSelected ? 'checkBoxDisable' : 'checkBoxInitial'}
             fill={isSelected ? '#007AFF' : '#D9DBE9'}
           />
         </$CheckBox>
