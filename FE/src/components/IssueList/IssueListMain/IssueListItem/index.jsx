@@ -76,7 +76,7 @@ IssueListItem.propTypes = {
   issueTitle: PropTypes.string.isRequired,
   label: PropTypes.arrayOf(PropTypes.object),
   writer: PropTypes.object,
-  milestone: PropTypes.string,
+  milestone: PropTypes.object,
   assignee: PropTypes.array,
   isOpened: PropTypes.bool.isRequired,
 };
