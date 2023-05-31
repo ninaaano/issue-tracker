@@ -35,7 +35,7 @@ public class MilestoneService {
     private final IssueRepository issueRepository;
     private final LabelRepository labelRepository;
 
-    public MilestoneCreateResponse createMilestone(@RequestBody MilestoneCreateRequest request) { // Milestone 생성
+    public MilestoneCreateResponse createMilestone(MilestoneCreateRequest request) { // Milestone 생성
         Milestone milestone = Milestone.toEntity(request);
         Milestone savedMilestone = milestoneRepository.save(milestone);
         return new MilestoneCreateResponse(savedMilestone.getId());
