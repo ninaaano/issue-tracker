@@ -50,7 +50,7 @@ const LabelListItem = ({ labelId, name, content, backgroundColor, textColor = 'd
           <p>편집</p>
         </Button>
 
-        <Button type="ghost" size="S" onClick={deleteLabelHandler}>
+        <Button type="ghost" size="S" onClick={deleteLabelHandler} colorstype="danger">
           <Icon name="trash" />
           <p>삭제</p>
         </Button>

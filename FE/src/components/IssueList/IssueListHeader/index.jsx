@@ -20,7 +20,7 @@ const IssueListHeader = ({ labelCount, milestoneCount }) => {
         <TabButton labelCount={labelCount} milestoneCount={milestoneCount} />
         <Button type="contained" size="S" onClick={navigateToNewIssue}>
           <Icon name="plus" />
-          이슈 작성
+          <p>이슈 작성</p>
         </Button>
       </$Nav>
     </$IssueListHeader>

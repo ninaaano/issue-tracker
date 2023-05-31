@@ -49,7 +49,7 @@ const IssueDetailMain = ({ detailIssue, user: userData, label: labelData, milest
         />
         <Button type="contained" size="S">
           <Icon name="plus" />
-          코멘트 작성
+          <p>코멘트 작성</p>
         </Button>
       </$IssueCommentArea>
       <SideBar

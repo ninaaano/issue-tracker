@@ -65,6 +65,13 @@ const typeStyle = css`
   }}
 `;
 
+const fontColorStyle = css`
+  color: ${({ colorstype, theme }) => theme.colors[colorstype].text};
+  & > svg {
+    fill: ${({ colorstype, theme }) => theme.colors[colorstype].text};
+  }
+`;
+
 const fontStyle = css`
   font-size: ${({ size, theme }) => theme.fontSize[size].fontSize};
   line-height: ${({ size, theme }) => theme.fontSize[size].lineHeight};
@@ -75,6 +82,7 @@ const $Button = styled.button`
   ${({ $type }) => $type !== 'ghost' && sizeStyle}
   ${typeStyle}
   ${fontStyle}
+  ${({ colorstype }) => colorstype && fontColorStyle}
 
   display: flex;
   justify-content: center;

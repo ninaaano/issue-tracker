@@ -71,7 +71,7 @@ const TextArea = ({
       <$filesUploadButtonWrapper>
         <Button type="ghost" size="S" disabled={disabled} onClick={fileSelectHandler}>
           <Icon name="paperclip" />
-          파일 첨부하기
+          <p>파일 첨부하기</p>
         </Button>
         {files.length > 0 && <p>{files.map(({ name }) => name).join(' ')}</p>}
       </$filesUploadButtonWrapper>
