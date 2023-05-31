@@ -6,6 +6,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
+import team05.codesquad.issuetracker.controller.commentdto.request.CommentCreateRequest;
 
 import java.time.LocalDate;
 
@@ -26,7 +27,6 @@ public class Comment {
     @Column("issue_id")
     private Long issueId;
 
-    @Column("contents")
     private String contents;
 
     @CreatedDate
@@ -41,5 +41,16 @@ public class Comment {
         this.createdAt = createdAt;
     }
 
-    // TODO: updateProperties 구현하기
+    public static Comment toEntity(Long issueId, CommentCreateRequest request) {
+        return Comment.builder()
+                .issueId(issueId)
+                .writerId(request.getWriterId())
+                .contents(request.getContents())
+                .createdAt(request.getCreatedAt())
+                .build();
+    }
+
+    public void updateProperties(String contents) {
+        this.contents = contents;
+    }
 }
