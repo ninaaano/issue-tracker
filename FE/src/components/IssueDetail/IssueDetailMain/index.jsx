@@ -63,7 +63,7 @@ const IssueDetailMain = ({
     <$IssueDetailMainLayout>
       <$IssueCommentArea>
         <$IssueDetailMain>
-          <Comments issue={detailIssue} />
+          <Comments issue={detailIssue} getNewIssueData={getNewIssueData} />
         </$IssueDetailMain>
         <TextArea
           id="comment"

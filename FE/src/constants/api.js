@@ -28,7 +28,7 @@ const ISSUES = Object.freeze({
 
 const COMMENTS = Object.freeze({
   GET_ALL_COMMENTS: (issueId) => `${BASE_URL}/${API_TYPE.ISSUES}/${issueId}/${API_TYPE.COMMENTS}`,
-  PUT_COMMENT: (issueId, commentId) => {
+  PATCH_COMMENT: (issueId, commentId) => {
     return `${BASE_URL}/${API_TYPE.ISSUES}/${issueId}/${API_TYPE.COMMENTS}/${commentId}`;
   },
   DELETE_COMMENT: (issueId, commentId) => {
