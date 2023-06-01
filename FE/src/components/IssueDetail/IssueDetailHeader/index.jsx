@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { ISSUES } from '../../../constants/api';
+import { getTimeDifference } from '../../../utils/time';
+import useFetch from '../../../hooks/useFetch';
+
 import Icon from '../../common/Icon';
 import Label from '../../common/Label';
 import Button from '../../common/Button';
@@ -16,22 +20,16 @@ import {
   $IssueInfoText,
 } from './style';
 
-const IssueDetailHeader = ({ issue }) => {
+const IssueDetailHeader = ({ issue, getNewIssueData }) => {
   const [isEdited, setIsEdited] = useState(false);
   const [tempTitle, setTempTitle] = useState(issue.issueTitle);
-  // const [editTitle, setEditTitle] = useState(issue.issueTitle);
+  const [editTitle, setEditTitle] = useState(issue.issueTitle);
+  const [titleEditedTime, setTitleEditedTime] = useState(issue.createdAt ?? new Date());
 
-  const { fetchData: editIssueStatus } = useFetch(
+  const { fetchData: editIssue } = useFetch(
     ISSUES.PATCH_ISSUE(issue.issueId),
     'PATCH',
     { isopened: !issue.isopened },
-    true,
-  );
-
-  const { fetchData: editIssueTitle } = useFetch(
-    ISSUES.PATCH_ISSUE(issue.issueId),
-    'PATCH',
-    { title: tempTitle },
     true,
   );
 
@@ -42,23 +40,22 @@ const IssueDetailHeader = ({ issue }) => {
   const cancelEditBtnHandler = () => {
     setIsEdited(false);
     setTempTitle(issue.issueTitle);
-    // setEditTitle(issue.issueTitle);
+    setEditTitle(issue.issueTitle);
   };
 
   const titleChangeHandler = ({ target }) => {
     setTempTitle(target.value);
   };
 
-  const completeEditHandler = async () => {
-    // setEditTitle(tempTitle);
-    await editIssueTitle();
+  const completeEditHandler = () => {
+    setEditTitle(tempTitle);
     setIsEdited(false);
-    getNewIssueData();
   };
 
   const statusChangeHandler = async () => {
-    await editIssueStatus();
+    await editIssue();
     getNewIssueData();
+    setTitleEditedTime(new Date());
   };
 
   return (
@@ -66,7 +63,7 @@ const IssueDetailHeader = ({ issue }) => {
       <$IssueDetailTitle>
         {!isEdited ? (
           <$TitleWrapper>
-            <$IssueTitle>{tempTitle}</$IssueTitle>
+            <$IssueTitle>{editTitle}</$IssueTitle>
             <$IssueId>{`#${issue.issueId}`}</$IssueId>
           </$TitleWrapper>
         ) : (
@@ -87,9 +84,9 @@ const IssueDetailHeader = ({ issue }) => {
               <Icon name="edit" />
               <p>제목 편집</p>
             </Button>
-            <Button type="outline" size="S">
+            <Button type="outline" size="S" onClick={statusChangeHandler}>
               <Icon name="archive" />
-              <p>이슈 닫기</p>
+              <p>{`이슈 ${issue.isopened ? '닫기' : '열기'} `}</p>
             </Button>
           </$Buttons>
         ) : (
@@ -107,26 +104,26 @@ const IssueDetailHeader = ({ issue }) => {
       </$IssueDetailTitle>
 
       <$IssueDetailInfo>
-        {issue.isOpened ? (
+        {issue.isopened ? (
           <Label
             height={32}
             name="열린 이슈"
-            textColor="#FEFEFE"
+            fontColor="#FEFEFE"
             backgroundColor="#007AFF"
             iconName="alertCircle"
           />
         ) : (
           <Label
-            height="32"
+            height={32}
             name="닫힌 이슈"
-            textColor="#FEFEFE"
+            fontColor="#FEFEFE"
             backgroundColor="#FF3B30"
             iconName="archive"
           />
         )}
         <$IssueInfoText>
-          {`이 이슈가 ${1}분 전에 ${issue.writer.name}님에 의해 ${
-            issue.isOpened ? '열렸습니다' : '닫혔습니다'
+          {`이 이슈가 ${getTimeDifference(titleEditedTime)}에 ${issue.writer.name}님에 의해 ${
+            issue.isopened ? '열렸습니다' : '닫혔습니다'
           } ∙ 코멘트 ${issue.comment.length}개 `}
         </$IssueInfoText>
       </$IssueDetailInfo>
@@ -136,6 +133,7 @@ const IssueDetailHeader = ({ issue }) => {
 
 IssueDetailHeader.propTypes = {
   issue: PropTypes.object.isRequired,
+  getNewIssueData: PropTypes.func.isRequired,
 };
 
 export default IssueDetailHeader;
