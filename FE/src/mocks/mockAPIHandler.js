@@ -51,7 +51,6 @@ const getIssueDetailData = (request, response, context) => {
   const { issueId } = request.params;
   const issueDetailData = JSON.parse(localStorage.getItem('issueDetailData'));
 
-  console.log(issueDetailData);
   const targetData = issueDetailData.filter((issue) => issue.issueId === Number(issueId))[0];
 
   const data = {
