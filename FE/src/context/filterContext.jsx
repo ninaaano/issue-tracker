@@ -25,9 +25,10 @@ const useFilterDispatchContext = () => {
 };
 
 const initState = {
-  writtenByMe: false,
-  assignedToMe: false,
-  commentedByMe: false,
+  issue: null,
+  // writtenByMe: false,
+  // assignedToMe: false,
+  // commentedByMe: false,
   milestone: null,
   label: null,
   assignee: null,
@@ -47,15 +48,7 @@ const filterReducer = (state, action) => {
       const value = state[filterType] !== id || state[filterType] === null ? id : null;
 
       if (filterType === 'issue') {
-        if (id === 'commentedByMe') {
-          return { ...state, commentedByMe: !state.commentedByMe, writtenByMe: false, assignedToMe: false };
-        }
-        if (id === 'writtenByMe') {
-          return { ...state, commentedByMe: false, writtenByMe: !state.writtenByMe, assignedToMe: false };
-        }
-        if (id === 'assignedToMe') {
-          return { ...state, commentedByMe: false, writtenByMe: false, assignedToMe: !state.assignedToMe };
-        }
+        return { ...state, issue: value };
       }
 
       return { ...state, [filterType]: value };

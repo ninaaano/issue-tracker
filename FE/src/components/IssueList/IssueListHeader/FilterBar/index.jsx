@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import Icon from '../../../common/Icon';
 import DropDown from '../../../common/DropDown';
 import { $FilterBar, $FilterInput, $FilterInputWrapper } from './style';

@@ -35,7 +35,7 @@ const filterIssues = ({ type, issues, filterOptions }) => {
     const labelIdArr = label.map(({ labelId }) => labelId);
     const assigneeIdArr = assignee.map(({ userId }) => userId);
 
-    const { commentedByMe, writtenByMe, assignedToMe } = filterOptions;
+    const { issue } = filterOptions;
 
     const isMilestoneMatched = isFilterMatched({
       currentFilterOption: filterOptions[FILTER_TYPE.MILESTONE],
@@ -46,15 +46,16 @@ const filterIssues = ({ type, issues, filterOptions }) => {
       issueValue: labelIdArr,
     });
     const isAssigneeMatched = isFilterMatched({
-      currentFilterOption: assignedToMe ? myId : filterOptions[FILTER_TYPE.ASSIGNEE],
+      currentFilterOption: issue === 'assignedToMe' ? myId : filterOptions[FILTER_TYPE.ASSIGNEE],
       issueValue: assigneeIdArr,
     });
     const isWriterMatched = isFilterMatched({
-      currentFilterOption: writtenByMe ? myId : filterOptions[FILTER_TYPE.WRITER],
+      currentFilterOption: issue === 'writtenByMe' ? myId : filterOptions[FILTER_TYPE.WRITER],
       issueValue: writerId,
     });
 
-    const isCommentMatched = !commentedByMe || comment.some(({ commentUser }) => commentUser.userId === myId);
+    const isCommentMatched =
+      issue === 'commentedByMe' || comment.some(({ commentUser }) => commentUser.userId === myId);
 
     const isOpenButtonActive = type === 'open';
 
