@@ -1,4 +1,4 @@
-const BASE_URL = '';
+const BASE_URL = 'http://52.78.7.230:8080/';
 
 const API_TYPE = Object.freeze({
   LOGIN: 'login',
@@ -21,8 +21,9 @@ const USERS = Object.freeze({
 const ISSUES = Object.freeze({
   GET_ALL_ISSUES: `${BASE_URL}/${API_TYPE.ISSUES}`,
   GET_ISSUE: (issueId) => `${BASE_URL}/${API_TYPE.ISSUES}/${issueId}`,
-  PUT_ISSUE: (issueId) => `${BASE_URL}/${API_TYPE.ISSUES}/${issueId}`,
+  PATCH_ISSUE: (issueId) => `${BASE_URL}/${API_TYPE.ISSUES}/${issueId}`,
   DELETE_ISSUE: (issueId) => `${BASE_URL}/${API_TYPE.ISSUES}/${issueId}`,
+  POST_ISSUE: `${BASE_URL}/${API_TYPE.ISSUES}`,
 });
 
 const COMMENTS = Object.freeze({

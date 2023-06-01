@@ -17,6 +17,6 @@ export const Primary = Template.bind({});
 Primary.args = {
   height: 24,
   name: '🌈 feat',
-  textColor: 'light',
+  fontColor: 'light',
   backgroundColor: '#0025E6',
 };

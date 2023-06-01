@@ -31,7 +31,7 @@ const $SubmitButtonWrapper = styled.div`
   padding: 24px 0;
 `;
 
-const $NewIssueForm = styled.form`
+const $NewIssueForm = styled.div`
   /* display: flex;
   gap: 24px; */
 `;

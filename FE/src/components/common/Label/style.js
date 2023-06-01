@@ -9,9 +9,9 @@ const $Label = styled.div`
   width: max-content;
   height: ${({ height }) => `${height}px`};
   border-radius: 50px;
-  background-color: ${({ backgroundColor }) => backgroundColor};
-  color: ${({ textColor }) => {
-    return textColor === 'dark' ? '#14142B' : '#FEFEFE';
+  background-color: ${({ backgroundcolor }) => backgroundcolor};
+  color: ${({ textcolor }) => {
+    return textcolor === 'dark' ? '#14142B' : '#FEFEFE';
   }};
   gap: 4px;
   // TODO : 글씨체 바꿔보고 삭제 요망

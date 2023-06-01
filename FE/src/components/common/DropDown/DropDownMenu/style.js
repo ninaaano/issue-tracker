@@ -30,7 +30,7 @@ const $LabelColor = styled.div`
   height: 20px;
   border-radius: 50%;
   margin-right: 8px;
-  background-color: ${({ backgroundColor }) => backgroundColor};
+  background-color: ${({ backgroundcolor }) => backgroundcolor};
 `;
 
 const $MenuText = styled.div`

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { filterReducer } from './filterReducer';
@@ -27,6 +27,7 @@ const useFilterDispatchContext = () => {
 };
 
 const FilterProvider = ({ children }) => {
+  // const [isFiltered, setIsFiltered] = useState(false);
   const [filterState, filterDispatch] = useReducer(filterReducer, {
     isOpened: true, // 열린 이슈, 닫힌 이슈, 필터드롭다운에도 적용해야함.
     commentedByMe: false,
@@ -36,8 +37,19 @@ const FilterProvider = ({ children }) => {
     writer: null,
   });
 
+  const initState = {
+    isOpened: true, // 열린 이슈, 닫힌 이슈, 필터드롭다운에도 적용해야함.
+    commentedByMe: false,
+    milestone: null,
+    label: null,
+    assignee: null,
+    writer: null,
+  };
+
+  const isFilterChanged = JSON.stringify(filterState) !== JSON.stringify(initState);
+
   return (
-    <FilterStateContext.Provider value={filterState}>
+    <FilterStateContext.Provider value={{ filterState, isFilterChanged }}>
       <FilterDispatchContext.Provider value={filterDispatch}>{children}</FilterDispatchContext.Provider>
     </FilterStateContext.Provider>
   );

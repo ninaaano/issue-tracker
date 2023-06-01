@@ -2,11 +2,11 @@ import styled, { css } from 'styled-components';
 
 const labelFont = css`
   color: ${({ theme }) => theme.colors.neutral.text.weak};
-  font-size: ${({ hasValue, isFocused, theme }) => {
-    return theme.fontSize[hasValue || isFocused ? 'S' : 'M'].fontSize;
+  font-size: ${({ hasvalue, isfocused, theme }) => {
+    return theme.fontSize[hasvalue || isfocused ? 'S' : 'M'].fontSize;
   }};
-  line-height: ${({ hasValue, isFocused, theme }) => {
-    return theme.fontSize[hasValue || isFocused ? 'S' : 'M'].lineHeight;
+  line-height: ${({ hasvalue, isfocused, theme }) => {
+    return theme.fontSize[hasvalue || isfocused ? 'S' : 'M'].lineHeight;
   }};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
 `;
@@ -70,11 +70,11 @@ const $TextArea = styled.div`
     return '';
   }};
   padding: 16px;
-  border: 1px solid ${({ isFocused, theme }) => (isFocused ? theme.colors.neutral.border.active : 'none')};
+  border: 1px solid ${({ isfocused, theme }) => (isfocused ? theme.colors.neutral.border.active : 'none')};
   border-radius: 16px;
 
-  background-color: ${({ isFocused, theme }) => {
-    return theme.colors.neutral.background[isFocused ? 'strong' : 'bold'];
+  background-color: ${({ isfocused, theme }) => {
+    return theme.colors.neutral.background[isfocused ? 'strong' : 'bold'];
   }};
 
   opacity: ${({ disabled }) => (disabled ? 0.32 : 1)};
