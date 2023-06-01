@@ -10,8 +10,11 @@ import {
   mockIssueDetailData,
   issueDetailData,
 } from './mockData';
+// import { mockUserImageData } from './mockData';
 
 const getIssues = (request, response, context) => {
+  // const mockIssuesData = localStorage.getItem('mockIssuesData');
+
   return response(context.status(200), context.json(mockIssuesData));
 };
 
@@ -22,14 +25,20 @@ const getUserImage = (request, response, context) => {
 };
 
 const getUserData = (request, response, context) => {
+  // const mockUserData = localStorage.getItem('mockUserData');
+
   return response(context.status(200), context.json(mockUserData));
 };
 
 const getLabelData = (request, response, context) => {
+  // const mockLabelData = localStorage.getItem('mockLabelData');
+
   return response(context.status(200), context.json(mockLabelData));
 };
 
 const getMilestoneData = (request, response, context) => {
+  // const mockMilestoneData = localStorage.getItem('mockMilestoneData');
+
   return response(context.status(200), context.json(mockMilestoneData));
 };
 
@@ -82,6 +91,35 @@ const postNewIssueData = (request, response, context) => {
       status: 200,
       message: '요청이 완료되었습니다.',
       data: responseBody,
+    }),
+  );
+};
+
+const editTargetIssueData = (request, response, context) => {
+  const { issueId } = request.params;
+
+  const { title, isOpened } = request.body;
+
+  let targetIssueIndex = -1;
+
+  issueDetailData.forEach((issue, index) => {
+    if (issue.issueId === Number(issueId)) {
+      targetIssueIndex = index;
+    }
+  });
+
+  issueDetailData[targetIssueIndex] = {
+    ...issueDetailData[targetIssueIndex],
+    issueTitle: title || issueDetailData[targetIssueIndex].issueTitle,
+    isOpened: isOpened !== undefined ? isOpened : issueDetailData[targetIssueIndex].isOpened,
+  };
+
+  return response(
+    context.status(200),
+    context.json({
+      status: 200,
+      message: 'issue Data Patch 완료',
+      data: issueDetailData[targetIssueIndex],
     }),
   );
 };
@@ -237,6 +275,7 @@ const mockAPIHandler = [
   rest.get(ISSUES.GET_ALL_ISSUES, getIssues),
   rest.get(ISSUES.GET_ISSUE(':issueId'), getIssueDetailData),
   rest.post(ISSUES.POST_ISSUE, postNewIssueData),
+  rest.patch(ISSUES.PATCH_ISSUE(':issueId'), editTargetIssueData),
 
   rest.get(USERS.GET_USER_IMG(':userId'), getUserImage),
   rest.get(USERS.GET_ALL_USERS, getUserData),

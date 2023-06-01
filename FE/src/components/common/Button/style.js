@@ -50,8 +50,14 @@ const outlineStyle = css`
 
 const ghostStyle = css`
   color: ${({ active, theme }) => theme.colors.neutral.text[active ? 'strong' : 'default']};
-  & > svg {
+  ${
+    '' /* & > svg {
     fill: ${({ active, theme }) => theme.colors.neutral.text[active ? 'strong' : 'default']};
+  } */
+  }
+  & > svg {
+    ${'' /* fill: ${({ colorstype, theme, fill }) => theme.colors[colorstype].text}; */}
+    fill: ${({ colorstype, theme, fill }) => fill};
   }
 `;
 
@@ -68,7 +74,8 @@ const typeStyle = css`
 const fontColorStyle = css`
   color: ${({ colorstype, theme }) => theme.colors[colorstype].text};
   & > svg {
-    fill: ${({ colorstype, theme }) => theme.colors[colorstype].text};
+    ${'' /* fill: ${({ colorstype, theme, fill }) => theme.colors[colorstype].text}; */}
+    fill: ${({ colorstype, theme, fill }) => fill};
   }
 `;
 

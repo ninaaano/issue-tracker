@@ -21,7 +21,7 @@ const USERS = Object.freeze({
 const ISSUES = Object.freeze({
   GET_ALL_ISSUES: `${BASE_URL}/${API_TYPE.ISSUES}`,
   GET_ISSUE: (issueId) => `${BASE_URL}/${API_TYPE.ISSUES}/${issueId}`,
-  PUT_ISSUE: (issueId) => `${BASE_URL}/${API_TYPE.ISSUES}/${issueId}`,
+  PATCH_ISSUE: (issueId) => `${BASE_URL}/${API_TYPE.ISSUES}/${issueId}`,
   DELETE_ISSUE: (issueId) => `${BASE_URL}/${API_TYPE.ISSUES}/${issueId}`,
   POST_ISSUE: `${BASE_URL}/${API_TYPE.ISSUES}`,
 });
