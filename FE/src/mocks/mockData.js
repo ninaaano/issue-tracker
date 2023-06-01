@@ -1801,7 +1801,7 @@ const issueDetailData = [
       userId: 2,
       name: '니노',
       url: 'https://avatars.githubusercontent.com/u/95615105?v=4',
-      createdAt: '2023-06-02T14:20:15.958',
+      createdAt: '2023-05-30T14:20:15.958',
     },
     assignee: [
       {
@@ -1869,7 +1869,7 @@ const issueDetailData = [
       userId: 1,
       name: '고뭉남',
       url: 'https://avatars.githubusercontent.com/u/77562698?v=4',
-      createdAt: '2023-06-03T17:40:30.521',
+      createdAt: '2023-06-01T16:40:30.521',
     },
     assignee: [
       {
