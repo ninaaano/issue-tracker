@@ -39,7 +39,6 @@ const App = () => {
   return (
     <ThemeProvider>
       <GlobalStyles />
-
       <BrowserRouter>
         {userImgData && <Header userImgSrc={userImgData.userImgURL} />}
         <Routes>
