@@ -24,7 +24,7 @@ import Milestone from './pages/Milestone';
 import LabelList from './pages/LabelList';
 
 const App = () => {
-  const { data: userImgData } = useFetch(USERS.GET_USER_IMG(2));
+  const { data: userImgData } = useFetch(USERS.GET_USER_IMG(6));
 
   useEffect(() => {
     const isDataInLocalStorage = localStorage.getItem('mockUserData');
