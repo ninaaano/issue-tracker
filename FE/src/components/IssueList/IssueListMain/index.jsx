@@ -55,7 +55,7 @@ const filterIssues = ({ type, issues, filterOptions }) => {
     });
 
     const isCommentMatched =
-      issue === 'commentedByMe' || comment.some(({ commentUser }) => commentUser.userId === myId);
+      issue === 'commentedByMe' ? comment.some(({ commentUser }) => commentUser.userId === myId) : true;
 
     const isOpenButtonActive = type === 'open';
 
