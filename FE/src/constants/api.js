@@ -34,6 +34,9 @@ const COMMENTS = Object.freeze({
   DELETE_COMMENT: (issueId, commentId) => {
     return `${BASE_URL}/${API_TYPE.ISSUES}/${issueId}/${API_TYPE.COMMENTS}/${commentId}`;
   },
+  POST_COMMENT: (issueId) => {
+    return `${BASE_URL}/${API_TYPE.ISSUES}/${issueId}/${API_TYPE.COMMENTS}`;
+  },
 });
 
 const LABELS = Object.freeze({
