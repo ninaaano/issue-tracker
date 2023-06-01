@@ -1,7 +1,5 @@
-import React, { createContext, useContext, useReducer, useState } from 'react';
+import React, { createContext, useContext, useReducer } from 'react';
 import PropTypes from 'prop-types';
-
-import { filterReducer } from './filterReducer';
 
 const FilterStateContext = createContext(null);
 const FilterDispatchContext = createContext(null);
@@ -27,7 +25,6 @@ const useFilterDispatchContext = () => {
 };
 
 const initState = {
-  isOpened: true, // 열린 이슈, 닫힌 이슈, 필터드롭다운에도 적용해야함.
   writtenByMe: false,
   assignedToMe: false,
   commentedByMe: false,
@@ -37,8 +34,43 @@ const initState = {
   writer: null,
 };
 
+const FILTER_ACTION_TYPES = {
+  CLICK_MENU: 'CLICK_MENU',
+  RESET_FILTER: 'RESET_FILTER',
+};
+
+const filterReducer = (state, action) => {
+  switch (action.type) {
+    case FILTER_ACTION_TYPES.CLICK_MENU: {
+      const { filterType, id } = action.payload;
+
+      const value = state[filterType] !== id || state[filterType] === null ? id : null;
+
+      if (filterType === 'issue') {
+        if (id === 'commentedByMe') {
+          return { ...state, commentedByMe: !state.commentedByMe, writtenByMe: false, assignedToMe: false };
+        }
+        if (id === 'writtenByMe') {
+          return { ...state, commentedByMe: false, writtenByMe: !state.writtenByMe, assignedToMe: false };
+        }
+        if (id === 'assignedToMe') {
+          return { ...state, commentedByMe: false, writtenByMe: false, assignedToMe: !state.assignedToMe };
+        }
+      }
+
+      return { ...state, [filterType]: value };
+    }
+
+    case FILTER_ACTION_TYPES.RESET_FILTER: {
+      return { ...initState };
+    }
+
+    default:
+      return state;
+  }
+};
+
 const FilterProvider = ({ children }) => {
-  // const [isFiltered, setIsFiltered] = useState(false);
   const [filterState, filterDispatch] = useReducer(filterReducer, initState);
   const isFilterChanged = JSON.stringify(filterState) !== JSON.stringify(initState);
 
@@ -55,4 +87,10 @@ FilterProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export { FilterProvider, useFilterStateContext, useFilterDispatchContext };
+export {
+  FilterProvider,
+  useFilterStateContext,
+  useFilterDispatchContext,
+  FILTER_ACTION_TYPES,
+  filterReducer,
+};

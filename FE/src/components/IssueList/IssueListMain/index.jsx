@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import { useFilterStateContext, useFilterDispatchContext } from '../../../context/filterContext';
+import {
+  useFilterStateContext,
+  useFilterDispatchContext,
+  FILTER_ACTION_TYPES,
+} from '../../../context/filterContext';
 import { useCheckBoxContext } from '../../../context/checkBoxContext';
-import { FILTER_ACTION_TYPES } from '../../../context/filterReducer';
 
 import { FILTER_TYPE } from '../../../constants/dropdownMenu';
 
