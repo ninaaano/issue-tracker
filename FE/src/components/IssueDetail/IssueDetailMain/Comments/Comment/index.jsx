@@ -19,6 +19,7 @@ import {
   $UserName,
   $CommentTime,
   $Buttons,
+  $DeleteButton,
 } from './style';
 
 // TODO: 내 userId -> context로 빼기.
@@ -40,6 +41,13 @@ const Comment = ({ writerId, commentData, getNewIssueData, issueId }) => {
     true,
   );
 
+  const { fetchData: deleteComment } = useFetch(
+    COMMENTS.DELETE_COMMENT(issueId, commentData.commentId),
+    'DELETE',
+    {},
+    true,
+  );
+
   const commentEditHandler = ({ target }) => {
     setTempComment(target.value);
   };
@@ -55,6 +63,12 @@ const Comment = ({ writerId, commentData, getNewIssueData, issueId }) => {
 
   const completeEditHandler = async () => {
     await patchComment();
+    getNewIssueData();
+    setIsEdited(false);
+  };
+
+  const deleteBtnHandler = async () => {
+    await deleteComment();
     getNewIssueData();
     setIsEdited(false);
   };
@@ -78,10 +92,16 @@ const Comment = ({ writerId, commentData, getNewIssueData, issueId }) => {
               <Label height={32} backgroundColor="#D9DBE9" fontColor="dark" name="작성자" />
             )}
             {isMine && (
-              <$HeaderButton onClick={editBtnHandler}>
-                <Icon name="edit" />
-                <p>편집</p>
-              </$HeaderButton>
+              <React.Fragment>
+                <$DeleteButton onClick={deleteBtnHandler}>
+                  <Icon name="xSquare" fill="#FF3B30" />
+                  <p>삭제</p>
+                </$DeleteButton>
+                <$HeaderButton onClick={editBtnHandler}>
+                  <Icon name="edit" />
+                  <p>편집</p>
+                </$HeaderButton>
+              </React.Fragment>
             )}
             <$HeaderButton>
               <Icon name="smile" />
