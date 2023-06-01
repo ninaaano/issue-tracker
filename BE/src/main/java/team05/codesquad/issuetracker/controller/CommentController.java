@@ -3,6 +3,7 @@ package team05.codesquad.issuetracker.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import team05.codesquad.issuetracker.controller.commentdto.request.CommentCreateRequest;
 import team05.codesquad.issuetracker.controller.commentdto.request.CommentUpdateRequest;
@@ -24,22 +25,21 @@ public class CommentController {
     }
 
     @PostMapping("/{issueId}")
-    @ResponseStatus(HttpStatus.OK)
-    public CommentCreateResponse createComment(@PathVariable Long issueId, @RequestBody CommentCreateRequest request) {
-        return commentService.createComment(issueId, request);
+    public ResponseEntity<ResponseData<CommentCreateResponse>> createComment(@PathVariable Long issueId, @RequestBody CommentCreateRequest request) {
+        ResponseData<CommentCreateResponse> responseData = new ResponseData<>(commentService.createComment(issueId, request));
+        return ResponseEntity.ok().body(responseData);
     }
 
     @DeleteMapping("/{issueId}/{commentId}")
-    @ResponseStatus(HttpStatus.OK)
     public void deleteComment(@PathVariable Long issueId, @PathVariable Long commentId) {
         log.info(">>> CommentController deleteComment()");
         commentService.deleteComment(issueId, commentId);
     }
 
     @PatchMapping("/{issueId}/{commentId}")
-    @ResponseStatus(HttpStatus.OK)
-    public CommentUpdateResponse updateComment(@PathVariable Long issueId, @PathVariable Long commentId, @RequestBody CommentUpdateRequest request) {
+    public ResponseEntity<ResponseData<CommentUpdateResponse>> updateComment(@PathVariable Long issueId, @PathVariable Long commentId, @RequestBody CommentUpdateRequest request) {
         log.info(">>> CommentController updateComment()");
-        return commentService.updateComment(issueId, commentId, request);
+        ResponseData<CommentUpdateResponse> responseData = new ResponseData<>(commentService.updateComment(issueId, commentId, request));
+        return ResponseEntity.ok().body(responseData);
     }
 }
