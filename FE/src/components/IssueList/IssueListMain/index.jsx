@@ -7,7 +7,7 @@ import { FILTER_ACTION_TYPES } from '../../../context/filterReducer';
 
 import { FILTER_TYPE } from '../../../constants/dropdownMenu';
 
-import { isEqualObj } from '../../../utils/isEqualObj';
+import { isEqualObj } from '../../../utils/validator';
 
 import Icon from '../../common/Icon';
 import IssueListItem from './IssueListItem';

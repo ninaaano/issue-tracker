@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import useFetch from '../../../hooks/useFetch';
 import { LABELS } from '../../../constants/api';
-import generateRandomColor from '../../../utils/generateRandomColor';
+import { generateRandomColor } from '../../../utils/randomColor';
 
 import Button from '../../common/Button';
 import Icon from '../../common/Icon';
