@@ -15,4 +15,6 @@ public interface MemberRepository extends CrudRepository<Member,Long> {
             "WHERE a.issue_id = :issueId")
     List<Member> findByIssueId(Long issueId);
 
+    List<Member> findAll();
+
 }
