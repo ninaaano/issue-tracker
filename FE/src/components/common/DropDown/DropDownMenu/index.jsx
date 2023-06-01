@@ -28,7 +28,10 @@ const DropDownMenu = ({
     const isChecked = checkedOption === menuId;
 
     const menuClickHandler = () => {
-      filterDispatch({ type: FILTER_ACTION_TYPES.CLICK_MENU, payload: { filterType: menuType, id: menuId } });
+      filterDispatch({
+        type: FILTER_ACTION_TYPES.CHANGE_MENU,
+        payload: { filterType: menuType, id: menuId },
+      });
     };
 
     return (
