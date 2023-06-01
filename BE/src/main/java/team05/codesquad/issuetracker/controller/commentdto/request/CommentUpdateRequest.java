@@ -9,6 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 @NoArgsConstructor
 public class CommentUpdateRequest {
 
-    private String contents;
+    private String content;
 
 }
