@@ -51,7 +51,6 @@ const getIssueDetailData = (request, response, context) => {
   const { issueId } = request.params;
   const issueDetailData = JSON.parse(localStorage.getItem('issueDetailData'));
 
-  console.log(issueDetailData);
   const targetData = issueDetailData.filter((issue) => issue.issueId === Number(issueId))[0];
 
   const data = {
@@ -309,6 +308,33 @@ const deleteLabel = (request, response, context) => {
   );
 };
 
+const postComment = (request, response, context) => {
+  const mockIssuesData = JSON.parse(localStorage.getItem('issueDetailData'));
+  const mockUserData = JSON.parse(localStorage.getItem('mockUserData'));
+
+  const { issueId } = request.params;
+  const { userId, content } = request.body;
+  const targetIndex = mockIssuesData.findIndex((issue) => issue.issueId === Number(issueId));
+  const { comment } = mockIssuesData.filter((issue) => issue.issueId === Number(issueId))[0];
+  const lastId = comment.length;
+
+  mockIssuesData[targetIndex].comment = [
+    ...comment,
+    {
+      commentId: lastId + 1,
+      content,
+      createdAt: new Date(),
+      commentUser: mockUserData.data[userId - 1],
+    },
+  ];
+
+  localStorage.setItem('issueDetailData', JSON.stringify(mockIssuesData));
+
+  return response(context.status(200), context.json());
+};
+
+const putComment = (request, response, context) => {};
+
 const mockAPIHandler = [
   rest.get(ISSUES.GET_ALL_ISSUES, getIssues),
   rest.get(ISSUES.GET_ISSUE(':issueId'), getIssueDetailData),
@@ -327,6 +353,9 @@ const mockAPIHandler = [
   rest.post(LABELS.POST_LABEL, postLabelNewData),
   rest.patch(LABELS.PATCH_LABEL(':labelId'), editLabelData),
   rest.delete(LABELS.DELETE_LABEL(':labelId'), deleteLabel),
+
+  rest.post(COMMENTS.POST_COMMENT(':issueId'), postComment),
+  rest.put(COMMENTS.PUT_COMMENT(':issueId', ':commentId')),
 ];
 
 export { mockAPIHandler };
