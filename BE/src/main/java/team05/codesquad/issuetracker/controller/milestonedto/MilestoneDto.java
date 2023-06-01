@@ -23,7 +23,7 @@ public class MilestoneDto {
         this.milestoneName = milestone.getTitle();
         this.content = milestone.getDescription();
         this.deadline = milestone.getDeadLine();
-        this.isopened = true;
+        this.isopened = milestone.getIsOpened();
         this.issuesResponse = issuesResponse;
     }
 
