@@ -7,8 +7,16 @@ import SideBar from '../../common/SideBar';
 import TextArea from '../../common/TextArea';
 import Comments from './Comments';
 import { $IssueDetailMain, $IssueCommentArea, $IssueDetailMainLayout } from './style';
+import useFetch from '../../../hooks/useFetch';
+import { COMMENTS } from '../../../constants/api';
 
-const IssueDetailMain = ({ detailIssue, user: userData, label: labelData, milestone: milestoneData }) => {
+const IssueDetailMain = ({
+  detailIssue,
+  user: userData,
+  label: labelData,
+  milestone: milestoneData,
+  getNewIssueData,
+}) => {
   const [selectedItems, setSelectedItems] = useState({
     assignee: detailIssue.assignee[0]?.userId,
     milestone: detailIssue.milestone?.milestoneId,
@@ -18,6 +26,16 @@ const IssueDetailMain = ({ detailIssue, user: userData, label: labelData, milest
   const [comment, setComment] = useState('');
   const [files, setFiles] = useState([]);
 
+  const { fetchData: postCommentData } = useFetch(
+    COMMENTS.POST_COMMENT(detailIssue.issueId),
+    'POST',
+    {
+      userId: 6,
+      content: comment,
+    },
+    true,
+  );
+
   const commentEditHandler = ({ target }) => {
     setComment(target.value);
   };
@@ -25,13 +43,21 @@ const IssueDetailMain = ({ detailIssue, user: userData, label: labelData, milest
     setFiles([...target.files]);
   };
 
-  const changeAssigneeHandler = (userId) => setSelectedItems({ ...selectedItems, assignee: userId });
+  const changeAssigneeHandler = (userId) => {
+    setSelectedItems({ ...selectedItems, assignee: userId });
+  };
+
   const changeLabelHandler = (labelId) => setSelectedItems({ ...selectedItems, label: labelId });
+
   const changeMilestoneHandler = (milestoneId) => {
     setSelectedItems({ ...selectedItems, milestone: milestoneId });
   };
 
-  console.log(selectedItems);
+  const postNewComment = async () => {
+    await postCommentData();
+    setComment('');
+    getNewIssueData();
+  };
 
   return (
     <$IssueDetailMainLayout>
@@ -47,12 +73,13 @@ const IssueDetailMain = ({ detailIssue, user: userData, label: labelData, milest
           files={files}
           filesUploadHandler={filesUploadHandler}
         />
-        <Button type="contained" size="S">
+        <Button type="contained" size="S" onClick={postNewComment}>
           <Icon name="plus" />
           <p>코멘트 작성</p>
         </Button>
       </$IssueCommentArea>
       <SideBar
+        issueId={detailIssue.issueId}
         assignees={userData}
         labels={labelData}
         milestones={milestoneData}
@@ -70,6 +97,7 @@ IssueDetailMain.propTypes = {
   user: PropTypes.array.isRequired,
   label: PropTypes.array.isRequired,
   milestone: PropTypes.array.isRequired,
+  getNewIssueData: PropTypes.func.isRequired,
 };
 
 export default IssueDetailMain;
