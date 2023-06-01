@@ -25,10 +25,8 @@ public class Milestone {
     @Column("milestone_id")
     private Long id;
 
-    @Column("title")
     private String title;
 
-    @Column("description")
     private String description;
 
     @Column("deadline")
