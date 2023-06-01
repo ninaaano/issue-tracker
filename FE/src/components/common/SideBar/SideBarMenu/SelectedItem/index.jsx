@@ -6,6 +6,13 @@ import { $Assignee, $Milestone, $LabelWrapper, $ProfileImg, $AssigneeName, $Prog
 import Label from '../../../Label';
 
 const SelectedItem = ({ className = '', type, info }) => {
+  const calculatePercentage = (() => {
+    const totalIssues = info.openCount + info.closeCount;
+
+    if (totalIssues === 0) return 0;
+    return Math.ceil((info.closeCount / totalIssues) * 100);
+  })();
+
   if (FILTER_TYPE[type] === 'label') {
     return (
       <$LabelWrapper className={className}>
@@ -29,7 +36,7 @@ const SelectedItem = ({ className = '', type, info }) => {
   if (FILTER_TYPE[type] === 'milestone') {
     return (
       <$Milestone className={className}>
-        <$ProgressBar percent={(info.closeIssue / (info.openIssue + info.closeIssue)) * 100} />
+        <$ProgressBar percent={calculatePercentage} />
         {info.milestoneName}
       </$Milestone>
     );

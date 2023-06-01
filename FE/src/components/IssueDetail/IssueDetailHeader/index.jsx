@@ -19,7 +19,22 @@ import {
 const IssueDetailHeader = ({ issue }) => {
   const [isEdited, setIsEdited] = useState(false);
   const [tempTitle, setTempTitle] = useState(issue.issueTitle);
-  const [editTitle, setEditTitle] = useState(issue.issueTitle);
+  // const [editTitle, setEditTitle] = useState(issue.issueTitle);
+
+  const { fetchData: editIssueStatus } = useFetch(
+    ISSUES.PATCH_ISSUE(issue.issueId),
+    'PATCH',
+    { isopened: !issue.isopened },
+    true,
+  );
+
+  const { fetchData: editIssueTitle } = useFetch(
+    ISSUES.PATCH_ISSUE(issue.issueId),
+    'PATCH',
+    { title: tempTitle },
+    true,
+  );
+
   const editBtnHandler = () => {
     setIsEdited(true);
   };
@@ -27,16 +42,23 @@ const IssueDetailHeader = ({ issue }) => {
   const cancelEditBtnHandler = () => {
     setIsEdited(false);
     setTempTitle(issue.issueTitle);
-    setEditTitle(issue.issueTitle);
+    // setEditTitle(issue.issueTitle);
   };
 
   const titleChangeHandler = ({ target }) => {
     setTempTitle(target.value);
   };
 
-  const completeEditHandler = () => {
-    setEditTitle(tempTitle);
+  const completeEditHandler = async () => {
+    // setEditTitle(tempTitle);
+    await editIssueTitle();
     setIsEdited(false);
+    getNewIssueData();
+  };
+
+  const statusChangeHandler = async () => {
+    await editIssueStatus();
+    getNewIssueData();
   };
 
   return (
@@ -44,7 +66,7 @@ const IssueDetailHeader = ({ issue }) => {
       <$IssueDetailTitle>
         {!isEdited ? (
           <$TitleWrapper>
-            <$IssueTitle>{editTitle}</$IssueTitle>
+            <$IssueTitle>{tempTitle}</$IssueTitle>
             <$IssueId>{`#${issue.issueId}`}</$IssueId>
           </$TitleWrapper>
         ) : (
