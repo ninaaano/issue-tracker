@@ -44,8 +44,6 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
   );
 
   const calculatePercentage = (() => {
-    console.log(milestone);
-
     const totalIssues =
       Number(milestone.issuesResponse.openCount) + Number(milestone.issuesResponse.closeCount);
 

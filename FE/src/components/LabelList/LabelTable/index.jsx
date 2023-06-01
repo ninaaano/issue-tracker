@@ -52,7 +52,7 @@ const LabelTable = ({
 
   const { fetchData: editLabel } = useFetch(
     LABELS.PATCH_LABEL(labelId),
-    'PATCH',
+    'PUT',
     {
       labelName: labelInfo.labelName,
       content: labelInfo.content,
