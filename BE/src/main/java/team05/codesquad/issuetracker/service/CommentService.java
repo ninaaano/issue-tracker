@@ -22,14 +22,11 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CommentService {
 
-    private final IssueRepository issueRepository;
     private final CommentRepository commentRepository;
-    private final MemberRepository memberRepository;
 
     public CommentCreateResponse createComment(Long issueId, CommentCreateRequest request) { // Comment 생성
         log.info(">>> CommentService createComment() issueId = {}", issueId);
         Comment comment = Comment.toEntity(issueId, request);
-        log.info(">>> CommentService createComment comment.getIssueId = {}", comment.getIssueId());
         Comment savedComment = commentRepository.save(comment);
         return new CommentCreateResponse(savedComment.getId());
     }
