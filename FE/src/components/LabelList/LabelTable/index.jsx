@@ -26,7 +26,7 @@ const LabelTable = ({
   labelName = '',
   content = '',
   backgroundColor = '',
-  textColor = 'dark',
+  fontColor = 'dark',
   type,
   closeHandler,
   getNewLabelData,
@@ -35,7 +35,7 @@ const LabelTable = ({
     labelName: labelName || '레이블',
     content,
     backgroundColor: backgroundColor || generateRandomColor(),
-    textColor,
+    fontColor,
   });
 
   const { fetchData: createNewLabel } = useFetch(
@@ -45,7 +45,7 @@ const LabelTable = ({
       labelName: labelInfo.labelName,
       content: labelInfo.content,
       backgroundColor: labelInfo.backgroundColor,
-      textColor: labelInfo.textColor,
+      fontColor: labelInfo.fontColor,
     },
     true,
   );
@@ -57,7 +57,7 @@ const LabelTable = ({
       labelName: labelInfo.labelName,
       content: labelInfo.content,
       backgroundColor: labelInfo.backgroundColor,
-      textColor: labelInfo.textColor,
+      fontColor: labelInfo.fontColor,
     },
     true,
   );
@@ -82,7 +82,7 @@ const LabelTable = ({
 
   const textColorChangeHandler = ({ target }) => {
     setLabelInfo((prev) => {
-      return { ...prev, textColor: target.value };
+      return { ...prev, fontColor: target.value };
     });
   };
 
@@ -113,7 +113,7 @@ const LabelTable = ({
           <Label
             height={24}
             name={labelInfo.labelName}
-            textColor={labelInfo.textColor}
+            fontColor={labelInfo.fontColor}
             backgroundColor={labelInfo.backgroundColor}
           />
         </$LabelPreview>
@@ -148,7 +148,7 @@ const LabelTable = ({
             </$ColorRandomButton>
             <$TextColorSelect
               name="labelTextColor"
-              defaultValue={textColor}
+              defaultValue={fontColor}
               onChange={textColorChangeHandler}
             >
               <option value="dark">dark text</option>
@@ -188,7 +188,7 @@ LabelTable.propTypes = {
   labelName: PropTypes.string,
   content: PropTypes.string,
   backgroundColor: PropTypes.string,
-  textColor: PropTypes.oneOf(['dark', 'light']),
+  fontColor: PropTypes.oneOf(['dark', 'light']),
   type: PropTypes.oneOf(['add', 'edit']),
   closeHandler: PropTypes.func,
   getNewLabelData: PropTypes.func.isRequired,
