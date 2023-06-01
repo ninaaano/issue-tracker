@@ -22,7 +22,7 @@ public class IssueResponse {
     private List<MemberResponse> assignee;
     private CommentDtoListResponse commentDtoListResponse;
     private Long milestoneId;
-    private boolean isOpened;
+    private boolean isopened;
     private MemberResponse writer;
 
     public static IssueResponse from(Issue issue) {
@@ -37,7 +37,7 @@ public class IssueResponse {
                 .label(LabelResponse.from(issue.getLabels()))
                 .assignee(MemberResponse.from(issue.getAssignees()))
                 .milestoneId(milestoneId)
-                .isOpened(issue.getIsOpened())
+                .isopened(issue.getIsOpened())
                 .build();
     }
 
@@ -58,7 +58,7 @@ public class IssueResponse {
                 .assignee(MemberResponse.from(issue.getAssignees()))
                 .commentDtoListResponse(CommentDtoListResponse.of(commentList))
                 .milestoneId(milestoneId)
-                .isOpened(issue.getIsOpened())
+                .isopened(issue.getIsOpened())
                 .build();
     }
 }
