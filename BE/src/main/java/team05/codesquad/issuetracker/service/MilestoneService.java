@@ -68,14 +68,14 @@ public class MilestoneService {
     public MilestoneUpdateResponse updateMilestone(long milestoneId, MilestoneUpdateRequest request) {
         log.info(">>> MilestoneService updateMilestone");
         Milestone targetMilestone = milestoneRepository.findById(milestoneId).orElseThrow();
-        targetMilestone.updateProperties(request.getTitle(), request.getDescription(), request.getDeadLine());
-        log.info(">>> targetMilestone title = {}", targetMilestone.getTitle());
-        log.info(">>> targetMilestone description = {}", targetMilestone.getDescription());
+        targetMilestone.updateProperties(request.getTitle(), request.getDescription(), request.getDeadLine(), request.getIsopened());
+        log.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> isopened만 바뀌나 ??? = {}", targetMilestone.getIsOpened());
         milestoneRepository.save(targetMilestone);
         return MilestoneUpdateResponse.builder()
                 .title(targetMilestone.getTitle())
                 .description(targetMilestone.getDescription())
                 .deadLine(targetMilestone.getDeadLine())
+                .isopened(targetMilestone.getIsOpened())
                 .build();
     }
 
