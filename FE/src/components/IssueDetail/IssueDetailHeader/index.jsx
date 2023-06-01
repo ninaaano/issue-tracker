@@ -27,7 +27,7 @@ const IssueDetailHeader = ({ issue, getNewIssueData }) => {
   const { fetchData: editIssue } = useFetch(
     ISSUES.PATCH_ISSUE(issue.issueId),
     'PATCH',
-    { isOpened: !issue.isOpened },
+    { isopened: !issue.isopened },
     true,
   );
 
@@ -83,7 +83,7 @@ const IssueDetailHeader = ({ issue, getNewIssueData }) => {
             </Button>
             <Button type="outline" size="S" onClick={statusChangeHandler}>
               <Icon name="archive" />
-              <p>{`이슈 ${issue.isOpened ? '닫기' : '열기'} `}</p>
+              <p>{`이슈 ${issue.isopened ? '닫기' : '열기'} `}</p>
             </Button>
           </$Buttons>
         ) : (

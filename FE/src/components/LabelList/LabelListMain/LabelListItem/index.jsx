@@ -49,8 +49,6 @@ const LabelListItem = ({ labelId, name, content, backgroundColor, fontColor = 'd
           <Icon name="edit" />
           <p>편집</p>
         </Button>
-
-
         <Button type="ghost" size="S" onClick={deleteLabelHandler} colorstype="danger" fill="#FF3B30">
           <Icon name="trash" />
           <p>삭제</p>

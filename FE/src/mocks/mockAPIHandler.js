@@ -98,7 +98,7 @@ const postNewIssueData = (request, response, context) => {
 const editTargetIssueData = (request, response, context) => {
   const { issueId } = request.params;
 
-  const { title, isOpened } = request.body;
+  const { title, isopened } = request.body;
 
   let targetIssueIndex = -1;
 
@@ -111,7 +111,7 @@ const editTargetIssueData = (request, response, context) => {
   issueDetailData[targetIssueIndex] = {
     ...issueDetailData[targetIssueIndex],
     issueTitle: title || issueDetailData[targetIssueIndex].issueTitle,
-    isOpened: isOpened !== undefined ? isOpened : issueDetailData[targetIssueIndex].isOpened,
+    isopened: isopened !== undefined ? isopened : issueDetailData[targetIssueIndex].isopened,
   };
 
   return response(

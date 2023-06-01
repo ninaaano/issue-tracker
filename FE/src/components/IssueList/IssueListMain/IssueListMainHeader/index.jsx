@@ -49,7 +49,7 @@ const IssueListMainHeader = ({
     fetchList,
     'PATCH',
     {
-      isOpened: !isOpened,
+      isopened: !isOpened,
     },
     true,
   );
