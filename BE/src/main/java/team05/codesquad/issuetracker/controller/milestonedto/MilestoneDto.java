@@ -15,7 +15,7 @@ public class MilestoneDto {
     private String milestoneName;
     private String content;
     private LocalDate deadline;
-    private Boolean isOpened;
+    private Boolean isopened;
     private IssuesResponse issuesResponse;
 
     private MilestoneDto(Milestone milestone, IssuesResponse issuesResponse) {
@@ -23,7 +23,7 @@ public class MilestoneDto {
         this.milestoneName = milestone.getTitle();
         this.content = milestone.getDescription();
         this.deadline = milestone.getDeadLine();
-        this.isOpened = true;
+        this.isopened = true;
         this.issuesResponse = issuesResponse;
     }
 
