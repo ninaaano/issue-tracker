@@ -16,19 +16,16 @@ import java.util.List;
 @Getter
 public class IssueRequest {
     private String title;
-    private String contents;
     private Long milestoneId;
     private List<Long> assingeeIds;
     private List<Long> labels;
-    private CommentDto commentDto;
 
     public Issue toEntity(Milestone milestone) {
         return Issue.builder()
                 .title(title)
-                .contents(contents)
                 .milestone(milestone)
                 .writerId(1L) // 멤버 어카노...
-                //.assingeeIds(assingeeIds)
+                //.assingeeIds(assingeeIds
                 .isOpened(true)
                 .labels(Collections.emptyList())
                 .createdAt(LocalDateTime.now())
