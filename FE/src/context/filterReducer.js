@@ -5,6 +5,8 @@ export const FILTER_ACTION_TYPES = {
 
 const initState = {
   isOpened: true, // 열린 이슈, 닫힌 이슈, 필터드롭다운에도 적용해야함.
+  writtenByMe: false,
+  assignedToMe: false,
   commentedByMe: false,
   milestone: null,
   label: null,
@@ -16,7 +18,20 @@ export const filterReducer = (state, action) => {
   switch (action.type) {
     case FILTER_ACTION_TYPES.CLICK_MENU: {
       const { filterType, id } = action.payload;
+
       const value = state[filterType] !== id || state[filterType] === null ? id : null;
+
+      if (filterType === 'issue') {
+        if (id === 'commentedByMe') {
+          return { ...state, commentedByMe: !state.commentedByMe, writtenByMe: false, assignedToMe: false };
+        }
+        if (id === 'writtenByMe') {
+          return { ...state, commentedByMe: false, writtenByMe: !state.writtenByMe, assignedToMe: false };
+        }
+        if (id === 'assignedToMe') {
+          return { ...state, commentedByMe: false, writtenByMe: false, assignedToMe: !state.assignedToMe };
+        }
+      }
 
       return { ...state, [filterType]: value };
     }

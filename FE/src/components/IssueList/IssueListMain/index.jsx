@@ -24,11 +24,15 @@ const isFilterMatched = ({ currentFilterOption, issueValue }) => {
   return currentFilterOption === null || currentFilterOption === issueValue;
 };
 
+const myId = 6;
+
 const filterIssues = ({ type, issues, filterOptions }) => {
-  return issues.filter(({ isopened, milestone, writer, label, assignee }) => {
+  return issues.filter(({ isopened, milestone, writer, label, assignee, comment }) => {
     const { userId: writerId } = writer;
     const labelIdArr = label.map(({ labelId }) => labelId);
     const assigneeIdArr = assignee.map(({ userId }) => userId);
+
+    const { commentedByMe, writtenByMe, assignedToMe } = filterOptions;
 
     const isMilestoneMatched = isFilterMatched({
       currentFilterOption: filterOptions[FILTER_TYPE.MILESTONE],
@@ -39,13 +43,15 @@ const filterIssues = ({ type, issues, filterOptions }) => {
       issueValue: labelIdArr,
     });
     const isAssigneeMatched = isFilterMatched({
-      currentFilterOption: filterOptions[FILTER_TYPE.ASSIGNEE],
+      currentFilterOption: assignedToMe ? myId : filterOptions[FILTER_TYPE.ASSIGNEE],
       issueValue: assigneeIdArr,
     });
     const isWriterMatched = isFilterMatched({
-      currentFilterOption: filterOptions[FILTER_TYPE.WRITER],
+      currentFilterOption: writtenByMe ? myId : filterOptions[FILTER_TYPE.WRITER],
       issueValue: writerId,
     });
+
+    const isCommentMatched = !commentedByMe || comment.some(({ commentUser }) => commentUser.userId === myId);
 
     const isOpenButtonActive = type === 'open';
 
@@ -54,7 +60,8 @@ const filterIssues = ({ type, issues, filterOptions }) => {
       isMilestoneMatched &&
       isLabelMatched &&
       isAssigneeMatched &&
-      isWriterMatched
+      isWriterMatched &&
+      isCommentMatched
     );
   });
 };
@@ -63,6 +70,7 @@ const IssueListMain = ({ issues, user, label, milestone, getNewAllIssueData }) =
   const { filterState, isFilterChanged } = useFilterStateContext();
   const filterDispatch = useFilterDispatchContext();
   const { resetCheckList } = useCheckBoxContext();
+
   const [isOpened, setIsOpened] = useState(true);
   const prevFilterState = useRef(filterState);
 
