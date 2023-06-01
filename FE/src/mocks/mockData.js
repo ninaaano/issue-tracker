@@ -54,14 +54,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-      },
+      { userId: 4, name: '아켄', url: 'https://avatars.githubusercontent.com/u/96980857?v=4' },
+      { userId: 6, name: '훈딩', url: 'https://avatars.githubusercontent.com/u/56246060?v=4' },
     ],
     milestone: {
       milestoneId: 2,
@@ -89,9 +83,9 @@ const issueDetailData = [
         content: '마감일은 언제인가요?',
         createdAt: '2023-05-30T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
-          userId: 4,
-          name: '아켄',
-          url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+          userId: 3,
+          name: '에이든',
+          url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
       {
@@ -127,16 +121,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/77562698?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 1, name: '고뭉남', url: 'https://avatars.githubusercontent.com/u/77562698?v=4' },
+      { userId: 2, name: '니노', url: 'https://avatars.githubusercontent.com/u/95615105?v=4' },
     ],
     milestone: {
       milestoneId: 2,
@@ -202,16 +188,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 4, name: '아켄', url: 'https://avatars.githubusercontent.com/u/96980857?v=4' },
+      { userId: 6, name: '훈딩', url: 'https://avatars.githubusercontent.com/u/56246060?v=4' },
     ],
     milestone: {
       milestoneId: 2,
@@ -270,16 +248,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/95615105?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 1, name: '고뭉남', url: 'https://avatars.githubusercontent.com/u/77562698?v=4' },
+      { userId: 2, name: '니노', url: 'https://avatars.githubusercontent.com/u/95615105?v=4' },
     ],
     milestone: {
       milestoneId: 2,
@@ -338,16 +308,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 3, name: '에이든', url: 'https://avatars.githubusercontent.com/u/115064144?v=4' },
+      { userId: 5, name: '솔', url: 'https://avatars.githubusercontent.com/u/86761640?v=4' },
     ],
     milestone: {
       milestoneId: 2,
@@ -413,16 +375,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/77562698?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 1, name: '고뭉남', url: 'https://avatars.githubusercontent.com/u/77562698?v=4' },
+      { userId: 2, name: '니노', url: 'https://avatars.githubusercontent.com/u/95615105?v=4' },
     ],
     milestone: {
       milestoneId: 2,
@@ -481,16 +435,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 3, name: '에이든', url: 'https://avatars.githubusercontent.com/u/115064144?v=4' },
+      { userId: 5, name: '솔', url: 'https://avatars.githubusercontent.com/u/86761640?v=4' },
     ],
     milestone: {
       milestoneId: 2,
@@ -556,16 +502,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/95615105?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 4, name: '아켄', url: 'https://avatars.githubusercontent.com/u/96980857?v=4' },
+      { userId: 6, name: '훈딩', url: 'https://avatars.githubusercontent.com/u/56246060?v=4' },
     ],
     milestone: {
       milestoneId: 2,
@@ -624,16 +562,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 4, name: '아켄', url: 'https://avatars.githubusercontent.com/u/96980857?v=4' },
+      { userId: 6, name: '훈딩', url: 'https://avatars.githubusercontent.com/u/56246060?v=4' },
     ],
     milestone: {
       milestoneId: 2,
@@ -699,16 +629,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/77562698?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 3, name: '에이든', url: 'https://avatars.githubusercontent.com/u/115064144?v=4' },
+      { userId: 5, name: '솔', url: 'https://avatars.githubusercontent.com/u/86761640?v=4' },
     ],
     milestone: {
       milestoneId: 1,
@@ -774,16 +696,8 @@ const issueDetailData = [
       name: '솔',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 3, name: '에이든', url: 'https://avatars.githubusercontent.com/u/115064144?v=4' },
+      { userId: 5, name: '솔', url: 'https://avatars.githubusercontent.com/u/86761640?v=4' },
     ],
     milestone: {
       milestoneId: 1,
@@ -842,16 +756,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 1, name: '고뭉남', url: 'https://avatars.githubusercontent.com/u/77562698?v=4' },
+      { userId: 2, name: '니노', url: 'https://avatars.githubusercontent.com/u/95615105?v=4' },
     ],
     milestone: {
       milestoneId: 1,
@@ -910,16 +816,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/77562698?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 3, name: '에이든', url: 'https://avatars.githubusercontent.com/u/115064144?v=4' },
+      { userId: 5, name: '솔', url: 'https://avatars.githubusercontent.com/u/86761640?v=4' },
     ],
     milestone: {
       milestoneId: 1,
@@ -978,16 +876,8 @@ const issueDetailData = [
       name: '솔',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 3, name: '에이든', url: 'https://avatars.githubusercontent.com/u/115064144?v=4' },
+      { userId: 5, name: '솔', url: 'https://avatars.githubusercontent.com/u/86761640?v=4' },
     ],
     milestone: {
       milestoneId: 1,
@@ -1053,16 +943,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 4, name: '아켄', url: 'https://avatars.githubusercontent.com/u/96980857?v=4' },
+      { userId: 6, name: '훈딩', url: 'https://avatars.githubusercontent.com/u/56246060?v=4' },
     ],
     milestone: {
       milestoneId: 1,
@@ -1121,16 +1003,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/95615105?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 1, name: '고뭉남', url: 'https://avatars.githubusercontent.com/u/77562698?v=4' },
+      { userId: 2, name: '니노', url: 'https://avatars.githubusercontent.com/u/95615105?v=4' },
     ],
     milestone: {
       milestoneId: 1,
@@ -1189,16 +1063,8 @@ const issueDetailData = [
       url: 'https://avatars.githubusercontent.com/u/77562698?v=4',
     },
     assignee: [
-      {
-        userId: 4,
-        name: '아켄',
-        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
-      },
-      {
-        userId: 6,
-        name: '훈딩',
-        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      },
+      { userId: 1, name: '고뭉남', url: 'https://avatars.githubusercontent.com/u/77562698?v=4' },
+      { userId: 2, name: '니노', url: 'https://avatars.githubusercontent.com/u/95615105?v=4' },
     ],
     milestone: {
       milestoneId: 1,
