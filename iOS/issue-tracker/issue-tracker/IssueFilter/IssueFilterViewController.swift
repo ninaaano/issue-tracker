@@ -11,9 +11,17 @@ final class IssueFilterViewController: UIViewController {
     private var datasource: UICollectionViewDiffableDataSource<FilterSection, FilterCellTitle>!
     private var currentSnapShot: NSDiffableDataSourceSnapshot<FilterSection, FilterCellTitle>!
     private let issuecFilterCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    
-    private let filterManager: FilteringModel = FilteringModel()
+    private var filterManager: FilteringModel = FilteringModel()
     var didFilterData: ((FilteringModel) -> Void)?
+    var stateItem: [FilterCellTitle] = [
+        FilterCellTitle(section: .state, title: "열린 이슈"),
+        FilterCellTitle(section: .writer, title: "내가 작성한 이슈"),
+        FilterCellTitle(section: .comment, title: "내가 댓글을 남긴 이슈"),
+        FilterCellTitle(section: .state, title: "닫힌 이슈")
+    ]
+    var assignItem: [FilterCellTitle] = []
+    var labelitem: [FilterCellTitle] = []
+    var milestoneItem: [FilterCellTitle] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +34,7 @@ final class IssueFilterViewController: UIViewController {
         self.applySnapshot()
     }
     
-    private func configureNavigationBar() {
+private func configureNavigationBar() {
         self.title = "필터"
         self.navigationController?.navigationBar.titleTextAttributes = [.font: FontStyle.title.font]
         
@@ -95,6 +103,54 @@ extension IssueFilterViewController: DiffableDataSourceManager {
     func createListCellRegistration() -> UICollectionView.CellRegistration<IssueFilterCell, FilterCellTitle> {
         return UICollectionView.CellRegistration<IssueFilterCell, FilterCellTitle> { (cell, _, item) in
             cell.filterItemNameLabel.text = item.title
+            cell.checkCell = self.cellCheckClosure(item: item)
+            cell.removeCell = self.cellRemoveClosure(item: item)
+        }
+    }
+    
+    private func cellCheckClosure(item: FilterCellTitle) -> (() -> Void) {
+        return {
+            switch item.section {
+            case .state:
+                if item.title == "열린 이슈" {
+                    self.filterManager.openCheck = true
+                } else {
+                    self.filterManager.closeCheck = true
+                }
+            case .writer:
+                self.filterManager.writeCheck = "아켄"
+            case .comment:
+                self.filterManager.commentCheck = "아켄"
+            case .assign:
+                self.filterManager.assignCheck.append(item.title)
+            case .label:
+                self.filterManager.labelCheck.append(item.title)
+            case .milestone:
+                self.filterManager.milestoneCheck.append(item.title)
+            }
+        }
+    }
+    
+    private func cellRemoveClosure(item: FilterCellTitle) -> (() -> Void) {
+        return {
+            switch item.section {
+            case .state:
+                if item.title == "열린 이슈" {
+                    self.filterManager.openCheck = false
+                } else {
+                    self.filterManager.closeCheck = false
+                }
+            case .writer:
+                self.filterManager.writeCheck = ""
+            case .comment:
+                self.filterManager.commentCheck = ""
+            case .assign:
+                self.filterManager.assignCheck.removeAll { $0 == item.title }
+            case .label:
+                self.filterManager.labelCheck.removeAll { $0 == item.title}
+            case .milestone:
+                self.filterManager.milestoneCheck.removeAll { $0 == item.title}
+            }
         }
     }
     
@@ -119,14 +175,14 @@ extension IssueFilterViewController: DiffableDataSourceManager {
         }
     }
     
-    private func applySnapshot() {
+    func applySnapshot() {
         self.currentSnapShot = NSDiffableDataSourceSnapshot<FilterSection, FilterCellTitle>()
-        currentSnapShot.appendSections([.status, .manager, .label, .milestone])
-        currentSnapShot.appendItems(statusItem, toSection: .status)
-        currentSnapShot.appendItems(managerItem, toSection: .manager)
-        currentSnapShot.appendItems(labelItem, toSection: .label)
-        currentSnapShot.appendItems(milestoneItem, toSection: .milestone)
+        self.currentSnapShot.appendSections([.state, .assign, .label, .milestone])
+        self.currentSnapShot.appendItems(self.stateItem, toSection: .state)
+        self.currentSnapShot.appendItems(self.assignItem, toSection: .assign)
+        self.currentSnapShot.appendItems(self.labelitem, toSection: .label)
+        self.currentSnapShot.appendItems(self.milestoneItem, toSection: .milestone)
         
-        datasource.apply(currentSnapShot, animatingDifferences: true)
+        self.datasource.apply(self.currentSnapShot, animatingDifferences: true)
     }
 }

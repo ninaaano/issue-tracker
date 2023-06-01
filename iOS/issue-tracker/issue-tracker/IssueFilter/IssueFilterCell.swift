@@ -9,7 +9,6 @@ import UIKit
 
 final class IssueFilterCell: UICollectionViewCell {
     static let identifier = "IssueFilterViewCell"
-    
     let filterItemNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -17,6 +16,9 @@ final class IssueFilterCell: UICollectionViewCell {
         label.font = FontStyle.sectionItem.font
         return label
     }()
+    
+    var checkCell: (() -> Void)?
+    var removeCell: (() -> Void)?
     
     private let checkImage: UIImageView = {
         let imageView = UIImageView()
@@ -75,8 +77,14 @@ final class IssueFilterCell: UICollectionViewCell {
         didSet {
             if self.isSelected == true {
                 self.checkImage.tintColor = ColorValue.blue
+                if let checkCell = self.checkCell {
+                    checkCell()
+                }
             } else {
                 self.checkImage.tintColor = ColorValue.gray700
+                if let removeCell = self.removeCell {
+                    removeCell()
+                }
             }
         }
     }

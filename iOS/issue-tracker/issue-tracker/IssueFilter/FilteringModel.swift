@@ -8,28 +8,51 @@
 import Foundation
 
 struct FilteringModel {
-    private var stateCheck: [String] = ["open"]
-    private var managerCheck: [String] = ["솔"]
-    private var labelCheck: [String] = []
-    private var milestoneCheck: [String] = []
+    var openCheck: Bool = false
+    var closeCheck: Bool = false
+    var writeCheck: String = ""
+    var commentCheck: String = ""
+    var assignCheck: [String] = []
+    var labelCheck: [String] = []
+    var milestoneCheck: [String] = []
     
-//    func filteredState(from data: [Item]) -> [Item] {
-//        if stateCheck.isEmpty {
-//            return data
-//        }
-//
-//        let result = data.filter {
-//
-//        }
-//    }
+    func filteredState(from data: [Item]) -> [Item] {
+        if (self.openCheck && self.closeCheck) || (!self.openCheck && !self.closeCheck) {
+            return data
+        }
+        
+        let result = data.filter { $0.isOpened == self.openCheck || $0.isOpened == self.closeCheck}
+        
+        return result
+    }
+    
+    func filteredWrite(from data: [Item]) -> [Item] {
+        if writeCheck == "" {
+            return data
+        }
+        
+        let result = data.filter { $0.writer.name == writeCheck}
+        
+        return result
+    }
+    
+    func filteredComment(from data: [Item]) -> [Item] {
+        if commentCheck == "" {
+            return data
+        }
+        
+        let result = data.filter {$0.commentedUser.contains(commentCheck)}
+        
+        return result
+    }
     
     func filteredManager(from data: [Item]) -> [Item] {
-        if managerCheck.isEmpty {
+        if assignCheck.isEmpty {
             return data
         }
         
         let result = data.filter {
-            managerCheck.contains($0.writer.name)
+            assignCheck.contains($0.writer.name)
         }
         return result
     }
