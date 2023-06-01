@@ -17,6 +17,8 @@ import {
   $CheckStatus,
   $StatusChangeButton,
 } from './style';
+import useFetch from '../../../../hooks/useFetch';
+import { ISSUES } from '../../../../constants/api';
 
 const IssueListMainHeader = ({
   openCount,
@@ -28,14 +30,35 @@ const IssueListMainHeader = ({
   closeBtnHandler,
   isOpened,
   filteredIssuesIds,
+  getNewAllIssueData,
 }) => {
+  // const {fetchData: editIssueStatus } = useFetch(ISSUES.PATCH_ISSUE(user))
   const { resetCheckList, allCheck, checkList } = useCheckBoxContext();
   const isSelected = checkList.length !== 0;
+  const fetchList = [];
+
   const checkBoxClickHandler = () => {
     isSelected ? resetCheckList() : allCheck(filteredIssuesIds);
   };
 
-  const statusChangeHandler = () => {};
+  checkList.forEach((checkIssue) => {
+    fetchList.push(ISSUES.GET_ISSUE(checkIssue));
+  });
+
+  const { fetchData: editIssueStatus } = useFetch(
+    fetchList,
+    'PATCH',
+    {
+      isOpened: !isOpened,
+    },
+    true,
+  );
+
+  const statusChangeHandler = async () => {
+    await editIssueStatus();
+    getNewAllIssueData();
+    resetCheckList();
+  };
 
   const openIssueButton = (
     <Button type="ghost" size="M" active={isOpened} onClick={openBtnHandler}>
@@ -106,6 +129,7 @@ IssueListMainHeader.propTypes = {
   closeBtnHandler: PropTypes.func.isRequired,
   isOpened: PropTypes.bool.isRequired,
   filteredIssuesIds: PropTypes.array.isRequired,
+  getNewAllIssueData: PropTypes.func.isRequired,
 };
 
 export default IssueListMainHeader;

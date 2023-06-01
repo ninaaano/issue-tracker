@@ -13,7 +13,7 @@ import IssueListItem from './IssueListItem';
 import IssueListMainHeader from './IssueListMainHeader';
 import { $IssueList, $NoResultMessage, $IssueListMain, $InitFilterButton } from './style';
 
-const IssueListMain = ({ issues, user, label, milestone }) => {
+const IssueListMain = ({ issues, user, label, milestone, getNewAllIssueData }) => {
   const { filterState, isFilterChanged } = useFilterStateContext();
   const filterDispatch = useFilterDispatchContext();
   const { resetCheckList } = useCheckBoxContext();
@@ -53,6 +53,7 @@ const IssueListMain = ({ issues, user, label, milestone }) => {
           closeBtnHandler={() => setIsOpened(false)}
           isOpened={isOpened}
           filteredIssuesIds={filteredIssues.map((issue) => issue.issueId)}
+          getNewAllIssueData={getNewAllIssueData}
         />
         <$IssueList>
           {filteredIssues.length === 0 && noResultMessage}
@@ -70,6 +71,7 @@ IssueListMain.propTypes = {
   user: PropTypes.array.isRequired,
   label: PropTypes.array.isRequired,
   milestone: PropTypes.array.isRequired,
+  getNewAllIssueData: PropTypes.func.isRequired,
 };
 
 export default IssueListMain;
