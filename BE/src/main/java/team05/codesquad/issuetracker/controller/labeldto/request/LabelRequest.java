@@ -9,15 +9,15 @@ import team05.codesquad.issuetracker.domain.label.Label;
 @AllArgsConstructor
 @Getter
 public class LabelRequest {
-    private String title;
-    private String description;
+    private String labelName;
+    private String content;
     private String backgroundColor;
     private String fontColor;
 
     public Label toEntity(){
         return Label.builder()
-                .title(title)
-                .description(description)
+                .title(labelName)
+                .description(content)
                 .backgroundColor(backgroundColor)
                 .fontColor(fontColor)
                 .build();

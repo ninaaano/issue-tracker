@@ -42,13 +42,13 @@ VALUES ('이슈 7번 제목', 3, false, '2023-06-01');
 -- label 테이블 더미 데이터 추가
 
 INSERT INTO `label` (`TITLE`, `DESCRIPTION`, `BACKGROUND_COLOR`, `FONT_COLOR`)
-VALUES ('레이블 1번 제목', '레이블 1번 설명', '#00FF00', 'LIGHT');
+VALUES ('레이블 1번 제목', '레이블 1번 설명', '#00FF00', 'light');
 INSERT INTO `label` (`TITLE`, `DESCRIPTION`, `BACKGROUND_COLOR`, `FONT_COLOR`)
-VALUES ('레이블 2번 제목', '레이블 2번 설명', '##FFFF00', 'DARK');
+VALUES ('레이블 2번 제목', '레이블 2번 설명', '#FFFF00', 'dark');
 INSERT INTO `label` (`TITLE`, `DESCRIPTION`, `BACKGROUND_COLOR`, `FONT_COLOR`)
-VALUES ('레이블 3번 제목', '레이블 3번 설명', '#0000FF', 'LIGHT');
+VALUES ('레이블 3번 제목', '레이블 3번 설명', '#0000FF', 'light');
 INSERT INTO `label` (`TITLE`, `DESCRIPTION`, `BACKGROUND_COLOR`, `FONT_COLOR`)
-VALUES ('레이블 4번 제목', '레이블 4번 설명', '#808080', 'DARK');
+VALUES ('레이블 4번 제목', '레이블 4번 설명', '#808080', 'dark');
 
 -- label_attached_issues 더미 데이터 추가
 
