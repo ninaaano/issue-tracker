@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import useFetch from '../../../../../hooks/useFetch';
+import { COMMENTS } from '../../../../../constants/api';
+
 import Button from '../../../../common/Button';
 import Icon from '../../../../common/Icon';
 import Label from '../../../../common/Label';
@@ -21,12 +24,21 @@ import {
 // TODO: 내 userId -> context로 빼기.
 const myId = 6;
 
-const Comment = ({ writerId, commentData }) => {
+const Comment = ({ writerId, commentData, getNewIssueData, issueId }) => {
   const isMine = commentData.commentUser.userId === myId;
   const [isEdited, setIsEdited] = useState(false);
   const [tempComment, setTempComment] = useState(commentData.content);
-  const [editComment, setEditComment] = useState(commentData.content);
+
   const [files, setFiles] = useState([]);
+
+  const { fetchData: patchComment } = useFetch(
+    COMMENTS.PATCH_COMMENT(issueId, commentData.commentId),
+    'PATCH',
+    {
+      content: tempComment,
+    },
+    true,
+  );
 
   const commentEditHandler = ({ target }) => {
     setTempComment(target.value);
@@ -39,11 +51,11 @@ const Comment = ({ writerId, commentData }) => {
   const cancelEditBtnHandler = () => {
     setIsEdited(false);
     setTempComment(commentData.content);
-    setEditComment(commentData.content);
   };
 
-  const completeEditHandler = () => {
-    setEditComment(tempComment);
+  const completeEditHandler = async () => {
+    await patchComment();
+    getNewIssueData();
     setIsEdited(false);
   };
 
@@ -87,7 +99,7 @@ const Comment = ({ writerId, commentData }) => {
             filesUploadHandler={filesUploadHandler}
           />
         ) : (
-          <$CommentText>{editComment}</$CommentText>
+          <$CommentText>{commentData.content}</$CommentText>
         )}
       </$Comment>
       {isEdited && (
@@ -108,8 +120,10 @@ const Comment = ({ writerId, commentData }) => {
 
 Comment.propTypes = {
   // isMine: PropTypes.bool.isRequired,
+  issueId: PropTypes.number.isRequired,
   commentData: PropTypes.object.isRequired,
   writerId: PropTypes.number.isRequired,
+  getNewIssueData: PropTypes.func.isRequired,
 };
 
 export default Comment;

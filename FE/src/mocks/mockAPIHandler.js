@@ -333,25 +333,18 @@ const postComment = (request, response, context) => {
   return response(context.status(200), context.json());
 };
 
-const putComment = (request, response, context) => {
+const editComment = (request, response, context) => {
   const mockIssuesData = JSON.parse(localStorage.getItem('issueDetailData'));
-  const mockUserData = JSON.parse(localStorage.getItem('mockUserData'));
 
-  const { issueId } = request.params;
-  const { userId, content } = request.body;
-  const targetIndex = mockIssuesData.findIndex((issue) => issue.issueId === Number(issueId));
+  const { issueId, commentId } = request.params;
+
+  const { content } = request.body; // content만 바꿀거임!
+
   const { comment } = mockIssuesData.filter((issue) => issue.issueId === Number(issueId))[0];
-  const lastId = comment.length;
+  const targetComment = comment.filter((item) => item.commentId === Number(commentId))[0];
 
-  mockIssuesData[targetIndex].comment = [
-    ...comment,
-    {
-      commentId: lastId + 1,
-      content,
-      createdAt: new Date(),
-      commentUser: mockUserData.data[userId - 1],
-    },
-  ];
+  targetComment.content = content;
+  targetComment.createdAt = new Date();
 
   localStorage.setItem('issueDetailData', JSON.stringify(mockIssuesData));
 
@@ -378,7 +371,7 @@ const mockAPIHandler = [
   rest.delete(LABELS.DELETE_LABEL(':labelId'), deleteLabel),
 
   rest.post(COMMENTS.POST_COMMENT(':issueId'), postComment),
-  rest.put(COMMENTS.PUT_COMMENT(':issueId', ':commentId')),
+  rest.patch(COMMENTS.PATCH_COMMENT(':issueId', ':commentId'), editComment),
 ];
 
 export { mockAPIHandler };
