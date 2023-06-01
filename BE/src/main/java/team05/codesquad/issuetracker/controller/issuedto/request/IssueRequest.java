@@ -3,6 +3,7 @@ package team05.codesquad.issuetracker.controller.issuedto.request;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import team05.codesquad.issuetracker.controller.commentdto.CommentDto;
 import team05.codesquad.issuetracker.domain.issue.Issue;
 import team05.codesquad.issuetracker.domain.milestone.Milestone;
 
@@ -19,6 +20,7 @@ public class IssueRequest {
     private Long milestoneId;
     private List<Long> assingeeIds;
     private List<Long> labels;
+    private CommentDto commentDto;
 
     public Issue toEntity(Milestone milestone) {
         return Issue.builder()
