@@ -39,7 +39,7 @@ public class CommentService {
         log.info(">>> CommentService updateComment()");
         Comment targetComment = commentRepository.findByCommentIdAndIssueId(commentId, issueId);
         log.info(">>> CommentService updateComment targetComment.getContents = {}", targetComment.getContents());
-        targetComment.updateProperties(request.getContents());
+        targetComment.updateProperties(request.getContent());
         commentRepository.save(targetComment);
         return CommentUpdateResponse.builder()
                 .contents(targetComment.getContents())
