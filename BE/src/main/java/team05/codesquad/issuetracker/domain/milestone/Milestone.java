@@ -29,7 +29,7 @@ public class Milestone {
     private LocalDate deadLine;
 
     @Column("is_opened")
-    private boolean isOpened;
+    private Boolean isOpened;
 
     public Milestone() {
     }
@@ -51,10 +51,17 @@ public class Milestone {
                 .build();
     }
 
-    public void updateProperties(String title, String description, LocalDate deadLine) {
-        this.title = title;
-        this.description = description;
-        this.deadLine = deadLine;
+    public void updateProperties(String title, String description, LocalDate deadLine, Boolean isOpened) {
+        if (title != null) {
+            this.title = title;
+        }
+        if(description!=null) {
+            this.description = description;
+        }
+        if (deadLine != null) {
+            this.deadLine = deadLine;
+        }
+        this.isOpened = isOpened;
     }
 
 }
