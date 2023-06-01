@@ -32,8 +32,8 @@ const MilestoneTable = ({
     'POST',
     {
       title: milestoneInfo.title,
-      deadline: milestoneInfo.deadline,
-      content: milestoneInfo.content,
+      deadLine: milestoneInfo.deadline,
+      description: milestoneInfo.content,
     },
     true,
   );
@@ -43,9 +43,9 @@ const MilestoneTable = ({
     'PATCH',
     {
       title: milestoneInfo.title,
-      deadline: milestoneInfo.deadline,
-      content: milestoneInfo.content,
-      isopened: isOpened,
+      deadLine: milestoneInfo.deadline,
+      description: milestoneInfo.content,
+      // isOpened,
     },
     true,
   );

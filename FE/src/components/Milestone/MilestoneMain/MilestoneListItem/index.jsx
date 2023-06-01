@@ -44,10 +44,13 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
   );
 
   const calculatePercentage = (() => {
-    const totalIssues = milestone.openCount + milestone.closeCount;
+    console.log(milestone);
+
+    const totalIssues =
+      Number(milestone.issuesResponse.openCount) + Number(milestone.issuesResponse.closeCount);
 
     if (totalIssues === 0) return 0;
-    return Math.ceil((milestone.closeCount / totalIssues) * 100);
+    return Math.ceil((Number(milestone.issuesResponse.closeCount) / totalIssues) * 100);
   })();
 
   const editButtonHandler = () => {
@@ -122,8 +125,8 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
         <$ProgressInfo>
           <$Percent>{`${calculatePercentage}%`}</$Percent>
           <$Issues>
-            <$OpenIssue>{`열린 이슈 ${milestone.openCount}`}</$OpenIssue>
-            <$CloseIssue>{`닫힌 이슈 ${milestone.closeCount}`}</$CloseIssue>
+            <$OpenIssue>{`열린 이슈 ${milestone.issuesResponse.openCount}`}</$OpenIssue>
+            <$CloseIssue>{`닫힌 이슈 ${milestone.issuesResponse.closeCount}`}</$CloseIssue>
           </$Issues>
         </$ProgressInfo>
       </$MilestoneControl>

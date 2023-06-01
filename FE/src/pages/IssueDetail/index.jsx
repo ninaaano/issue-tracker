@@ -13,6 +13,7 @@ const IssueDetail = () => {
   // TODO: Text Area UnControlled Component로 바꾸기.
   const { issueId } = useParams();
   const { fetchData: getIssueData, data: issueDetailData } = useFetch(ISSUES.GET_ISSUE(issueId));
+  // const data = useFetch(ISSUES.GET_ISSUE(issueId));
   const { data: userData } = useFetch(USERS.GET_ALL_USERS);
   const { data: labelData } = useFetch(LABELS.GET_ALL_LABELS);
   const { data: milestoneData } = useFetch(MILESTONES.GET_ALL_MILESTONES);
@@ -22,6 +23,8 @@ const IssueDetail = () => {
   const getNewIssueData = async () => {
     await getIssueData();
   };
+
+  console.log(issueDetailData);
 
   return (
     allDataLoaded && (
