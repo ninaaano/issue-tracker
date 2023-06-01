@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { getTimeDifference } from '../../../../../utils/time';
+
 import useFetch from '../../../../../hooks/useFetch';
 import { COMMENTS } from '../../../../../constants/api';
 
@@ -84,7 +86,7 @@ const Comment = ({ writerId, commentData, getNewIssueData, issueId }) => {
           <$UserInfo>
             <$UserImg src={commentData.commentUser.url} />
             <$UserName>{commentData.commentUser.name}</$UserName>
-            <$CommentTime>1분 전</$CommentTime>
+            <$CommentTime>{getTimeDifference(commentData.createdAt)}</$CommentTime>
           </$UserInfo>
 
           <$HeaderButtons>
