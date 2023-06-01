@@ -60,7 +60,7 @@ SideBar.propTypes = {
   assignees: PropTypes.array.isRequired,
   labels: PropTypes.array.isRequired,
   milestones: PropTypes.array.isRequired,
-  selectedItems: PropTypes.object.isRequired,
+  selectedItems: PropTypes.object,
   changeAssigneeHandler: PropTypes.func,
   changeLabelHandler: PropTypes.func,
   changeMilestoneHandler: PropTypes.func,

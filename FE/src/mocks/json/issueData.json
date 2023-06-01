@@ -4,7 +4,7 @@
       {
         "issueId": 1,
         "issueTitle": "[FE]: Creating Components",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 6,
           "name": "훈딩",
@@ -17,15 +17,15 @@
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
         "label": [
-          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "textColor": "light" },
-          { "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "textColor": "dark" }
+          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "fontColor": "light" },
+          { "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "fontColor": "dark" }
         ],
         "commentedUser": ["훈딩", "아켄"]
       },
       {
         "issueId": 2,
         "issueTitle": "[BE]: Designing the ERD Structure",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 1,
           "name": "고뭉남",
@@ -42,15 +42,15 @@
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
         "label": [
-          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "textColor": "light" },
-          { "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "textColor": "dark" }
+          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "fontColor": "light" },
+          { "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "fontColor": "dark" }
         ],
         "commentedUser": ["니노", "고뭉남"]
       },
       {
         "issueId": 3,
         "issueTitle": "[FE]: Implementing UI Layout",
-        "isOpened": false,
+        "isopened": false,
         "writer": {
           "userId": 4,
           "name": "아켄",
@@ -67,14 +67,14 @@
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
         "label": [
-          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "textColor": "dark" }
+          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "fontColor": "dark" }
         ],
         "commentedUser": ["아켄", "훈딩"]
       },
       {
         "issueId": 4,
         "issueTitle": "[BE]: Implementing Database Queries",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 2,
           "name": "니노",
@@ -90,13 +90,13 @@
           { "userId": 6, "name": "훈딩", "profileImgSrc": "" }
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
-        "label": [{ "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "textColor": "dark" }],
+        "label": [{ "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "fontColor": "dark" }],
         "commentedUser": ["니노", "고뭉남"]
       },
       {
         "issueId": 5,
         "issueTitle": "[FE]: Implementing Authentication",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 4,
           "name": "아켄",
@@ -113,15 +113,15 @@
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
         "label": [
-          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "textColor": "light" },
-          { "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "textColor": "dark" }
+          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "fontColor": "light" },
+          { "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "fontColor": "dark" }
         ],
         "commentedUser": ["아켄", "훈딩"]
       },
       {
         "issueId": 6,
         "issueTitle": "[BE]: Refactoring Backend Code",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 1,
           "name": "고뭉남",
@@ -137,13 +137,13 @@
           { "userId": 6, "name": "훈딩", "profileImgSrc": "" }
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
-        "label": [{ "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "textColor": "dark" }],
+        "label": [{ "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "fontColor": "dark" }],
         "commentedUser": ["고뭉남", "니노"]
       },
       {
         "issueId": 7,
         "issueTitle": "[FE]: Implementing Search Functionality",
-        "isOpened": false,
+        "isopened": false,
         "writer": {
           "userId": 6,
           "name": "훈딩",
@@ -160,15 +160,15 @@
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
         "label": [
-          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "textColor": "light" },
-          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "textColor": "dark" }
+          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "fontColor": "light" },
+          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "fontColor": "dark" }
         ],
         "commentedUser": ["훈딩", "아켄"]
       },
       {
         "issueId": 8,
         "issueTitle": "[FE]: Implementing Notifications",
-        "isOpened": false,
+        "isopened": false,
         "writer": {
           "userId": 2,
           "name": "니노",
@@ -185,14 +185,14 @@
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
         "label": [
-          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "textColor": "dark" }
+          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "fontColor": "dark" }
         ],
         "commentedUser": ["니노", "훈딩"]
       },
       {
         "issueId": 9,
         "issueTitle": "[BE]: Handling File Uploads",
-        "isOpened": false,
+        "isopened": false,
         "writer": {
           "userId": 4,
           "name": "아켄",
@@ -209,15 +209,15 @@
         ],
         "milestone": { "milestoneId": 2, "milestoneName": "IssueTracker" },
         "label": [
-          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "textColor": "light" },
-          { "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "textColor": "dark" }
+          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "fontColor": "light" },
+          { "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "fontColor": "dark" }
         ],
         "commentedUser": ["아켄", "고뭉남"]
       },
       {
         "issueId": 10,
         "issueTitle": "[FE]: Improving Performance",
-        "isOpened": false,
+        "isopened": false,
         "writer": {
           "userId": 1,
           "name": "고뭉남",
@@ -234,15 +234,15 @@
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
         "label": [
-          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "textColor": "light" },
-          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "textColor": "dark" }
+          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "fontColor": "light" },
+          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "fontColor": "dark" }
         ],
         "commentedUser": ["고뭉남", "에이든"]
       },
       {
         "issueId": 11,
         "issueTitle": "[BE]: Fixing API Endpoint",
-        "isOpened": false,
+        "isopened": false,
         "writer": {
           "userId": 5,
           "url": "https://avatars.githubusercontent.com/u/86761640?v=4",
@@ -258,13 +258,13 @@
           { "userId": 6, "name": "훈딩", "profileImgSrc": "" }
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
-        "label": [{ "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "textColor": "dark" }],
+        "label": [{ "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "fontColor": "dark" }],
         "commentedUser": ["Sol", "고뭉남"]
       },
       {
         "issueId": 12,
         "issueTitle": "[FE]: Implementing User Profile",
-        "isOpened": false,
+        "isopened": false,
         "writer": {
           "userId": 3,
           "name": "에이든",
@@ -281,14 +281,14 @@
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
         "label": [
-          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "textColor": "dark" }
+          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "fontColor": "dark" }
         ],
         "commentedUser": ["에이든", "Sol"]
       },
       {
         "issueId": 13,
         "issueTitle": "[BE]: Database Optimization",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 1,
           "name": "고뭉남",
@@ -304,13 +304,13 @@
           { "userId": 6, "name": "훈딩", "profileImgSrc": "" }
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
-        "label": [{ "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "textColor": "dark" }],
+        "label": [{ "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "fontColor": "dark" }],
         "commentedUser": ["고뭉남", "에이든"]
       },
       {
         "issueId": 14,
         "issueTitle": "[FE]: Adding Unit Tests",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 5,
           "url": "https://avatars.githubusercontent.com/u/86761640?v=4",
@@ -327,15 +327,15 @@
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
         "label": [
-          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "textColor": "light" },
-          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "textColor": "dark" }
+          { "labelId": 1, "labelName": "docs", "backgroundColor": "#0025E6", "fontColor": "light" },
+          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "fontColor": "dark" }
         ],
         "commentedUser": ["Sol", "고뭉남", "에이든", "니노", "아켄", "훈딩"]
       },
       {
         "issueId": 15,
         "issueTitle": "[BE]: Resolving Performance Bottlenecks",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 3,
           "name": "에이든",
@@ -351,13 +351,13 @@
           { "userId": 6, "name": "훈딩", "profileImgSrc": "" }
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
-        "label": [{ "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "textColor": "dark" }],
+        "label": [{ "labelId": 2, "labelName": "bug", "backgroundColor": "#DE4123", "fontColor": "dark" }],
         "commentedUser": ["에이든", "고뭉남", "니노"]
       },
       {
         "issueId": 16,
         "issueTitle": "[FE]: Implementing Notifications",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 2,
           "name": "니노",
@@ -374,14 +374,14 @@
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
         "label": [
-          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "textColor": "dark" }
+          { "labelId": 3, "labelName": "enhancement", "backgroundColor": "#50C878", "fontColor": "dark" }
         ],
         "commentedUser": ["니노", "아켄", "훈딩"]
       },
       {
         "issueId": 17,
         "issueTitle": "[BE]: Fixing Security Vulnerabilities",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 1,
           "name": "고뭉남",
@@ -397,7 +397,7 @@
           { "userId": 6, "name": "훈딩", "profileImgSrc": "" }
         ],
         "milestone": { "milestoneId": 1, "milestoneName": "NewMilestone" },
-        "label": [{ "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "textColor": "dark" }],
+        "label": [{ "labelId": 4, "labelName": "task", "backgroundColor": "#FFD700", "fontColor": "dark" }],
         "commentedUser": ["고뭉남", "Sol", "에이든"]
       }
     ]

@@ -46,8 +46,8 @@ const TextArea = ({
   }, [value]);
 
   return (
-    <$TextArea disabled={disabled} isFocused={isFocused} size={size}>
-      <$Label htmlFor={id} hasValue={hasValue} isFocused={isFocused}>
+    <$TextArea disabled={disabled} isfocused={isFocused ? 1 : 0} size={size}>
+      <$Label htmlFor={id} hasvalue={hasValue ? 1 : 0} isfocused={isFocused ? 1 : 0}>
         {labelText}
       </$Label>
       <$TextAreaInput

@@ -59,7 +59,7 @@ const postNewIssueData = (request, response, context) => {
   const responseBody = {
     issueId: lastIssueId + 1,
     issueTitle,
-    isOpened: true,
+    isopened: true,
     writer: {
       userId: 6,
       name: '훈딩',
@@ -76,7 +76,7 @@ const postNewIssueData = (request, response, context) => {
         createdAt,
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -135,9 +135,9 @@ const postMilestoneNewData = (request, response, context) => {
     milestoneName: title,
     content: content === undefined ? null : content,
     deadline: deadline === undefined ? null : deadline,
-    openIssue: 0,
-    closeIssue: 0,
-    isOpened: true,
+    openCount: 0,
+    closeCount: 0,
+    isopened: true,
   };
 
   mockMilestoneData.data.push(responseBody);
@@ -154,7 +154,7 @@ const postMilestoneNewData = (request, response, context) => {
 const editMilestoneData = (request, response, context) => {
   const { milestoneId } = request.params;
 
-  const { title, content, deadline, isOpened } = request.body;
+  const { title, content, deadline, isopened } = request.body;
   let targetMilestoneIndex = -1;
 
   mockMilestoneData.data.forEach((milestone, index) => {
@@ -168,7 +168,7 @@ const editMilestoneData = (request, response, context) => {
     milestoneName: title === undefined ? mockMilestoneData.data[targetMilestoneIndex].milestoneName : title,
     content: content === undefined ? null : content,
     deadline: deadline === undefined ? null : deadline,
-    isOpened,
+    isopened,
   };
 
   return response(
@@ -203,13 +203,13 @@ const deleteMilestone = (request, response, context) => {
 const postLabelNewData = (request, response, context) => {
   const lastLabelId =
     mockLabelData.data.length !== 0 ? mockLabelData.data[mockLabelData.data.length - 1].labelId : 1;
-  const { labelName, content, backgroundColor, textColor } = request.body;
+  const { labelName, content, backgroundColor, fontColor } = request.body;
   const responseBody = {
     labelId: lastLabelId + 1,
     labelName,
     content: content === undefined ? null : content,
     backgroundColor,
-    textColor,
+    fontColor,
   };
 
   mockLabelData.data.push(responseBody);
@@ -227,7 +227,7 @@ const postLabelNewData = (request, response, context) => {
 const editLabelData = (request, response, context) => {
   const { labelId } = request.params;
 
-  const { labelName, content, backgroundColor, textColor } = request.body;
+  const { labelName, content, backgroundColor, fontColor } = request.body;
   let targetLabelIndex = -1;
 
   mockLabelData.data.forEach((label, index) => {
@@ -241,7 +241,7 @@ const editLabelData = (request, response, context) => {
     labelName,
     content: content === undefined ? null : content,
     backgroundColor,
-    textColor,
+    fontColor,
   };
 
   return response(

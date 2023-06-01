@@ -13,7 +13,7 @@ const MilestoneMain = ({ milestoneData, getNewMilestoneData }) => {
     const closedMilestones = [];
 
     milestoneData.forEach((milestone) => {
-      milestone.isOpened ? openMilestones.push(milestone) : closedMilestones.push(milestone);
+      milestone.isopened ? openMilestones.push(milestone) : closedMilestones.push(milestone);
     });
     return [openMilestones, closedMilestones];
   };

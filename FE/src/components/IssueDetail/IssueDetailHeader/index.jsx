@@ -101,11 +101,11 @@ const IssueDetailHeader = ({ issue, getNewIssueData }) => {
       </$IssueDetailTitle>
 
       <$IssueDetailInfo>
-        {issue.isOpened ? (
+        {issue.isopened ? (
           <Label
             height={32}
             name="열린 이슈"
-            textColor="#FEFEFE"
+            fontColor="#FEFEFE"
             backgroundColor="#007AFF"
             iconName="alertCircle"
           />
@@ -113,14 +113,14 @@ const IssueDetailHeader = ({ issue, getNewIssueData }) => {
           <Label
             height="32"
             name="닫힌 이슈"
-            textColor="#FEFEFE"
+            fontColor="#FEFEFE"
             backgroundColor="#FF3B30"
             iconName="archive"
           />
         )}
         <$IssueInfoText>
           {`이 이슈가 ${1}분 전에 ${issue.writer.name}님에 의해 ${
-            issue.isOpened ? '열렸습니다' : '닫혔습니다'
+            issue.isopened ? '열렸습니다' : '닫혔습니다'
           } ∙ 코멘트 ${issue.comment.length}개 `}
         </$IssueInfoText>
       </$IssueDetailInfo>

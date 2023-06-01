@@ -12,7 +12,8 @@ const Button = ({ children, className = '', type, size, active = false, ...props
 };
 
 Button.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.node), PropTypes.node])
+    .isRequired,
   className: PropTypes.string,
   type: PropTypes.oneOf(['contained', 'outline', 'ghost']).isRequired,
   size: PropTypes.oneOf(['L', 'M', 'S']).isRequired,

@@ -45,7 +45,7 @@ const MilestoneTable = ({
       title: milestoneInfo.title,
       deadline: milestoneInfo.deadline,
       content: milestoneInfo.content,
-      isOpened,
+      isopened: isOpened,
     },
     true,
   );
