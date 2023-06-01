@@ -24,7 +24,7 @@ import Milestone from './pages/Milestone';
 import LabelList from './pages/LabelList';
 
 const App = () => {
-  const { data: userImgData } = useFetch(USERS.GET_USER_IMG(6));
+  const { data: userImgData } = useFetch(USERS.GET_USER_IMG(2));
 
   useEffect(() => {
     const isDataInLocalStorage = localStorage.getItem('mockUserData');
@@ -40,14 +40,12 @@ const App = () => {
     <ThemeProvider>
       <GlobalStyles />
       <BrowserRouter>
-        {userImgData && <Header userImgSrc={userImgData.userImgURL} />}
+        {userImgData && <Header userImgSrc={userImgData.url} />}
         <Routes>
           <Route path="/login" />
           <Route path="/" element={<Navigate to="/issues" />} />
           <Route path="/issues" element={<IssueList />} />
-          {userImgData && (
-            <Route path="/issues/new" element={<NewIssue userImgSrc={userImgData.userImgURL} />} />
-          )}
+          {userImgData && <Route path="/issues/new" element={<NewIssue userImgSrc={userImgData.url} />} />}
           <Route path="/issues/:issueId" element={<IssueDetail />} />
           <Route path="/issues/milestones" element={<Milestone />} />
           <Route path="/issues/labels" element={<LabelList />} />

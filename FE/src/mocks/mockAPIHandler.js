@@ -330,10 +330,15 @@ const postComment = (request, response, context) => {
 
   localStorage.setItem('issueDetailData', JSON.stringify(mockIssuesData));
 
-  return response(context.status(200), context.json());
+  return response(context.status(200), context.json(mockIssuesData[targetIndex].comment));
 };
 
-const putComment = (request, response, context) => {};
+const putComment = (request, response, context) => {
+  const mockIssuesData = JSON.parse(localStorage.getItem('issueDetailData'));
+  const mockUserData = JSON.parse(localStorage.getItem('mockUserData'));
+
+  const { issueId, commentId } = request.params;
+};
 
 const mockAPIHandler = [
   rest.get(ISSUES.GET_ALL_ISSUES, getIssues),
