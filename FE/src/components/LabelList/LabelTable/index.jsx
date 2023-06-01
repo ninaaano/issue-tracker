@@ -106,7 +106,7 @@ const LabelTable = ({
 
   return (
     <$LabelTable type={type}>
-      <$LabelTableTitle>새로운 레이블 추가</$LabelTableTitle>
+      <$LabelTableTitle>{type === 'add' ? '새로운 레이블 추가' : '레이블 편집'}</$LabelTableTitle>
 
       <$LabelTableLayout>
         <$LabelPreview>
