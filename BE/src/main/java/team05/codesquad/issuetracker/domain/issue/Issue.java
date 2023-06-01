@@ -32,6 +32,7 @@ public class Issue {
     @Column("issue_id")
     private Long id;
     private String title;
+
     @Column("is_opened")
     private Boolean isOpened;
 
