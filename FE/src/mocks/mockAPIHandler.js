@@ -67,7 +67,7 @@ const postNewIssueData = (request, response, context) => {
         createdAt,
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },

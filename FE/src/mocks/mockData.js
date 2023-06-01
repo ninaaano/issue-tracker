@@ -41,7 +41,10 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['훈딩', '아켄'],
+        commentedUser: [
+          { userId: 4, name: '아켄' },
+          { userId: 6, name: '훈딩' },
+        ],
       },
       {
         issueId: 2,
@@ -57,12 +60,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -85,7 +88,10 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['니노', '고뭉남'],
+        commentedUser: [
+          { userId: 2, name: '니노' },
+          { userId: 1, name: '고뭉남' },
+        ],
       },
       {
         issueId: 3,
@@ -101,12 +107,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -122,7 +128,10 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['아켄', '훈딩'],
+        commentedUser: [
+          { userId: 4, name: '아켄' },
+          { userId: 6, name: '훈딩' },
+        ],
       },
       {
         issueId: 4,
@@ -138,12 +147,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -159,7 +168,10 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['니노', '고뭉남'],
+        commentedUser: [
+          { userId: 1, name: '고뭉남' },
+          { userId: 2, name: '니노' },
+        ],
       },
       {
         issueId: 5,
@@ -175,12 +187,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -203,7 +215,10 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['아켄', '훈딩'],
+        commentedUser: [
+          { userId: 4, name: '아켄' },
+          { userId: 6, name: '훈딩' },
+        ],
       },
       {
         issueId: 6,
@@ -219,12 +234,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -240,7 +255,10 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['고뭉남', '니노'],
+        commentedUser: [
+          { userId: 1, name: '고뭉남' },
+          { userId: 2, name: '니노' },
+        ],
       },
       {
         issueId: 7,
@@ -256,12 +274,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -284,7 +302,10 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['훈딩', '아켄'],
+        commentedUser: [
+          { userId: 4, name: '아켄' },
+          { userId: 6, name: '훈딩' },
+        ],
       },
       {
         issueId: 8,
@@ -300,12 +321,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -321,7 +342,10 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['니노', '훈딩'],
+        commentedUser: [
+          { userId: 2, name: '니노' },
+          { userId: 6, name: '훈딩' },
+        ],
       },
       {
         issueId: 9,
@@ -337,12 +361,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -365,7 +389,10 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['아켄', '고뭉남'],
+        commentedUser: [
+          { userId: 4, name: '아켄' },
+          { userId: 1, name: '고뭉남' },
+        ],
       },
       {
         issueId: 10,
@@ -381,12 +408,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -409,7 +436,10 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['고뭉남', '에이든'],
+        commentedUser: [
+          { userId: 1, name: '고뭉남' },
+          { userId: 3, name: '에이든' },
+        ],
       },
       {
         issueId: 11,
@@ -425,12 +455,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -446,7 +476,10 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['Sol', '고뭉남'],
+        commentedUser: [
+          { userId: 5, name: 'Sol' },
+          { userId: 1, name: '고뭉남' },
+        ],
       },
       {
         issueId: 12,
@@ -462,12 +495,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -483,7 +516,10 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['에이든', 'Sol'],
+        commentedUser: [
+          { userId: 3, name: '에이든' },
+          { userId: 5, name: 'Sol' },
+        ],
       },
       {
         issueId: 13,
@@ -499,12 +535,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -520,7 +556,10 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['고뭉남', '에이든'],
+        commentedUser: [
+          { userId: 1, name: '고뭉남' },
+          { userId: 3, name: '에이든' },
+        ],
       },
       {
         issueId: 14,
@@ -536,12 +575,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -564,7 +603,14 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['Sol', '고뭉남', '에이든', '니노', '아켄', '훈딩'],
+        commentedUser: [
+          { userId: 5, name: 'Sol' },
+          { userId: 1, name: '고뭉남' },
+          { userId: 3, name: '에이든' },
+          { userId: 2, name: '니노' },
+          { userId: 6, name: '훈딩' },
+          { userId: 4, name: '아켄' },
+        ],
       },
       {
         issueId: 15,
@@ -580,12 +626,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -601,7 +647,11 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['에이든', '고뭉남', '니노'],
+        commentedUser: [
+          { userId: 3, name: '에이든' },
+          { userId: 1, name: '고뭉남' },
+          { userId: 2, name: '니노' },
+        ],
       },
       {
         issueId: 16,
@@ -617,12 +667,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -638,7 +688,11 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['니노', '아켄', '훈딩'],
+        commentedUser: [
+          { userId: 2, name: '니노' },
+          { userId: 4, name: '아켄' },
+          { userId: 6, name: '훈딩' },
+        ],
       },
       {
         issueId: 17,
@@ -654,12 +708,12 @@ const mockIssuesData = {
           {
             userId: 4,
             name: '아켄',
-            profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+            url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
           },
           {
             userId: 6,
             name: '훈딩',
-            profileImgSrc: '',
+            url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
         milestone: {
@@ -675,7 +729,11 @@ const mockIssuesData = {
             fontColor: 'dark',
           },
         ],
-        commentedUser: ['고뭉남', 'Sol', '에이든'],
+        commentedUser: [
+          { userId: 1, name: '고뭉남' },
+          { userId: 5, name: 'Sol' },
+          { userId: 3, name: '에이든' },
+        ],
       },
     ],
   },
@@ -773,7 +831,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -783,7 +841,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -793,7 +851,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -813,12 +871,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -848,7 +906,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -858,7 +916,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -868,7 +926,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -888,12 +946,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -916,7 +974,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -926,7 +984,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -936,7 +994,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -956,12 +1014,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -984,7 +1042,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -994,7 +1052,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -1004,7 +1062,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -1024,12 +1082,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -1059,7 +1117,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -1069,7 +1127,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -1079,7 +1137,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -1099,12 +1157,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -1127,7 +1185,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -1137,7 +1195,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -1147,7 +1205,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -1167,12 +1225,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -1202,7 +1260,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -1212,7 +1270,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -1222,7 +1280,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -1242,12 +1300,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -1270,7 +1328,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -1280,7 +1338,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -1290,7 +1348,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -1310,12 +1368,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -1345,7 +1403,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -1355,7 +1413,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -1365,7 +1423,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -1385,12 +1443,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -1420,7 +1478,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -1430,7 +1488,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -1440,7 +1498,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -1460,12 +1518,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -1488,7 +1546,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -1498,7 +1556,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -1508,7 +1566,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -1528,12 +1586,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -1556,7 +1614,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -1566,7 +1624,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -1576,7 +1634,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -1596,12 +1654,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -1624,7 +1682,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -1634,7 +1692,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -1644,7 +1702,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -1664,12 +1722,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -1699,7 +1757,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -1709,7 +1767,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -1719,7 +1777,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -1739,12 +1797,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -1767,7 +1825,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -1777,7 +1835,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -1787,7 +1845,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -1807,12 +1865,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -1835,7 +1893,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -1845,7 +1903,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -1855,7 +1913,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -1875,12 +1933,12 @@ const issueDetailData = [
       {
         userId: 4,
         name: '아켄',
-        profileImgSrc: 'https://avatars.githubusercontent.com/u/96980857?v=4',
+        url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
       },
       {
         userId: 6,
         name: '훈딩',
-        profileImgSrc: '',
+        url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
       },
     ],
     milestone: {
@@ -1903,7 +1961,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 4,
-          userName: '아켄',
+          name: '아켄',
           url: 'https://avatars.githubusercontent.com/u/96980857?v=4',
         },
       },
@@ -1913,7 +1971,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 3,
-          userName: '에이든',
+          name: '에이든',
           url: 'https://avatars.githubusercontent.com/u/115064144?v=4',
         },
       },
@@ -1923,7 +1981,7 @@ const issueDetailData = [
         createdAt: '2023-05-16T09:10:35.145Z', // 작성자 및 타임스탬프 정보에 필요
         commentUser: {
           userId: 6,
-          userName: '훈딩',
+          name: '훈딩',
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
         },
       },
@@ -1933,12 +1991,12 @@ const issueDetailData = [
 
 const mockUserData = {
   data: [
-    { userId: 1, userName: '고뭉남', url: 'https://avatars.githubusercontent.com/u/77562698?v=4' },
-    { userId: 2, userName: '니노', url: 'https://avatars.githubusercontent.com/u/95615105?v=4' },
-    { userId: 3, userName: '에이든', url: 'https://avatars.githubusercontent.com/u/115064144?v=4' },
-    { userId: 4, userName: '아켄', url: 'https://avatars.githubusercontent.com/u/96980857?v=4' },
-    { userId: 5, userName: '솔', url: 'https://avatars.githubusercontent.com/u/86761640?v=4' },
-    { userId: 6, userName: '훈딩', url: 'https://avatars.githubusercontent.com/u/56246060?v=4' },
+    { userId: 1, name: '고뭉남', url: 'https://avatars.githubusercontent.com/u/77562698?v=4' },
+    { userId: 2, name: '니노', url: 'https://avatars.githubusercontent.com/u/95615105?v=4' },
+    { userId: 3, name: '에이든', url: 'https://avatars.githubusercontent.com/u/115064144?v=4' },
+    { userId: 4, name: '아켄', url: 'https://avatars.githubusercontent.com/u/96980857?v=4' },
+    { userId: 5, name: '솔', url: 'https://avatars.githubusercontent.com/u/86761640?v=4' },
+    { userId: 6, name: '훈딩', url: 'https://avatars.githubusercontent.com/u/56246060?v=4' },
   ],
 };
 

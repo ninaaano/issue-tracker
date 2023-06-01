@@ -22,7 +22,7 @@ const SelectedItem = ({ className = '', type, info }) => {
     return (
       <$Assignee className={className}>
         <$ProfileImg src={info.url} />
-        <$AssigneeName>{info.userName}</$AssigneeName>
+        <$AssigneeName>{info.name}</$AssigneeName>
       </$Assignee>
     );
   }

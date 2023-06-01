@@ -33,7 +33,7 @@ const convertMenus = ({ type, name, menus, dropDownType }) => {
 
     keys.forEach((key) => {
       if (key.includes('Id')) newMenu.id = menu[key];
-      if (key.includes('Name')) newMenu.text = menu[key];
+      if (key.includes('name') || key.includes('Name')) newMenu.text = menu[key];
       if (key.includes('url')) newMenu.url = menu[key];
       if (key.includes('backgroundColor')) newMenu.backgroundColor = menu[key];
     });

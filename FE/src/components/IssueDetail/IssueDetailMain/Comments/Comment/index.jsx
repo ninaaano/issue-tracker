@@ -57,7 +57,7 @@ const Comment = ({ writerId, commentData }) => {
         <$CommentHeader>
           <$UserInfo>
             <$UserImg src={commentData.commentUser.url} />
-            <$UserName>{commentData.commentUser.userName}</$UserName>
+            <$UserName>{commentData.commentUser.name}</$UserName>
             <$CommentTime>1분 전</$CommentTime>
           </$UserInfo>
 
