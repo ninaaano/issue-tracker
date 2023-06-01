@@ -4,6 +4,7 @@ import lombok.*;
 import team05.codesquad.issuetracker.controller.commentdto.CommentDto;
 import team05.codesquad.issuetracker.controller.commentdto.response.CommentDtoListResponse;
 import team05.codesquad.issuetracker.controller.labeldto.response.LabelResponse;
+import team05.codesquad.issuetracker.domain.comment.Comment;
 import team05.codesquad.issuetracker.domain.issue.Issue;
 
 import java.time.LocalDateTime;
@@ -25,12 +26,12 @@ public class IssueResponse {
     private Long milestoneId;
     private boolean isopened;
 
-    public static IssueResponse from(Issue issue) {
+    public static IssueResponse from(Issue issue, List<Comment> commentList) {
         Long milestoneId = null;
         if (issue.getMilestone() != null) {
             milestoneId = issue.getMilestone().getId();
         }
-        return new IssueResponse(issue.getId(), issue.getTitle(), issue.getCreatedAt(), LabelResponse.from(issue.getLabels()), CommentDtoListResponse.of(issue.getComments()), milestoneId, issue.getIsOpened());
+        return new IssueResponse(issue.getId(), issue.getTitle(), issue.getCreatedAt(), LabelResponse.from(issue.getLabels()), CommentDtoListResponse.of(commentList), milestoneId, issue.getIsOpened());
     }
 
 }
