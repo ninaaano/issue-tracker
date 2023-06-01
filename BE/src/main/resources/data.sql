@@ -8,19 +8,15 @@ INSERT INTO `milestone` (`TITLE`, `DESCRIPTION`, `DEADLINE`)
 VALUES ('마일스톤 3번 제목', '마일스톤 3번 내용', '2023-05-15');
 
 -- member 테이블 더미 데이터 추가
+INSERT INTO `member` (`name`, `profile_url`)
+VALUES
+    ('고뭉남', 'https://avatars.githubusercontent.com/u/77562698?v=4'),
+    ('니노', 'https://avatars.githubusercontent.com/u/95615105?v=4'),
+    ('에이든', 'https://avatars.githubusercontent.com/u/115064144?v=4'),
+    ('아켄', 'https://avatars.githubusercontent.com/u/96980857?v=4'),
+    ('솔', 'https://avatars.githubusercontent.com/u/86761640?v=4'),
+    ('훈딩', 'https://avatars.githubusercontent.com/u/56246060?v=4');
 
-INSERT INTO `member` (`NAME`, `PASSWORD`)
-VALUES ('고뭉남', '1q2w3e4r!');
-INSERT INTO `member` (`NAME`, `PASSWORD`, `PROFILE_URL`)
-VALUES ('니노', '1234', 'asdfasdf');
-INSERT INTO `member` (`NAME`, `PASSWORD`)
-VALUES ('에이든', '2222!');
-INSERT INTO `member` (`NAME`, `PASSWORD`)
-VALUES ('아켄', '1q1111r!');
-INSERT INTO `member` (`NAME`, `PASSWORD`)
-VALUES ('훈딩', '24124');
-INSERT INTO `member` (`NAME`, `PASSWORD`)
-VALUES ('솔', '2313');
 
 -- issue 테이블 더미 데이터 추가
 
