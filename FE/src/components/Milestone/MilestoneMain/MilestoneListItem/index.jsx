@@ -31,7 +31,7 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
     MILESTONES.PATCH_MILESTONE(milestone.milestoneId),
     'PATCH',
     {
-      isOpened: !milestone.isOpened,
+      isopened: !milestone.isopened,
     },
     true,
   );
@@ -44,10 +44,10 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
   );
 
   const calculatePercentage = (() => {
-    const totalIssues = milestone.openIssue + milestone.closeIssue;
+    const totalIssues = milestone.openCount + milestone.closeCount;
 
     if (totalIssues === 0) return 0;
-    return Math.ceil((milestone.closeIssue / totalIssues) * 100);
+    return Math.ceil((milestone.closeCount / totalIssues) * 100);
   })();
 
   const editButtonHandler = () => {
@@ -78,7 +78,7 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
       deadline={milestone.deadline}
       content={milestone.content}
       cancelClickHandler={cancelEditHandler}
-      isOpened={milestone.isOpened}
+      isOpened={milestone.isopened}
       getNewMilestoneData={getNewMilestoneData}
     />
   ) : (
@@ -96,7 +96,7 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
       </$MilestoneInfo>
       <$MilestoneControl>
         <$Buttons>
-          {milestone.isOpened ? (
+          {milestone.isopened ? (
             <Button type="ghost" size="S" onClick={changeMilestoneStatusHandler}>
               <Icon name="archive" />
               <p>마일스톤 닫기</p>
@@ -112,7 +112,8 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
             <Icon name="edit" />
             <p>편집</p>
           </Button>
-          <Button type="ghost" size="S" onClick={deleteMilestoneHandler} colorstype="danger">
+
+          <Button type="ghost" size="S" onClick={deleteMilestoneHandler} colorstype="danger" fill="#FF3B30">
             <Icon name="trash" />
             <p>삭제</p>
           </Button>
@@ -121,8 +122,8 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
         <$ProgressInfo>
           <$Percent>{`${calculatePercentage}%`}</$Percent>
           <$Issues>
-            <$OpenIssue>{`열린 이슈 ${milestone.openIssue}`}</$OpenIssue>
-            <$CloseIssue>{`닫힌 이슈 ${milestone.closeIssue}`}</$CloseIssue>
+            <$OpenIssue>{`열린 이슈 ${milestone.openCount}`}</$OpenIssue>
+            <$CloseIssue>{`닫힌 이슈 ${milestone.closeCount}`}</$CloseIssue>
           </$Issues>
         </$ProgressInfo>
       </$MilestoneControl>

@@ -50,5 +50,6 @@ module.exports = {
     'react/jsx-indent': 0, // Sidebar indent 수정위해 off.
     indent: 0, // Sidebar indent 수정위해 off.
     'no-unused-expressions': 0, // 삼항연산자 길게 쓰면 오류뜨게함. if-else문으로 대체하래..휴..
+    'no-param-reassign': 0,
   },
 };

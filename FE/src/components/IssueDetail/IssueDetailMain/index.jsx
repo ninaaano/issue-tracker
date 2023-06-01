@@ -8,7 +8,13 @@ import TextArea from '../../common/TextArea';
 import Comments from './Comments';
 import { $IssueDetailMain, $IssueCommentArea, $IssueDetailMainLayout } from './style';
 
-const IssueDetailMain = ({ detailIssue, user: userData, label: labelData, milestone: milestoneData }) => {
+const IssueDetailMain = ({
+  detailIssue,
+  user: userData,
+  label: labelData,
+  milestone: milestoneData,
+  getNewIssueData,
+}) => {
   const [selectedItems, setSelectedItems] = useState({
     assignee: detailIssue.assignee[0]?.userId,
     milestone: detailIssue.milestone?.milestoneId,
@@ -30,8 +36,6 @@ const IssueDetailMain = ({ detailIssue, user: userData, label: labelData, milest
   const changeMilestoneHandler = (milestoneId) => {
     setSelectedItems({ ...selectedItems, milestone: milestoneId });
   };
-
-  console.log(selectedItems);
 
   return (
     <$IssueDetailMainLayout>
@@ -70,6 +74,7 @@ IssueDetailMain.propTypes = {
   user: PropTypes.array.isRequired,
   label: PropTypes.array.isRequired,
   milestone: PropTypes.array.isRequired,
+  getNewIssueData: PropTypes.func.isRequired,
 };
 
 export default IssueDetailMain;

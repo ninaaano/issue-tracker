@@ -32,7 +32,6 @@ const CheckBoxProvider = ({ children }) => {
     setCheckList([...issueIds]);
   };
 
-  console.log(checkList);
   return (
     <CheckBoxContext.Provider value={{ checkList, checkBoxHandler, resetCheckList, allCheck }}>
       {children}

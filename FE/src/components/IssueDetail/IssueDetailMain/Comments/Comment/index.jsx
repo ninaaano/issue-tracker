@@ -57,13 +57,13 @@ const Comment = ({ writerId, commentData }) => {
         <$CommentHeader>
           <$UserInfo>
             <$UserImg src={commentData.commentUser.url} />
-            <$UserName>{commentData.commentUser.userName}</$UserName>
+            <$UserName>{commentData.commentUser.name}</$UserName>
             <$CommentTime>1분 전</$CommentTime>
           </$UserInfo>
 
           <$HeaderButtons>
             {writerId === commentData.commentUser.userId && (
-              <Label height={32} backgroundColor="#D9DBE9" textColor="dark" name="작성자" />
+              <Label height={32} backgroundColor="#D9DBE9" fontColor="dark" name="작성자" />
             )}
             {isMine && (
               <$HeaderButton onClick={editBtnHandler}>
@@ -87,7 +87,7 @@ const Comment = ({ writerId, commentData }) => {
             filesUploadHandler={filesUploadHandler}
           />
         ) : (
-          <$CommentText>{editComment || 'No description provided.'}</$CommentText>
+          <$CommentText>{editComment}</$CommentText>
         )}
       </$Comment>
       {isEdited && (

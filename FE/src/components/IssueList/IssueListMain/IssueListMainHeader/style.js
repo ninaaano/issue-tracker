@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from '../../../common/Button';
 
 const $CheckBox = styled.button``;
 
@@ -24,6 +25,14 @@ const $CheckStatus = styled.div`
   font-weight: ${({ theme }) => theme.fontWeight.bold};
 `;
 
+const $StatusChangeButton = styled(Button)`
+  gap: 5px;
+  color: ${({ theme, open }) => (open ? theme.colors.danger.text : theme.colors.accent.text.weak)};
+  & > p {
+    line-height: 13px;
+  }
+`;
+
 const $IssueListMainHeader = styled.header`
   display: flex;
   justify-content: space-between;
@@ -40,4 +49,5 @@ export {
   $IssueButtonsWrapper,
   $FilterOptions,
   $CheckStatus,
+  $StatusChangeButton,
 };

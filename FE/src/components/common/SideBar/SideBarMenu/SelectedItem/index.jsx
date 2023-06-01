@@ -12,7 +12,7 @@ const SelectedItem = ({ className = '', type, info }) => {
         <Label
           height={24}
           name={info.labelName}
-          textColor={info.textColor}
+          fontColor={info.fontColor}
           backgroundColor={info.backgroundColor}
         />
       </$LabelWrapper>
@@ -22,14 +22,14 @@ const SelectedItem = ({ className = '', type, info }) => {
     return (
       <$Assignee className={className}>
         <$ProfileImg src={info.url} />
-        <$AssigneeName>{info.userName}</$AssigneeName>
+        <$AssigneeName>{info.name}</$AssigneeName>
       </$Assignee>
     );
   }
   if (FILTER_TYPE[type] === 'milestone') {
     return (
       <$Milestone className={className}>
-        <$ProgressBar percent={(info.closeIssue / (info.openIssue + info.closeIssue)) * 100} />
+        <$ProgressBar percent={(info.closeCount / (info.openCount + info.closeCount)) * 100} />
         {info.milestoneName}
       </$Milestone>
     );

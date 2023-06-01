@@ -10,7 +10,7 @@ import Label from '../../../common/Label';
 import LabelTable from '../../LabelTable';
 import { $LabelListItem, $LabelLayout, $LabelContent, $ButtonsLayout, $LabelInfo } from './style';
 
-const LabelListItem = ({ labelId, name, content, backgroundColor, textColor = 'dark', getNewLabelData }) => {
+const LabelListItem = ({ labelId, name, content, backgroundColor, fontColor = 'dark', getNewLabelData }) => {
   const [isLabelTableOpened, setIsLabelTableOpened] = useState(false);
 
   const { fetchData: deleteLabel } = useFetch(LABELS.DELETE_LABEL(labelId), 'DELETE', {}, true);
@@ -30,7 +30,7 @@ const LabelListItem = ({ labelId, name, content, backgroundColor, textColor = 'd
       labelName={name}
       content={content}
       backgroundColor={backgroundColor}
-      textColor={textColor}
+      fontColor={fontColor}
       closeHandler={closeLabelTableHandler}
       getNewLabelData={getNewLabelData}
     />
@@ -38,7 +38,7 @@ const LabelListItem = ({ labelId, name, content, backgroundColor, textColor = 'd
     <$LabelListItem>
       <$LabelInfo>
         <$LabelLayout>
-          <Label height={24} name={name} textColor={textColor} backgroundColor={backgroundColor} />
+          <Label height={24} name={name} fontColor={fontColor} backgroundColor={backgroundColor} />
         </$LabelLayout>
 
         <$LabelContent>{content || '레이블에 대한 설명이 없습니다.'}</$LabelContent>
@@ -49,8 +49,7 @@ const LabelListItem = ({ labelId, name, content, backgroundColor, textColor = 'd
           <Icon name="edit" />
           <p>편집</p>
         </Button>
-
-        <Button type="ghost" size="S" onClick={deleteLabelHandler} colorstype="danger">
+        <Button type="ghost" size="S" onClick={deleteLabelHandler} colorstype="danger" fill="#FF3B30">
           <Icon name="trash" />
           <p>삭제</p>
         </Button>
@@ -64,7 +63,7 @@ LabelListItem.propTypes = {
   name: PropTypes.string.isRequired,
   content: PropTypes.string,
   backgroundColor: PropTypes.string.isRequired,
-  textColor: PropTypes.oneOf(['dark', 'light']).isRequired,
+  fontColor: PropTypes.oneOf(['dark', 'light']).isRequired,
   getNewLabelData: PropTypes.func.isRequired,
 };
 
