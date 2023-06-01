@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import useFetch from '../../hooks/useFetch';
@@ -12,22 +12,27 @@ import { $IssueDetail } from './style';
 const IssueDetail = () => {
   // TODO: Text Area UnControlled Component로 바꾸기.
   const { issueId } = useParams();
-  const { data: issueDetailData } = useFetch(ISSUES.GET_ISSUE(issueId));
+  const { fetchData: getIssueData, data: issueDetailData } = useFetch(ISSUES.GET_ISSUE(issueId));
   const { data: userData } = useFetch(USERS.GET_ALL_USERS);
   const { data: labelData } = useFetch(LABELS.GET_ALL_LABELS);
   const { data: milestoneData } = useFetch(MILESTONES.GET_ALL_MILESTONES);
 
   const allDataLoaded = issueDetailData && userData && labelData && milestoneData;
 
+  const getNewIssueData = async () => {
+    await getIssueData();
+  };
+
   return (
     allDataLoaded && (
       <$IssueDetail>
-        <IssueDetailHeader issue={issueDetailData} />
+        <IssueDetailHeader issue={issueDetailData} getNewIssueData={getNewIssueData} />
         <IssueDetailMain
           detailIssue={issueDetailData}
           user={userData}
           label={labelData}
           milestone={milestoneData}
+          getNewIssueData={getNewIssueData}
         />
       </$IssueDetail>
     )
