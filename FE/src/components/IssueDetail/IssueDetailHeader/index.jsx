@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { ISSUES } from '../../../constants/api';
+import { getTimeDifference } from '../../../utils/time';
 import useFetch from '../../../hooks/useFetch';
 
 import Icon from '../../common/Icon';
@@ -23,6 +24,7 @@ const IssueDetailHeader = ({ issue, getNewIssueData }) => {
   const [isEdited, setIsEdited] = useState(false);
   const [tempTitle, setTempTitle] = useState(issue.issueTitle);
   const [editTitle, setEditTitle] = useState(issue.issueTitle);
+  const [titleEditedTime, setTitleEditedTime] = useState(issue.createdAt ?? new Date());
 
   const { fetchData: editIssue } = useFetch(
     ISSUES.PATCH_ISSUE(issue.issueId),
@@ -53,6 +55,7 @@ const IssueDetailHeader = ({ issue, getNewIssueData }) => {
   const statusChangeHandler = async () => {
     await editIssue();
     getNewIssueData();
+    setTitleEditedTime(new Date());
   };
 
   return (
@@ -111,7 +114,7 @@ const IssueDetailHeader = ({ issue, getNewIssueData }) => {
           />
         ) : (
           <Label
-            height="32"
+            height={32}
             name="닫힌 이슈"
             fontColor="#FEFEFE"
             backgroundColor="#FF3B30"
@@ -119,7 +122,7 @@ const IssueDetailHeader = ({ issue, getNewIssueData }) => {
           />
         )}
         <$IssueInfoText>
-          {`이 이슈가 ${1}분 전에 ${issue.writer.name}님에 의해 ${
+          {`이 이슈가 ${getTimeDifference(titleEditedTime)}에 ${issue.writer.name}님에 의해 ${
             issue.isopened ? '열렸습니다' : '닫혔습니다'
           } ∙ 코멘트 ${issue.comment.length}개 `}
         </$IssueInfoText>
