@@ -4,7 +4,7 @@ const mockIssuesData = {
       {
         issueId: 1,
         issueTitle: '[FE]: Creating Components',
-        isOpened: true,
+        isopened: true,
         writer: {
           userId: 6,
           name: '훈딩',
@@ -49,7 +49,7 @@ const mockIssuesData = {
       {
         issueId: 2,
         issueTitle: '[BE]: Designing the ERD Structure',
-        isOpened: true,
+        isopened: true,
         writer: {
           userId: 1,
           name: '고뭉남',
@@ -96,7 +96,7 @@ const mockIssuesData = {
       {
         issueId: 3,
         issueTitle: '[FE]: Implementing UI Layout',
-        isOpened: false,
+        isopened: false,
         writer: {
           userId: 4,
           name: '아켄',
@@ -136,7 +136,7 @@ const mockIssuesData = {
       {
         issueId: 4,
         issueTitle: '[BE]: Implementing Database Queries',
-        isOpened: true,
+        isopened: true,
         writer: {
           userId: 2,
           name: '니노',
@@ -176,7 +176,7 @@ const mockIssuesData = {
       {
         issueId: 5,
         issueTitle: '[FE]: Implementing Authentication',
-        isOpened: true,
+        isopened: true,
         writer: {
           userId: 4,
           name: '아켄',
@@ -223,7 +223,7 @@ const mockIssuesData = {
       {
         issueId: 6,
         issueTitle: '[BE]: Refactoring Backend Code',
-        isOpened: true,
+        isopened: true,
         writer: {
           userId: 1,
           name: '고뭉남',
@@ -263,7 +263,7 @@ const mockIssuesData = {
       {
         issueId: 7,
         issueTitle: '[FE]: Implementing Search Functionality',
-        isOpened: false,
+        isopened: false,
         writer: {
           userId: 6,
           name: '훈딩',
@@ -310,7 +310,7 @@ const mockIssuesData = {
       {
         issueId: 8,
         issueTitle: '[FE]: Implementing Notifications',
-        isOpened: false,
+        isopened: false,
         writer: {
           userId: 2,
           name: '니노',
@@ -350,7 +350,7 @@ const mockIssuesData = {
       {
         issueId: 9,
         issueTitle: '[BE]: Handling File Uploads',
-        isOpened: false,
+        isopened: false,
         writer: {
           userId: 4,
           name: '아켄',
@@ -397,7 +397,7 @@ const mockIssuesData = {
       {
         issueId: 10,
         issueTitle: '[FE]: Improving Performance',
-        isOpened: false,
+        isopened: false,
         writer: {
           userId: 1,
           name: '고뭉남',
@@ -444,7 +444,7 @@ const mockIssuesData = {
       {
         issueId: 11,
         issueTitle: '[BE]: Fixing API Endpoint',
-        isOpened: false,
+        isopened: false,
         writer: {
           userId: 5,
           url: 'https://avatars.githubusercontent.com/u/86761640?v=4',
@@ -484,7 +484,7 @@ const mockIssuesData = {
       {
         issueId: 12,
         issueTitle: '[FE]: Implementing User Profile',
-        isOpened: false,
+        isopened: false,
         writer: {
           userId: 3,
           name: '에이든',
@@ -524,7 +524,7 @@ const mockIssuesData = {
       {
         issueId: 13,
         issueTitle: '[BE]: Database Optimization',
-        isOpened: true,
+        isopened: true,
         writer: {
           userId: 1,
           name: '고뭉남',
@@ -564,7 +564,7 @@ const mockIssuesData = {
       {
         issueId: 14,
         issueTitle: '[FE]: Adding Unit Tests',
-        isOpened: true,
+        isopened: true,
         writer: {
           userId: 5,
           url: 'https://avatars.githubusercontent.com/u/86761640?v=4',
@@ -615,7 +615,7 @@ const mockIssuesData = {
       {
         issueId: 15,
         issueTitle: '[BE]: Resolving Performance Bottlenecks',
-        isOpened: true,
+        isopened: true,
         writer: {
           userId: 3,
           name: '에이든',
@@ -656,7 +656,7 @@ const mockIssuesData = {
       {
         issueId: 16,
         issueTitle: '[FE]: Implementing Notifications',
-        isOpened: true,
+        isopened: true,
         writer: {
           userId: 2,
           name: '니노',
@@ -697,7 +697,7 @@ const mockIssuesData = {
       {
         issueId: 17,
         issueTitle: '[BE]: Fixing Security Vulnerabilities',
-        isOpened: true,
+        isopened: true,
         writer: {
           userId: 1,
           name: '고뭉남',
@@ -787,7 +787,7 @@ const issueDetailData = [
   {
     issueId: 1,
     issueTitle: '[FE]: Creating Components',
-    isOpened: true,
+    isopened: true,
     writer: {
       userId: 6,
       name: '훈딩',
@@ -860,7 +860,7 @@ const issueDetailData = [
   {
     issueId: 2,
     issueTitle: '[BE]: Designing the ERD Structure',
-    isOpened: true,
+    isopened: true,
     writer: {
       userId: 1,
       name: '고뭉남',
@@ -935,7 +935,7 @@ const issueDetailData = [
   {
     issueId: 3,
     issueTitle: '[FE]: Implementing UI Layout',
-    isOpened: false,
+    isopened: false,
     writer: {
       userId: 4,
       name: '아켄',
@@ -1003,7 +1003,7 @@ const issueDetailData = [
   {
     issueId: 4,
     issueTitle: '[BE]: Implementing Database Queries',
-    isOpened: true,
+    isopened: true,
     writer: {
       userId: 2,
       name: '니노',
@@ -1071,7 +1071,7 @@ const issueDetailData = [
   {
     issueId: 5,
     issueTitle: '[FE]: Implementing Authentication',
-    isOpened: true,
+    isopened: true,
     writer: {
       userId: 4,
       name: '아켄',
@@ -1146,7 +1146,7 @@ const issueDetailData = [
   {
     issueId: 6,
     issueTitle: '[BE]: Refactoring Backend Code',
-    isOpened: true,
+    isopened: true,
     writer: {
       userId: 1,
       name: '고뭉남',
@@ -1214,7 +1214,7 @@ const issueDetailData = [
   {
     issueId: 7,
     issueTitle: '[FE]: Implementing Search Functionality',
-    isOpened: false,
+    isopened: false,
     writer: {
       userId: 6,
       name: '훈딩',
@@ -1289,7 +1289,7 @@ const issueDetailData = [
   {
     issueId: 8,
     issueTitle: '[FE]: Implementing Notifications',
-    isOpened: false,
+    isopened: false,
     writer: {
       userId: 2,
       name: '니노',
@@ -1357,7 +1357,7 @@ const issueDetailData = [
   {
     issueId: 9,
     issueTitle: '[BE]: Handling File Uploads',
-    isOpened: false,
+    isopened: false,
     writer: {
       userId: 4,
       name: '아켄',
@@ -1432,7 +1432,7 @@ const issueDetailData = [
   {
     issueId: 10,
     issueTitle: '[FE]: Improving Performance',
-    isOpened: false,
+    isopened: false,
     writer: {
       userId: 1,
       name: '고뭉남',
@@ -1507,7 +1507,7 @@ const issueDetailData = [
   {
     issueId: 11,
     issueTitle: '[BE]: Fixing API Endpoint',
-    isOpened: false,
+    isopened: false,
     writer: {
       userId: 5,
       url: 'https://avatars.githubusercontent.com/u/86761640?v=4',
@@ -1575,7 +1575,7 @@ const issueDetailData = [
   {
     issueId: 12,
     issueTitle: '[FE]: Implementing User Profile',
-    isOpened: false,
+    isopened: false,
     writer: {
       userId: 3,
       name: '에이든',
@@ -1643,7 +1643,7 @@ const issueDetailData = [
   {
     issueId: 13,
     issueTitle: '[BE]: Database Optimization',
-    isOpened: true,
+    isopened: true,
     writer: {
       userId: 1,
       name: '고뭉남',
@@ -1711,7 +1711,7 @@ const issueDetailData = [
   {
     issueId: 14,
     issueTitle: '[FE]: Adding Unit Tests',
-    isOpened: true,
+    isopened: true,
     writer: {
       userId: 5,
       url: 'https://avatars.githubusercontent.com/u/86761640?v=4',
@@ -1786,7 +1786,7 @@ const issueDetailData = [
   {
     issueId: 15,
     issueTitle: '[BE]: Resolving Performance Bottlenecks',
-    isOpened: true,
+    isopened: true,
     writer: {
       userId: 3,
       name: '에이든',
@@ -1854,7 +1854,7 @@ const issueDetailData = [
   {
     issueId: 16,
     issueTitle: '[FE]: Implementing Notifications',
-    isOpened: true,
+    isopened: true,
     writer: {
       userId: 2,
       name: '니노',
@@ -1922,7 +1922,7 @@ const issueDetailData = [
   {
     issueId: 17,
     issueTitle: '[BE]: Fixing Security Vulnerabilities',
-    isOpened: true,
+    isopened: true,
     writer: {
       userId: 1,
       name: '고뭉남',
@@ -2035,8 +2035,8 @@ const mockLabelData = {
 
 const mockMilestoneData = {
   data: [
-    { milestoneId: 1, milestoneName: 'NewMilestone', openCount: 5, closeCount: 3, isOpened: true },
-    { milestoneId: 2, milestoneName: 'IssueTracker', openCount: 5, closeCount: 4, isOpened: true },
+    { milestoneId: 1, milestoneName: 'NewMilestone', openCount: 5, closeCount: 3, isopened: true },
+    { milestoneId: 2, milestoneName: 'IssueTracker', openCount: 5, closeCount: 4, isopened: true },
   ],
 };
 

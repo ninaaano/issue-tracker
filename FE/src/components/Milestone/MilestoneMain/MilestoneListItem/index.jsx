@@ -31,7 +31,7 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
     MILESTONES.PATCH_MILESTONE(milestone.milestoneId),
     'PATCH',
     {
-      isOpened: !milestone.isOpened,
+      isopened: !milestone.isopened,
     },
     true,
   );
@@ -78,7 +78,7 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
       deadline={milestone.deadline}
       content={milestone.content}
       cancelClickHandler={cancelEditHandler}
-      isOpened={milestone.isOpened}
+      isOpened={milestone.isopened}
       getNewMilestoneData={getNewMilestoneData}
     />
   ) : (
@@ -96,7 +96,7 @@ const MilestoneListItem = ({ milestone, getNewMilestoneData }) => {
       </$MilestoneInfo>
       <$MilestoneControl>
         <$Buttons>
-          {milestone.isOpened ? (
+          {milestone.isopened ? (
             <Button type="ghost" size="S" onClick={changeMilestoneStatusHandler}>
               <Icon name="archive" />
               <p>마일스톤 닫기</p>

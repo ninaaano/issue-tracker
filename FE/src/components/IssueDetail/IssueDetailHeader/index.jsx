@@ -85,7 +85,7 @@ const IssueDetailHeader = ({ issue }) => {
       </$IssueDetailTitle>
 
       <$IssueDetailInfo>
-        {issue.isOpened ? (
+        {issue.isopened ? (
           <Label
             height={32}
             name="열린 이슈"
@@ -104,7 +104,7 @@ const IssueDetailHeader = ({ issue }) => {
         )}
         <$IssueInfoText>
           {`이 이슈가 ${1}분 전에 ${issue.writer.name}님에 의해 ${
-            issue.isOpened ? '열렸습니다' : '닫혔습니다'
+            issue.isopened ? '열렸습니다' : '닫혔습니다'
           } ∙ 코멘트 ${issue.comment.length}개 `}
         </$IssueInfoText>
       </$IssueDetailInfo>

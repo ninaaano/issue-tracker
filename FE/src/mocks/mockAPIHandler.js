@@ -50,7 +50,7 @@ const postNewIssueData = (request, response, context) => {
   const responseBody = {
     issueId: lastIssueId + 1,
     issueTitle,
-    isOpened: true,
+    isopened: true,
     writer: {
       userId: 6,
       name: '훈딩',
@@ -99,7 +99,7 @@ const postMilestoneNewData = (request, response, context) => {
     deadline: deadline === undefined ? null : deadline,
     openCount: 0,
     closeCount: 0,
-    isOpened: true,
+    isopened: true,
   };
 
   mockMilestoneData.data.push(responseBody);
@@ -116,7 +116,7 @@ const postMilestoneNewData = (request, response, context) => {
 const editMilestoneData = (request, response, context) => {
   const { milestoneId } = request.params;
 
-  const { title, content, deadline, isOpened } = request.body;
+  const { title, content, deadline, isopened } = request.body;
   let targetMilestoneIndex = -1;
 
   mockMilestoneData.data.forEach((milestone, index) => {
@@ -130,7 +130,7 @@ const editMilestoneData = (request, response, context) => {
     milestoneName: title === undefined ? mockMilestoneData.data[targetMilestoneIndex].milestoneName : title,
     content: content === undefined ? null : content,
     deadline: deadline === undefined ? null : deadline,
-    isOpened,
+    isopened,
   };
 
   return response(

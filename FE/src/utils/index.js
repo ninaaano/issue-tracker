@@ -8,7 +8,7 @@ const isFilterMatched = ({ currentFilterOption, issueValue }) => {
 };
 
 export const filterIssues = ({ type, issues, filterOptions }) => {
-  return issues.filter(({ isOpened, milestone, writer, label, assignee }) => {
+  return issues.filter(({ isopened, milestone, writer, label, assignee }) => {
     const { milestoneId } = milestone;
     const { userId: writerId } = writer;
     const labelIdArr = label.map(({ labelId }) => labelId);
@@ -34,7 +34,7 @@ export const filterIssues = ({ type, issues, filterOptions }) => {
     const isOpenButtonActive = type === 'open';
 
     return (
-      isOpened === isOpenButtonActive &&
+      isopened === isOpenButtonActive &&
       isMilestoneMatched &&
       isLabelMatched &&
       isAssigneeMatched &&

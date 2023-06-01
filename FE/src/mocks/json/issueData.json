@@ -4,7 +4,7 @@
       {
         "issueId": 1,
         "issueTitle": "[FE]: Creating Components",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 6,
           "name": "훈딩",
@@ -25,7 +25,7 @@
       {
         "issueId": 2,
         "issueTitle": "[BE]: Designing the ERD Structure",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 1,
           "name": "고뭉남",
@@ -50,7 +50,7 @@
       {
         "issueId": 3,
         "issueTitle": "[FE]: Implementing UI Layout",
-        "isOpened": false,
+        "isopened": false,
         "writer": {
           "userId": 4,
           "name": "아켄",
@@ -74,7 +74,7 @@
       {
         "issueId": 4,
         "issueTitle": "[BE]: Implementing Database Queries",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 2,
           "name": "니노",
@@ -96,7 +96,7 @@
       {
         "issueId": 5,
         "issueTitle": "[FE]: Implementing Authentication",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 4,
           "name": "아켄",
@@ -121,7 +121,7 @@
       {
         "issueId": 6,
         "issueTitle": "[BE]: Refactoring Backend Code",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 1,
           "name": "고뭉남",
@@ -143,7 +143,7 @@
       {
         "issueId": 7,
         "issueTitle": "[FE]: Implementing Search Functionality",
-        "isOpened": false,
+        "isopened": false,
         "writer": {
           "userId": 6,
           "name": "훈딩",
@@ -168,7 +168,7 @@
       {
         "issueId": 8,
         "issueTitle": "[FE]: Implementing Notifications",
-        "isOpened": false,
+        "isopened": false,
         "writer": {
           "userId": 2,
           "name": "니노",
@@ -192,7 +192,7 @@
       {
         "issueId": 9,
         "issueTitle": "[BE]: Handling File Uploads",
-        "isOpened": false,
+        "isopened": false,
         "writer": {
           "userId": 4,
           "name": "아켄",
@@ -217,7 +217,7 @@
       {
         "issueId": 10,
         "issueTitle": "[FE]: Improving Performance",
-        "isOpened": false,
+        "isopened": false,
         "writer": {
           "userId": 1,
           "name": "고뭉남",
@@ -242,7 +242,7 @@
       {
         "issueId": 11,
         "issueTitle": "[BE]: Fixing API Endpoint",
-        "isOpened": false,
+        "isopened": false,
         "writer": {
           "userId": 5,
           "url": "https://avatars.githubusercontent.com/u/86761640?v=4",
@@ -264,7 +264,7 @@
       {
         "issueId": 12,
         "issueTitle": "[FE]: Implementing User Profile",
-        "isOpened": false,
+        "isopened": false,
         "writer": {
           "userId": 3,
           "name": "에이든",
@@ -288,7 +288,7 @@
       {
         "issueId": 13,
         "issueTitle": "[BE]: Database Optimization",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 1,
           "name": "고뭉남",
@@ -310,7 +310,7 @@
       {
         "issueId": 14,
         "issueTitle": "[FE]: Adding Unit Tests",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 5,
           "url": "https://avatars.githubusercontent.com/u/86761640?v=4",
@@ -335,7 +335,7 @@
       {
         "issueId": 15,
         "issueTitle": "[BE]: Resolving Performance Bottlenecks",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 3,
           "name": "에이든",
@@ -357,7 +357,7 @@
       {
         "issueId": 16,
         "issueTitle": "[FE]: Implementing Notifications",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 2,
           "name": "니노",
@@ -381,7 +381,7 @@
       {
         "issueId": 17,
         "issueTitle": "[BE]: Fixing Security Vulnerabilities",
-        "isOpened": true,
+        "isopened": true,
         "writer": {
           "userId": 1,
           "name": "고뭉남",
