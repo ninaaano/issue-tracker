@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { FILTER_TYPE, FILTER_NAME } from '../../../../constants/dropdownMenu';
@@ -6,41 +6,40 @@ import DropDown from '../../DropDown';
 
 import { $SideBarMenu, $SelectedItem } from './style';
 
-const SideBarMenu = ({ type, menus, selectedItemId }) => {
+const SideBarMenu = ({ type, menus, selectedItemId, changeHandler }) => {
   const [selectedItem, setSelectedItem] = useState({
     type,
     id: selectedItemId,
   });
 
-  const isSelectedItem = selectedItem.id !== undefined;
+  const isSelected = selectedItem.id !== undefined;
 
-  const findSelectItemInfo = () => {
+  const findSelectedItemInfo = () => {
     return menus.filter((menu) => {
-      let shouldInclude = false;
+      let isMatched = false;
 
-      if (FILTER_TYPE[type] === 'label') {
-        if (menu.labelId === selectedItem.id) {
-          shouldInclude = true;
-        }
+      if (FILTER_TYPE[type] === 'label' && menu.labelId === selectedItem.id) {
+        isMatched = true;
       }
-      if (FILTER_TYPE[type] === 'assignee') {
-        if (menu.userId === selectedItem.id) {
-          shouldInclude = true;
-        }
+      if (FILTER_TYPE[type] === 'assignee' && menu.userId === selectedItem.id) {
+        isMatched = true;
       }
-      if (FILTER_TYPE[type] === 'milestone') {
-        if (menu.milestoneId === selectedItem.id) {
-          shouldInclude = true;
-        }
+      if (FILTER_TYPE[type] === 'milestone' && menu.milestoneId === selectedItem.id) {
+        isMatched = true;
       }
 
-      return shouldInclude;
+      return isMatched;
     });
   };
-  const selectItemInfo = findSelectItemInfo();
+
+  const selectedItemInfo = findSelectedItemInfo();
+
+  useEffect(() => {
+    changeHandler(selectedItem.id);
+  }, [selectedItem.id]);
 
   return (
-    <$SideBarMenu isSelected={isSelectedItem}>
+    <$SideBarMenu isselected={isSelected ? 1 : 0}>
       <DropDown
         type={FILTER_TYPE[type]}
         name={FILTER_NAME[type]}
@@ -51,7 +50,7 @@ const SideBarMenu = ({ type, menus, selectedItemId }) => {
         onSelectItem={setSelectedItem}
         isSelectItem={selectedItem.id}
       />
-      {isSelectedItem && <$SelectedItem type={type} info={selectItemInfo[0]} />}
+      {isSelected && <$SelectedItem type={type} info={selectedItemInfo[0]} />}
     </$SideBarMenu>
   );
 };
@@ -60,6 +59,7 @@ SideBarMenu.propTypes = {
   type: PropTypes.string.isRequired,
   menus: PropTypes.array.isRequired,
   selectedItemId: PropTypes.any,
+  changeHandler: PropTypes.func,
 };
 
 export default SideBarMenu;

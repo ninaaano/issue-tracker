@@ -18,7 +18,7 @@ public class CommentDto {
 
     private CommentDto(Comment comment) {
         this.commentId = comment.getId();
-        this.commentUser = MemberResponse.builder().userId(comment.getWriterId()).userName(comment.getWriterName()).build();
+        this.commentUser = MemberResponse.builder().userId(comment.getWriterId()).name(comment.getWriterName()).build();
         this.content = comment.getContents();
         this.createdAt = comment.getCreatedAt();
     }

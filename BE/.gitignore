@@ -36,5 +36,5 @@ out/
 ### VS Code ###
 .vscode/
 
-src/main/resources/application-localDB.properties
-src/main/resources/application.yml
+src/main/resources/config/application-dev.properties
+src/main/resources/config/application-production.properties

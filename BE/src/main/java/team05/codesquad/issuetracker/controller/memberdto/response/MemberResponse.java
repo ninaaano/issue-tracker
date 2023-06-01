@@ -10,9 +10,8 @@ import java.util.stream.Collectors;
 @Getter
 @Builder
 public class MemberResponse {
-
     private Long userId;
-    private String userName;
+    private String name;
     private String url;
 
     public static MemberResponse from(Member member){

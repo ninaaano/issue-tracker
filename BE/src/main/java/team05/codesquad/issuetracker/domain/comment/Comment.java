@@ -48,7 +48,7 @@ public class Comment {
         this.createdAt = createdAt;
         this.commentUser = commentUser;
         this.writerId = commentUser.getUserId();
-        this.writerName = commentUser.getUserName();
+        this.writerName = commentUser.getName();
     }
 
     public static Comment toEntity(Long issueId, CommentCreateRequest request) {
@@ -56,7 +56,7 @@ public class Comment {
                 .issueId(issueId)
                 .contents(request.getContents())
                 .createdAt(request.getCreatedAt())
-                .commentUser(MemberResponse.builder().userId(request.getWriterId()).userName(request.getName()).url(request.getUrl()).build())
+                .commentUser(MemberResponse.builder().userId(request.getWriterId()).name(request.getName()).url(request.getUrl()).build())
                 .build();
     }
 

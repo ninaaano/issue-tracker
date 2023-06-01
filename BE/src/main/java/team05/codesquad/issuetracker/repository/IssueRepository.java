@@ -1,5 +1,6 @@
 package team05.codesquad.issuetracker.repository;
 
+import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -18,4 +19,8 @@ public interface IssueRepository extends CrudRepository<Issue, Long> {
 
     @Query("SELECT issue_id, title, writer_id, is_opened, milestone_id, created_at from issue where milestone_id=:milestoneId and is_opened = :isOpened")
     List<Issue> findByMilestoneIdAndIsOpened(@Param("milestoneId") Long milestoneId, @Param("isOpened") boolean isOpened);
+
+    @Modifying
+    @Query("UPDATE issue SET title = :title where issue_id = :id")
+    void editTitle(@Param("id") Long id, @Param("title") String title);
 }

@@ -8,14 +8,12 @@ import team05.codesquad.issuetracker.domain.label.Label;
 
 import java.util.List;
 
-// 리포지토리는 도메인을 알아야한다
 public interface LabelRepository extends CrudRepository<Label, Long> {
     List<Label> findAll();
 
-    // update는 반환값으로 id를 날려준다. 확장성을 위해 int로 붙여줬지만
     @Modifying
     @Query("UPDATE label SET title = :title, description = :description, background_color =:backgroundColor, font_color =:fontColor where label_id = :id")
-    void update(@Param("id") Long id,@Param("title") String title,@Param("description") String description,@Param("backgroundColor") String backgroundColor,@Param("fontColor") String fontColor);
+    void update(@Param("id") Long id, @Param("title") String title, @Param("description") String description, @Param("backgroundColor") String backgroundColor, @Param("fontColor") String fontColor);
 
     @Query("SELECT l.label_id, l.title, l.description, l.background_color, l.font_color " +
             "FROM label l " +

@@ -13,9 +13,9 @@ import java.util.stream.Collectors;
 @ToString
 public class LabelResponse {
 
-    private Long id;
-    private String title;
-    private String description;
+    private Long labelId;
+    private String labelName;
+    private String content;
     private String backgroundColor;
     private String fontColor;
 

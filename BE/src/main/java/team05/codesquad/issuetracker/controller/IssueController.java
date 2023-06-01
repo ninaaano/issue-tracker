@@ -37,8 +37,12 @@ public class IssueController {
     @PostMapping
     public ResponseEntity<Void> writeIssue(@RequestBody IssueRequest issueRequest) {
         IssueResponse createdIssue = issueService.createIssue(issueRequest);
-        //return new ResponseEntity<>(createdIssue, HttpStatus.CREATED);
-        return ResponseEntity.created(URI.create("/issues/" + createdIssue.getId())).build();
+        return ResponseEntity.created(URI.create("/issues/" + createdIssue.getIssueId())).build();
+    }
+
+    @PatchMapping("/{issueId}")
+    public ResponseEntity<IssueResponse> editTitle(@PathVariable Long issueId, @RequestBody IssueRequest issueRequest) {
+        return ResponseEntity.ok().body(issueService.editTitle(issueId, issueRequest));
     }
 }
 

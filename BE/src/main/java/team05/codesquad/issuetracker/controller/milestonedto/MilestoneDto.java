@@ -6,24 +6,23 @@ import team05.codesquad.issuetracker.controller.issuedto.response.IssuesResponse
 import team05.codesquad.issuetracker.domain.milestone.Milestone;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Getter
 @NoArgsConstructor
 public class MilestoneDto {
 
-    private Long id;
-    private String title;
-    private String description;
-    private LocalDate deadLine;
+    private Long milestoneId;
+    private String milestoneName;
+    private String content;
+    private LocalDate deadline;
     private Boolean isOpened;
     private IssuesResponse issuesResponse;
 
     private MilestoneDto(Milestone milestone, IssuesResponse issuesResponse) {
-        this.id = milestone.getId();
-        this.title = milestone.getTitle();
-        this.description = milestone.getDescription();
-        this.deadLine = milestone.getDeadLine();
+        this.milestoneId = milestone.getId();
+        this.milestoneName = milestone.getTitle();
+        this.content = milestone.getDescription();
+        this.deadline = milestone.getDeadLine();
         this.isOpened = true;
         this.issuesResponse = issuesResponse;
     }

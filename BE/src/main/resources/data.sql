@@ -49,6 +49,11 @@ VALUES (2, 3);
 INSERT INTO `label_attached_issues`
 VALUES (3, 4);
 
+INSERT INTO `assignee`
+VALUES (1, 1);
+INSERT INTO `assignee`
+VALUES (2, 1);
+
 -- comment 더미 데이터 추가
 
 INSERT INTO `comment`(`writer_id`, `writer_name`, `issue_id`,`contents`,`created_at`)
