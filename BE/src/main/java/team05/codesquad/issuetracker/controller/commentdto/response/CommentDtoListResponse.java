@@ -1,11 +1,15 @@
 package team05.codesquad.issuetracker.controller.commentdto.response;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import team05.codesquad.issuetracker.controller.commentdto.CommentDto;
 import team05.codesquad.issuetracker.domain.comment.Comment;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
+@NoArgsConstructor
 public class CommentDtoListResponse {
 
     List<CommentDto> allComments;
