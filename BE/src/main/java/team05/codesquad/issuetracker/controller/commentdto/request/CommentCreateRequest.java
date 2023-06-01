@@ -15,6 +15,7 @@ public class CommentCreateRequest {
 
     private Long writerId; // 로그인 미 구현이므로 필요
     private String name; // 로그인 미 구현이므로 필요
+    private String url;
     private String contents;
     private LocalDate createdAt;
 
