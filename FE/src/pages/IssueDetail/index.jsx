@@ -17,24 +17,18 @@ const IssueDetail = () => {
   const { data: labelData } = useFetch(LABELS.GET_ALL_LABELS);
   const { data: milestoneData } = useFetch(MILESTONES.GET_ALL_MILESTONES);
 
-  const [issueDetail, setIssueDetail] = useState();
   const allDataLoaded = issueDetailData && userData && labelData && milestoneData;
-
-  useEffect(() => {
-    if (issueDetailData) setIssueDetail(issueDetailData);
-  }, [issueDetailData]);
 
   const getNewIssueData = async () => {
     await getIssueData();
-    setIssueDetail(issueDetailData);
   };
 
   return (
     allDataLoaded && (
       <$IssueDetail>
-        <IssueDetailHeader issue={issueDetail} getNewIssueData={getNewIssueData} />
+        <IssueDetailHeader issue={issueDetailData} getNewIssueData={getNewIssueData} />
         <IssueDetailMain
-          detailIssue={issueDetail}
+          detailIssue={issueDetailData}
           user={userData}
           label={labelData}
           milestone={milestoneData}
