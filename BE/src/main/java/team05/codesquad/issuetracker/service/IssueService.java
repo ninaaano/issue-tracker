@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import team05.codesquad.issuetracker.controller.issuedto.request.IssueRequest;
 import team05.codesquad.issuetracker.controller.issuedto.response.IssueResponse;
 import team05.codesquad.issuetracker.controller.issuedto.response.IssuesResponse;
+import team05.codesquad.issuetracker.domain.comment.Comment;
 import team05.codesquad.issuetracker.domain.issue.Issue;
 import team05.codesquad.issuetracker.domain.issue.IssueRefLabel;
 import team05.codesquad.issuetracker.repository.CommentRepository;
@@ -33,7 +34,7 @@ public class IssueService {
         if (request.getMilestoneId() != null) {
             issue = request.toEntity(milestoneRepository.findById(request.getMilestoneId()).orElseThrow());
         }
-        return IssueResponse.from(issueRepository.save(issue));
+        return IssueResponse.from(issueRepository.save(issue),null);
     }
 
     // issueRepo에서 table에 대한 내용만 가져옴 -> table에 있는 param id로 label, issueWithLabel join
@@ -45,8 +46,8 @@ public class IssueService {
                 .collect(Collectors.toList())
                 .forEach(labelId -> issue.addLabel(labelRepository.findById(labelId)
                         .orElseThrow()));
-        commentRepository.findByIssueId(issueId);
-        return IssueResponse.from(issue);
+        List<Comment> commentList = commentRepository.findByIssueId(issueId);
+        return IssueResponse.from(issue, commentList);
     }
 
     // 열린 이슈만 가져와서 리스트로 만들어주고 -> 그럼 이슈 아이디 여러개가 있으니까 거기에 label들 가져와야함
