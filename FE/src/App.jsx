@@ -27,7 +27,9 @@ const App = () => {
   const { data: userImgData } = useFetch(USERS.GET_USER_IMG(6));
 
   useEffect(() => {
-    // localStorage.setItem('mockIssuesData', JSON.stringify(mockIssuesData));
+    const isDataInLocalStorage = localStorage.getItem('mockUserData');
+
+    if (isDataInLocalStorage) return;
     localStorage.setItem('mockUserData', JSON.stringify(mockUserData));
     localStorage.setItem('mockLabelData', JSON.stringify(mockLabelData));
     localStorage.setItem('issueDetailData', JSON.stringify(issueDetailData));
