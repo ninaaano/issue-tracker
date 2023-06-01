@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { useFilterDispatchContext, useFilterStateContext } from '../../../../context/filterContext';
-import { FILTER_ACTION_TYPES } from '../../../../context/filterReducer';
+import {
+  useFilterDispatchContext,
+  useFilterStateContext,
+  FILTER_ACTION_TYPES,
+} from '../../../../context/filterContext';
 
 import Icon from '../../Icon';
 import { $MenuWrapper, $MenuLeftWrapper, $MenuImg, $MenuText, $LabelColor } from './style';
