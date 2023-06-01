@@ -2,6 +2,7 @@ package team05.codesquad.issuetracker.controller.commentdto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import team05.codesquad.issuetracker.controller.memberdto.response.MemberResponse;
 import team05.codesquad.issuetracker.domain.comment.Comment;
 
 import java.time.LocalDate;
@@ -11,14 +12,14 @@ import java.time.LocalDate;
 public class CommentDto {
 
     private Long commentId;
-    private Long writerId;
-    private String contents;
+    private String content;
     private LocalDate createdAt;
+    private MemberResponse commentUser;
 
     private CommentDto(Comment comment) {
         this.commentId = comment.getId();
-        this.writerId = comment.getWriterId();
-        this.contents = comment.getContents();
+        this.commentUser = MemberResponse.builder().userId(comment.getWriterId()).userName(comment.getWriterName()).build();
+        this.content = comment.getContents();
         this.createdAt = comment.getCreatedAt();
     }
 
