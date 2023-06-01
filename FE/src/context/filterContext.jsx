@@ -26,9 +26,6 @@ const useFilterDispatchContext = () => {
 
 const initState = {
   issue: null,
-  // writtenByMe: false,
-  // assignedToMe: false,
-  // commentedByMe: false,
   milestone: null,
   label: null,
   assignee: null,
@@ -36,13 +33,13 @@ const initState = {
 };
 
 const FILTER_ACTION_TYPES = {
-  CLICK_MENU: 'CLICK_MENU',
+  CHANGE_MENU: 'CHANGE_MENU',
   RESET_FILTER: 'RESET_FILTER',
 };
 
 const filterReducer = (state, action) => {
   switch (action.type) {
-    case FILTER_ACTION_TYPES.CLICK_MENU: {
+    case FILTER_ACTION_TYPES.CHANGE_MENU: {
       const { filterType, id } = action.payload;
 
       const value = state[filterType] !== id || state[filterType] === null ? id : null;
