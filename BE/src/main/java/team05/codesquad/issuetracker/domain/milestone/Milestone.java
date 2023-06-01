@@ -61,7 +61,9 @@ public class Milestone {
         if (deadLine != null) {
             this.deadLine = deadLine;
         }
-        this.isOpened = isOpened;
+        if (isOpened != null) {
+            this.isOpened = isOpened;
+        }
     }
 
 }
