@@ -22,7 +22,7 @@ Primary.args = {
       labelId: 1,
       labelName: 'documentation',
       backgroundColor: '#0025E6',
-      textColor: 'light',
+      fontColor: 'light',
     },
   ],
   writer: {

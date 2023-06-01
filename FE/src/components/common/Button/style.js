@@ -50,8 +50,14 @@ const outlineStyle = css`
 
 const ghostStyle = css`
   color: ${({ active, theme }) => theme.colors.neutral.text[active ? 'strong' : 'default']};
-  & > svg {
+  ${
+    '' /* & > svg {
     fill: ${({ active, theme }) => theme.colors.neutral.text[active ? 'strong' : 'default']};
+  } */
+  }
+  & > svg {
+    ${'' /* fill: ${({ colorstype, theme, fill }) => theme.colors[colorstype].text}; */}
+    fill: ${({ colorstype, theme, fill }) => fill};
   }
 `;
 
@@ -65,6 +71,14 @@ const typeStyle = css`
   }}
 `;
 
+const fontColorStyle = css`
+  color: ${({ colorstype, theme }) => theme.colors[colorstype].text};
+  & > svg {
+    ${'' /* fill: ${({ colorstype, theme, fill }) => theme.colors[colorstype].text}; */}
+    fill: ${({ colorstype, theme, fill }) => fill};
+  }
+`;
+
 const fontStyle = css`
   font-size: ${({ size, theme }) => theme.fontSize[size].fontSize};
   line-height: ${({ size, theme }) => theme.fontSize[size].lineHeight};
@@ -75,6 +89,7 @@ const $Button = styled.button`
   ${({ $type }) => $type !== 'ghost' && sizeStyle}
   ${typeStyle}
   ${fontStyle}
+  ${({ colorstype }) => colorstype && fontColorStyle}
 
   display: flex;
   justify-content: center;

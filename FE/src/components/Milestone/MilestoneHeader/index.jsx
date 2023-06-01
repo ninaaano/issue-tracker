@@ -22,12 +22,12 @@ const MilestoneHeader = ({ labelCount = 0, milestoneCount = 0, getNewMilestoneDa
     return isAdding ? (
       <Button type="outline" size="S" onClick={cancelAddHandler}>
         <Icon name="xSquare" />
-        닫기
+        <p>닫기</p>
       </Button>
     ) : (
       <Button type="contained" size="S" onClick={addMilestoneHandler}>
         <Icon name="plus" />
-        마일스톤 추가
+        <p>마일스톤 추가</p>
       </Button>
     );
   })();

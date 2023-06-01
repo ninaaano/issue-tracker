@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 const inputFont = css`
-  color: ${({ isFocused, hasValue, theme }) => {
-    return theme.colors.neutral.text[hasValue || isFocused ? 'strong' : 'weak'];
+  color: ${({ isfocused, hasvalue, theme }) => {
+    return theme.colors.neutral.text[hasvalue || isfocused ? 'strong' : 'weak'];
   }};
   font-size: ${({ theme }) => theme.fontSize.M.fontSize};
   line-height: ${({ theme }) => theme.fontSize.M.lineHeight};
@@ -18,22 +18,22 @@ const defaultLabelFont = css`
 
 const labelFontTransition = css`
   color: ${({ theme }) => theme.colors.neutral.text.weak};
-  font-size: ${({ hasValue, isFocused, theme }) => {
-    return theme.fontSize[hasValue || isFocused ? 'S' : 'M'].fontSize;
+  font-size: ${({ hasvalue, isfocused, theme }) => {
+    return theme.fontSize[hasvalue || isfocused ? 'S' : 'M'].fontSize;
   }};
-  line-height: ${({ hasValue, isFocused, theme }) => {
-    return theme.fontSize[hasValue || isFocused ? 'S' : 'M'].lineHeight;
+  line-height: ${({ hasvalue, isfocused, theme }) => {
+    return theme.fontSize[hasvalue || isfocused ? 'S' : 'M'].lineHeight;
   }};
   font-weight: ${({ theme }) => theme.fontWeight.regular};
 
-  transform: translateY(${({ hasValue, isFocused }) => (hasValue || isFocused ? '0' : '50%')});
+  transform: translateY(${({ hasvalue, isfocused }) => (hasvalue || isfocused ? '0' : '50%')});
   transition: transform 200ms;
 `;
 
 const $Label = styled.label`
-  min-width: ${({ styleType }) => (styleType === 'both' ? 'fit-content' : '100%')};
+  min-width: ${({ styletype }) => (styletype === 'both' ? 'fit-content' : '100%')};
   padding-right: 13px;
-  ${({ styleType }) => (styleType === 'onlyLabel' ? labelFontTransition : defaultLabelFont)}
+  ${({ styletype }) => (styletype === 'onlyLabel' ? labelFontTransition : defaultLabelFont)}
 `;
 
 const $Input = styled.input`
@@ -67,10 +67,10 @@ const bothLabelTextAndPlaceholderText = css`
 const $TextInput = styled.div`
   display: flex;
 
-  ${({ styleType }) => {
-    if (styleType === 'both') return bothLabelTextAndPlaceholderText;
-    if (styleType === 'onlyLabel') return onlyLabelText;
-    if (styleType === 'onlyPlaceholder') return onlyPlaceholderText;
+  ${({ styletype }) => {
+    if (styletype === 'both') return bothLabelTextAndPlaceholderText;
+    if (styletype === 'onlyLabel') return onlyLabelText;
+    if (styletype === 'onlyPlaceholder') return onlyPlaceholderText;
     return '';
   }}
 
@@ -78,10 +78,10 @@ const $TextInput = styled.div`
 
   padding: 0 24px;
   border: 1px solid
-    ${({ isFocused, theme }) => (isFocused ? theme.colors.neutral.border.active : 'transparent')};
+    ${({ isfocused, theme }) => (isfocused ? theme.colors.neutral.border.active : 'transparent')};
   border-radius: 14px;
-  background-color: ${({ isFocused, theme }) => {
-    return theme.colors.neutral.background[isFocused ? 'strong' : 'bold'];
+  background-color: ${({ isfocused, theme }) => {
+    return theme.colors.neutral.background[isfocused ? 'strong' : 'bold'];
   }};
 
   opacity: ${({ disabled }) => (disabled ? 0.32 : 1)};

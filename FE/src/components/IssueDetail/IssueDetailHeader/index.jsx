@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { ISSUES } from '../../../constants/api';
+import useFetch from '../../../hooks/useFetch';
+
 import Icon from '../../common/Icon';
 import Label from '../../common/Label';
 import Button from '../../common/Button';
@@ -16,10 +19,18 @@ import {
   $IssueInfoText,
 } from './style';
 
-const IssueDetailHeader = ({ issue }) => {
+const IssueDetailHeader = ({ issue, getNewIssueData }) => {
   const [isEdited, setIsEdited] = useState(false);
   const [tempTitle, setTempTitle] = useState(issue.issueTitle);
   const [editTitle, setEditTitle] = useState(issue.issueTitle);
+
+  const { fetchData: editIssue } = useFetch(
+    ISSUES.PATCH_ISSUE(issue.issueId),
+    'PATCH',
+    { isopened: !issue.isopened },
+    true,
+  );
+
   const editBtnHandler = () => {
     setIsEdited(true);
   };
@@ -37,6 +48,11 @@ const IssueDetailHeader = ({ issue }) => {
   const completeEditHandler = () => {
     setEditTitle(tempTitle);
     setIsEdited(false);
+  };
+
+  const statusChangeHandler = async () => {
+    await editIssue();
+    getNewIssueData();
   };
 
   return (
@@ -65,9 +81,9 @@ const IssueDetailHeader = ({ issue }) => {
               <Icon name="edit" />
               <p>제목 편집</p>
             </Button>
-            <Button type="outline" size="S">
+            <Button type="outline" size="S" onClick={statusChangeHandler}>
               <Icon name="archive" />
-              <p>이슈 닫기</p>
+              <p>{`이슈 ${issue.isopened ? '닫기' : '열기'} `}</p>
             </Button>
           </$Buttons>
         ) : (
@@ -85,11 +101,11 @@ const IssueDetailHeader = ({ issue }) => {
       </$IssueDetailTitle>
 
       <$IssueDetailInfo>
-        {issue.isOpened ? (
+        {issue.isopened ? (
           <Label
-            height="32"
+            height={32}
             name="열린 이슈"
-            textColor="#FEFEFE"
+            fontColor="#FEFEFE"
             backgroundColor="#007AFF"
             iconName="alertCircle"
           />
@@ -97,14 +113,14 @@ const IssueDetailHeader = ({ issue }) => {
           <Label
             height="32"
             name="닫힌 이슈"
-            textColor="#FEFEFE"
+            fontColor="#FEFEFE"
             backgroundColor="#FF3B30"
             iconName="archive"
           />
         )}
         <$IssueInfoText>
           {`이 이슈가 ${1}분 전에 ${issue.writer.name}님에 의해 ${
-            issue.isOpened ? '열렸습니다' : '닫혔습니다'
+            issue.isopened ? '열렸습니다' : '닫혔습니다'
           } ∙ 코멘트 ${issue.comment.length}개 `}
         </$IssueInfoText>
       </$IssueDetailInfo>
@@ -114,6 +130,7 @@ const IssueDetailHeader = ({ issue }) => {
 
 IssueDetailHeader.propTypes = {
   issue: PropTypes.object.isRequired,
+  getNewIssueData: PropTypes.func.isRequired,
 };
 
 export default IssueDetailHeader;
