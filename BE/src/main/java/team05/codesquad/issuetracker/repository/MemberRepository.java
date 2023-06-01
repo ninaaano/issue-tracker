@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MemberRepository extends CrudRepository<Member,Long> {
-    Optional<Member> findById(Long id);
 
     @Query("SELECT m.member_id FROM member m " +
             "LEFT OUTER JOIN assignee a ON a.member_id = m.member_id " +

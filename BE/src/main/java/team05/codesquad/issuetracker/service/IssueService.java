@@ -11,6 +11,7 @@ import team05.codesquad.issuetracker.controller.issuedto.response.IssuesResponse
 import team05.codesquad.issuetracker.domain.comment.Comment;
 import team05.codesquad.issuetracker.domain.issue.Issue;
 import team05.codesquad.issuetracker.domain.issue.IssueRefLabel;
+import team05.codesquad.issuetracker.domain.member.Member;
 import team05.codesquad.issuetracker.repository.CommentRepository;
 import team05.codesquad.issuetracker.domain.member.Assignee;
 import team05.codesquad.issuetracker.repository.IssueRepository;
@@ -18,8 +19,7 @@ import team05.codesquad.issuetracker.repository.LabelRepository;
 import team05.codesquad.issuetracker.repository.MemberRepository;
 import team05.codesquad.issuetracker.repository.MilestoneRepository;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -35,15 +35,18 @@ public class IssueService {
 
     public IssueResponse createIssue(IssueRequest request) {
         Issue issue = request.toEntity(null);
+        Member member = memberRepository.findById(issue.getWriterId()).orElseThrow();
         if (request.getMilestoneId() != null) {
             issue = request.toEntity(milestoneRepository.findById(request.getMilestoneId()).orElseThrow());
         }
-        return IssueResponse.from(issueRepository.save(issue),null);
+        return IssueResponse.from(issueRepository.save(issue),null, member);
     }
 
     // issueRepo에서 table에 대한 내용만 가져옴 -> table에 있는 param id로 label, issueWithLabel join
     public IssueResponse findById(Long issueId) {
         Issue issue = issueRepository.findById(issueId).orElseThrow(IllegalArgumentException::new);
+        Member member = memberRepository.findById(issue.getWriterId()).orElseThrow();
+
         issue.getIssueLabels()
                 .stream()
                 .map(IssueRefLabel::getLabelId)
@@ -57,7 +60,7 @@ public class IssueService {
                 .forEach(memberId -> issue.addAssignee(memberRepository.findById(memberId)
                         .orElseThrow()));
         List<Comment> commentList = commentRepository.findByIssueId(issueId);
-        return IssueResponse.from(issue, commentList);
+        return IssueResponse.from(issue, commentList,member);
     }
 
     public IssuesResponse findAll() {

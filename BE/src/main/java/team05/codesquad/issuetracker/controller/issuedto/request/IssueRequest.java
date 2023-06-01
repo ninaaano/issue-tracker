@@ -23,7 +23,7 @@ public class IssueRequest {
         return Issue.builder()
                 .title(title)
                 .milestone(milestone)
-                .writerId(1L) // 멤버 어카노...
+                .writerId(2L)
                 .assignees(Collections.emptyList())
                 .isOpened(true)
                 .labels(Collections.emptyList())
