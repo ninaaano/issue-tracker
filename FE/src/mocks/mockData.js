@@ -11,16 +11,7 @@ const mockIssuesData = {
           url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           createdAt: '2023-05-16T09:10:35.145Z',
         },
-        assignee: [
-          {
-            userId: 4,
-            name: '아켄',
-          },
-          {
-            userId: 6,
-            name: '훈딩',
-          },
-        ],
+        assignee: [],
         milestone: {
           milestoneId: 2,
           milestoneName: 'IssueTracker',
@@ -72,22 +63,7 @@ const mockIssuesData = {
           milestoneId: 2,
           milestoneName: 'IssueTracker',
         },
-        label: [
-          {
-            labelId: 1,
-            labelName: 'docs',
-            content: 'docs에 관련된 라벨입니다.',
-            backgroundColor: '#0025E6',
-            fontColor: 'light',
-          },
-          {
-            labelId: 2,
-            labelName: 'bug',
-            content: 'bug에 관련된 라벨입니다.',
-            backgroundColor: '#DE4123',
-            fontColor: 'dark',
-          },
-        ],
+        label: [],
         commentedUser: [
           { userId: 2, name: '니노' },
           { userId: 1, name: '고뭉남' },
@@ -155,10 +131,7 @@ const mockIssuesData = {
             url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
           },
         ],
-        milestone: {
-          milestoneId: 2,
-          milestoneName: 'IssueTracker',
-        },
+        milestone: null,
         label: [
           {
             labelId: 2,
