@@ -31,7 +31,6 @@ public class Issue {
     @Column("issue_id")
     private Long id;
     private String title;
-    private String contents;
 
     @Column("is_opened")
     private Boolean isOpened;
@@ -45,9 +44,6 @@ public class Issue {
 
     @Column("milestone_id")
     private Milestone milestone;
-
-    @Transient
-    private List<Comment> comments = new ArrayList<>();
 
     @Transient
     private List<Label> labels = new ArrayList<>();
