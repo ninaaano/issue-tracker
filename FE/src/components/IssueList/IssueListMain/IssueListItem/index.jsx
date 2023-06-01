@@ -60,13 +60,15 @@ const IssueListItem = ({ issueId, issueTitle, label, writer, milestone, assignee
         <$IssueInfo>
           <span>{`#${issueId}`}</span>
           <span>{`이 이슈가 1분전, ${writer.name}님에 의해 작성되었습니다.`}</span>
-          <$MileStone>
-            {milestone && <Icon name="milestone" fill="#6E7191" />}
-            <span>{milestone.milestoneName}</span>
-          </$MileStone>
+          {milestone && (
+            <$MileStone>
+              {milestone && <Icon name="milestone" fill="#6E7191" />}
+              <span>{milestone.milestoneName}</span>
+            </$MileStone>
+          )}
         </$IssueInfo>
       </$IssueListItemWrapper>
-      {assignee.length !== 0 && <$Assignee src={writer.url} />}
+      <$Assignee src={writer.url} />
     </$IssueListItem>
   );
 };
