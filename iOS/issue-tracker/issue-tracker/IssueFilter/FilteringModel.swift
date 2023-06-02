@@ -51,8 +51,9 @@ struct FilteringModel {
             return data
         }
         
-        let result = data.filter {
-            assignCheck.contains($0.writer.name)
+        let result = data.filter { item in
+            let assigns = item.assignee.map { $0.name }
+            return assignCheck.contains { assigns.contains($0) }
         }
         return result
     }
