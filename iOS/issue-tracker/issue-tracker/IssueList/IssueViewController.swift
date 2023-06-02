@@ -12,6 +12,7 @@ final class IssueViewController: UIViewController {
     private var currentSnapshot: NSDiffableDataSourceSnapshot<Section, Item>!
     private var itemHttpHandler = HTTPHandler<Item>()
     private var data: [Item] = []
+    private var filteredData: [Item]?
     private let issueListCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private let searchController = UISearchController(searchResultsController: nil)
     private let issueFilterViewController = IssueFilterViewController()
@@ -37,6 +38,7 @@ final class IssueViewController: UIViewController {
             case.success(let issueData):
                 DispatchQueue.main.async {
                     self.data = issueData
+                    self.filteredData = self.data
                     self.configureSearchBar()
                     self.configureSnapshot(with: self.data)
                 }
@@ -86,6 +88,7 @@ final class IssueViewController: UIViewController {
             newData = filterManager.filteredMilestone(from: newData)
 
             self.configureSnapshot(with: newData)
+            self.filteredData = newData
         }
         self.issueFilterNavigation = UINavigationController(rootViewController: self.issueFilterViewController)
         
@@ -144,10 +147,12 @@ extension IssueViewController: DiffableDataSourceManager {
     }
     
     private func filteredData(with filter: String?) -> [Item] {
-        return self.data.filter { $0.contains(filter) }
+        guard let filteredData = self.filteredData else {
+            return []
+        }
+        return filteredData.filter { $0.contains(filter) }
     }
 }
-
 
 extension IssueViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
