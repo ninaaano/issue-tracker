@@ -130,7 +130,7 @@ const IssueDetailHeader = ({ issue, getNewIssueData }) => {
         <$IssueInfoText>
           {`이 이슈가 ${1}분 전에 ${issue.writer.name}님에 의해 ${
             issue.isopened ? '열렸습니다' : '닫혔습니다'
-          } ∙ 코멘트 ${issue.comment.length}개 `}
+          } ∙ 코멘트 ${issue.commentDtoListResponse.allComments.length}개 `}
         </$IssueInfoText>
       </$IssueDetailInfo>
     </$IssueDetailHeader>

@@ -30,7 +30,7 @@ const IssueList = () => {
           <$IssueList>
             <IssueListHeader labelCount={labelData.length} milestoneCount={milestoneData.length} />
             <IssueListMain
-              issues={issueData.issues}
+              issues={issueData}
               user={userData}
               label={labelData}
               milestone={milestoneData}

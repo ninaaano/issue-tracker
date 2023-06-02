@@ -14,6 +14,7 @@ import IssueListMainHeader from './IssueListMainHeader';
 import { $IssueList, $NoResultMessage, $IssueListMain, $InitFilterButton } from './style';
 
 const IssueListMain = ({ issues, user, label, milestone, getNewAllIssueData }) => {
+  console.log(issues);
   const { filterState, isFilterChanged } = useFilterStateContext();
   const filterDispatch = useFilterDispatchContext();
   const { resetCheckList } = useCheckBoxContext();

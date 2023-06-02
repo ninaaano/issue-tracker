@@ -360,7 +360,7 @@ const mockAPIHandler = [
   rest.delete(LABELS.DELETE_LABEL(':labelId'), deleteLabel),
 
   rest.post(COMMENTS.POST_COMMENT(':issueId'), postComment),
-  rest.put(COMMENTS.PUT_COMMENT(':issueId', ':commentId')),
+  rest.put(COMMENTS.PATCH_COMMENT(':issueId', ':commentId')),
 ];
 
 export { mockAPIHandler };

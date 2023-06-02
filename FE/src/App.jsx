@@ -24,6 +24,7 @@ import Milestone from './pages/Milestone';
 import LabelList from './pages/LabelList';
 
 const App = () => {
+  // TODO: 위에거 주석 풀어야함.
   // const { fetchData: getUserImg, data: userImgData } = useFetch(USERS.GET_USER_IMG(2));
   const userImgData = useFetch(USERS.GET_USER_IMG(2));
 

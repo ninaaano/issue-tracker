@@ -30,8 +30,11 @@ const IssueDetailMain = ({
     COMMENTS.POST_COMMENT(detailIssue.issueId),
     'POST',
     {
-      userId: 6,
-      content: comment,
+      writerId: 2,
+      name: '니노',
+      url: 'https://avatars.githubusercontent.com/u/95615105?v=4',
+      contents: comment,
+      createdAt: new Date(),
     },
     true,
   );
@@ -63,7 +66,7 @@ const IssueDetailMain = ({
     <$IssueDetailMainLayout>
       <$IssueCommentArea>
         <$IssueDetailMain>
-          <Comments issue={detailIssue} />
+          <Comments issue={detailIssue} getNewIssueData={getNewIssueData} />
         </$IssueDetailMain>
         <TextArea
           id="comment"
