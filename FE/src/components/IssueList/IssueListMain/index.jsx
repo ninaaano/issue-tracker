@@ -20,8 +20,16 @@ const IssueListMain = ({ issues, user, label, milestone, getNewAllIssueData }) =
   const [isOpened, setIsOpened] = useState(true);
   const prevFilterState = useRef(filterState);
 
-  const filteredOpenIssues = filterIssues({ type: 'open', issues, filterOptions: filterState });
-  const filteredCloseIssues = filterIssues({ type: 'close', issues, filterOptions: filterState });
+  const { openIssues } = issues;
+  const { closeIssues } = issues;
+
+  console.log(openIssues, closeIssues);
+  const filteredOpenIssues = filterIssues({ type: 'open', issues: openIssues, filterOptions: filterState });
+  const filteredCloseIssues = filterIssues({
+    type: 'close',
+    issues: closeIssues,
+    filterOptions: filterState,
+  });
   const filteredIssues = isOpened ? filteredOpenIssues : filteredCloseIssues;
 
   useEffect(() => {

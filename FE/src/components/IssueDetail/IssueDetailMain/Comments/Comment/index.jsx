@@ -17,16 +17,27 @@ import {
   $CommentTime,
   $Buttons,
 } from './style';
+import useFetch from '../../../../../hooks/useFetch';
+import { COMMENTS } from '../../../../../constants/api';
 
 // TODO: 내 userId -> context로 빼기.
-const myId = 6;
+const myId = 2;
 
-const Comment = ({ writerId, commentData }) => {
+const Comment = ({ writerId, commentData, issueId, getNewIssueData }) => {
   const isMine = commentData.commentUser.userId === myId;
   const [isEdited, setIsEdited] = useState(false);
   const [tempComment, setTempComment] = useState(commentData.content);
-  const [editComment, setEditComment] = useState(commentData.content);
+
   const [files, setFiles] = useState([]);
+
+  const { fetchData: editTargetComment } = useFetch(
+    COMMENTS.PATCH_COMMENT(issueId, commentData.commentId),
+    'PATCH',
+    {
+      content: tempComment,
+    },
+    true,
+  );
 
   const commentEditHandler = ({ target }) => {
     setTempComment(target.value);
@@ -39,11 +50,11 @@ const Comment = ({ writerId, commentData }) => {
   const cancelEditBtnHandler = () => {
     setIsEdited(false);
     setTempComment(commentData.content);
-    setEditComment(commentData.content);
   };
 
-  const completeEditHandler = () => {
-    setEditComment(tempComment);
+  const completeEditHandler = async () => {
+    await editTargetComment();
+    getNewIssueData();
     setIsEdited(false);
   };
 
@@ -87,7 +98,7 @@ const Comment = ({ writerId, commentData }) => {
             filesUploadHandler={filesUploadHandler}
           />
         ) : (
-          <$CommentText>{editComment}</$CommentText>
+          <$CommentText>{commentData.content}</$CommentText>
         )}
       </$Comment>
       {isEdited && (
@@ -110,6 +121,8 @@ Comment.propTypes = {
   // isMine: PropTypes.bool.isRequired,
   commentData: PropTypes.object.isRequired,
   writerId: PropTypes.number.isRequired,
+  issueId: PropTypes.number.isRequired,
+  getNewIssueData: PropTypes.func.isRequired,
 };
 
 export default Comment;
