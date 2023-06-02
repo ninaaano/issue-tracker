@@ -8,13 +8,12 @@
 import Foundation
 
 struct Response<T: Codable>: Codable {
-    let statusCode: Int
-    let body: [T]
+    let data: [T]
 }
 
 struct HTTPHandler<T: Codable> {
     func fetchIssue(completion: @escaping (Result<[T], Error>) -> Void) {
-        guard let url = URL(string: "https://api.codesquad.kr/onban/main") else {
+        guard let url = URL(string: "http://52.78.7.230:8080/issues") else {
             return
         }
         let request = URLRequest(url: url)
@@ -41,7 +40,7 @@ struct HTTPHandler<T: Codable> {
     private func JSONParse(issueData: Data) -> [T]? {
         do {
             let issueData = try JSONDecoder().decode(Response<T>.self, from: issueData)
-            return issueData.body
+        return issueData.data
         } catch {
             print(error.localizedDescription)
             return nil
