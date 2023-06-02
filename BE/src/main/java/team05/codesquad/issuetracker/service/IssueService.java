@@ -75,8 +75,10 @@ public class IssueService {
         List<IssueResponse> responseList = new ArrayList<>();   // 모든 열린 이슈들, 각각의 라벨
         for (Issue issue : findIssues) {
             issue.setLabels(labelRepository.findAllByIssueId(issue.getId()));
+            issue.setAssignees(memberRepository.findByIssueId(issue.getId())); // Assignee 정보 추가
             responseList.add(IssueResponse.from(issue));
         }
+
         return responseList;
     }
 
