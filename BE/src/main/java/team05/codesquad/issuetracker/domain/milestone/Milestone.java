@@ -4,16 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
-import team05.codesquad.issuetracker.domain.issue.Issue;
 import team05.codesquad.issuetracker.controller.milestonedto.request.MilestoneCreateRequest;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Builder
 @Getter
@@ -25,17 +21,15 @@ public class Milestone {
     @Column("milestone_id")
     private Long id;
 
-    @Column("title")
     private String title;
 
-    @Column("description")
     private String description;
 
     @Column("deadline")
     private LocalDate deadLine;
 
     @Column("is_opened")
-    private boolean isOpened;
+    private Boolean isOpened;
 
     public Milestone() {
     }
@@ -57,10 +51,19 @@ public class Milestone {
                 .build();
     }
 
-    public void updateProperties(String title, String description, LocalDate deadLine) {
-        this.title = title;
-        this.description = description;
-        this.deadLine = deadLine;
+    public void updateProperties(String title, String description, LocalDate deadLine, Boolean isOpened) {
+        if (title != null) {
+            this.title = title;
+        }
+        if(description!=null) {
+            this.description = description;
+        }
+        if (deadLine != null) {
+            this.deadLine = deadLine;
+        }
+        if (isOpened != null) {
+            this.isOpened = isOpened;
+        }
     }
 
 }

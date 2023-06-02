@@ -29,10 +29,9 @@ public class LabelService {
     }
 
 
-    // 업데이트하고, 업데이트 한 값을 반환해주는 역할 -> editLabel
     public LabelResponse edit(Long id, LabelRequest request) {
         Label targetLabel = labelRepository.findById(id).orElseThrow(() -> new NotFoundException(HttpStatus.NOT_FOUND + "정보를 찾을 수 없습니다"));
-        targetLabel.editLabel(request.getTitle(), request.getDescription(), request.getBackgroundColor(), request.getFontColor());
+        targetLabel.editLabel(request.getLabelName(), request.getContent(), request.getBackgroundColor(), request.getFontColor());
         labelRepository.update(targetLabel.getId(), targetLabel.getTitle(), targetLabel.getDescription(), targetLabel.getBackgroundColor(), targetLabel.getFontColor());
         return LabelResponse.from(targetLabel);
     }

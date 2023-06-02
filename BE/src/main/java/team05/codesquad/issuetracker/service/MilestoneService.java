@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 import team05.codesquad.issuetracker.controller.issuedto.response.IssueResponse;
 import team05.codesquad.issuetracker.controller.issuedto.response.IssuesResponse;
 import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneWithIssuesResponse;
@@ -35,7 +34,7 @@ public class MilestoneService {
     private final IssueRepository issueRepository;
     private final LabelRepository labelRepository;
 
-    public MilestoneCreateResponse createMilestone(@RequestBody MilestoneCreateRequest request) { // Milestone 생성
+    public MilestoneCreateResponse createMilestone(MilestoneCreateRequest request) { // Milestone 생성
         Milestone milestone = Milestone.toEntity(request);
         Milestone savedMilestone = milestoneRepository.save(milestone);
         return new MilestoneCreateResponse(savedMilestone.getId());
@@ -54,28 +53,24 @@ public class MilestoneService {
     }
 
     public MilestoneWithIssuesResponse getMilestoneWithIssues(Long milestoneId) {
-        log.info(">>> MilestoneService getMilestoneWithIssues");
         Milestone milestone = milestoneRepository.findById(milestoneId).orElseThrow();
         return new MilestoneWithIssuesResponse(MilestoneDto.of(milestone, findIssuesWithMilestoneId(milestoneId)));
     }
 
     public void deleteMilestone(Long milestoneId) {
-        log.info(">>> MilestoneService deleteMilestone");
         Milestone foundMilestone = milestoneRepository.findById(milestoneId).orElseThrow();
         milestoneRepository.delete(foundMilestone);
     }
 
     public MilestoneUpdateResponse updateMilestone(long milestoneId, MilestoneUpdateRequest request) {
-        log.info(">>> MilestoneService updateMilestone");
         Milestone targetMilestone = milestoneRepository.findById(milestoneId).orElseThrow();
-        targetMilestone.updateProperties(request.getTitle(), request.getDescription(), request.getDeadLine());
-        log.info(">>> targetMilestone title = {}", targetMilestone.getTitle());
-        log.info(">>> targetMilestone description = {}", targetMilestone.getDescription());
+        targetMilestone.updateProperties(request.getTitle(), request.getDescription(), request.getDeadLine(), request.getIsopened());
         milestoneRepository.save(targetMilestone);
         return MilestoneUpdateResponse.builder()
                 .title(targetMilestone.getTitle())
                 .description(targetMilestone.getDescription())
                 .deadLine(targetMilestone.getDeadLine())
+                .isopened(targetMilestone.getIsOpened())
                 .build();
     }
 
@@ -103,7 +98,6 @@ public class MilestoneService {
                 .collect(Collectors.toList())
                 .forEach(labelId -> issue.addLabel(labelRepository.findById(labelId)
                         .orElseThrow()));
-        log.info(">>> MilestoneService findById");
         return IssueResponse.from(issue);
     }
 
