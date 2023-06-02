@@ -2,7 +2,6 @@ package team05.codesquad.issuetracker.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import team05.codesquad.issuetracker.controller.issuedto.request.IssueRequest;
@@ -26,20 +25,27 @@ public class IssueController {
 
     // 기본화면일때, 다시 openIssue눌렀을때
     @GetMapping
-    public ResponseEntity<IssuesResponse> getIssues(@RequestParam(defaultValue = "true") Boolean isOpened) {
-        return ResponseEntity.ok().body(issueService.findAll());
+    public ResponseEntity<ResponseData<IssuesResponse>> getIssues(@RequestParam(defaultValue = "true") Boolean isOpened) {
+        ResponseData<IssuesResponse> responseData = new ResponseData<>(issueService.findAll());
+        return ResponseEntity.ok().body(responseData);
     }
 
     @GetMapping("/{issueId}")
-    public ResponseEntity<IssueResponse> findById(@PathVariable Long issueId) {
-        return ResponseEntity.ok().body(issueService.findById(issueId));
+    public ResponseEntity<ResponseData<IssueResponse>> findById(@PathVariable Long issueId) {
+        ResponseData<IssueResponse> responseData = new ResponseData<>(issueService.findById(issueId));
+        return ResponseEntity.ok().body(responseData);
     }
 
     @PostMapping
-    public ResponseEntity<Void> writeIssue(@RequestBody IssueRequest issueRequest) {
+    public ResponseEntity<ResponseData<IssueResponse>> writeIssue(@RequestBody IssueRequest issueRequest) {
         IssueResponse createdIssue = issueService.createIssue(issueRequest);
-        //return new ResponseEntity<>(createdIssue, HttpStatus.CREATED);
-        return ResponseEntity.created(URI.create("/issues/" + createdIssue.getIssueId())).build();
+        ResponseData<IssueResponse> responseData = new ResponseData<>(createdIssue);
+        return ResponseEntity.created(URI.create("/issues/" + createdIssue.getIssueId())).body(responseData);
+    }
+
+    @PatchMapping("/{issueId}")
+    public ResponseEntity<ResponseData<IssueResponse>> editTitle(@PathVariable Long issueId, @RequestBody IssueRequest issueRequest) {
+        ResponseData<IssueResponse> responseData = new ResponseData<>(issueService.editTitle(issueId, issueRequest));
+        return ResponseEntity.ok().body(responseData);
     }
 }
-

@@ -16,15 +16,15 @@ import java.util.List;
 public class IssueRequest {
     private String title;
     private Long milestoneId;
-    private List<Long> assingeeIds;
+    private List<Long> assignees;
     private List<Long> labels;
 
     public Issue toEntity(Milestone milestone) {
         return Issue.builder()
                 .title(title)
                 .milestone(milestone)
-                .writerId(1L) // 멤버 어카노...
-                //.assingeeIds(assingeeIds)
+                .writerId(2L)
+                .assignees(Collections.emptyList())
                 .isOpened(true)
                 .labels(Collections.emptyList())
                 .createdAt(LocalDateTime.now())
