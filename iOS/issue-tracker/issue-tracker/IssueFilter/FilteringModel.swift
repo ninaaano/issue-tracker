@@ -16,12 +16,13 @@ struct FilteringModel {
     var labelCheck: [String] = []
     var milestoneCheck: [String] = []
     
+    
     func filteredState(from data: [Item]) -> [Item] {
         if (self.openCheck && self.closeCheck) || (!self.openCheck && !self.closeCheck) {
             return data
         }
         
-        let result = data.filter { $0.isOpened == self.openCheck || $0.isOpened == self.closeCheck}
+        let result = data.filter { $0.isopened == self.openCheck || $0.isopened == self.closeCheck}
         
         return result
     }
@@ -41,7 +42,12 @@ struct FilteringModel {
             return data
         }
         
-        let result = data.filter {$0.commentedUser.contains(commentCheck)}
+        let result = data.filter { item in
+            let users = item.comment.map { $0.commentUser }
+            let userNames = users.map { $0.name }
+            
+            return userNames.contains(commentCheck)
+        }
         
         return result
     }
