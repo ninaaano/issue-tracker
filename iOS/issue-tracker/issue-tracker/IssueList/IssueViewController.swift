@@ -12,12 +12,16 @@ final class IssueViewController: UIViewController {
     private var currentSnapshot: NSDiffableDataSourceSnapshot<Section, Item>!
     private var itemHttpHandler = HTTPHandler<Item>()
     private var data: [Item] = []
-    let issueListCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let issueListCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private let searchController = UISearchController(searchResultsController: nil)
-    private let issueFilterNavigation = UINavigationController(rootViewController: IssueFilterViewController())
-
+    private let issueFilterViewController = IssueFilterViewController()
+    private var issueFilterNavigation: UINavigationController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "필터", style: .plain, target: self, action: #selector(tappedFilterButton))
+        
         self.issueListCollectionView.backgroundColor = ColorValue.gray100
         self.issueListCollectionView.delegate = self
         self.searchController.searchResultsUpdater = self
@@ -34,6 +38,7 @@ final class IssueViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.data = issueData
                     self.configureSearchBar()
+                    self.configureSnapshot(with: self.data)
                 }
             default:
                 break
@@ -68,7 +73,23 @@ final class IssueViewController: UIViewController {
     }
     
     @objc private func tappedFilterButton() {
-        self.present(issueFilterNavigation, animated: true)
+        self.issueFilterViewController.assignItem = Set(self.data.flatMap {$0.assignee.map {$0.name}}).map {FilterCellTitle(section: .assign, title: $0)}
+        self.issueFilterViewController.labelitem = Set(self.data.flatMap {$0.label.map {$0.labelName}}).map {FilterCellTitle(section: .label, title: $0)}
+        self.issueFilterViewController.milestoneItem = Set(self.data.map {$0.milestone.milestoneName}).map {FilterCellTitle(section: .milestone, title: $0)}
+        
+        self.issueFilterViewController.didFilterData = { filterManager in
+            var newData = filterManager.filteredState(from: self.data)
+            newData = filterManager.filteredWrite(from: newData)
+            newData = filterManager.filteredComment(from: newData)
+            newData = filterManager.filteredManager(from: newData)
+            newData = filterManager.filteredLabel(from: newData)
+            newData = filterManager.filteredMilestone(from: newData)
+            print(newData)
+            self.configureSnapshot(with: newData)
+        }
+        self.issueFilterNavigation = UINavigationController(rootViewController: self.issueFilterViewController)
+        
+        self.present(issueFilterNavigation ?? UINavigationController(), animated: true)
     }
     
     @objc private func tappedIssueButton() {
@@ -76,7 +97,7 @@ final class IssueViewController: UIViewController {
         issueListCollectionView.setContentOffset(desiredOffset, animated: true)
     }
 }
-
+    
 extension IssueViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
@@ -114,11 +135,20 @@ extension IssueViewController: DiffableDataSourceManager {
         })
     }
 
-    private func performQuery(with filter: String?) {
-        let filtered = filteredData(with: filter)
+    // TODO: 한번 정리하기
+//    private func performQuery(with filter: String?) {
+//        let filtered = self.filteredData(with: filter)
+//        self.currentSnapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+//        self.currentSnapshot.appendSections([.issue])
+//        self.currentSnapshot.appendItems(filtered, toSection: .issue)
+//
+//        self.dataSource.apply(self.currentSnapshot)
+//    }
+    
+    private func configureSnapshot(with data: [Item]) {
         self.currentSnapshot = NSDiffableDataSourceSnapshot<Section, Item>()
         self.currentSnapshot.appendSections([.issue])
-        self.currentSnapshot.appendItems(filtered, toSection: .issue)
+        self.currentSnapshot.appendItems(data, toSection: .issue)
         
         self.dataSource.apply(self.currentSnapshot)
     }
@@ -131,6 +161,7 @@ extension IssueViewController: DiffableDataSourceManager {
 extension IssueViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let text = searchController.searchBar.text
-        performQuery(with: text)
+        let filtered = self.filteredData(with: text)
+        self.configureSnapshot(with: filtered)
     }
 }
