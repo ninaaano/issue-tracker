@@ -16,7 +16,6 @@ struct FilteringModel {
     var labelCheck: [String] = []
     var milestoneCheck: [String] = []
     
-    
     func filteredState(from data: [Item]) -> [Item] {
         if (self.openCheck && self.closeCheck) || (!self.openCheck && !self.closeCheck) {
             return data
