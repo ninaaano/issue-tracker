@@ -28,16 +28,16 @@ public class LabelController {
 
     // 레이블 생성하기
     @PostMapping
-    public ResponseEntity<LabelResponse> createLabel(@RequestBody LabelRequest request) {
-        LabelResponse response = labelService.save(request);
-        return ResponseEntity.ok().body(response);
+    public ResponseEntity<ResponseData<LabelResponse>> createLabel(@RequestBody LabelRequest request) {
+        ResponseData<LabelResponse> responseData = new ResponseData<>(labelService.save(request));
+        return ResponseEntity.ok().body(responseData);
     }
 
     // 레이블 수정하기
     @PutMapping("/{id}") // put -> 전체, patch -> 일부교체. 근데 전체를 받고있는데 일부를 교체한다고 볼 수 있나? 이건 put이 맞다. 어차피 id는 변경이 안된다
-    public ResponseEntity<LabelResponse> editLabel(@PathVariable Long id, @RequestBody LabelRequest request) {
-        LabelResponse response = labelService.edit(id, request);
-        return ResponseEntity.ok().body(response);
+    public ResponseEntity<ResponseData<LabelResponse>> editLabel(@PathVariable Long id, @RequestBody LabelRequest request) {
+        ResponseData<LabelResponse> responseData = new ResponseData<>(labelService.edit(id, request));
+        return ResponseEntity.ok().body(responseData);
     }
 
     // 레이블 삭제하기
