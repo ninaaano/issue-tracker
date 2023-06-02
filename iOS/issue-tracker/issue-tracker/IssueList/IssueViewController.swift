@@ -84,7 +84,7 @@ final class IssueViewController: UIViewController {
             newData = filterManager.filteredManager(from: newData)
             newData = filterManager.filteredLabel(from: newData)
             newData = filterManager.filteredMilestone(from: newData)
-            print(newData)
+
             self.configureSnapshot(with: newData)
         }
         self.issueFilterNavigation = UINavigationController(rootViewController: self.issueFilterViewController)

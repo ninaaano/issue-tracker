@@ -21,7 +21,19 @@ struct FilteringModel {
             return data
         }
         
-        let result = data.filter { $0.isopened == self.openCheck || $0.isopened == self.closeCheck}
+        let result = data.filter {
+            switch self.openCheck {
+            case true:
+                return $0.isopened
+            case false:
+                switch self.closeCheck {
+                case true:
+                    return !$0.isopened
+                case false:
+                    return false
+                }
+            }
+        }
         
         return result
     }
