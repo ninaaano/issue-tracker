@@ -74,11 +74,11 @@ const postNewIssueData = (request, response, context) => {
     issueId: lastIssueId + 1,
     issueTitle,
     isopened: true,
+    createdAt,
     writer: {
       userId: 6,
       name: '훈딩',
       url: 'https://avatars.githubusercontent.com/u/56246060?v=4',
-      createdAt,
     },
     assignee: mockUserData.data.filter(({ userId }) => assignee.includes(userId)),
     milestone: mockMilestoneData.data.filter(({ milestoneId }) => milestone === milestoneId)[0] || null,
@@ -112,9 +112,13 @@ const postNewIssueData = (request, response, context) => {
 
 const editTargetIssueData = (request, response, context) => {
   const issueDetailData = JSON.parse(localStorage.getItem('issueDetailData'));
+  const mockUserData = JSON.parse(localStorage.getItem('mockUserData'));
+  const mockMilestoneData = JSON.parse(localStorage.getItem('mockMilestoneData'));
+  const mockLabelData = JSON.parse(localStorage.getItem('mockLabelData'));
+
   const { issueId } = request.params;
 
-  const { title, isopened } = request.body;
+  const { title, isopened, assigneeId, milestoneId, labelId } = request.body;
 
   let targetIssueIndex = -1;
 
@@ -123,6 +127,54 @@ const editTargetIssueData = (request, response, context) => {
       targetIssueIndex = index;
     }
   });
+
+  const targetIssue = issueDetailData[targetIssueIndex];
+
+  if (title) {
+    targetIssue.issueTitle = title;
+  }
+
+  if (isopened !== undefined) {
+    targetIssue.isopened = isopened;
+  }
+
+  if (assigneeId !== undefined) {
+    if (assigneeId === null) {
+      targetIssue.assignee = null;
+    } else {
+      const assignee = mockUserData.data.find((user) => user.userId === assigneeId);
+
+      if (assignee) {
+        targetIssue.assignee = [assignee];
+      }
+    }
+  }
+
+  if (milestoneId !== undefined) {
+    if (milestoneId === null) {
+      targetIssue.milestone = null;
+    } else {
+      const milestone = mockMilestoneData.find((item) => item.milestoneId === milestoneId);
+
+      if (milestone) {
+        targetIssue.milestone = [milestone];
+      }
+    }
+  }
+
+  if (labelId !== undefined) {
+    if (labelId === null) {
+      targetIssue.labels = [];
+    } else {
+      const labels = labelId.map((id) => {
+        const label = mockLabelData.find((item) => item.labelId === id);
+
+        return label;
+      });
+
+      targetIssue.labels = [labels];
+    }
+  }
 
   issueDetailData[targetIssueIndex] = {
     ...issueDetailData[targetIssueIndex],

@@ -8,7 +8,7 @@ import TextArea from '../../common/TextArea';
 import Comments from './Comments';
 import { $IssueDetailMain, $IssueCommentArea, $IssueDetailMainLayout } from './style';
 import useFetch from '../../../hooks/useFetch';
-import { COMMENTS } from '../../../constants/api';
+import { COMMENTS, ISSUES } from '../../../constants/api';
 
 const IssueDetailMain = ({
   detailIssue,
@@ -36,6 +36,23 @@ const IssueDetailMain = ({
     true,
   );
 
+  const [editInfo, setEditInfo] = useState({
+    assigneeId: null,
+    labelId: null,
+    milestoneId: null,
+  });
+
+  const { fetchData: editIssueData } = useFetch(
+    ISSUES.PATCH_ISSUE(detailIssue.issueId),
+    'PATCH',
+    {
+      assigneeId: editInfo.assigneeId,
+      labelId: editInfo.labelId,
+      milestoneId: editInfo.milestoneId,
+    },
+    true,
+  );
+
   const commentEditHandler = ({ target }) => {
     setComment(target.value);
   };
@@ -47,7 +64,9 @@ const IssueDetailMain = ({
     setSelectedItems({ ...selectedItems, assignee: userId });
   };
 
-  const changeLabelHandler = (labelId) => setSelectedItems({ ...selectedItems, label: labelId });
+  const changeLabelHandler = (labelId) => {
+    setSelectedItems({ ...selectedItems, label: labelId });
+  };
 
   const changeMilestoneHandler = (milestoneId) => {
     setSelectedItems({ ...selectedItems, milestone: milestoneId });
