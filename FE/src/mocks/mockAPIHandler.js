@@ -321,7 +321,7 @@ const postComment = (request, response, context) => {
   mockIssuesData[targetIndex].comment = [
     ...comment,
     {
-      commentId: lastId + 1,
+      commentId: Math.floor(Math.random() * 101),
       content,
       createdAt: new Date(),
       commentUser: mockUserData.data[userId - 1],
@@ -333,7 +333,38 @@ const postComment = (request, response, context) => {
   return response(context.status(200), context.json());
 };
 
-const putComment = (request, response, context) => {};
+const editComment = (request, response, context) => {
+  const mockIssuesData = JSON.parse(localStorage.getItem('issueDetailData'));
+
+  const { issueId, commentId } = request.params;
+
+  const { content } = request.body; // content만 바꿀거임!
+
+  const { comment } = mockIssuesData.filter((issue) => issue.issueId === Number(issueId))[0];
+  const targetComment = comment.filter((item) => item.commentId === Number(commentId))[0];
+
+  targetComment.content = content;
+  targetComment.createdAt = new Date();
+
+  localStorage.setItem('issueDetailData', JSON.stringify(mockIssuesData));
+
+  return response(context.status(200), context.json());
+};
+
+const deleteComment = (request, response, context) => {
+  const mockIssuesData = JSON.parse(localStorage.getItem('issueDetailData'));
+
+  const { issueId, commentId } = request.params;
+
+  const { comment } = mockIssuesData.filter((issue) => issue.issueId === Number(issueId))[0];
+  const targetCommentIndex = comment.findIndex((item) => item.commentId === Number(commentId));
+
+  console.log(targetCommentIndex, comment);
+  comment.splice(targetCommentIndex, 1);
+  localStorage.setItem('issueDetailData', JSON.stringify(mockIssuesData));
+
+  return response(context.status(200), context.json());
+};
 
 const mockAPIHandler = [
   rest.get(ISSUES.GET_ALL_ISSUES, getIssues),
@@ -355,7 +386,8 @@ const mockAPIHandler = [
   rest.delete(LABELS.DELETE_LABEL(':labelId'), deleteLabel),
 
   rest.post(COMMENTS.POST_COMMENT(':issueId'), postComment),
-  rest.put(COMMENTS.PUT_COMMENT(':issueId', ':commentId')),
+  rest.patch(COMMENTS.PATCH_COMMENT(':issueId', ':commentId'), editComment),
+  rest.delete(COMMENTS.DELETE_COMMENT(':issueId', ':commentId'), deleteComment),
 ];
 
 export { mockAPIHandler };

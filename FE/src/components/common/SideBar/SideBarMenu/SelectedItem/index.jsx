@@ -7,6 +7,7 @@ import Label from '../../../Label';
 
 const SelectedItem = ({ className = '', type, info }) => {
   const calculatePercentage = (() => {
+    if (!info.openCount) return 0;
     const totalIssues = info.openCount + info.closeCount;
 
     if (totalIssues === 0) return 0;
