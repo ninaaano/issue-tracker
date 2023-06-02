@@ -134,16 +134,6 @@ extension IssueViewController: DiffableDataSourceManager {
             return collectionView.dequeueConfiguredReusableCell(using: listCellRegistration, for: indexPath, item: itemIdentifier)
         })
     }
-
-    // TODO: 한번 정리하기
-//    private func performQuery(with filter: String?) {
-//        let filtered = self.filteredData(with: filter)
-//        self.currentSnapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-//        self.currentSnapshot.appendSections([.issue])
-//        self.currentSnapshot.appendItems(filtered, toSection: .issue)
-//
-//        self.dataSource.apply(self.currentSnapshot)
-//    }
     
     private func configureSnapshot(with data: [Item]) {
         self.currentSnapshot = NSDiffableDataSourceSnapshot<Section, Item>()
@@ -157,6 +147,7 @@ extension IssueViewController: DiffableDataSourceManager {
         return self.data.filter { $0.contains(filter) }
     }
 }
+
 
 extension IssueViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
