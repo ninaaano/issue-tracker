@@ -10,8 +10,6 @@ import UIKit
 protocol DiffableDataSourceManager {
     associatedtype ItemIndetifierType: Hashable
     associatedtype CellType: UICollectionViewCell
-    associatedtype ReusableView: UICollectionReusableView
     
     func createListCellRegistration() -> UICollectionView.CellRegistration<CellType, ItemIndetifierType>
-    func createHeaderCellRegistration() -> UICollectionView.SupplementaryRegistration<ReusableView>
 }
