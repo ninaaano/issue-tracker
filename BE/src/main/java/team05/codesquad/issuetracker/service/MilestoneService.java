@@ -10,6 +10,7 @@ import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneW
 import team05.codesquad.issuetracker.domain.issue.Issue;
 import team05.codesquad.issuetracker.domain.issue.IssueRefLabel;
 import team05.codesquad.issuetracker.repository.LabelRepository;
+
 import team05.codesquad.issuetracker.domain.milestone.Milestone;
 import team05.codesquad.issuetracker.controller.milestonedto.MilestoneDto;
 import team05.codesquad.issuetracker.controller.milestonedto.request.MilestoneCreateRequest;
@@ -18,11 +19,13 @@ import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneC
 import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneListResponse;
 import team05.codesquad.issuetracker.controller.milestonedto.response.MilestoneUpdateResponse;
 import team05.codesquad.issuetracker.repository.IssueRepository;
+
 import team05.codesquad.issuetracker.repository.MilestoneRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @Slf4j
 @Service
@@ -35,6 +38,7 @@ public class MilestoneService {
     private final LabelRepository labelRepository;
 
     public MilestoneCreateResponse createMilestone(MilestoneCreateRequest request) { // Milestone 생성
+
         Milestone milestone = Milestone.toEntity(request);
         Milestone savedMilestone = milestoneRepository.save(milestone);
         return new MilestoneCreateResponse(savedMilestone.getId());
@@ -58,6 +62,7 @@ public class MilestoneService {
     }
 
     public void deleteMilestone(Long milestoneId) {
+
         Milestone foundMilestone = milestoneRepository.findById(milestoneId).orElseThrow();
         milestoneRepository.delete(foundMilestone);
     }
@@ -65,6 +70,7 @@ public class MilestoneService {
     public MilestoneUpdateResponse updateMilestone(long milestoneId, MilestoneUpdateRequest request) {
         Milestone targetMilestone = milestoneRepository.findById(milestoneId).orElseThrow();
         targetMilestone.updateProperties(request.getTitle(), request.getDescription(), request.getDeadLine(), request.getIsopened());
+
         milestoneRepository.save(targetMilestone);
         return MilestoneUpdateResponse.builder()
                 .title(targetMilestone.getTitle())
@@ -100,5 +106,6 @@ public class MilestoneService {
                         .orElseThrow()));
         return IssueResponse.from(issue);
     }
+
 
 }

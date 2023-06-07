@@ -23,4 +23,5 @@ public interface IssueRepository extends CrudRepository<Issue, Long> {
     @Modifying
     @Query("UPDATE issue SET title = :title where issue_id = :id")
     void editTitle(@Param("id") Long id, @Param("title") String title);
+
 }

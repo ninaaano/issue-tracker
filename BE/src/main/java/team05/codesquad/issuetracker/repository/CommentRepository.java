@@ -19,4 +19,5 @@ public interface CommentRepository extends CrudRepository<Comment, Long> {
 
     @Query("SELECT `comment_id`, `writer_id`, `writer_name`, `issue_id`, `contents`, `created_at` FROM `comment` WHERE `issue_id`=:issueId")
     List<Comment> findByIssueId(@Param("issueId") Long issueId);
+
 }

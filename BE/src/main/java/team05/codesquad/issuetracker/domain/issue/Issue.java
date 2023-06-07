@@ -12,8 +12,6 @@ import team05.codesquad.issuetracker.domain.label.Label;
 import team05.codesquad.issuetracker.domain.member.Assignee;
 import team05.codesquad.issuetracker.domain.member.Member;
 import team05.codesquad.issuetracker.domain.milestone.Milestone;
-
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;

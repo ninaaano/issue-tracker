@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS `milestone`,`member`,`issue`,`assignee`,`label`,`label_attached_issues`,`comment` CASCADE ;
 
+
 CREATE TABLE `milestone`
 (
     `MILESTONE_ID` INT         NOT NULL AUTO_INCREMENT,
@@ -7,6 +8,7 @@ CREATE TABLE `milestone`
     `DEADLINE`     DATETIME,
     `DESCRIPTION`  VARCHAR(200),
     `IS_OPENED`     BIT DEFAULT 1,
+
     PRIMARY KEY (`MILESTONE_ID`)
 );
 
@@ -82,3 +84,4 @@ CREATE TABLE `comment`
     FOREIGN KEY (`ISSUE_ID`)
         REFERENCES `issue` (`ISSUE_ID`)
 );
+

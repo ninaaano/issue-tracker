@@ -12,6 +12,7 @@ import team05.codesquad.issuetracker.domain.label.Label;
 import team05.codesquad.issuetracker.repository.LabelRepository;
 
 
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -33,6 +34,7 @@ public class LabelService {
         Label targetLabel = labelRepository.findById(id).orElseThrow(() -> new NotFoundException(HttpStatus.NOT_FOUND + "정보를 찾을 수 없습니다"));
         targetLabel.editLabel(request.getLabelName(), request.getContent(), request.getBackgroundColor(), request.getFontColor());
         labelRepository.update(targetLabel.getId(), targetLabel.getTitle(), targetLabel.getDescription(), targetLabel.getBackgroundColor(), targetLabel.getFontColor());
+
         return LabelResponse.from(targetLabel);
     }
 

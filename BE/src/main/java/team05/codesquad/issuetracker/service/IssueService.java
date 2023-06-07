@@ -22,6 +22,7 @@ import team05.codesquad.issuetracker.repository.MilestoneRepository;
 import java.util.*;
 import java.util.stream.Collectors;
 
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -45,6 +46,7 @@ public class IssueService {
     public IssueResponse findById(Long issueId) {
         Issue issue = issueRepository.findById(issueId).orElseThrow(IllegalArgumentException::new);
         Member member = memberRepository.findById(issue.getWriterId()).orElseThrow();
+
 
         issue.getIssueLabels()
                 .stream()
@@ -87,6 +89,7 @@ public class IssueService {
         issueRepository.editTitle(issue.getId(), issue.getTitle());
         return IssueResponse.from(issue);
     }
+
 
 
 }

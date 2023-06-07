@@ -22,4 +22,5 @@ public interface LabelRepository extends CrudRepository<Label, Long> {
     List<Label> findAllByIssueId(@Param("issueId") Long issueId);
 
 
+
 }

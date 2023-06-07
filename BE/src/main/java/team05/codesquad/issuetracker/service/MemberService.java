@@ -27,4 +27,5 @@ public class MemberService {
         return MembersResponse.from(memberRepository.findAll());
     }
 
+
 }

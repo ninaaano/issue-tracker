@@ -33,7 +33,6 @@ public class Label {
     @MappedCollection(idColumn = "label_id", keyColumn = "id")
     @Builder.Default
     private Set<IssueRefLabel> issueLabels = new HashSet<>();
-
     public void editLabel(String title, String description, String backgroundColor, String fontColor) {
         this.title = title;
         this.description = description;

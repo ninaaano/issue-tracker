@@ -21,5 +21,4 @@ public class Member {
     @Column("profile_url")
 
     private String imgUrl;
-
 }

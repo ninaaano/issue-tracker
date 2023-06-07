@@ -38,6 +38,7 @@ public class LabelController {
     public ResponseEntity<ResponseData<LabelResponse>> editLabel(@PathVariable Long id, @RequestBody LabelRequest request) {
         ResponseData<LabelResponse> responseData = new ResponseData<>(labelService.edit(id, request));
         return ResponseEntity.ok().body(responseData);
+
     }
 
     // 레이블 삭제하기
