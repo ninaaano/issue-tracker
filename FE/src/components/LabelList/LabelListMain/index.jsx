@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import LabelListItem from './LabelListItem';
 import { $LabelListMain, $LabelCount, $NoResult } from './style';
 
