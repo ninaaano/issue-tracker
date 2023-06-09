@@ -5,11 +5,11 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
-import team05.codesquad.issuetracker.domain.issue.Issue;
+import team05.codesquad.issuetracker.domain.issue.IssueRefLabel;
 
 import javax.validation.constraints.NotBlank;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Table("label")
 @Getter
@@ -29,6 +29,10 @@ public class Label {
     @Column("font_color")
     private String fontColor;
 
+    // issue List, add issue, LabelService에서 찾기
+    @MappedCollection(idColumn = "label_id", keyColumn = "id")
+    @Builder.Default
+    private Set<IssueRefLabel> issueLabels = new HashSet<>();
     public void editLabel(String title, String description, String backgroundColor, String fontColor) {
         this.title = title;
         this.description = description;

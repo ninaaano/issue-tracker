@@ -7,7 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDate;
 
-@Slf4j @Getter
+@Slf4j
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class MilestoneUpdateRequest {
@@ -15,5 +16,5 @@ public class MilestoneUpdateRequest {
     private String title;
     private String description;
     private LocalDate deadLine;
-
+    private Boolean isopened;
 }

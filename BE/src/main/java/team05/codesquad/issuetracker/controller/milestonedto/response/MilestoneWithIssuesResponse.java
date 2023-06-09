@@ -3,16 +3,17 @@ package team05.codesquad.issuetracker.controller.milestonedto.response;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import team05.codesquad.issuetracker.controller.milestonedto.MilestoneDto;
+import team05.codesquad.issuetracker.domain.issue.Issue;
 
 import java.util.List;
 
 @Getter
 @NoArgsConstructor
-public class MilestoneListResponse {
+public class MilestoneWithIssuesResponse {
 
-    private List<MilestoneDto> data;
+    private MilestoneDto milestoneDto;
 
-    public MilestoneListResponse(List<MilestoneDto> allMilestones) {
-        this.data = allMilestones;
+    public MilestoneWithIssuesResponse(MilestoneDto milestoneDto) {
+        this.milestoneDto = milestoneDto;
     }
 }
