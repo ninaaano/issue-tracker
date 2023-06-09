@@ -1,27 +1,20 @@
 package team05.codesquad.issuetracker.service;
 
-import com.amazonaws.services.kms.model.NotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import team05.codesquad.issuetracker.controller.issuedto.request.IssueRequest;
-import team05.codesquad.issuetracker.controller.issuedto.response.IssueResponse;
-import team05.codesquad.issuetracker.controller.issuedto.response.IssuesResponse;
-import team05.codesquad.issuetracker.domain.comment.Comment;
+import team05.codesquad.issuetracker.controller.issuedto.IssueResponse;
 import team05.codesquad.issuetracker.domain.issue.Issue;
 import team05.codesquad.issuetracker.domain.issue.IssueRefLabel;
-import team05.codesquad.issuetracker.domain.member.Member;
-import team05.codesquad.issuetracker.repository.CommentRepository;
-import team05.codesquad.issuetracker.domain.member.Assignee;
 import team05.codesquad.issuetracker.repository.IssueRepository;
 import team05.codesquad.issuetracker.repository.LabelRepository;
-import team05.codesquad.issuetracker.repository.MemberRepository;
-import team05.codesquad.issuetracker.repository.MilestoneRepository;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
-
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 @Service
 @Transactional
@@ -30,66 +23,42 @@ public class IssueService {
 
     private final IssueRepository issueRepository;
     private final LabelRepository labelRepository;
-    private final MilestoneRepository milestoneRepository;
-    private final CommentRepository commentRepository;
-    private final MemberRepository memberRepository;
-
-    public IssueResponse createIssue(IssueRequest request) {
-        Issue issue = request.toEntity(null);
-        Member member = memberRepository.findById(issue.getWriterId()).orElseThrow();
-        if (request.getMilestoneId() != null) {
-            issue = request.toEntity(milestoneRepository.findById(request.getMilestoneId()).orElseThrow());
-        }
-        return IssueResponse.from(issueRepository.save(issue),null, member);
-    }
-
-    public IssueResponse findById(Long issueId) {
-        Issue issue = issueRepository.findById(issueId).orElseThrow(IllegalArgumentException::new);
-        Member member = memberRepository.findById(issue.getWriterId()).orElseThrow();
 
 
+    // issueRepo에서 table에 대한 내용만 가져옴 -> table에 있는 param id로 label, issueWithLabel join
+    public Issue findById(Long issueId) {
+        Issue issue = issueRepository.findById(issueId).orElseThrow();
         issue.getIssueLabels()
                 .stream()
                 .map(IssueRefLabel::getLabelId)
                 .collect(Collectors.toList())
                 .forEach(labelId -> issue.addLabel(labelRepository.findById(labelId)
                         .orElseThrow()));
-        issue.getIssueAssignees()
-                .stream()
-                .map(Assignee::getMemberId)
-                .collect(Collectors.toList())
-                .forEach(memberId -> issue.addAssignee(memberRepository.findById(memberId)
-                        .orElseThrow()));
-        List<Comment> commentList = commentRepository.findByIssueId(issueId);
-        return IssueResponse.from(issue, commentList,member);
+        return issue;
     }
 
-    public IssuesResponse findAll() {
-        List<IssueResponse> openList = getIssueResponses(true);
-        List<IssueResponse> closeList = getIssueResponses(false);
-
-        return new IssuesResponse(openList, closeList);
-    }
-
-    private List<IssueResponse> getIssueResponses(boolean isOpened) {
-        List<Issue> findIssues = issueRepository.findByIsOpened(isOpened);
-        List<IssueResponse> responseList = new ArrayList<>();
-        for (Issue issue : findIssues) {
-            issue.setLabels(labelRepository.findAllByIssueId(issue.getId()));
-            issue.setAssignees(memberRepository.findByIssueId(issue.getId())); // Assignee 정보 추가
-            responseList.add(IssueResponse.from(issue));
+    // 열린 이슈만 가져와서 리스트로 만들어주고 -> 그럼 이슈 아이디 여러개가 있으니까 거기에 label들 가져와야함
+    public List<Issue> findByOpenIssue() {
+        List<Issue> openIssues = issueRepository.findByIsOpened(true);
+        List<Issue> responseList = new ArrayList<>();   // 모든 열린 이슈들, 각각의 라벨
+        for (Issue openIssue : openIssues) {
+            responseList.add(findById(openIssue.getId()));
         }
-
         return responseList;
     }
 
-    public IssueResponse editTitle(Long id, IssueRequest request){
-        Issue issue = issueRepository.findById(id).orElseThrow(()->new NotFoundException(HttpStatus.NOT_FOUND + "정보를 찾을 수 없습니다"));
-        issue.editIssue(request.getTitle());
-        issueRepository.editTitle(issue.getId(), issue.getTitle());
-        return IssueResponse.from(issue);
+    // 닫힌 이슈 목록 가져오기
+    public List<Issue> findByCloseIssue(){
+        List<Issue> closeIssues = issueRepository.findByIsOpened(false);
+        List<Issue> responseList = new ArrayList<>();   // 모든 열린 이슈들, 각각의 라벨
+        for (Issue closeIssue : closeIssues) {
+            responseList.add(findById(closeIssue.getId()));
+        }
+        return responseList;
     }
 
-
+    public Issue createIssue(Issue issue) {
+        return issueRepository.save(issue);
+    }
 
 }

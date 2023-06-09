@@ -14,11 +14,9 @@ public class Member {
     @Id
     @Column("member_id")
     private Long id;
-
-    private String name;
-
+    private String memberId;
     private String password;
-    @Column("profile_url")
-
     private String imgUrl;
+
+
 }

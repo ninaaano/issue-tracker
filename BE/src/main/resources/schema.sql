@@ -1,5 +1,4 @@
-DROP TABLE IF EXISTS `milestone`,`member`,`issue`,`assignee`,`label`,`label_attached_issues`,`comment` CASCADE ;
-
+DROP TABLE IF EXISTS `milestone`,`member`,`issue`,`assignee`,`label`,`label_attached_issues` CASCADE ;
 
 CREATE TABLE `milestone`
 (
@@ -7,16 +6,15 @@ CREATE TABLE `milestone`
     `TITLE`        VARCHAR(45) NOT NULL,
     `DEADLINE`     DATETIME,
     `DESCRIPTION`  VARCHAR(200),
-    `IS_OPENED`     BIT DEFAULT 1,
-
+    `ISOPENED`     BIT DEFAULT 1,
     PRIMARY KEY (`MILESTONE_ID`)
 );
 
 CREATE TABLE `member`
 (
     `MEMBER_ID`   INT         NOT NULL AUTO_INCREMENT,
-    `NAME`        VARCHAR(45) NOT NULL UNIQUE,
-    `PASSWORD`    VARCHAR(45) ,
+    `NAME`        VARCHAR(45) NOT NULL,
+    `PASSWORD`    VARCHAR(45) NOT NULL,
     `PROFILE_URL` VARCHAR(100),
     PRIMARY KEY (`MEMBER_ID`)
 );
@@ -25,8 +23,9 @@ CREATE TABLE `issue`
 (
     `ISSUE_ID`     INT          NOT NULL AUTO_INCREMENT,
     `TITLE`        VARCHAR(100) NOT NULL,
+    `CONTENTS`     VARCHAR(500) NULL,
     `WRITER_ID`    INT          NOT NULL,
-    `IS_OPENED`     BIT DEFAULT 1,
+    `ISOPENED`     BIT DEFAULT 1,
     `MILESTONE_ID` INT,
     `CREATED_AT`   DATETIME     NOT NULL,
     PRIMARY KEY (`ISSUE_ID`),
@@ -67,21 +66,3 @@ CREATE TABLE `label_attached_issues`
     FOREIGN KEY (`LABEL_ID`)
         REFERENCES `label` (`LABEL_ID`)
 );
-
-CREATE TABLE `comment`
-(
-    `COMMENT_ID` INT          NOT NULL AUTO_INCREMENT,
-    `WRITER_ID`  INT          NOT NULL,
-    `WRITER_NAME` VARCHAR(45) NOT NULL,
-    `ISSUE_ID`   INT          NOT NULL,
-    `CONTENTS`   VARCHAR(500) NOT NULL,
-    `CREATED_AT` DATETIME     NOT NULL,
-    PRIMARY KEY (`COMMENT_ID`),
-    FOREIGN KEY (`WRITER_NAME`)
-        REFERENCES `member`(`NAME`),
-    FOREIGN KEY (`WRITER_ID`)
-        REFERENCES `member` (`MEMBER_ID`),
-    FOREIGN KEY (`ISSUE_ID`)
-        REFERENCES `issue` (`ISSUE_ID`)
-);
-

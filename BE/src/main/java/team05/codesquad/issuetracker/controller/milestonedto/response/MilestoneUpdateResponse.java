@@ -14,6 +14,5 @@ public class MilestoneUpdateResponse {
     private String title;
     private String description;
     private LocalDate deadLine;
-    private Boolean isopened;
 
 }

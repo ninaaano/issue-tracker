@@ -5,3 +5,5 @@
 ## AWS EC2,RDS,S3
 배포를 위해 EC2 인스턴스를 생성하고, DB사용을 위해 RDS를 사용했습니다.
 스토리지 저장소로는 S3를 사용합니다.
+## Travis CI
+github action에서 무료로 제공하는 CI툴입니다.
