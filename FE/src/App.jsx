@@ -12,6 +12,10 @@ import IssueList from './pages/IssueList';
 import NewIssue from './pages/NewIssue';
 import IssueDetail from './pages/IssueDetail';
 import Milestone from './pages/Milestone';
+<<<<<<< HEAD
+=======
+import LabelList from './pages/LabelList';
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 
 const App = () => {
   const { data: userImgData } = useFetch(USERS.GET_USER_IMG(6));
@@ -20,7 +24,11 @@ const App = () => {
     <ThemeProvider>
       <GlobalStyles />
       {userImgData && <Header userImgSrc={userImgData.userImgURL} />}
+<<<<<<< HEAD
       <BrowserRouter>
+=======
+      <BrowserRouter basename="/">
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
         <Routes>
           <Route path="/login" />
           <Route path="/" element={<Navigate to="/issues" />} />
@@ -29,8 +37,13 @@ const App = () => {
             <Route path="/issues/new" element={<NewIssue userImgSrc={userImgData.userImgURL} />} />
           )}
           <Route path="/issues/:issueId" element={<IssueDetail />} />
+<<<<<<< HEAD
           <Route path="/issues/labels" />
           <Route path="/issues/milestones" element={<Milestone />} />
+=======
+          <Route path="/issues/milestones" element={<Milestone />} />
+          <Route path="/issues/labels" element={<LabelList />} />
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

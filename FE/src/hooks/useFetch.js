@@ -2,12 +2,21 @@ import { useState, useCallback, useEffect, useReducer } from 'react';
 
 const fetchReducer = () => {};
 
+<<<<<<< HEAD
 const useFetch = (url, method = 'GET', body = null) => {
   const [fetchState, fetchDispatch] = useReducer(fetchReducer, {
     loading: false,
     data: null,
     error: false,
   });
+=======
+const useFetch = (url, method = 'GET', body = null, skip = false) => {
+  // const [fetchState, fetchDispatch] = useReducer(fetchReducer, {
+  //   loading: false,
+  //   data: null,
+  //   error: false,
+  // });
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -49,10 +58,18 @@ const useFetch = (url, method = 'GET', body = null) => {
   }, [url, method, body]);
 
   useEffect(() => {
+<<<<<<< HEAD
     fetchData();
   }, []);
 
   return { data, error, loading };
+=======
+    if (skip) return;
+    fetchData();
+  }, []);
+
+  return { fetchData, data, error, loading };
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 };
 
 export default useFetch;

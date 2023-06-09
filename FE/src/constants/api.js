@@ -38,14 +38,22 @@ const COMMENTS = Object.freeze({
 const LABELS = Object.freeze({
   GET_ALL_LABELS: `${BASE_URL}/${API_TYPE.LABELS}`,
   POST_LABEL: `${BASE_URL}/${API_TYPE.LABELS}`,
+<<<<<<< HEAD
   PUT_LABEL: (labelId) => `${BASE_URL}/${API_TYPE.LABELS}/${labelId}`,
+=======
+  PATCH_LABEL: (labelId) => `${BASE_URL}/${API_TYPE.LABELS}/${labelId}`,
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
   DELETE_LABEL: (labelId) => `${BASE_URL}/${API_TYPE.LABELS}/${labelId}`,
 });
 
 const MILESTONES = Object.freeze({
   GET_ALL_MILESTONES: `${BASE_URL}/${API_TYPE.MILESTONES}`,
   POST_MILESTONE: `${BASE_URL}/${API_TYPE.MILESTONES}`,
+<<<<<<< HEAD
   PUT_MILESTONE: (milestoneId) => `${BASE_URL}/${API_TYPE.MILESTONES}/${milestoneId}`,
+=======
+  PATCH_MILESTONE: (milestoneId) => `${BASE_URL}/${API_TYPE.MILESTONES}/${milestoneId}`,
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
   DELETE_MILESTONE: (milestoneId) => `${BASE_URL}/${API_TYPE.MILESTONES}/${milestoneId}`,
 });
 

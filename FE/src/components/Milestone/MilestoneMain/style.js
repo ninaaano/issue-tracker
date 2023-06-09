@@ -20,7 +20,10 @@ const $MilestoneMain = styled.section`
   flex-direction: column;
   align-items: flex-start;
   overflow: hidden;
+<<<<<<< HEAD
   width: 1280px;
+=======
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
   margin-top: 24px;
   border: 1px solid ${({ theme }) => theme.colors.neutral.border.default};
   border-radius: 16px;

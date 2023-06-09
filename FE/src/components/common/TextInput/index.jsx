@@ -32,6 +32,10 @@ const TextInput = ({ id, value, onChange, labelText = '', placeholderText = '', 
           type="text"
           id={id}
           name={id}
+<<<<<<< HEAD
+=======
+          placeholder={placeholderText}
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
           value={value}
           onChange={onChange}
           hasValue={hasValue}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		2A28CDC72A1F382700A067D9 /* IssueListSectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A28CDC62A1F382700A067D9 /* IssueListSectionData.swift */; };
 		2A28CDC92A1F504800A067D9 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A28CDC82A1F504800A067D9 /* DummyData.swift */; };
 		2A28CDCD2A1F709000A067D9 /* CustomCapsuleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A28CDCC2A1F709000A067D9 /* CustomCapsuleLabel.swift */; };
@@ -15,6 +16,8 @@
 		2ABB37F92A1673330044171C /* SFsymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABB37F82A1673330044171C /* SFsymbol.swift */; };
 		2AC16D302A12957D00E71F75 /* IssueCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */; };
 		2AC16D322A149CF400E71F75 /* CustomLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC16D312A149CF400E71F75 /* CustomLabelView.swift */; };
+=======
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 		2AF58ECA2A0B390100EE8623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EC92A0B390100EE8623 /* AppDelegate.swift */; };
 		2AF58ECC2A0B390100EE8623 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58ECB2A0B390100EE8623 /* SceneDelegate.swift */; };
 		2AF58ECE2A0B390100EE8623 /* IssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58ECD2A0B390100EE8623 /* IssueViewController.swift */; };
@@ -24,6 +27,7 @@
 		2AF58EE32A0CF85800EE8623 /* LabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */; };
 		2AF58EE52A0CF86700EE8623 /* MileStoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */; };
 		2AF58EE72A0D162900EE8623 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE62A0D162900EE8623 /* TabBarViewController.swift */; };
+<<<<<<< HEAD
 		2AF58EE92A0D454000EE8623 /* TabBarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE82A0D454000EE8623 /* TabBarType.swift */; };
 		2AF58EED2A12555E00EE8623 /* ColorValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EEC2A12555E00EE8623 /* ColorValue.swift */; };
 		7411FA6CF0FEC5333D727E00 /* Pods_issue_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3A8C7D88E017C59BA638F3 /* Pods_issue_tracker.framework */; };
@@ -44,6 +48,13 @@
 		2ABB37F82A1673330044171C /* SFsymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFsymbol.swift; sourceTree = "<group>"; };
 		2AC16D2F2A12957D00E71F75 /* IssueCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCardCell.swift; sourceTree = "<group>"; };
 		2AC16D312A149CF400E71F75 /* CustomLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabelView.swift; sourceTree = "<group>"; };
+=======
+		2AF58EE92A0D454000EE8623 /* SymbolImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF58EE82A0D454000EE8623 /* SymbolImage.swift */; };
+		7411FA6CF0FEC5333D727E00 /* Pods_issue_tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B3A8C7D88E017C59BA638F3 /* Pods_issue_tracker.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 		2AF58EC62A0B390100EE8623 /* issue-tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "issue-tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF58EC92A0B390100EE8623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2AF58ECB2A0B390100EE8623 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +66,7 @@
 		2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
 		2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileStoneViewController.swift; sourceTree = "<group>"; };
 		2AF58EE62A0D162900EE8623 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		2AF58EE82A0D454000EE8623 /* TabBarType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarType.swift; sourceTree = "<group>"; };
 		2AF58EEC2A12555E00EE8623 /* ColorValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorValue.swift; sourceTree = "<group>"; };
 		4B3A8C7D88E017C59BA638F3 /* Pods_issue_tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_issue_tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +78,12 @@
 		FF769E042A13D94E00A0DFF9 /* IssueFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueFilterViewController.swift; sourceTree = "<group>"; };
 		FFF9161A2A270FBA003C279F /* FilteringModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteringModel.swift; sourceTree = "<group>"; };
 		FFFC0BBE2A14A754006F76AF /* IssueFilterHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueFilterHeaderView.swift; sourceTree = "<group>"; };
+=======
+		2AF58EE82A0D454000EE8623 /* SymbolImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolImage.swift; sourceTree = "<group>"; };
+		4B3A8C7D88E017C59BA638F3 /* Pods_issue_tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_issue_tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		830385C1D453460DCB214050 /* Pods-issue-tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-issue-tracker.release.xcconfig"; path = "Target Support Files/Pods-issue-tracker/Pods-issue-tracker.release.xcconfig"; sourceTree = "<group>"; };
+		B83F6B8CE4C95FD091430C5D /* Pods-issue-tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-issue-tracker.debug.xcconfig"; path = "Target Support Files/Pods-issue-tracker/Pods-issue-tracker.debug.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +122,7 @@
 			children = (
 				2AF58EC92A0B390100EE8623 /* AppDelegate.swift */,
 				2AF58ECB2A0B390100EE8623 /* SceneDelegate.swift */,
+<<<<<<< HEAD
 				2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */,
 				2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */,
 				2A59D1252A1DF141003032D6 /* HTTPHandler.swift */,
@@ -113,6 +132,13 @@
 				FFFC0BC02A168166006F76AF /* IssueList */,
 				FFFC0BC22A16819E006F76AF /* TabBar */,
 				FFFC0BC12A168175006F76AF /* CommonTypeValue */,
+=======
+				2AF58ECD2A0B390100EE8623 /* IssueViewController.swift */,
+				2AF58EE22A0CF85800EE8623 /* LabelViewController.swift */,
+				2AF58EE42A0CF86700EE8623 /* MileStoneViewController.swift */,
+				2AF58EE62A0D162900EE8623 /* TabBarViewController.swift */,
+				2AF58EE82A0D454000EE8623 /* SymbolImage.swift */,
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 				2AF58ED22A0B390400EE8623 /* Assets.xcassets */,
 				2AF58ED42A0B390400EE8623 /* LaunchScreen.storyboard */,
 				2AF58ED72A0B390400EE8623 /* Info.plist */,
@@ -137,6 +163,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		FF769DFC2A126EFB00A0DFF9 /* IssueFilter */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +207,8 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -296,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AF58EE72A0D162900EE8623 /* TabBarViewController.swift in Sources */,
+<<<<<<< HEAD
 				2A28CDC72A1F382700A067D9 /* IssueListSectionData.swift in Sources */,
 				FFFC0BBF2A14A754006F76AF /* IssueFilterHeaderView.swift in Sources */,
 				2A28CDC92A1F504800A067D9 /* DummyData.swift in Sources */,
@@ -317,6 +347,14 @@
 				2AC16D322A149CF400E71F75 /* CustomLabelView.swift in Sources */,
 				2AF58EED2A12555E00EE8623 /* ColorValue.swift in Sources */,
 				FF769DFB2A126EF300A0DFF9 /* IssueFilterCell.swift in Sources */,
+=======
+				2AF58EE32A0CF85800EE8623 /* LabelViewController.swift in Sources */,
+				2AF58EE92A0D454000EE8623 /* SymbolImage.swift in Sources */,
+				2AF58ECE2A0B390100EE8623 /* IssueViewController.swift in Sources */,
+				2AF58ECA2A0B390100EE8623 /* AppDelegate.swift in Sources */,
+				2AF58ECC2A0B390100EE8623 /* SceneDelegate.swift in Sources */,
+				2AF58EE52A0CF86700EE8623 /* MileStoneViewController.swift in Sources */,
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +494,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = "";
+=======
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "issue-tracker/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -484,7 +525,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = "";
+=======
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "issue-tracker/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

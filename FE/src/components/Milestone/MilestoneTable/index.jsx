@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+<<<<<<< HEAD
+=======
+import useFetch from '../../../hooks/useFetch';
+import { MILESTONES } from '../../../constants/api';
+
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 import TextInput from '../../common/TextInput';
 import Button from '../../common/Button';
 import Icon from '../../common/Icon';
 import { $MilestoneTable, $TableTitle, $MilestoneTitleLayout, $Buttons } from './style';
 
+<<<<<<< HEAD
 const MilestoneTable = ({ title = '', deadline = '', content = '', type = 'add', cancelClickHandler }) => {
   // 편집 페이지랑 같이 진행할 수 있도록
   const [milestoneInfo, setMilestoneInfo] = useState({
@@ -13,6 +20,48 @@ const MilestoneTable = ({ title = '', deadline = '', content = '', type = 'add',
     deadline,
     content,
   });
+=======
+const MilestoneTable = ({
+  id = 0,
+  title = '',
+  deadline = '',
+  content = '',
+  isOpened = true,
+  type = 'add',
+  cancelClickHandler,
+  getNewMilestoneData,
+  closeTableHandler,
+}) => {
+  // 편집 페이지랑 같이 진행할 수 있도록
+  const [milestoneInfo, setMilestoneInfo] = useState({
+    title,
+    deadline: deadline === null ? '' : deadline,
+    content: content === null ? '' : content,
+    isOpened,
+  });
+  const { fetchData: postNewMilestone } = useFetch(
+    MILESTONES.GET_ALL_MILESTONES,
+    'POST',
+    {
+      title: milestoneInfo.title,
+      deadline: milestoneInfo.deadline,
+      content: milestoneInfo.content,
+    },
+    true,
+  );
+
+  const { fetchData: editMilestoneData } = useFetch(
+    MILESTONES.PATCH_MILESTONE(id),
+    'PATCH',
+    {
+      title: milestoneInfo.title,
+      deadline: milestoneInfo.deadline,
+      content: milestoneInfo.content,
+      isOpened,
+    },
+    true,
+  );
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 
   const titleChangeHandler = ({ target }) => {
     setMilestoneInfo((prev) => {
@@ -32,11 +81,28 @@ const MilestoneTable = ({ title = '', deadline = '', content = '', type = 'add',
     });
   };
 
+<<<<<<< HEAD
   const editCompleteHandler = () => {
     // TODO: PATCH or PUT 로직 해야함.
     cancelClickHandler();
   };
 
+=======
+  const editCompleteHandler = async () => {
+    // TODO: Patch 요청 보내고 성공 시 Get요청 다시 보내서 받아오기.
+    await editMilestoneData();
+    getNewMilestoneData();
+    cancelClickHandler();
+  };
+
+  const createNewMilestoneHandler = async () => {
+    // TODO: 에러 헨들링
+    await postNewMilestone();
+    getNewMilestoneData();
+    closeTableHandler();
+  };
+
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
   return (
     <$MilestoneTable>
       <$TableTitle>{type === 'add' ? '새로운 마일스톤 추가' : '마일스톤 편집'}</$TableTitle>
@@ -65,7 +131,16 @@ const MilestoneTable = ({ title = '', deadline = '', content = '', type = 'add',
       />
       <$Buttons>
         {type === 'add' ? (
+<<<<<<< HEAD
           <Button type="contained" size="S">
+=======
+          <Button
+            type="contained"
+            size="S"
+            onClick={createNewMilestoneHandler}
+            disabled={milestoneInfo.title.length === 0}
+          >
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
             <Icon name="plus" />
             완료
           </Button>
@@ -87,11 +162,23 @@ const MilestoneTable = ({ title = '', deadline = '', content = '', type = 'add',
 };
 
 MilestoneTable.propTypes = {
+<<<<<<< HEAD
   title: PropTypes.string,
   deadline: PropTypes.string,
   content: PropTypes.string,
   type: PropTypes.string,
   cancelClickHandler: PropTypes.func,
+=======
+  id: PropTypes.number,
+  title: PropTypes.string,
+  deadline: PropTypes.string,
+  content: PropTypes.string,
+  isOpened: PropTypes.bool,
+  type: PropTypes.string,
+  cancelClickHandler: PropTypes.func,
+  getNewMilestoneData: PropTypes.func,
+  closeTableHandler: PropTypes.func,
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 };
 
 export default MilestoneTable;

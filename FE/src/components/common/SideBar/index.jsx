@@ -27,6 +27,7 @@ const SideBar = ({ assignees, labels, milestones, selectedItems = {} }) => {
 
   return (
     <$SideBar>
+<<<<<<< HEAD
       {Object.keys(selectedItems).length !== 0
         ? menuData.map(({ menuId, menuType, menus }) => (
             <SideBarMenu
@@ -39,6 +40,18 @@ const SideBar = ({ assignees, labels, milestones, selectedItems = {} }) => {
         : menuData.map(({ menuId, menuType, menus }) => (
             <SideBarMenu key={menuId} type={menuType} menus={menus} />
           ))}
+=======
+      {menuData.map(({ menuId, menuType, menus }) => (
+        <SideBarMenu
+          key={menuId}
+          type={menuType}
+          menus={menus}
+          selectedItemId={
+            Object.keys(selectedItems).length !== 0 ? selectedItems[FILTER_TYPE[menuType]] : undefined
+          }
+        />
+      ))}
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
     </$SideBar>
   );
 };

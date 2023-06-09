@@ -26,7 +26,11 @@ const $Buttons = styled.div`
 const $MilestoneTable = styled.section`
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   width: 1280px;
+=======
+  width: 100%;
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
   height: 284px;
   padding: 36px 32px;
   background-color: ${({ theme }) => theme.colors.neutral.background.strong};

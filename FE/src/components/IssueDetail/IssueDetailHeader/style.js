@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
+<<<<<<< HEAD
 const $IssueDetailTitle = styled.div`
+=======
+const $IssueDetailTitle = styled.header`
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
   display: flex;
   justify-content: space-between;
   height: 48px;

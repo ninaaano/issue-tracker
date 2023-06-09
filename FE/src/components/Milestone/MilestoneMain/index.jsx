@@ -5,7 +5,11 @@ import MilestoneMainHeader from './MilestoneMainHeader';
 import MilestoneListItem from './MilestoneListItem';
 import { $MilestoneMain, $NoResult } from './style';
 
+<<<<<<< HEAD
 const MilestoneMain = ({ milestoneData }) => {
+=======
+const MilestoneMain = ({ milestoneData, getNewMilestoneData }) => {
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
   const [isOpenView, setIsOpenView] = useState(true);
 
   const classifyMilestonesByStatus = () => {
@@ -43,7 +47,15 @@ const MilestoneMain = ({ milestoneData }) => {
       />
       {currentViewMilestones.length > 0
         ? currentViewMilestones.map((milestone) => (
+<<<<<<< HEAD
             <MilestoneListItem key={milestone.milestoneId} milestone={milestone} />
+=======
+            <MilestoneListItem
+              key={milestone.milestoneId}
+              milestone={milestone}
+              getNewMilestoneData={getNewMilestoneData}
+            />
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
           ))
         : noResultMessage}
     </$MilestoneMain>
@@ -52,6 +64,10 @@ const MilestoneMain = ({ milestoneData }) => {
 
 MilestoneMain.propTypes = {
   milestoneData: PropTypes.array.isRequired,
+<<<<<<< HEAD
+=======
+  getNewMilestoneData: PropTypes.func.isRequired,
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 };
 
 export default MilestoneMain;

@@ -1,7 +1,10 @@
 disabled_rules:
 - line_length
 - trailing_whitespace
+<<<<<<< HEAD
 - file_length
+=======
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
 opt_in_rules:
 - force_unwrapping
 - function_body_length
@@ -13,4 +16,8 @@ force_unwrapping:
   severity: error
 function_body_length:
   - 25 # warning
+<<<<<<< HEAD
   - 40 # error
+=======
+  - 26 # error
+>>>>>>> parent of 54c88ca (remove: FE, iOS 파일 삭제)
