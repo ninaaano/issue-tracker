@@ -1,4 +1,9 @@
 # Team-05
+> 프로젝트 기간 : 2023.05.01~2023.05.31
+
+![image](https://github.com/codesquad-members-2023-group5/issue-tracker/assets/95615105/d60c572d-cd6f-455c-afd9-687c5074e361)
+
+Github의 Issues기능을 클론 코딩한 Issue Tracker
 
 ## 👨‍👩‍👧‍👦 멤버소개
 
@@ -23,21 +28,28 @@
 |<img src="https://avatars.githubusercontent.com/u/115064144?v=4" alt="에이든" width="100" height="100">|<img src="https://avatars.githubusercontent.com/u/86761640?v=4" alt="솔" width="100" height="100">|
 |[wnsqhs](https://github.com/wnsqhs)|[HansolWorld](https://github.com/HansolWorld)|
 
-<!-- ## 🛠 BE Tech Stack -->
+## 🛠 BE Tech Stack
 
-<!-- <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"><img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"><img src="https://img.shields.io/badge/jpa-00555?style=for-the-badge&logo=jpa&logoColor=white"><img src="https://img.shields.io/badge/Junit5-25A162?style=for-the-badge&logo=junit5&logoColor=white"><img src="https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white">
+<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"> <img src="https://img.shields.io/badge/jdbc-00555?style=for-the-badge&logo=jpa&logoColor=white"> <img src="https://img.shields.io/badge/Junit5-25A162?style=for-the-badge&logo=junit5&logoColor=white"> <img src="https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white">
 
-<img src="https://img.shields.io/badge/aws-FF9E0F?style=for-the-badge&logo=aws&logoColor=white"><img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"><img src="https://img.shields.io/badge/github actions-2088FF?style=for-the-badge&logo=GitHub Actions&logoColor=white"><img src="https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=Nginx&logoColor=white"><img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> -->
+<img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=for-the-badge&logo=Amazon EC2&logoColor=white">
+<img src="https://img.shields.io/badge/Amazon RDS-527FFF?style=for-the-badge&logo=Amazon RDS&logoColor=white">
+<img src="https://img.shields.io/badge/Amazon S3-569A31?style=for-the-badge&logo=Amazon S3&logoColor=white">
+<img src="https://img.shields.io/badge/Amazon CodeDeploy-00A98F?style=for-the-badge&logo=Amazon CodeDeploy&logoColor=white">
+ <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/github actions-2088FF?style=for-the-badge&logo=GitHub Actions&logoColor=white"> <img src="https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=Nginx&logoColor=white"> <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
 
-<!-- ## 🔌 Infrastructures -->
+## 🔌 Infrastructures
 
-<!-- <img width="1033" alt="스크린샷 2022-09-02 오전 11 43 24" src="https://user-images.githubusercontent.com/60593969/188048356-b1a7516a-87fc-4498-86d7-8c6a94d84e28.png"> -->
+![image](https://github.com/codesquad-members-2023-group5/issue-tracker/assets/95615105/050fe83c-c32a-42a1-9fee-bb1da40c9aa5)
+![image](https://github.com/codesquad-members-2023-group5/issue-tracker/assets/95615105/1a6d737b-961f-4e01-ae2d-e19b0c008944)
 
-## FE TODO List
+## ERD
+![image](https://github.com/codesquad-members-2023/issue-tracker/assets/95615105/b60a1170-1a1c-484c-8312-be618f615ac7)
+
 
 ## BE TODO List
-
-## iOS TODO List
+- Spring Data JDBC를 이용한 프로젝트 구현
+- Github Action, AWS CodeDeploy, AWS S3를 이용한 CI/CD 자동 배포
 
 ## Team-05의 Ground Rule
 
