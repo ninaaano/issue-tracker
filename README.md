@@ -40,7 +40,7 @@ Github의 Issues기능을 클론 코딩한 Issue Tracker
 ![image](https://github.com/codesquad-members-2023-group5/issue-tracker/assets/95615105/1a6d737b-961f-4e01-ae2d-e19b0c008944)
 
 ## ERD
-![image](https://github.com/codesquad-members-2023/issue-tracker/assets/95615105/b60a1170-1a1c-484c-8312-be618f615ac7)
+<img width="840" alt="issue_tracker_erd" src="https://github.com/codesquad-members-2023-group5/issue-tracker/assets/95615105/1a4b5453-7e48-4acf-822e-acfde73a9d04">
 
 
 ## BE TODO List
