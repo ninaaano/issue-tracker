@@ -42,6 +42,8 @@ Github의 Issues기능을 클론 코딩한 Issue Tracker
 ## ERD
 <img width="840" alt="issue_tracker_erd" src="https://github.com/codesquad-members-2023-group5/issue-tracker/assets/95615105/1a4b5453-7e48-4acf-822e-acfde73a9d04">
 
+## API 명세서
+<img width="677" alt="스크린샷 2023-11-04 오전 12 49 26" src="https://github.com/codesquad-members-2023-group5/issue-tracker/assets/95615105/0703ffb9-0dad-45c7-9471-42795a4567c5">
 
 ## BE TODO List
 - Spring Data JDBC를 이용한 프로젝트 구현
